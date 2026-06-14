@@ -1,0 +1,110 @@
+{
+  "generated_at": "2026-06-14T04:02:19.443301Z",
+  "target_since": "2023-01-01",
+  "target_until": "2026-05-31",
+  "refreshed": [
+    {
+      "key": "copart",
+      "display_name": "Copart",
+      "since_date": "2023-01-01",
+      "until_date": "2026-05-31",
+      "review_count": 7897,
+      "source_counts": {
+        "reddit.com": 6196,
+        "apps.apple.com": 235,
+        "play.google.com": 631,
+        "trustpilot.com": 132,
+        "bbb.org": 463,
+        "reviews.io": 225,
+        "complaintsboard.com": 15
+      }
+    },
+    {
+      "key": "iaa",
+      "display_name": "IAA",
+      "since_date": "2023-01-01",
+      "until_date": "2026-05-31",
+      "review_count": 1675,
+      "source_counts": {
+        "play.google.com": 237,
+        "reddit.com": 999,
+        "apps.apple.com": 138,
+        "trustpilot.com": 49,
+        "bbb.org": 249,
+        "complaintsboard.com": 3
+      }
+    },
+    {
+      "key": "manheim",
+      "display_name": "Manheim",
+      "since_date": "2023-01-01",
+      "until_date": "2026-05-31",
+      "review_count": 490,
+      "source_counts": {
+        "reddit.com": 145,
+        "apps.apple.com": 89,
+        "play.google.com": 60,
+        "birdeye.com": 46,
+        "bbb.org": 144,
+        "trustpilot.com": 6
+      }
+    },
+    {
+      "key": "adesa",
+      "display_name": "ADESA",
+      "since_date": "2023-01-01",
+      "until_date": "2026-05-31",
+      "review_count": 223,
+      "source_counts": {
+        "birdeye.com": 50,
+        "apps.apple.com": 114,
+        "reddit.com": 25,
+        "bbb.org": 3,
+        "trustpilot.com": 9,
+        "play.google.com": 22
+      }
+    },
+    {
+      "key": "openlane",
+      "display_name": "OPENLANE",
+      "since_date": "2023-01-01",
+      "until_date": "2026-05-31",
+      "review_count": 426,
+      "source_counts": {
+        "birdeye.com": 5,
+        "apps.apple.com": 121,
+        "play.google.com": 244,
+        "trustpilot.com": 38,
+        "reddit.com": 5,
+        "bbb.org": 13
+      }
+    },
+    {
+      "key": "acv",
+      "display_name": "ACV",
+      "since_date": "2023-01-01",
+      "until_date": "2026-05-31",
+      "review_count": 149,
+      "source_counts": {
+        "birdeye.com": 31,
+        "trustpilot.com": 13,
+        "apps.apple.com": 75,
+        "bbb.org": 3,
+        "play.google.com": 26,
+        "reddit.com": 1
+      }
+    },
+    {
+      "key": "americas_auto_auction",
+      "display_name": "America's Auto Auction",
+      "since_date": "2023-01-01",
+      "until_date": "2026-05-31",
+      "review_count": 56,
+      "source_counts": {
+        "birdeye.com": 54,
+        "bbb.org": 2
+      }
+    }
+  ],
+  "stale": []
+}

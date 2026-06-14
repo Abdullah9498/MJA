@@ -8,6 +8,7 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parents[1]
 BUSINESSES_PATH = BASE_DIR / "data" / "businesses.json"
+COVERAGE_NOTE_PATH = BASE_DIR / "data" / "coverage-note.json"
 MIN_RETAIN_RATIO = 0.90
 BUILDERS = {
     "copart": "scripts/build_reviews.py",
@@ -77,6 +78,35 @@ def review_count_for(relative_path: str) -> int:
     return int((payload.get("meta") or {}).get("review_count") or 0)
 
 
+def write_coverage_note(config_payload: dict, since: str, until: str) -> None:
+    refreshed = []
+    business_order = config_payload.get("business_order") or list(config_payload["businesses"].keys())
+    for business_key in business_order:
+        business = config_payload["businesses"][business_key]
+        payload = json.loads((BASE_DIR / "data" / business["output_json"]).read_text(encoding="utf-8"))
+        meta = payload.get("meta") or {}
+        refreshed.append(
+            {
+                "key": business_key,
+                "display_name": business["display_name"],
+                "since_date": meta.get("since_date"),
+                "until_date": meta.get("until_date"),
+                "review_count": int(meta.get("review_count") or 0),
+                "source_counts": meta.get("source_counts") or {},
+            }
+        )
+
+    coverage_note = {
+        "generated_at": date.today().isoformat(),
+        "target_since": since,
+        "target_until": until,
+        "refreshed": refreshed,
+        "stale": [],
+    }
+    COVERAGE_NOTE_PATH.write_text(json.dumps(coverage_note, indent=2), encoding="utf-8")
+    print(f"Wrote {COVERAGE_NOTE_PATH}")
+
+
 def is_context_enriched_reddit_comment(source_website: str, review_text: str = "") -> bool:
     if str(source_website or "").strip().lower() != "reddit.com":
         return False
@@ -113,6 +143,12 @@ def main() -> None:
     parser.add_argument("--target", type=int, default=0, help="Minimum number of reviews to collect")
     parser.add_argument("--max-output", type=int, default=120000, help="Maximum number of rows to keep in output")
     parser.add_argument(
+        "--reddit-time-budget",
+        type=int,
+        default=900,
+        help="Maximum seconds to spend in each Reddit collector per business.",
+    )
+    parser.add_argument(
         "--allow-count-regression",
         action="store_true",
         help="Allow a business review count to fall below the previous approved dataset count.",
@@ -138,6 +174,8 @@ def main() -> None:
         str(args.target),
         "--max-output",
         str(args.max_output),
+        "--reddit-time-budget",
+        str(args.reddit_time_budget),
     ]
 
     print(f"Refreshing datasets through {until}")
@@ -168,6 +206,9 @@ def main() -> None:
                     f"{business['display_name']}: refreshed count {current_count} dropped below safe threshold "
                     f"{threshold} from baseline {baseline_count}"
                 )
+
+        write_coverage_note(config_payload, args.since, until)
+        run_step([sys.executable, "scripts/build_js_data.py"])
 
         print("Data refresh complete.")
     except Exception:

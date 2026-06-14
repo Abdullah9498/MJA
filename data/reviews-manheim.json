@@ -1,29 +1,29 @@
 {
   "meta": {
     "description": "Large-scale English-only Manheim textual review/problem dataset from public web sources (recency-first).",
-    "review_count": 473,
+    "review_count": 490,
     "source_counts": {
-      "reddit.com": 141,
-      "play.google.com": 57,
-      "birdeye.com": 39,
-      "apps.apple.com": 86,
+      "reddit.com": 145,
+      "apps.apple.com": 89,
+      "play.google.com": 60,
+      "birdeye.com": 46,
       "bbb.org": 144,
       "trustpilot.com": 6
     },
     "source_audit": [
       {
         "source_website": "reddit.com",
-        "review_count": 141,
+        "review_count": 145,
         "present": true
       },
       {
         "source_website": "play.google.com",
-        "review_count": 57,
+        "review_count": 60,
         "present": true
       },
       {
         "source_website": "apps.apple.com",
-        "review_count": 86,
+        "review_count": 89,
         "present": true
       },
       {
@@ -43,23 +43,28 @@
       },
       {
         "source_website": "birdeye.com",
-        "review_count": 39,
+        "review_count": 46,
         "present": true
       }
     ],
     "sentiments": {
-      "positive": 137,
-      "negative": 336
+      "positive": 143,
+      "negative": 347
     },
     "source_urls": [
+      "https://www.reddit.com/r/askcarsales/comments/1tpid5w/new_used_car_dealer/",
+      "https://itunes.apple.com/us/review?id=6744660081&type=Purple%20Software&reviewId=14113994395",
+      "https://itunes.apple.com/us/review?id=6744660081&type=Purple%20Software&reviewId=14109200908",
+      "https://play.google.com/store/apps/details?id=com.manheim.mktplace&hl=en&gl=us",
+      "https://www.reddit.com/r/askcarsales/comments/1tdovfy/bought_a_clean_title_prius_from_manheim_spent_10k/",
+      "https://reviews.birdeye.com/manheim-indianapolis-167758900611879#review-4",
       "https://www.reddit.com/r/carflipping/comments/1szocvk/my_old_car_is_up_for_auction_at_a_manheim_socal/",
       "https://www.reddit.com/r/askcarsales/comments/1sxvpa7/are_pickles_auctions_alright_for_electric_cars/",
-      "https://play.google.com/store/apps/details?id=com.manheim.mktplace&hl=en&gl=us",
+      "https://itunes.apple.com/us/review?id=6744660081&type=Purple%20Software&reviewId=13978360721",
       "https://reviews.birdeye.com/manheim-indianapolis-167758900611879#review-1",
       "https://itunes.apple.com/us/review?id=6744660081&type=Purple%20Software&reviewId=13919512848",
       "https://reviews.birdeye.com/manheim-fredericksburg-167784557350491#review-2",
       "https://reviews.birdeye.com/manheim-fredericksburg-167784557350491#review-3",
-      "https://reviews.birdeye.com/manheim-indianapolis-167758900611879#review-4",
       "https://reviews.birdeye.com/manheim-fredericksburg-167784557350491#review-1",
       "https://reviews.birdeye.com/manheim-fredericksburg-167784557350491?page=2#review-1",
       "https://reviews.birdeye.com/manheim-fredericksburg-167784557350491?page=2#review-2",
@@ -180,6 +185,8 @@
       "https://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=4#0443_6001743_23331037",
       "https://itunes.apple.com/us/review?id=1480842917&type=Purple%20Software&reviewId=12655951162",
       "https://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/customer-reviews#0443_6001743_321870",
+      "https://www.reddit.com/r/euroman/comments/1kk0lz6/rate_my_fanfic_helldemmeme/",
+      "https://www.reddit.com/r/oblivion/comments/1kjk20c/cant_sell_stolen_goods_to_manheim_maulhand/",
       "https://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/customer-reviews#0443_6001743_321395",
       "https://www.reddit.com/r/askcarsales/comments/1kfcn7b/dealers_bill_of_sale_contradicts_manheims/",
       "https://www.reddit.com/r/CarsAustralia/comments/1kdj140/how_to_sell_a_damaged_car/",
@@ -344,21 +351,14 @@
       "https://www.reddit.com/r/cycling/comments/1c7cxab/cyclist_cited_after_being_shot_in_road_rage/",
       "https://www.reddit.com/r/cycling/comments/1c7cwfp/cyclist_cited_after_being_shot_in_road_race/",
       "https://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=9#0443_6001743_21580527",
-      "https://www.reddit.com/r/generationology/comments/1bzoiye/a_rough_estimate_of_celebs_that_may_seem_more_bb/",
-      "https://www.reddit.com/r/generationology/comments/1bxz80j/a_rough_estimate_of_celebs_that_i_believe_may/",
-      "https://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=9#0443_6001743_21535130",
-      "https://www.reddit.com/r/askcarsales/comments/1buuli3/acv_is_asking_me_to_enter_their_loyalty_program/",
-      "https://itunes.apple.com/us/review?id=1480842917&type=Purple%20Software&reviewId=11078351187",
-      "https://www.reddit.com/r/askcarsales/comments/1bfybr0/can_being_near_a_manheim_auto_auction_place_help/",
-      "https://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=9#0443_6001743_21433159",
-      "https://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=9#0443_6001743_21403394"
+      "https://www.reddit.com/r/generationology/comments/1bzoiye/a_rough_estimate_of_celebs_that_may_seem_more_bb/"
     ],
-    "generated_at_utc": "2026-05-02T10:18:56.090929+00:00",
+    "generated_at_utc": "2026-06-14T03:18:16.198397+00:00",
     "since_date": "2023-01-01",
-    "until_date": "2026-04-30",
+    "until_date": "2026-05-31",
     "collector_failures": [],
-    "existing_review_count": 449,
-    "new_reviews_added": 24,
+    "existing_review_count": 473,
+    "new_reviews_added": 17,
     "youtube_excluded": true,
     "usa_only": true,
     "english_only": true,
@@ -377,13 +377,14 @@
       "bbb.org"
     ],
     "geo_validation_counts": {
-      "google_play_us_store": 11,
-      "mixed_source_ok": 2,
-      "birdeye_us_profile": 11
+      "google_play_us_store": 3,
+      "mixed_source_ok": 4,
+      "birdeye_us_profile": 7,
+      "apple_us_store": 3
     },
     "geo_excluded_counts": {
       "play.google.com:google_play_us_store_non_us_marker": 1,
-      "reddit.com:mixed_source_non_us_marker": 4,
+      "reddit.com:mixed_source_non_us_marker": 1,
       "apps.apple.com:apple_non_us_store": 2
     },
     "geo_excluded_examples": [
@@ -402,30 +403,6 @@
         "review_date": "2025-05-08",
         "reason": "mixed_source_non_us_marker",
         "review_text": "Phantom Buildings near coalmine in Cologne, Germany Near the city of Cologne, Germany (I come from there) there are 3 Major sites for digging up coal. The Energy-Giant RWE bought up multiple small towns and acres of land to expand their min"
-      },
-      {
-        "source_website": "reddit.com",
-        "source_label": "Reddit r/BootlegGifts",
-        "source_url": "https://www.reddit.com/r/BootlegGifts/comments/1k1ky7p/new_to_group/",
-        "review_date": "2025-04-17",
-        "reason": "mixed_source_non_us_marker",
-        "review_text": "New to group Hi all i’m new to this group and i’m looking for a few shows if anyone can help next to normal west end audio (jack wolfe) little shop of horrors broadway video (milo manheim) annie uk tour 2023 audio (only looking for the song"
-      },
-      {
-        "source_website": "reddit.com",
-        "source_label": "Reddit r/carflipping",
-        "source_url": "https://www.reddit.com/r/carflipping/comments/1rla9hc/did_us_auctions_like_manheim_prices_gone_crazy/",
-        "review_date": "2026-03-05",
-        "reason": "mixed_source_non_us_marker",
-        "review_text": "Did US auctions like Manheim prices gone crazy lately? A lot of Canadian wholesalers are buying in Canada and auction in the state. Don't have Manheim access so can't check. What happened?"
-      },
-      {
-        "source_website": "reddit.com",
-        "source_label": "Reddit r/carflipping",
-        "source_url": "https://www.reddit.com/r/carflipping/comments/1rla9hc/did_us_auctions_like_manheim_prices_gone_crazy/",
-        "review_date": "2026-03-05",
-        "reason": "mixed_source_non_us_marker",
-        "review_text": "Did US auctions like Manheim prices gone crazy lately? A lot of Canadian wholesalers are buying in Canada and auction in the state. Don't have Manheim access so can't check. What happened?"
       },
       {
         "source_website": "apps.apple.com",
@@ -457,6 +434,126 @@
     ]
   },
   "reviews": [
+    {
+      "source_website": "reddit.com",
+      "source_label": "Reddit r/askcarsales",
+      "source_url": "https://www.reddit.com/r/askcarsales/comments/1tpid5w/new_used_car_dealer/",
+      "author": "CoolWhipyyyy",
+      "review_date": "2026-05-27",
+      "rating": null,
+      "sentiment": "positive",
+      "review_text": "New used car ‘dealer’ Long story short, have a family owned business with a dealers license for a trucking company. Just got access to manheim through my families business as a salesman. Anyways, I have been considering buying cars from manheim and re-selling them(Primarily through FaceBook). I plan on buying at most, 3 cars at a time. Planning on keeping my full time job before fully committing, and really just testing the waters to see if it’s do able. Just curious to see if anyone else has done this, and what they have learned doing it. Also, interested in resources that people use to value cars that’s quick and streamlined. (Tried using KBB and it was just a pain in the ass)",
+      "geo_validation": "mixed_source_ok",
+      "tier1": "Membership / Licensing / Fees & Bidding Policies",
+      "tier2": "Bidding Process, Rules and Fees",
+      "tier3": "How to Bid (First Time)",
+      "id": "rvw-000474"
+    },
+    {
+      "source_website": "apps.apple.com",
+      "source_label": "Apple App Store (6744660081, us)",
+      "source_url": "https://itunes.apple.com/us/review?id=6744660081&type=Purple%20Software&reviewId=14113994395",
+      "author": "Behnnnnnnnnn",
+      "review_date": "2026-05-27",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Awful. Please tell me Manheim legacy is just temporarily down. No. Just no. It’s awful. I’ve never bothered to write a review till now. This is how absolutely awful this app is. Please tell me this is not the only app Manheim will continue to support. Terrible.",
+      "geo_validation": "apple_us_store",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Rude/Unhelpful Support",
+      "id": "rvw-000475"
+    },
+    {
+      "source_website": "apps.apple.com",
+      "source_label": "Apple App Store (6744660081, us)",
+      "source_url": "https://itunes.apple.com/us/review?id=6744660081&type=Purple%20Software&reviewId=14109200908",
+      "author": "Fair and Honest Review",
+      "review_date": "2026-05-26",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Huge downgrade from legacy. The legacy app had one login, and the new app makes me login repeatedly within the app to use different features. The legacy app had all the primary functions on a single landing page, but the new app requires additional clicks and navigation to get to primary functions. The legacy app was reasonably quick, while the new app requires much longer to load.",
+      "geo_validation": "apple_us_store",
+      "tier1": "Account / Access / Login",
+      "tier2": "Password Reset & Login Troubleshooting",
+      "tier3": "App Login Troubleshooting",
+      "id": "rvw-000476"
+    },
+    {
+      "source_website": "play.google.com",
+      "source_label": "Google Play (com.manheim.mktplace)",
+      "source_url": "https://play.google.com/store/apps/details?id=com.manheim.mktplace&hl=en&gl=us",
+      "author": "Humball Darvin",
+      "review_date": "2026-05-23",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "why do I have to sign in just to see what lot on sale? worst app. IAAI is much better than you.",
+      "geo_validation": "google_play_us_store",
+      "tier1": "Account / Access / Login",
+      "tier2": "Password Reset & Login Troubleshooting",
+      "tier3": "App Login Troubleshooting",
+      "id": "rvw-000477"
+    },
+    {
+      "source_website": "play.google.com",
+      "source_label": "Google Play (com.manheim.mktplace)",
+      "source_url": "https://play.google.com/store/apps/details?id=com.manheim.mktplace&hl=en&gl=us",
+      "author": "RMJ",
+      "review_date": "2026-05-19",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "App requires two factor authentication every day and constantly crashes during vehicle searches.",
+      "geo_validation": "google_play_us_store",
+      "tier1": "Account / Access / Login",
+      "tier2": "Password Reset & Login Troubleshooting",
+      "tier3": "App Login Troubleshooting",
+      "id": "rvw-000478"
+    },
+    {
+      "source_website": "reddit.com",
+      "source_label": "Reddit r/askcarsales",
+      "source_url": "https://www.reddit.com/r/askcarsales/comments/1tdovfy/bought_a_clean_title_prius_from_manheim_spent_10k/",
+      "author": "Agitated_Shake4311",
+      "review_date": "2026-05-15",
+      "rating": null,
+      "sentiment": "negative",
+      "review_text": "Bought a clean title Prius from Manheim, spent $10k fixing it, now they say it’s salvage. What would you do? Need some advice from people who’ve dealt with Manheim arbitration or title issues before. I bought a 2021 Toyota Prius from Manheim Southern California. When I bought it, it was a clean title. I have the original title they gave me and there was no salvage branding on it. After buying it, I put almost $10,000 into the car between parts, labor, paint/body work, repairs, etc. Finished the car and took it to Manheim Anaheim to sell it, and that’s when they told me they can’t run it because the KSR now shows the car as salvage. They told me to file arbitration, so I did. Now arbitration came back with 2 options: Return the car: They reimburse me around $6k But charge me around $1,200 depreciation So I still lose thousands even though I repaired the car based on it being clean title Keep the car: No reimbursement at all I’m stuck with a salvage title Prius that I paid clean-title money for What’s bothering me is I made all these repair decisions based on the car supposedly being clean title when sold to me. What would you guys do here? Would you accept the partial reimbursement or push further? And has anyone here actually fought Manheim/Cox over something similar?",
+      "geo_validation": "mixed_source_ok",
+      "tier1": "Membership / Licensing / Fees & Bidding Policies",
+      "tier2": "Bidding Process, Rules and Fees",
+      "tier3": "Fees",
+      "id": "rvw-000479"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Google)",
+      "source_url": "https://reviews.birdeye.com/manheim-indianapolis-167758900611879#review-4",
+      "author": "Tyra Bostic",
+      "review_date": "2026-05-15",
+      "rating": null,
+      "sentiment": "negative",
+      "review_text": "My car was repo there and I regret it was even sent there for auction. They steal out your car, the representative and workers there are unprofessional, thieves and rude. The manager there (TJ or Lynn Jackson) does not go above and beyond on handling situations or issues regarding the professionalism of his team…he’ll smirk at you instead. Worst place ever to do business with. Do not recommend.",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Rude/Unhelpful Support",
+      "id": "rvw-000480"
+    },
+    {
+      "source_website": "play.google.com",
+      "source_label": "Google Play (com.manheim.mktplace)",
+      "source_url": "https://play.google.com/store/apps/details?id=com.manheim.mktplace&hl=en&gl=us",
+      "author": "Freddy Rodriguez",
+      "review_date": "2026-05-03",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Already messing up. Huge company very poor software developers. This app makes the other 1 start app look like a 3 start app. Uninstalling now",
+      "geo_validation": "google_play_us_store",
+      "tier1": "Account / Access / Login",
+      "tier2": "Password Reset & Login Troubleshooting",
+      "tier3": "App Login Troubleshooting",
+      "id": "rvw-000481"
+    },
     {
       "source_website": "reddit.com",
       "source_label": "Reddit r/carflipping",
@@ -501,6 +598,21 @@
       "tier2": "Password Reset & Login Troubleshooting",
       "tier3": "App Login Troubleshooting",
       "id": "rvw-000294"
+    },
+    {
+      "source_website": "apps.apple.com",
+      "source_label": "Apple App Store (6744660081, us)",
+      "source_url": "https://itunes.apple.com/us/review?id=6744660081&type=Purple%20Software&reviewId=13978360721",
+      "author": "biggdaddyweldz",
+      "review_date": "2026-04-20",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Broken for iPad. Will not login on iPad mini",
+      "geo_validation": "apple_us_store",
+      "tier1": "Account / Access / Login",
+      "tier2": "Password Reset & Login Troubleshooting",
+      "tier3": "App Login Troubleshooting",
+      "id": "rvw-000482"
     },
     {
       "source_website": "birdeye.com",
@@ -1433,6 +1545,21 @@
       "id": "rvw-000459"
     },
     {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Google)",
+      "source_url": "https://reviews.birdeye.com/manheim-pittsburgh-166598588464399#review-5",
+      "author": "bryan truxell",
+      "review_date": "2026-01-15",
+      "rating": null,
+      "sentiment": "positive",
+      "review_text": "In and out for pickup was smooth and fast.",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Vehicle Pickup, Delivery and Scheduling",
+      "tier2": "Scheduled Pickup Status",
+      "tier3": "Schedule/ Reschedule Pickup",
+      "id": "rvw-000483"
+    },
+    {
       "id": "rvw-000035",
       "source_website": "play.google.com",
       "source_label": "Google Play (com.manheim.mobile.refresh)",
@@ -1776,6 +1903,21 @@
       "tier2": "Scheduled Pickup Status",
       "tier3": "Schedule/ Reschedule Pickup",
       "id": "rvw-000321"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Google)",
+      "source_url": "https://reviews.birdeye.com/manheim-st-louis-166697023560226#review-1",
+      "author": "Orhan",
+      "review_date": "2025-11-16",
+      "rating": null,
+      "sentiment": "negative",
+      "review_text": "Be careful with their process! We’ve been in business for over 2 years and bought 100+ cars, all green light and scored over 4. Still had to wait 3–4 days to pick them up even after payment was taken. They falsely claimed a late payment but can’t prove it. By the time cars were released, they were out of arbitration and most were in bad condition — 3 even had engine problems. Watch out and inspect your cars carefully!",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Lot Condition, Listing Status and related",
+      "tier2": "Third-Party Inspection Authorization & Scheduling",
+      "tier3": "Previewing/ Inspecting Vehicles",
+      "id": "rvw-000484"
     },
     {
       "id": "rvw-000048",
@@ -2841,6 +2983,36 @@
       "tier1": "Customer Service & Communication",
       "tier2": "Agent Professionalism & Responsiveness",
       "tier3": "Rude/Unhelpful Support"
+    },
+    {
+      "source_website": "reddit.com",
+      "source_label": "Reddit r/euroman",
+      "source_url": "https://www.reddit.com/r/euroman/comments/1kk0lz6/rate_my_fanfic_helldemmeme/",
+      "author": "norwaylover1",
+      "review_date": "2025-05-11",
+      "rating": null,
+      "sentiment": "negative",
+      "review_text": "Rate my fanfic HELLDEMMEME “finally I killed euronymous!! Man I feel a song coming.. hit it blackthorn!” “*Necrobutcher starts tapping his foot* w-w-what is this sorcery?? Varg: your feeling the beat! Come on join in!” “*faust slaps varg* That’s for ruining my dildo! *faust kisses varg* that’s for finally killing euronymous” “Hellhammer says \"this is my jam!\" and then occultus says \"jam! where!\" and they all laugh while the screen fades to black” “*manheim peeks out from behind a wall* “hey, mind if i join you guys? Heh” faust:”…oh, gosh, get over here! This is what black metal about!” *dead starts to tap his foot* fenriz: Come on Dead! Let’s dance together. *dead starts break dancing* \"Alright gang! Dance party!!\" Hellhammer says, then notices metalion standing in the corner, annoyed as he starts tapping his foot to the beat.” “Then blasphemer comes in and makes out with varg while everyone is covered in alcohol oil” “Got room for one more?” As maniac walks in. “Bring it in pal!” Varg screams",
+      "geo_validation": "mixed_source_ok",
+      "tier1": "Vehicle Pickup, Delivery and Scheduling",
+      "tier2": "Delivery Coordination & Handoffs",
+      "tier3": "Delivery Status and ETA",
+      "id": "rvw-000485"
+    },
+    {
+      "source_website": "reddit.com",
+      "source_label": "Reddit r/oblivion",
+      "source_url": "https://www.reddit.com/r/oblivion/comments/1kjk20c/cant_sell_stolen_goods_to_manheim_maulhand/",
+      "author": "imfamousiswear",
+      "review_date": "2025-05-10",
+      "rating": null,
+      "sentiment": "negative",
+      "review_text": "Can't sell stolen goods to Manheim Maulhand I haven't started the thieves guild yet but I want to \"clean\" some stolen equipment to wear - I read online that Manheim is supposed to buy stolen items from you without the need to be in the thieves guild but there's no option to sell him anything that's been stolen, and he only has 50 gold? I saw that the merchant in the dark brotherhood sanctuary is supposed to be able to buy stolen items from you too, and I am in the brotherhood having done I think 2 contracts at this point, but he won't buy them from me either, even though he has more money AND I have high disposition with him 😮‍💨 Does anyone know if there's something I need to do first to sell to them or if it's some sort of bug?",
+      "geo_validation": "mixed_source_ok",
+      "tier1": "Lot Condition, Listing Status and related",
+      "tier2": "Personal belongings/ items",
+      "tier3": "Removal / Retrieval of items left in vehicle",
+      "id": "rvw-000486"
     },
     {
       "id": "rvw-000101",
@@ -6936,6 +7108,66 @@
       "tier1": "Customer Service & Communication",
       "tier2": "Agent Professionalism & Responsiveness",
       "tier3": "Rude/Unhelpful Support"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Insider Pages)",
+      "source_url": "https://reviews.birdeye.com/manheim-statesville-166651026035079#review-1",
+      "author": "dovie",
+      "review_date": "2023-06-15",
+      "rating": null,
+      "sentiment": "positive",
+      "review_text": "Mississippi Auto Auction Incorporated you have to know adealer to attend but the prices here are far better than on a car lot. this place is opened every thursday. the location is good and the staff is very friendly. i often go with a friend to see all the nice cars and trucks they have to offer.",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Helpful Support Experience",
+      "id": "rvw-000487"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Insider Pages)",
+      "source_url": "https://reviews.birdeye.com/manheim-statesville-166651026035079#review-3",
+      "author": "Linda",
+      "review_date": "2023-06-15",
+      "rating": null,
+      "sentiment": "positive",
+      "review_text": "Low key auction house! This auction house accept a variety of things to sell, but does deal in alot of antiques or specialized items. It is a good auction house for general merchandise..and alot of good things can be had.. but it varies like most auction houses. PROS: Good for general merchandise CONS: No high end items",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Membership / Licensing / Fees & Bidding Policies",
+      "tier2": "Bidding Process, Rules and Fees",
+      "tier3": "How to Bid (First Time)",
+      "id": "rvw-000488"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Insider Pages)",
+      "source_url": "https://reviews.birdeye.com/manheim-statesville-166651026035079#review-4",
+      "author": "Barbara",
+      "review_date": "2023-06-15",
+      "rating": null,
+      "sentiment": "positive",
+      "review_text": "Auto Auctions Statesville Auto Auction has every kind of car, truck and van known to mankind. Acres and acres of cars are for sale at their on-site auctions. Licensed buyers can purchase at an auction-type setting for resale later. PROS: uncoutable numbers of vehicles for sale CONS: huge, non-personalized service",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Membership / Licensing / Fees & Bidding Policies",
+      "tier2": "Bidding Process, Rules and Fees",
+      "tier3": "How to Bid (First Time)",
+      "id": "rvw-000489"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Insider Pages)",
+      "source_url": "https://reviews.birdeye.com/manheim-statesville-166651026035079#review-5",
+      "author": "BEN",
+      "review_date": "2023-06-15",
+      "rating": null,
+      "sentiment": "positive",
+      "review_text": "CAR HAULER / OWNER HELLO WE ARE LOOKING TO PURCHASE A CARHAULER EZ LOADER BY NAME 3-4 CAR CAPACITY A WEDGE WOULD BE SECOND TO LAST CHOICE IN YOUR FINE LINE PLEASE CONTACT US TO ASSURE THE PROPER CONTACT MANNER IF NOT WE APOLOGIZE THANKS FOR YOUR CO OPERATION",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Helpful Support Experience",
+      "id": "rvw-000490"
     },
     {
       "source_website": "reddit.com",

@@ -1,3 +1,4 @@
+import argparse
 import json
 from collections import defaultdict
 from datetime import date
@@ -106,6 +107,14 @@ def summarize_business(label: str, payload: dict) -> None:
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser(description="Audit review dataset coverage by company, source, year, and month.")
+    parser.add_argument(
+        "--warn-only",
+        action="store_true",
+        help="Print inconsistent date windows as a warning instead of failing.",
+    )
+    args = parser.parse_args()
+
     config = json.loads(BUSINESSES_PATH.read_text(encoding="utf-8"))
     business_order = config.get("business_order") or list(config["businesses"].keys())
 
@@ -139,9 +148,14 @@ def main() -> None:
             f"- {name}: since={row['since']} until={row['until']} reviews={row['review_count']}"
             for name, row in windows.items()
         )
-        raise SystemExit(f"Inconsistent dataset date windows detected:\n{details}")
+        message = f"Inconsistent dataset date windows detected:\n{details}"
+        if args.warn_only:
+            print(f"WARNING: {message}")
+        else:
+            raise SystemExit(message)
+    else:
+        print("Dataset windows are consistent.")
 
-    print("Dataset windows are consistent.")
     for name, row in windows.items():
         print(f"- {name}: since={row['since']} until={row['until']} reviews={row['review_count']}")
 

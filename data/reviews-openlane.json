@@ -1,14 +1,14 @@
 {
   "meta": {
     "description": "Large-scale English-only OPENLANE textual review/problem dataset from public web sources (recency-first).",
-    "review_count": 411,
+    "review_count": 426,
     "source_counts": {
-      "play.google.com": 238,
-      "apps.apple.com": 113,
+      "birdeye.com": 5,
+      "apps.apple.com": 121,
+      "play.google.com": 244,
       "trustpilot.com": 38,
       "reddit.com": 5,
-      "bbb.org": 13,
-      "birdeye.com": 4
+      "bbb.org": 13
     },
     "source_audit": [
       {
@@ -18,12 +18,12 @@
       },
       {
         "source_website": "play.google.com",
-        "review_count": 238,
+        "review_count": 244,
         "present": true
       },
       {
         "source_website": "apps.apple.com",
-        "review_count": 113,
+        "review_count": 121,
         "present": true
       },
       {
@@ -43,21 +43,30 @@
       },
       {
         "source_website": "birdeye.com",
-        "review_count": 4,
+        "review_count": 5,
         "present": true
       }
     ],
     "sentiments": {
-      "positive": 46,
-      "negative": 365
+      "positive": 48,
+      "negative": 378
     },
     "source_urls": [
+      "https://reviews.birdeye.com/openlane-166516131772584#review-1",
+      "https://itunes.apple.com/us/review?id=1566419386&type=Purple%20Software&reviewId=14124352825",
+      "https://itunes.apple.com/us/review?id=1566419386&type=Purple%20Software&reviewId=14120404291",
+      "https://play.google.com/store/apps/details?id=com.openlane.mobile.carsarriveplus&hl=en&gl=us",
+      "https://itunes.apple.com/us/review?id=1566419386&type=Purple%20Software&reviewId=14113800277",
+      "https://apps.apple.com/us/app/id6753570460?see-all=reviews&platform=iphone&reviewId=14110137853",
+      "https://itunes.apple.com/us/review?id=1566419386&type=Purple%20Software&reviewId=14097008789",
+      "https://itunes.apple.com/us/review?id=1566419386&type=Purple%20Software&reviewId=14096980639",
+      "https://itunes.apple.com/us/review?id=1566419386&type=Purple%20Software&reviewId=14086387477",
+      "https://itunes.apple.com/us/review?id=1566419386&type=Purple%20Software&reviewId=14060405314",
       "https://play.google.com/store/apps/details?id=com.nthgensoftware.traderev.android&hl=en&gl=us",
       "https://itunes.apple.com/us/review?id=1566419386&type=Purple%20Software&reviewId=13995909544",
       "https://play.google.com/store/apps/details?id=com.backlotcars.backlotcars&hl=en&gl=us",
       "https://apps.apple.com/us/app/id6753570460?see-all=reviews&platform=iphone&reviewId=13989857472",
       "https://itunes.apple.com/us/review?id=1566419386&type=Purple%20Software&reviewId=13986755298",
-      "https://play.google.com/store/apps/details?id=com.openlane.mobile.carsarriveplus&hl=en&gl=us",
       "https://play.google.com/store/apps/details?id=com.openlane.mobile.carsarriveplus&hl=ru&gl=us",
       "https://www.trustpilot.com/reviews/69cab5f9745c84e1f851508c",
       "https://itunes.apple.com/us/review?id=1566419386&type=Purple%20Software&reviewId=13904699397",
@@ -230,12 +239,12 @@
       "https://itunes.apple.com/us/review?id=1566419386&type=Purple%20Software&reviewId=9619929878",
       "https://itunes.apple.com/us/review?id=1566419386&type=Purple%20Software&reviewId=9601714155"
     ],
-    "generated_at_utc": "2026-05-02T10:26:04.300415+00:00",
+    "generated_at_utc": "2026-06-14T03:27:22.643731+00:00",
     "since_date": "2023-01-01",
-    "until_date": "2026-04-30",
+    "until_date": "2026-05-31",
     "collector_failures": [],
-    "existing_review_count": 367,
-    "new_reviews_added": 44,
+    "existing_review_count": 411,
+    "new_reviews_added": 15,
     "youtube_excluded": true,
     "usa_only": true,
     "english_only": true,
@@ -254,12 +263,12 @@
       "bbb.org"
     ],
     "geo_validation_counts": {
-      "google_play_us_store": 41,
+      "google_play_us_store": 6,
       "birdeye_us_profile": 1,
-      "apple_us_store": 2
+      "apple_us_store": 8
     },
     "geo_excluded_counts": {
-      "reddit.com:mixed_source_non_us_marker": 6,
+      "reddit.com:mixed_source_non_us_marker": 7,
       "apps.apple.com:apple_non_us_store": 8
     },
     "geo_excluded_examples": [
@@ -310,6 +319,14 @@
         "review_date": "2024-01-02",
         "reason": "mixed_source_non_us_marker",
         "review_text": "Best way to acquire inventory? Hi! I have a small lot with dealers license in Ontario, Canada. Basically I pay fk all beside the insurance &amp; looking for flip some cars, looking to start with 5 cars (10-15k value each) I signed up with a"
+      },
+      {
+        "source_website": "reddit.com",
+        "source_label": "Reddit r/askcarsales",
+        "source_url": "https://www.reddit.com/r/askcarsales/comments/1tf5wd9/lease_turnincondition_report_issues/",
+        "review_date": "2026-05-16",
+        "reason": "mixed_source_non_us_marker",
+        "review_text": "Lease Turn-in/Condition Report Issues Hello, I am helping my elderly aunt on a fixed income deal with a situation with Nissan Canada. Hoping somebody working in the industry could tell me if this process passes their smell test and what gro"
       },
       {
         "source_website": "apps.apple.com",
@@ -390,6 +407,201 @@
   },
   "reviews": [
     {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Google)",
+      "source_url": "https://reviews.birdeye.com/openlane-166516131772584#review-1",
+      "author": "Pam Baumgardner",
+      "review_date": "2026-05-31",
+      "rating": null,
+      "sentiment": "positive",
+      "review_text": "Max Balley was absolutely patient and helpful in getting my husband Don on the site to bid for cars. He so knowledgeable and willing to make Dons buying experience successful. Truly an asset to Open Lane",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Helpful Support Experience",
+      "id": "rvw-000412"
+    },
+    {
+      "source_website": "apps.apple.com",
+      "source_label": "Apple App Store (1566419386, us)",
+      "source_url": "https://itunes.apple.com/us/review?id=1566419386&type=Purple%20Software&reviewId=14124352825",
+      "author": "Davesaf",
+      "review_date": "2026-05-30",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Dave’s. App is terrible really slow too much going on.",
+      "geo_validation": "apple_us_store",
+      "tier1": "Account / Access / Login",
+      "tier2": "Password Reset & Login Troubleshooting",
+      "tier3": "App Login Troubleshooting",
+      "id": "rvw-000413"
+    },
+    {
+      "source_website": "apps.apple.com",
+      "source_label": "Apple App Store (1566419386, us)",
+      "source_url": "https://itunes.apple.com/us/review?id=1566419386&type=Purple%20Software&reviewId=14120404291",
+      "author": "No time for this 1",
+      "review_date": "2026-05-29",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "App updates. The more you work on it the worse it gets",
+      "geo_validation": "apple_us_store",
+      "tier1": "Account / Access / Login",
+      "tier2": "Password Reset & Login Troubleshooting",
+      "tier3": "App Login Troubleshooting",
+      "id": "rvw-000414"
+    },
+    {
+      "source_website": "play.google.com",
+      "source_label": "Google Play (com.openlane.mobile.carsarriveplus)",
+      "source_url": "https://play.google.com/store/apps/details?id=com.openlane.mobile.carsarriveplus&hl=en&gl=us",
+      "author": "Sergei Zubku",
+      "review_date": "2026-05-27",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "This app is junk.",
+      "geo_validation": "google_play_us_store",
+      "tier1": "Account / Access / Login",
+      "tier2": "Password Reset & Login Troubleshooting",
+      "tier3": "App Login Troubleshooting",
+      "id": "rvw-000415"
+    },
+    {
+      "source_website": "apps.apple.com",
+      "source_label": "Apple App Store (1566419386, us)",
+      "source_url": "https://itunes.apple.com/us/review?id=1566419386&type=Purple%20Software&reviewId=14113800277",
+      "author": "Froze up…..",
+      "review_date": "2026-05-27",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Worst app ever!!!!. Terrible terrible app! Costs us all time and money",
+      "geo_validation": "apple_us_store",
+      "tier1": "Membership / Licensing / Fees & Bidding Policies",
+      "tier2": "Bidding Process, Rules and Fees",
+      "tier3": "Fees",
+      "id": "rvw-000416"
+    },
+    {
+      "source_website": "apps.apple.com",
+      "source_label": "Apple App Store (6753570460, us)",
+      "source_url": "https://apps.apple.com/us/app/id6753570460?see-all=reviews&platform=iphone&reviewId=14110137853",
+      "author": "tntkarp71",
+      "review_date": "2026-05-27",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Constant close. Horrible. It will log out constantly in the middle of inspections. Not meant for IPhones at all. My work only will use IPhone. When using android in the beginning much better. Better picture quality as well",
+      "geo_validation": "apple_us_store",
+      "tier1": "Lot Condition, Listing Status and related",
+      "tier2": "Third-Party Inspection Authorization & Scheduling",
+      "tier3": "Previewing/ Inspecting Vehicles",
+      "id": "rvw-000417"
+    },
+    {
+      "source_website": "apps.apple.com",
+      "source_label": "Apple App Store (1566419386, us)",
+      "source_url": "https://itunes.apple.com/us/review?id=1566419386&type=Purple%20Software&reviewId=14097008789",
+      "author": "&:8:!8:&:9",
+      "review_date": "2026-05-23",
+      "rating": 5,
+      "sentiment": "positive",
+      "review_text": "Great app. Very helpful",
+      "geo_validation": "apple_us_store",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Helpful Support Experience",
+      "id": "rvw-000418"
+    },
+    {
+      "source_website": "apps.apple.com",
+      "source_label": "Apple App Store (1566419386, us)",
+      "source_url": "https://itunes.apple.com/us/review?id=1566419386&type=Purple%20Software&reviewId=14096980639",
+      "author": "quit1234",
+      "review_date": "2026-05-23",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Nearby loads. The app at the top of the screen says nearby loads. It’s showing me loads in Florida when I’m in New York. That’s not nearby.",
+      "geo_validation": "apple_us_store",
+      "tier1": "Account / Access / Login",
+      "tier2": "Password Reset & Login Troubleshooting",
+      "tier3": "App Login Troubleshooting",
+      "id": "rvw-000419"
+    },
+    {
+      "source_website": "apps.apple.com",
+      "source_label": "Apple App Store (1566419386, us)",
+      "source_url": "https://itunes.apple.com/us/review?id=1566419386&type=Purple%20Software&reviewId=14086387477",
+      "author": "Johnnnnnnnnnnnnnnnnnnnnnnny",
+      "review_date": "2026-05-20",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Sucks. This app is sucks",
+      "geo_validation": "apple_us_store",
+      "tier1": "Account / Access / Login",
+      "tier2": "Password Reset & Login Troubleshooting",
+      "tier3": "App Login Troubleshooting",
+      "id": "rvw-000420"
+    },
+    {
+      "source_website": "apps.apple.com",
+      "source_label": "Apple App Store (1566419386, us)",
+      "source_url": "https://itunes.apple.com/us/review?id=1566419386&type=Purple%20Software&reviewId=14060405314",
+      "author": "Myxa5",
+      "review_date": "2026-05-13",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "The notification popping up all the time saying it needs to be updated, but I did updated already,. Constantly asking me to update this application, but It’s already been updated can’t use this abnormal",
+      "geo_validation": "apple_us_store",
+      "tier1": "Account / Access / Login",
+      "tier2": "Password Reset & Login Troubleshooting",
+      "tier3": "App Login Troubleshooting",
+      "id": "rvw-000421"
+    },
+    {
+      "source_website": "play.google.com",
+      "source_label": "Google Play (com.openlane.mobile.carsarriveplus)",
+      "source_url": "https://play.google.com/store/apps/details?id=com.openlane.mobile.carsarriveplus&hl=en&gl=us",
+      "author": "Divine Ways",
+      "review_date": "2026-05-12",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "App is slow, and crashes often. I deleted and re downloaded it and it was still slow. I switched to a new phone and it still was slow and crashing.",
+      "geo_validation": "google_play_us_store",
+      "tier1": "Account / Access / Login",
+      "tier2": "Password Reset & Login Troubleshooting",
+      "tier3": "App Login Troubleshooting",
+      "id": "rvw-000422"
+    },
+    {
+      "source_website": "play.google.com",
+      "source_label": "Google Play (com.openlane.mobile.carsarriveplus)",
+      "source_url": "https://play.google.com/store/apps/details?id=com.openlane.mobile.carsarriveplus&hl=en&gl=us",
+      "author": "Inkshotz Collective",
+      "review_date": "2026-05-12",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "app has major issues i have purchased 3 new phones trying to get this app to function properly and it doesn't it freezes have to log in and out multiple times pics don't work when untake them I have calculated I loose 2 hours a day plus missed app times taking money out of my pocket due to this app... needs to be fixed the concept is great but performance is garbage",
+      "geo_validation": "google_play_us_store",
+      "tier1": "Account / Access / Login",
+      "tier2": "Password Reset & Login Troubleshooting",
+      "tier3": "App Login Troubleshooting",
+      "id": "rvw-000423"
+    },
+    {
+      "source_website": "play.google.com",
+      "source_label": "Google Play (com.openlane.mobile.carsarriveplus)",
+      "source_url": "https://play.google.com/store/apps/details?id=com.openlane.mobile.carsarriveplus&hl=en&gl=us",
+      "author": "John Boink",
+      "review_date": "2026-05-04",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "janky app can't find the loads it says it synced but no access to loads while on website they are there but can't access gatepasses through website and won't be able to find loads in the app such a stupid app",
+      "geo_validation": "google_play_us_store",
+      "tier1": "Account / Access / Login",
+      "tier2": "Password Reset & Login Troubleshooting",
+      "tier3": "App Login Troubleshooting",
+      "id": "rvw-000424"
+    },
+    {
       "source_website": "play.google.com",
       "source_label": "Google Play (com.nthgensoftware.traderev.android)",
       "source_url": "https://play.google.com/store/apps/details?id=com.nthgensoftware.traderev.android&hl=en&gl=us",
@@ -418,6 +630,21 @@
       "tier2": "Password Reset & Login Troubleshooting",
       "tier3": "App Login Troubleshooting",
       "id": "rvw-000369"
+    },
+    {
+      "source_website": "play.google.com",
+      "source_label": "Google Play (com.nthgensoftware.traderev.android)",
+      "source_url": "https://play.google.com/store/apps/details?id=com.nthgensoftware.traderev.android&hl=en&gl=us",
+      "author": "Sahab",
+      "review_date": "2026-04-25",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "every time new update comes and gives more problems. its getting worse and worse. I don't know what they're doing with this app day by day",
+      "geo_validation": "google_play_us_store",
+      "tier1": "Account / Access / Login",
+      "tier2": "Password Reset & Login Troubleshooting",
+      "tier3": "App Login Troubleshooting",
+      "id": "rvw-000425"
     },
     {
       "source_website": "apps.apple.com",
@@ -4843,6 +5070,21 @@
       "tier1": "Account / Access / Login",
       "tier2": "Password Reset & Login Troubleshooting",
       "tier3": "App Login Troubleshooting"
+    },
+    {
+      "source_website": "play.google.com",
+      "source_label": "Google Play (com.nthgensoftware.traderev.android)",
+      "source_url": "https://play.google.com/store/apps/details?id=com.nthgensoftware.traderev.android&hl=en&gl=us",
+      "author": "P H",
+      "review_date": "2023-10-16",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Doesn't work well at all an Android. Keeps freezing or refusing to log in.",
+      "geo_validation": "google_play_us_store",
+      "tier1": "Account / Access / Login",
+      "tier2": "Password Reset & Login Troubleshooting",
+      "tier3": "App Login Troubleshooting",
+      "id": "rvw-000426"
     },
     {
       "id": "rvw-000242",

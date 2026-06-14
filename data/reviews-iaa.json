@@ -1,29 +1,29 @@
 {
   "meta": {
     "description": "Large-scale English-only IAA textual review/problem dataset from public web sources (recency-first).",
-    "review_count": 1660,
+    "review_count": 1675,
     "source_counts": {
-      "play.google.com": 235,
+      "play.google.com": 237,
+      "reddit.com": 999,
+      "apps.apple.com": 138,
       "trustpilot.com": 49,
       "bbb.org": 249,
-      "apps.apple.com": 133,
-      "reddit.com": 991,
       "complaintsboard.com": 3
     },
     "source_audit": [
       {
         "source_website": "reddit.com",
-        "review_count": 991,
+        "review_count": 999,
         "present": true
       },
       {
         "source_website": "play.google.com",
-        "review_count": 235,
+        "review_count": 237,
         "present": true
       },
       {
         "source_website": "apps.apple.com",
-        "review_count": 133,
+        "review_count": 138,
         "present": true
       },
       {
@@ -53,12 +53,17 @@
       }
     ],
     "sentiments": {
-      "positive": 566,
-      "negative": 1094
+      "positive": 571,
+      "negative": 1104
     },
     "source_urls": [
       "https://play.google.com/store/apps/details?id=com.iaai.android&hl=en&gl=us",
+      "https://play.google.com/store/apps/details?id=com.iaai.android&hl=es&gl=us",
+      "https://www.reddit.com/r/askcarsales/comments/1ti1r7n/platforms_like_cargoloop_w8shipping/",
+      "https://www.reddit.com/r/carflipping/comments/1tg491u/2020_hellcat_experiences/",
+      "https://www.reddit.com/r/carflipping/comments/1teu9yh/just_starting_to_buy_cars_at_auction/",
       "https://play.google.com/store/apps/details?id=com.iaa.mobile.IaaTow&hl=en&gl=us",
+      "https://itunes.apple.com/us/review?id=468532534&type=Purple%20Software&reviewId=13952259223",
       "https://www.trustpilot.com/reviews/69d66bb09449607e8072b9e2",
       "https://www.trustpilot.com/reviews/69d038eb7b6f1408831fde68",
       "https://www.bbb.org/us/il/westchester/profile/auto-auction/iaa-0654-88276839/complaints#0654_88276839_24679733",
@@ -125,7 +130,6 @@
       "https://www.bbb.org/us/il/westchester/profile/auto-auction/iaa-0654-88276839/complaints?page=3#0654_88276839_23904913",
       "https://www.bbb.org/us/il/westchester/profile/auto-auction/iaa-0654-88276839/complaints?page=3#0654_88276839_23890988",
       "https://www.bbb.org/us/il/westchester/profile/auto-auction/iaa-0654-88276839/complaints?page=4#0654_88276839_23874599",
-      "https://play.google.com/store/apps/details?id=com.iaai.android&hl=es&gl=us",
       "https://www.bbb.org/us/il/westchester/profile/auto-auction/iaa-0654-88276839/complaints?page=4#0654_88276839_23856843",
       "https://itunes.apple.com/us/review?id=468532534&type=Purple%20Software&reviewId=13090498900",
       "https://www.reddit.com/r/askcarsales/comments/1n5k677/please_help_me_find_a_specific_salvage_car/",
@@ -178,7 +182,10 @@
       "https://www.bbb.org/us/il/westchester/profile/auto-auction/iaa-0654-88276839/customer-reviews?page=2#0654_88276839_591657",
       "https://www.bbb.org/us/il/westchester/profile/auto-auction/iaa-0654-88276839/complaints?page=7#0654_88276839_23381858",
       "https://www.bbb.org/us/il/westchester/profile/auto-auction/iaa-0654-88276839/complaints?page=7#0654_88276839_23371663",
+      "https://www.reddit.com/r/G37/comments/1kpkc6y/is_this_car_a_steal_or_sus/mszphp5/",
       "https://www.reddit.com/r/askcarsales/comments/1klncnk/looking_to_get_into_auctions/",
+      "https://www.reddit.com/r/TeslaLounge/comments/1klcdap/scammed_need_advice_please/ms1qjm7/",
+      "https://www.reddit.com/r/BMW/comments/1kj168s/what_should_my_next_bmw_be_car_will_be_modded_for/",
       "https://www.trustpilot.com/reviews/681defa568f6e3bad3504204",
       "https://www.reddit.com/r/StupidCarQuestions/comments/1ki7ghz/rule_of_thumb_when_buying_a_car_with_a_rebuilt/mrdkxwz/",
       "https://www.reddit.com/r/carflipping/comments/1kh8mtx/rebuilt_title/mrbkcch/",
@@ -349,21 +356,14 @@
       "https://www.reddit.com/r/Copartonline/comments/1ielbwh/hey_reddit_community_we_are_working_with_copart/",
       "https://www.reddit.com/r/Salary/comments/1iczsin/22m_used_car_dealer/m9xcktu/",
       "https://www.reddit.com/r/MechanicAdvice/comments/1idxtuj/bypass_subaru_steering_lock_not_afraid_to_brake/",
-      "https://www.reddit.com/r/whatcarshouldIbuy/comments/1id3vfq/is_buying_of_off_copart_worth_it/m9vzt11/",
-      "https://www.reddit.com/r/carflipping/comments/1ich9iu/what_auctions_do_you_use/m9qtzog/",
-      "https://www.reddit.com/r/auction/comments/1gu1v9i/plcauction/m9omkpx/",
-      "https://www.reddit.com/r/cayadservices/comments/1ic1qik/top_car_auctions_in_the_us_this_year/",
-      "https://www.reddit.com/r/Autobody/comments/1ibh7rm/process_for_repair_recommendations/",
-      "https://www.reddit.com/r/BMW/comments/1i9mebj/does_anyone_know_whats_going_on_with_x56m_and_m8/m96kdg9/",
-      "https://www.reddit.com/r/UsedCars/comments/1iapqd7/auction_records/",
-      "https://www.reddit.com/r/auction/comments/1fflsh6/proxibid_dealer_only/m95ryjx/"
+      "https://www.reddit.com/r/whatcarshouldIbuy/comments/1id3vfq/is_buying_of_off_copart_worth_it/m9vzt11/"
     ],
-    "generated_at_utc": "2026-05-02T10:13:30.012955+00:00",
+    "generated_at_utc": "2026-06-14T03:09:26.453189+00:00",
     "since_date": "2023-01-01",
-    "until_date": "2026-04-30",
+    "until_date": "2026-05-31",
     "collector_failures": [],
-    "existing_review_count": 1607,
-    "new_reviews_added": 53,
+    "existing_review_count": 1660,
+    "new_reviews_added": 15,
     "youtube_excluded": true,
     "usa_only": true,
     "english_only": true,
@@ -383,9 +383,9 @@
       "bbb.org"
     ],
     "geo_validation_counts": {
-      "google_play_us_store": 51,
-      "mixed_source_ok": 1,
-      "apple_us_store": 1
+      "google_play_us_store": 2,
+      "mixed_source_ok": 8,
+      "apple_us_store": 5
     },
     "geo_excluded_counts": {
       "play.google.com:google_play_us_store_non_us_marker": 8,
@@ -414,7 +414,7 @@
         "source_website": "play.google.com",
         "source_label": "Google Play (com.iaai.android)",
         "source_url": "https://play.google.com/store/apps/details?id=com.iaai.android&hl=en&gl=us",
-        "review_date": "2024-10-01",
+        "review_date": "2024-09-30",
         "reason": "google_play_us_store_non_us_marker",
         "review_text": "Is there any app for auctions in Canada?"
       },
@@ -430,7 +430,7 @@
         "source_website": "play.google.com",
         "source_label": "Google Play (com.iaai.android)",
         "source_url": "https://play.google.com/store/apps/details?id=com.iaai.android&hl=en&gl=us",
-        "review_date": "2024-02-23",
+        "review_date": "2024-02-22",
         "reason": "google_play_us_store_non_us_marker",
         "review_text": "How to install iaa canada application?"
       },
@@ -446,7 +446,7 @@
         "source_website": "play.google.com",
         "source_label": "Google Play (com.iaai.android)",
         "source_url": "https://play.google.com/store/apps/details?id=com.iaai.android&hl=en&gl=us",
-        "review_date": "2023-12-04",
+        "review_date": "2023-12-03",
         "reason": "google_play_us_store_non_us_marker",
         "review_text": "Doesn't work in Canada. Why is it even available in the Canadian Google Play Store?"
       },
@@ -573,6 +573,81 @@
       "source_website": "play.google.com",
       "source_label": "Google Play (com.iaai.android)",
       "source_url": "https://play.google.com/store/apps/details?id=com.iaai.android&hl=en&gl=us",
+      "author": "Gio Garcia",
+      "review_date": "2026-05-22",
+      "rating": 4,
+      "sentiment": "positive",
+      "review_text": "the app has improved so much since I started using it",
+      "geo_validation": "google_play_us_store",
+      "tier1": "Account / Access / Login",
+      "tier2": "Password Reset & Login Troubleshooting",
+      "tier3": "App Login Troubleshooting",
+      "id": "rvw-001665"
+    },
+    {
+      "source_website": "play.google.com",
+      "source_label": "Google Play (com.iaai.android)",
+      "source_url": "https://play.google.com/store/apps/details?id=com.iaai.android&hl=es&gl=us",
+      "author": "Danilo Cruz",
+      "review_date": "2026-05-20",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "This app is terrible; it's very slow and takes forever to open a timed auction. If I could give it 0 stars, I would.",
+      "geo_validation": "google_play_us_store",
+      "tier1": "Account / Access / Login",
+      "tier2": "Password Reset & Login Troubleshooting",
+      "tier3": "App Login Troubleshooting",
+      "id": "rvw-001666"
+    },
+    {
+      "source_website": "reddit.com",
+      "source_label": "Reddit r/askcarsales",
+      "source_url": "https://www.reddit.com/r/askcarsales/comments/1ti1r7n/platforms_like_cargoloop_w8shipping/",
+      "author": "New_Try1",
+      "review_date": "2026-05-19",
+      "rating": null,
+      "sentiment": "positive",
+      "review_text": "Platforms like CargoLoop / W8Shipping Do you know any reliable transport or shipping companies that provide access to IAAI/Copart auctions and also handle inland transportation across the US to the port terminal, as well as overseas shipping to Europe? I’m looking for something similar to CargoLoop or W8 Shipping, but with a stronger overall offer and better service options.",
+      "geo_validation": "mixed_source_ok",
+      "tier1": "Vehicle Pickup, Delivery and Scheduling",
+      "tier2": "Scheduled Pickup Status",
+      "tier3": "Schedule/ Reschedule Pickup",
+      "id": "rvw-001667"
+    },
+    {
+      "source_website": "reddit.com",
+      "source_label": "Reddit r/carflipping",
+      "source_url": "https://www.reddit.com/r/carflipping/comments/1tg491u/2020_hellcat_experiences/",
+      "author": "sTuPiDoRaUtIsTiC",
+      "review_date": "2026-05-17",
+      "rating": null,
+      "sentiment": "negative",
+      "review_text": "2020 Hellcat Experiences? Ran the numbers on this 2020 Charger Hellcat on IAA before bidding and figured I’d share the breakdown since I see a lot of people asking how to estimate these kinds of flips. Front end hit, stationary, salvage title out of PA. Honestly looked pretty clean at first glance, but once I started adding everything up it stopped making sense real quick. Here’s where I landed: * Repair estimate was around $6.2k-$8.4k Hood, headlight, fender, bumper, radiator support, paint, etc. * After auction fees, transport, and repairs, all in would’ve been right around $40k * Rebuilt Hellcats in my area are selling around $43k-$47k reatail * At a $28k buy now, expected profit was only about $1,800 * ROI came out to like 4.5% Just not enough margin for the risk on a car like this. What killed it for me was the potential hidden damage. Radiator support hits on these can turn into a nightmare fast. One bent rail, cooling issue, airbag module problem, or drivetrain issue from the impact and suddenly the whole deal is upside down. Feel like this is one of those cars that looks good in the auction photos but gets ugly once it’s on a frame machine. Curious what you guys would’ve done here. Anyone flipped a front end Hellcat before? Did it end up being worth it or did it turn into a money pit?",
+      "geo_validation": "mixed_source_ok",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Rude/Unhelpful Support",
+      "id": "rvw-001668"
+    },
+    {
+      "source_website": "reddit.com",
+      "source_label": "Reddit r/carflipping",
+      "source_url": "https://www.reddit.com/r/carflipping/comments/1teu9yh/just_starting_to_buy_cars_at_auction/",
+      "author": "Frequent_Ad2118",
+      "review_date": "2026-05-16",
+      "rating": null,
+      "sentiment": "positive",
+      "review_text": "Just starting to buy cars at auction… I’ve been flipping cars for years now. Buying them on market place at near scrap value and spending weeks or months getting them running and driving again theme selling for 60-70% profit margin. This has worked fine but it’s slow and I end up putting 10-40 hours into a flip. I just joined IAA and bought a running driving car yesterday. I picked up a cashiers check, drove 1.5hrs away and towed it home. After some minor repairs I’ll have about $1,750 in the car and it should be ready to sell in 10-14 days. I should be able to sell for $3,000-$4,000. Since I don’t have to dump a ton of labor into it I’m thinking about buying another car next week. Question is: what do you tell people when they ask why you’re selling it? Normally I just tell them the truth or something close but now I’d have to say something like “got a steal at the auction and paid safelite to slap a new windshield on it. Replacement mirror came from eBay and I’m just trying to make a buck.”",
+      "geo_validation": "mixed_source_ok",
+      "tier1": "Vehicle Pickup, Delivery and Scheduling",
+      "tier2": "Tow and Storage Charges",
+      "tier3": "Tow and Storage Fees",
+      "id": "rvw-001669"
+    },
+    {
+      "source_website": "play.google.com",
+      "source_label": "Google Play (com.iaai.android)",
+      "source_url": "https://play.google.com/store/apps/details?id=com.iaai.android&hl=en&gl=us",
       "author": "Ion Staver",
       "review_date": "2026-04-30",
       "rating": 1,
@@ -628,6 +703,21 @@
       "tier2": "Password Reset & Login Troubleshooting",
       "tier3": "App Login Troubleshooting",
       "id": "rvw-001575"
+    },
+    {
+      "source_website": "apps.apple.com",
+      "source_label": "Apple App Store (468532534, us)",
+      "source_url": "https://itunes.apple.com/us/review?id=468532534&type=Purple%20Software&reviewId=13952259223",
+      "author": "GG_bonkers_GG",
+      "review_date": "2026-04-12",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "No warning ?. I was just browsing and thinking maybe let me press buy to see how it works and I will cancel being new and not receiving a single there is no back out option warning nothing from this app I gave it maybe 3 days I opened the app and Im being charged a renege fee of 1000$ it would help a lot if there was a warning before purchasing something also the payment methods are so confusing",
+      "geo_validation": "apple_us_store",
+      "tier1": "Membership / Licensing / Fees & Bidding Policies",
+      "tier2": "Bidding Process, Rules and Fees",
+      "tier3": "Fees",
+      "id": "rvw-001670"
     },
     {
       "id": "rvw-000001",
@@ -3345,6 +3435,21 @@
       "tier3": "Rude/Unhelpful Support"
     },
     {
+      "source_website": "reddit.com",
+      "source_label": "Reddit r/G37",
+      "source_url": "https://www.reddit.com/r/G37/comments/1kpkc6y/is_this_car_a_steal_or_sus/mszphp5/",
+      "author": "Chemical-Cash-8221",
+      "review_date": "2025-05-18",
+      "rating": null,
+      "sentiment": "negative",
+      "review_text": "If you want a good and cheap g37 look on copart or iaa auctions. I seen some with 70 and 80k miles with a very minor hit that go out for like 3 or 4k. If you snag one like that out of state after the fees and shipping it’ll cost you around 5k and then maybe 1 or 2k max to fix. You would end up finishing it for 5-7k and will last you a lifetime and even have the chance to resell for a higher price even after 2 or 3 years.",
+      "geo_validation": "mixed_source_ok",
+      "tier1": "Membership / Licensing / Fees & Bidding Policies",
+      "tier2": "Bidding Process, Rules and Fees",
+      "tier3": "Fees",
+      "id": "rvw-001671"
+    },
+    {
       "source_website": "play.google.com",
       "source_label": "Google Play (com.iaa.mobile.IaaTow)",
       "source_url": "https://play.google.com/store/apps/details?id=com.iaa.mobile.IaaTow&hl=en&gl=us",
@@ -3388,6 +3493,36 @@
       "tier2": "Bidding Process, Rules and Fees",
       "tier3": "Fees",
       "id": "rvw-001594"
+    },
+    {
+      "source_website": "reddit.com",
+      "source_label": "Reddit r/TeslaLounge",
+      "source_url": "https://www.reddit.com/r/TeslaLounge/comments/1klcdap/scammed_need_advice_please/ms1qjm7/",
+      "author": "korinus161",
+      "review_date": "2025-05-13",
+      "rating": null,
+      "sentiment": "negative",
+      "review_text": "Carfax can be slow to be updated under certain circumstances. Not uncommon as cars go to auction with certain places (copart, iaai,etc) they still show clean title but may change once the auction closes as all the paperwork is filed. If this was a salvage auction purchased and rebuilt car it would explain the delay in title updates on Carfax. Sellers in BC are required to disclose a car has rebuilt title and the vehicle registration sheet is a bit different from US titles. On. BC registration form and on the vehicle transfer form it would be listed as rebuilt next to the vehicle status line on all forms. If it was not disclosed the seller committed fraud and you need to get in contact with them and will likely need to go the small claims route seeking damages around the difference of price between what you paid and like examples of other rebuilt ones. As others have suggested Tesla will perform a high voltage system inspection to allow supercharging again for a few but it isn't cheap and the car could fail. You will have no warranty at all if it is rebuilt status, full stop. So again, fraud if the vehicle was sold with a \"warranty\" guarantee and without the rebuilt status being disclosed. Many salvage title rebuilts in BC are from smallish accidents though, what would have been a fender bender 30 years ago and are written off so the damage may have been minor, but you will need to do some digging to get to the bottom of that. As is the rule though, if the price is too good to be true, there is a reason. There are plenty of rebuilt Tesla's in the lower mainland priced a good chunk below clean title ones (10-20% difference is common). Most will properly note in the description or otherwise be disclosed by the seller they are rebuilt. The ICBC approved insurance broker probably should have also confirmed with you that you were aware that the vehicle had a rebuilt status when processing the vehicle registration transfer...",
+      "geo_validation": "mixed_source_ok",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Rude/Unhelpful Support",
+      "id": "rvw-001672"
+    },
+    {
+      "source_website": "reddit.com",
+      "source_label": "Reddit r/BMW",
+      "source_url": "https://www.reddit.com/r/BMW/comments/1kj168s/what_should_my_next_bmw_be_car_will_be_modded_for/",
+      "author": "Conscious-Meaning-39",
+      "review_date": "2025-05-10",
+      "rating": null,
+      "sentiment": "positive",
+      "review_text": "What should my next bmw be? Car will be modded for sure Im 18 years old looking for my next more modern bmw, i currently have a E92 with a LS2 and T56 swap more of a project/drift car, so i wanna get a more modern and dailable bmw i was thinking between a G87 M2, M340i, F80 M3 or F82 M4 neither will be purchased new, either used on the market or copart/iaai auction.",
+      "geo_validation": "mixed_source_ok",
+      "tier1": "Membership / Licensing / Fees & Bidding Policies",
+      "tier2": "Bidding Process, Rules and Fees",
+      "tier3": "How to Bid (First Time)",
+      "id": "rvw-001673"
     },
     {
       "id": "rvw-000154",
@@ -3793,6 +3928,21 @@
       "tier1": "Lot Condition, Listing Status and related",
       "tier2": "Lot Condition Reporting",
       "tier3": "Lot Damage"
+    },
+    {
+      "source_website": "reddit.com",
+      "source_label": "Reddit r/prius",
+      "source_url": "https://www.reddit.com/r/prius/comments/1k6wvug/what_auctions_do_people_get_priuses_from/moul369/",
+      "author": "Neo1881",
+      "review_date": "2025-04-24",
+      "rating": null,
+      "sentiment": "positive",
+      "review_text": "I've had great luck with [iaai.com](http://iaai.com) insurance auctions. I pick the ones with just fender/bumper damage that are in Run and Drive condition with under 120k mi. Most states like CA and TX require a dealer's license, but I'm in NV and find great deals in AZ, OR and WA for Gen 3 Prius's. I picked up two Gen 2's back in 2023, both with around 120k mi and both were just under $3k out the door. Most of the ones I find have less than 120k mi. Last Aug, I got a 2010 IV w 68k mi for $6k. What state are you in? There are other states in the Midwest and East Coast that also allow private bidders to bid on the cars. Our son lives in Seattle so I also look in OR and WA for similar cars (OR has no sales tax, neither does AZ). I can usually win by bidding up to 30% of the Blue Book value of the cars. Here's and example of a 2013 Prius V in Eugene that needs a rear bumper cover, brake light and maybe a rear hatch. No warning lights on the dash and 68k mi. [https://www.iaai.com/VehicleDetail/42232700\\~US](https://www.iaai.com/VehicleDetail/42232700~US)",
+      "geo_validation": "mixed_source_ok",
+      "tier1": "Lot Condition, Listing Status and related",
+      "tier2": "Lot Condition Reporting",
+      "tier3": "Lot Damage",
+      "id": "rvw-001674"
     },
     {
       "id": "rvw-000181",
@@ -9660,6 +9810,21 @@
       "tier3": "App Login Troubleshooting"
     },
     {
+      "source_website": "apps.apple.com",
+      "source_label": "Apple App Store (468532534, us)",
+      "source_url": "https://itunes.apple.com/us/review?id=468532534&type=Purple%20Software&reviewId=11842557766",
+      "author": "Coco issa",
+      "review_date": "2024-10-16",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "PayPal payment. I been trying to make a $20 payment through PayPal several attempts for several days and isn’t letting me, I called PayPal and was told nothing is wrong with my PayPal account the problem is with IAAI website, it’s unrealistic to pay $25 wire transfer for $20 that I owe, and you’re not excepting Zelle or check , credit or debit, please fix the PayPal issue so I can make the payment. Or let me pay with other method.",
+      "geo_validation": "apple_us_store",
+      "tier1": "Payment Refunds, Transaction Issues and Deposits",
+      "tier2": "Wire Transfer Payments",
+      "tier3": "Wire Pending/Posting Delay",
+      "id": "rvw-001675"
+    },
+    {
       "id": "rvw-000552",
       "source_website": "reddit.com",
       "source_label": "Reddit r/Insurance",
@@ -10438,6 +10603,21 @@
       "tier1": "Membership / Licensing / Fees & Bidding Policies",
       "tier2": "Bidding Process, Rules and Fees",
       "tier3": "How to Bid (First Time)"
+    },
+    {
+      "source_website": "reddit.com",
+      "source_label": "Reddit r/salvage",
+      "source_url": "https://www.reddit.com/r/salvage/comments/1fmmu7c/buying_salvagerebuilt_vehicles/",
+      "author": "Infamous-Blueberry52",
+      "review_date": "2024-09-22",
+      "rating": null,
+      "sentiment": "negative",
+      "review_text": "Buying salvage/rebuilt vehicles In comparing online tools, a vehicle purchased with winning bid of $5k has a minimum 20% overhead. You can expect to pay $1,034 to $1,700 in fees plus tax & transport. Has anyone found a better resource/option to purchase salvage/wrecked vehicles? Auto Bid Master [https://www.autobidmaster.com](https://www.autobidmaster.com) $6,511 = 5,000 + 1,023 (auction fee) + 349 (Autobidmaster transaction fee) + 139 (documentation fee) eRepairables - $25 per month to $599 per year [https://erepairables.com](https://erepairables.com) $6,700 = 5,000 + 1,700 (auction and dealer markup) IAAI - $200 (personal use) [https://www.iaai.com](https://www.iaai.com) $6,034 = 5,000 + 775 (buyer’s fee) + 109 (bid fee) + 95 (service fee) + 15 (environmental fee) + 20 (payment fee for money orders or cash) + storage fees + 20 (title delivery) Copart - $99 to $249 per year [https://www.copart.com](https://www.copart.com) $6,218 = 5,000 + 1000 (payment fee) + 79 (gate) + 109 (bid) + 20 (title) + 10 (environmental) Salvage Reseller – 34.99 per month to 189.99 per year [https://www.salvagereseller.com](https://www.salvagereseller.com) $6,477 = 5,000 + 500 (broker fee) + 750 (Copart fee) + 99 (bid fee) + 79 (gate fee) + 55 (broker mailing fee) + 10 (environmental fee) + 99 (documents fee)",
+      "geo_validation": "mixed_source_ok",
+      "tier1": "Membership / Licensing / Fees & Bidding Policies",
+      "tier2": "Bidding Process, Rules and Fees",
+      "tier3": "Fees",
+      "id": "rvw-001676"
     },
     {
       "id": "rvw-000603",
@@ -11878,6 +12058,21 @@
       "tier1": "Account / Access / Login",
       "tier2": "Password Reset & Login Troubleshooting",
       "tier3": "App Login Troubleshooting"
+    },
+    {
+      "source_website": "apps.apple.com",
+      "source_label": "Apple App Store (468532534, us)",
+      "source_url": "https://itunes.apple.com/us/review?id=468532534&type=Purple%20Software&reviewId=11542321443",
+      "author": "Shame on You...",
+      "review_date": "2024-07-27",
+      "rating": 2,
+      "sentiment": "negative",
+      "review_text": "Update your media player. Your videos never play. On mobile and PC it won’t play more than 2 seconds without stalling. It literally takes 200 seconds to listen to 10 seconds and it’s not even continuous play. Total failure. Are you even testing your site?",
+      "geo_validation": "apple_us_store",
+      "tier1": "Account / Access / Login",
+      "tier2": "Password Reset & Login Troubleshooting",
+      "tier3": "App Login Troubleshooting",
+      "id": "rvw-001677"
     },
     {
       "id": "rvw-000696",
@@ -14818,6 +15013,21 @@
       "tier1": "Lot Condition, Listing Status and related",
       "tier2": "Lot Condition Reporting",
       "tier3": "Lot Damage"
+    },
+    {
+      "source_website": "apps.apple.com",
+      "source_label": "Apple App Store (468532534, us)",
+      "source_url": "https://itunes.apple.com/us/review?id=468532534&type=Purple%20Software&reviewId=11087223074",
+      "author": "CrisMad7",
+      "review_date": "2024-03-26",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Worst app ever. One of the worst apps ever, it only works for one day through the month and 29 days is not working!! The search tool is a joke,",
+      "geo_validation": "apple_us_store",
+      "tier1": "Account / Access / Login",
+      "tier2": "Password Reset & Login Troubleshooting",
+      "tier3": "App Login Troubleshooting",
+      "id": "rvw-001678"
     },
     {
       "source_website": "play.google.com",
@@ -22813,6 +23023,21 @@
       "tier1": "Customer Service & Communication",
       "tier2": "Agent Professionalism & Responsiveness",
       "tier3": "Rude/Unhelpful Support"
+    },
+    {
+      "source_website": "apps.apple.com",
+      "source_label": "Apple App Store (468532534, us)",
+      "source_url": "https://itunes.apple.com/us/review?id=468532534&type=Purple%20Software&reviewId=9949215511",
+      "author": "mewwela",
+      "review_date": "2023-05-20",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Updates. Every update they make thing is getting worse. And fee they charge are ridiculous.",
+      "geo_validation": "apple_us_store",
+      "tier1": "Membership / Licensing / Fees & Bidding Policies",
+      "tier2": "Bidding Process, Rules and Fees",
+      "tier3": "Fees",
+      "id": "rvw-001679"
     },
     {
       "id": "rvw-001406",

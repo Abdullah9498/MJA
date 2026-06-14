@@ -1,4 +1,5 @@
 import json
+import argparse
 from pathlib import Path
 
 
@@ -6,6 +7,7 @@ BASE_DIR = Path(__file__).resolve().parents[1]
 DATA_DIR = BASE_DIR / "data"
 BUSINESSES_PATH = DATA_DIR / "businesses.json"
 TIERS_PATH = DATA_DIR / "tier-hierarchy.json"
+COVERAGE_NOTE_PATH = DATA_DIR / "coverage-note.json"
 APP_CONFIG_JS = DATA_DIR / "app-config.js"
 REVIEW_DATASETS_JS = DATA_DIR / "reviews-data-all.js"
 
@@ -24,7 +26,7 @@ def empty_payload():
     }
 
 
-def validate_dataset_windows(business_order, config_payload, datasets):
+def validate_dataset_windows(business_order, config_payload, datasets, allow_inconsistent_windows=False):
     windows = {}
     for key in business_order:
         business = config_payload["businesses"][key]
@@ -43,12 +45,29 @@ def validate_dataset_windows(business_order, config_payload, datasets):
             f"{name}: {window[0]} -> {window[1]}"
             for name, window in windows.items()
         )
-        raise RuntimeError(f"Inconsistent dataset date windows detected. {details}")
+        message = f"Inconsistent dataset date windows detected. {details}"
+        if allow_inconsistent_windows:
+            print(f"WARNING: {message}")
+        else:
+            raise RuntimeError(message)
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser(description="Build browser JS data files.")
+    parser.add_argument(
+        "--allow-inconsistent-windows",
+        action="store_true",
+        help="Warn instead of failing when company datasets are refreshed through different dates.",
+    )
+    args = parser.parse_args()
+
     config_payload = json.loads(BUSINESSES_PATH.read_text(encoding="utf-8"))
     tiers_payload = json.loads(TIERS_PATH.read_text(encoding="utf-8"))
+    coverage_note = (
+        json.loads(COVERAGE_NOTE_PATH.read_text(encoding="utf-8"))
+        if COVERAGE_NOTE_PATH.exists()
+        else None
+    )
 
     business_order = config_payload.get("business_order") or list(config_payload["businesses"].keys())
     public_businesses = {}
@@ -73,7 +92,12 @@ def main() -> None:
       else:
           datasets[key] = empty_payload()
 
-    validate_dataset_windows(business_order, config_payload, datasets)
+    validate_dataset_windows(
+        business_order,
+        config_payload,
+        datasets,
+        allow_inconsistent_windows=args.allow_inconsistent_windows,
+    )
 
     APP_CONFIG_JS.write_text(
         "window.REVIEW_APP_CONFIG = "
@@ -82,6 +106,7 @@ def main() -> None:
                 "businessOrder": business_order,
                 "businesses": public_businesses,
                 "tierHierarchy": tiers_payload,
+                "coverageNote": coverage_note,
             },
             ensure_ascii=False,
             indent=2,

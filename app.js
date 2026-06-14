@@ -2,6 +2,7 @@
   const appConfig = window.REVIEW_APP_CONFIG || {};
   const datasets = window.REVIEW_DATASETS || {};
   const tiersPayload = appConfig.tierHierarchy;
+  const coverageNote = appConfig.coverageNote || null;
   const businessConfig = appConfig.businesses || {};
   const businessOrder = (appConfig.businessOrder || Object.keys(businessConfig)).filter(
     (key) => businessConfig[key]
@@ -76,6 +77,43 @@
     wrap.appendChild(label);
     wrap.appendChild(select);
     switcher.appendChild(wrap);
+  }
+
+  function formatCoverageDate(value) {
+    if (!value || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return value || "unknown";
+    const date = new Date(`${value}T00:00:00Z`);
+    return date.toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+      timeZone: "UTC",
+    });
+  }
+
+  function renderCoverageNote() {
+    const noteEl = document.getElementById("coverage-note");
+    if (!noteEl || !coverageNote) return;
+
+    const refreshed = coverageNote.refreshed || [];
+    const stale = coverageNote.stale || [];
+    const targetUntil = formatCoverageDate(coverageNote.target_until);
+
+    noteEl.hidden = false;
+    noteEl.classList.toggle("has-warning", stale.length > 0);
+
+    if (!stale.length) {
+      noteEl.textContent = `Coverage: all companies refreshed through ${targetUntil}.`;
+      return;
+    }
+
+    const staleText = stale
+      .map((row) => {
+        const label = row.display_name || businessConfig[row.key]?.display_name || row.key;
+        const until = formatCoverageDate(row.until_date);
+        return `${label} through ${until}`;
+      })
+      .join("; ");
+    noteEl.textContent = `Coverage target: ${targetUntil}. Refreshed: ${refreshed.length}. Prior data retained: ${staleText}.`;
   }
 
   function applyBusinessTheme() {
@@ -1410,6 +1448,7 @@
   }
 
   renderBusinessSwitcher();
+  renderCoverageNote();
   applyBusinessTheme();
   renderSources();
 })();

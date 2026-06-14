@@ -22,27 +22,13 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  refresh-data:
+  resolve-window:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    outputs:
+      since: ${{ steps.refresh-window.outputs.since }}
+      until: ${{ steps.refresh-window.outputs.until }}
 
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v5
-
-      - name: Set up Python
-        uses: actions/setup-python@v6
-        with:
-          python-version: "3.11"
-          cache: "pip"
-          cache-dependency-path: "requirements.txt"
-
-      - name: Install dependencies
-        run: python -m pip install --disable-pip-version-check -r requirements.txt
-
-      - name: Install Playwright browser
-        run: python -m playwright install chromium
-
       - name: Resolve refresh window
         id: refresh-window
         env:
@@ -66,18 +52,165 @@ jobs:
           echo "until=$UNTIL_VALUE" >> "$GITHUB_OUTPUT"
           echo "Refreshing reviews from $SINCE_VALUE through $UNTIL_VALUE"
 
-      - name: Refresh review data
+  refresh-company:
+    needs: resolve-window
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - company: copart
+            label: Copart
+            builder: scripts/build_reviews.py
+            output_json: reviews.json
+            output_csv: reviews.csv
+          - company: iaa
+            label: IAA
+            builder: scripts/build_reviews_iaa.py
+            output_json: reviews-iaa.json
+            output_csv: reviews-iaa.csv
+          - company: manheim
+            label: Manheim
+            builder: scripts/build_reviews_manheim.py
+            output_json: reviews-manheim.json
+            output_csv: reviews-manheim.csv
+          - company: adesa
+            label: ADESA
+            builder: scripts/build_reviews_adesa.py
+            output_json: reviews-adesa.json
+            output_csv: reviews-adesa.csv
+          - company: openlane
+            label: OPENLANE
+            builder: scripts/build_reviews_openlane.py
+            output_json: reviews-openlane.json
+            output_csv: reviews-openlane.csv
+          - company: acv
+            label: ACV
+            builder: scripts/build_reviews_acv.py
+            output_json: reviews-acv.json
+            output_csv: reviews-acv.csv
+          - company: americas_auto_auction
+            label: America's Auto Auction
+            builder: scripts/build_reviews_americas_auto_auction.py
+            output_json: reviews-americas-auto-auction.json
+            output_csv: reviews-americas-auto-auction.csv
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+          cache: "pip"
+          cache-dependency-path: "requirements.txt"
+
+      - name: Install dependencies
+        run: python -m pip install --disable-pip-version-check -r requirements.txt
+
+      - name: Install Playwright browser
+        run: python -m playwright install chromium
+
+      - name: Refresh ${{ matrix.label }} data
+        id: refresh
         env:
           PYTHONUNBUFFERED: "1"
         run: |
-          python scripts/refresh_review_data.py \
-            --since "${{ steps.refresh-window.outputs.since }}" \
-            --until "${{ steps.refresh-window.outputs.until }}" \
+          set +e
+          timeout 150m python "${{ matrix.builder }}" \
+            --since "${{ needs.resolve-window.outputs.since }}" \
+            --until "${{ needs.resolve-window.outputs.until }}" \
             --target 0 \
-            --max-output 120000
+            --max-output 120000 \
+            --reddit-time-budget 900
+          code=$?
+          echo "exit_code=$code" >> "$GITHUB_OUTPUT"
+          if [ "$code" -eq 0 ]; then
+            echo "success=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "::warning::${{ matrix.label }} refresh exited with code $code. Existing deployed data will be kept for this company."
+            echo "success=false" >> "$GITHUB_OUTPUT"
+          fi
+          exit 0
+
+      - name: Stage ${{ matrix.label }} artifact
+        env:
+          COMPANY: ${{ matrix.company }}
+          LABEL: ${{ matrix.label }}
+          OUTPUT_JSON: ${{ matrix.output_json }}
+          OUTPUT_CSV: ${{ matrix.output_csv }}
+          SUCCESS: ${{ steps.refresh.outputs.success }}
+          EXIT_CODE: ${{ steps.refresh.outputs.exit_code }}
+          TARGET_SINCE: ${{ needs.resolve-window.outputs.since }}
+          TARGET_UNTIL: ${{ needs.resolve-window.outputs.until }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          import shutil
+          from pathlib import Path
+
+          out_dir = Path("refresh-artifact")
+          out_dir.mkdir(exist_ok=True)
+          status = {
+              "company": os.environ["COMPANY"],
+              "label": os.environ["LABEL"],
+              "success": os.environ["SUCCESS"].lower() == "true",
+              "exit_code": int(os.environ.get("EXIT_CODE") or 0),
+              "output_json": os.environ["OUTPUT_JSON"],
+              "output_csv": os.environ["OUTPUT_CSV"],
+              "target_since": os.environ["TARGET_SINCE"],
+              "target_until": os.environ["TARGET_UNTIL"],
+          }
+          if status["success"]:
+              for filename in [status["output_json"], status["output_csv"]]:
+                  src = Path("data") / filename
+                  if src.exists():
+                      shutil.copy2(src, out_dir / filename)
+                  else:
+                      status["success"] = False
+                      status["missing_output"] = filename
+                      break
+          (out_dir / "status.json").write_text(json.dumps(status, indent=2), encoding="utf-8")
+          PY
+
+      - name: Upload ${{ matrix.label }} artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: review-data-${{ matrix.company }}
+          path: refresh-artifact
+
+  merge-and-package:
+    needs:
+      - resolve-window
+      - refresh-company
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+
+      - name: Download company artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: refresh-artifacts
+
+      - name: Merge refreshed company datasets
+        run: |
+          python scripts/merge_refresh_artifacts.py \
+            --artifacts-dir refresh-artifacts \
+            --since "${{ needs.resolve-window.outputs.since }}" \
+            --until "${{ needs.resolve-window.outputs.until }}"
+
+      - name: Build app data
+        run: python scripts/build_js_data.py --allow-inconsistent-windows
 
       - name: Audit dataset windows
-        run: python scripts/audit_review_datasets.py
+        run: python scripts/audit_review_datasets.py --warn-only
 
       - name: Prepare Pages artifact
         run: |
@@ -112,7 +245,7 @@ jobs:
           git push
 
   deploy:
-    needs: refresh-data
+    needs: merge-and-package
     runs-on: ubuntu-latest
     environment:
       name: github-pages

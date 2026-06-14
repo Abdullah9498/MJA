@@ -265,9 +265,10 @@ def is_context_enriched_reddit_comment(source_website: str, review_text: str = "
 
 
 class Collector:
-    def __init__(self, target: int, since: str, until: str | None, max_output: int):
+    def __init__(self, target: int, since: str, until: str | None, max_output: int, reddit_time_budget: int = 900):
         self.target = max(0, int(target))
         self.max_output = max(1, int(max_output))
+        self.reddit_time_budget = max(60, int(reddit_time_budget))
         self.since = self.normalize_date(since)
         self.until = self.normalize_date(until) if until else None
         self.since_date_obj = datetime.strptime(self.since, "%Y-%m-%d").date()
@@ -1219,8 +1220,18 @@ class Collector:
 
     def collect_reddit_pullpush(self):
         print("[collect] Reddit (PullPush submissions and body-only comments)")
+        deadline = time.monotonic() + self.reddit_time_budget
         reddit_floor_date = self.source_floor_date("reddit.com", overlap_days=45)
         reddit_since_ts = int(datetime(reddit_floor_date.year, reddit_floor_date.month, reddit_floor_date.day, tzinfo=timezone.utc).timestamp())
+
+        def time_remaining() -> bool:
+            return time.monotonic() < deadline
+
+        def deadline_reached() -> bool:
+            if time_remaining():
+                return False
+            print(f"  - PullPush time budget reached for {DISPLAY_NAME}; keeping reviews collected so far.")
+            return True
 
         def parse_ts(ts):
             try:
@@ -1231,6 +1242,8 @@ class Collector:
         def fetch(endpoint: str, q: str, page_limit: int):
             before = None
             for page in range(page_limit):
+                if deadline_reached():
+                    return
                 params = {
                     "q": q,
                     "size": 100,
@@ -1242,7 +1255,7 @@ class Collector:
 
                 url = f"https://api.pullpush.io/reddit/search/{endpoint}/"
                 try:
-                    resp = S.get(url, params=params, timeout=45)
+                    resp = S.get(url, params=params, timeout=20)
                     if resp.status_code != 200:
                         time.sleep(0.4)
                         continue
@@ -1321,6 +1334,8 @@ class Collector:
         def fetch_subreddit(endpoint: str, subreddit: str, page_limit: int):
             before = None
             for page in range(page_limit):
+                if deadline_reached():
+                    return
                 params = {
                     "subreddit": subreddit,
                     "size": 100,
@@ -1332,7 +1347,7 @@ class Collector:
 
                 url = f"https://api.pullpush.io/reddit/search/{endpoint}/"
                 try:
-                    resp = S.get(url, params=params, timeout=45)
+                    resp = S.get(url, params=params, timeout=20)
                     if resp.status_code != 200:
                         time.sleep(0.4)
                         continue
@@ -1405,11 +1420,19 @@ class Collector:
                 time.sleep(0.15)
 
         for query, comment_limit, submission_limit in REDDIT_QUERIES:
+            if deadline_reached():
+                return
             fetch("comment", query, page_limit=comment_limit)
+            if deadline_reached():
+                return
             fetch("submission", query, page_limit=submission_limit)
 
         for subreddit in REDDIT_SUBREDDITS:
+            if deadline_reached():
+                return
             fetch_subreddit("comment", subreddit, page_limit=220)
+            if deadline_reached():
+                return
             fetch_subreddit("submission", subreddit, page_limit=140)
 
     @staticmethod
@@ -1957,8 +1980,18 @@ class Collector:
 
     def collect_reddit_arctic_shift(self):
         print("[collect] Reddit (Arctic Shift current backfill)")
+        deadline = time.monotonic() + self.reddit_time_budget
         floor_date = self.source_floor_date("reddit.com", overlap_days=45)
         floor_ts = int(datetime(floor_date.year, floor_date.month, floor_date.day, tzinfo=timezone.utc).timestamp())
+
+        def time_remaining() -> bool:
+            return time.monotonic() < deadline
+
+        def deadline_reached() -> bool:
+            if time_remaining():
+                return False
+            print(f"  - Arctic Shift time budget reached for {DISPLAY_NAME}; keeping reviews collected so far.")
+            return True
 
         dedicated_subreddits = unique_preserve(REDDIT_SUBREDDITS)
         search_subreddits = [
@@ -1971,6 +2004,8 @@ class Collector:
         def page_posts(base_params: dict, page_limit: int):
             before = None
             for _page in range(max(1, page_limit)):
+                if deadline_reached():
+                    return
                 params = dict(base_params)
                 params["limit"] = min(int(params.get("limit") or 50), 100)
                 params["sort"] = "desc"
@@ -2003,6 +2038,8 @@ class Collector:
         def page_comments(base_params: dict, page_limit: int):
             before = None
             for _page in range(max(1, page_limit)):
+                if deadline_reached():
+                    return
                 params = dict(base_params)
                 params["limit"] = min(int(params.get("limit") or 50), 100)
                 params["sort"] = "desc"
@@ -2033,6 +2070,8 @@ class Collector:
                 time.sleep(0.25)
 
         for subreddit in dedicated_subreddits:
+            if deadline_reached():
+                return
             page_posts(
                 {
                     "subreddit": subreddit,
@@ -2052,6 +2091,8 @@ class Collector:
 
         for subreddit in search_subreddits:
             for query in query_terms:
+                if deadline_reached():
+                    return
                 page_posts(
                     {
                         "subreddit": subreddit,
@@ -2984,9 +3025,21 @@ def main():
     parser.add_argument("--since", type=str, default=SINCE_DEFAULT, help="Include reviews on/after this date (YYYY-MM-DD)")
     parser.add_argument("--until", type=str, default=None, help="Include reviews on/before this date (YYYY-MM-DD)")
     parser.add_argument("--max-output", type=int, default=MAX_OUTPUT_DEFAULT, help="Maximum number of rows to keep in output")
+    parser.add_argument(
+        "--reddit-time-budget",
+        type=int,
+        default=900,
+        help="Maximum seconds to spend in each Reddit collector before keeping partial Reddit results.",
+    )
     args = parser.parse_args()
 
-    collector = Collector(target=args.target, since=args.since, until=args.until, max_output=args.max_output)
+    collector = Collector(
+        target=args.target,
+        since=args.since,
+        until=args.until,
+        max_output=args.max_output,
+        reddit_time_budget=args.reddit_time_budget,
+    )
 
     collector.run_collectors()
 

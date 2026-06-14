@@ -1,11 +1,11 @@
 {
   "meta": {
     "description": "Large-scale English-only ACV textual review/problem dataset from public web sources (recency-first).",
-    "review_count": 140,
+    "review_count": 149,
     "source_counts": {
-      "birdeye.com": 23,
+      "birdeye.com": 31,
       "trustpilot.com": 13,
-      "apps.apple.com": 74,
+      "apps.apple.com": 75,
       "bbb.org": 3,
       "play.google.com": 26,
       "reddit.com": 1
@@ -23,7 +23,7 @@
       },
       {
         "source_website": "apps.apple.com",
-        "review_count": 74,
+        "review_count": 75,
         "present": true
       },
       {
@@ -43,15 +43,16 @@
       },
       {
         "source_website": "birdeye.com",
-        "review_count": 23,
+        "review_count": 31,
         "present": true
       }
     ],
     "sentiments": {
-      "positive": 53,
-      "negative": 87
+      "positive": 55,
+      "negative": 94
     },
     "source_urls": [
+      "https://reviews.birdeye.com/acv-auctions-164822889606828#review-3",
       "https://reviews.birdeye.com/acv-auctions-164822889606828#review-1",
       "https://www.trustpilot.com/reviews/69c7e8bd00fc927cf67de5ef",
       "https://itunes.apple.com/us/review?id=969808943&type=Purple%20Software&reviewId=13857875661",
@@ -77,20 +78,22 @@
       "https://itunes.apple.com/us/review?id=969808943&type=Purple%20Software&reviewId=12947811217",
       "https://www.trustpilot.com/reviews/6884226266715d321dea5335",
       "https://www.trustpilot.com/reviews/68841ed7b5a63a12c26e2896",
+      "https://reviews.birdeye.com/acv-auctions-164822889606828#review-6",
       "https://itunes.apple.com/us/review?id=969808943&type=Purple%20Software&reviewId=12899650081",
       "https://reviews.birdeye.com/acv-auctions-164822889606828#review-4",
       "https://www.bbb.org/us/ca/san-diego/profile/used-car-dealers/acv-wholesale-1126-20007945/complaints#1126_20007945_23513015",
-      "https://reviews.birdeye.com/acv-auctions-164822889606828#review-6",
       "https://apps.apple.com/us/app/id6477305313?see-all=reviews&platform=iphone&reviewId=12782988542",
+      "https://reviews.birdeye.com/acv-auctions-164822889606828#review-8",
+      "https://reviews.birdeye.com/acv-auctions-164822889606828?page=2#review-2",
+      "https://reviews.birdeye.com/acv-auctions-164822889606828?page=2#review-3",
+      "https://reviews.birdeye.com/acv-auctions-164822889606828?page=2#review-4",
+      "https://reviews.birdeye.com/acv-auctions-164822889606828?page=2#review-5",
       "https://www.trustpilot.com/reviews/684101e000d4adf6ffe3aa6a",
       "https://itunes.apple.com/us/review?id=969808943&type=Purple%20Software&reviewId=12721367653",
       "https://itunes.apple.com/us/review?id=969808943&type=Purple%20Software&reviewId=12627047982",
       "https://apps.apple.com/us/app/id969808943?see-all=reviews&platform=iphone&reviewId=12627047982",
       "https://reviews.birdeye.com/acv-auctions-164822889606828#review-9",
       "https://reviews.birdeye.com/acv-auctions-164822889606828?page=2#review-1",
-      "https://reviews.birdeye.com/acv-auctions-164822889606828?page=2#review-2",
-      "https://reviews.birdeye.com/acv-auctions-164822889606828?page=2#review-3",
-      "https://reviews.birdeye.com/acv-auctions-164822889606828?page=2#review-4",
       "https://itunes.apple.com/us/review?id=969808943&type=Purple%20Software&reviewId=12548222243",
       "https://itunes.apple.com/us/review?id=969808943&type=Purple%20Software&reviewId=12370049567",
       "https://www.trustpilot.com/reviews/67be75d40220d016a9ab3ee2",
@@ -135,6 +138,7 @@
       "https://itunes.apple.com/us/review?id=969808943&type=Purple%20Software&reviewId=11532262197",
       "https://itunes.apple.com/us/review?id=969808943&type=Purple%20Software&reviewId=11532151863",
       "https://itunes.apple.com/us/review?id=969808943&type=Purple%20Software&reviewId=11399444858",
+      "https://reviews.birdeye.com/acv-auctions-164822889606828?page=2#review-6",
       "https://itunes.apple.com/us/review?id=969808943&type=Purple%20Software&reviewId=11373249529",
       "https://itunes.apple.com/us/review?id=969808943&type=Purple%20Software&reviewId=11143518019",
       "https://itunes.apple.com/us/review?id=969808943&type=Purple%20Software&reviewId=11061799916",
@@ -155,12 +159,12 @@
       "https://www.reddit.com/r/askcarsales/comments/10gc18q/new_buyer_here_did_i_make_a_mistake/",
       "https://itunes.apple.com/us/review?id=969808943&type=Purple%20Software&reviewId=9493843564"
     ],
-    "generated_at_utc": "2026-05-02T10:28:31.849220+00:00",
+    "generated_at_utc": "2026-06-14T03:43:33.968684+00:00",
     "since_date": "2023-01-01",
-    "until_date": "2026-04-30",
+    "until_date": "2026-05-31",
     "collector_failures": [],
-    "existing_review_count": 130,
-    "new_reviews_added": 10,
+    "existing_review_count": 140,
+    "new_reviews_added": 9,
     "youtube_excluded": true,
     "usa_only": true,
     "english_only": true,
@@ -179,8 +183,8 @@
       "bbb.org"
     ],
     "geo_validation_counts": {
-      "google_play_us_store": 2,
-      "birdeye_us_profile": 8
+      "birdeye_us_profile": 8,
+      "apple_us_store": 1
     },
     "geo_excluded_counts": {},
     "geo_excluded_examples": [],
@@ -197,6 +201,21 @@
     ]
   },
   "reviews": [
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Birdeye)",
+      "source_url": "https://reviews.birdeye.com/acv-auctions-164822889606828#review-3",
+      "author": "Anthony E.",
+      "review_date": "2026-04-15",
+      "rating": null,
+      "sentiment": "negative",
+      "review_text": "ACV is a scam auction plain and simple. The condition report does not matter to them. over the last year we have bought 40 plus vehicles from them. Green light sales mean nothing to them. This last one was a nightmare. Bought a 2020 Altima on green light when we received the vehicle, we noticed both passenger wheels were worn unevenly and tilted inward at the top. upon further inspection it was determined through a certified mechanic that vehicle had suffered a severe collision on passenger side bending and breaking multiple... read more",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Lot Condition, Listing Status and related",
+      "tier2": "Third-Party Inspection Authorization & Scheduling",
+      "tier3": "Previewing/ Inspecting Vehicles",
+      "id": "rvw-000141"
+    },
     {
       "source_website": "birdeye.com",
       "source_label": "Birdeye (Birdeye)",
@@ -346,6 +365,21 @@
       "tier2": "Agent Professionalism & Responsiveness",
       "tier3": "Rude/Unhelpful Support",
       "id": "rvw-000118"
+    },
+    {
+      "source_website": "apps.apple.com",
+      "source_label": "Apple App Store (969808943, us)",
+      "source_url": "https://apps.apple.com/us/app/id969808943?see-all=reviews&platform=iphone&reviewId=13631114758",
+      "author": "Casey Review",
+      "review_date": "2026-01-14",
+      "rating": 2,
+      "sentiment": "negative",
+      "review_text": "Great Interface- Alerts never work.. From a usability standpoint, love virtually everything about the app, it’s fairly easy to use and intuitive. I do hate the fact that there is no way to see your payment/account information in the app- instead you have to log onto the actual website. My biggest issue however has to do with notifications. For over two years I’ve worked with various tech-support folks from ACV in an attempt to get notifications working on my iPhone/iPad. It seems to be a problem across the board as a various employees have also struggled with a lack of consistent notifications. (Mainly notifications when vehicles that fit certain search criteria/parameters are listed and up for auction) Randomly, they will work for about a day or two, and then won’t for months on end. This results in missing various vehicles that we would like to bid on. No one can seem to find a solution. Very unfortunate- especially because when the notifications work, it’s a great system. It’s a shame that ACV can’t find app developers to fix this issue as I imagine it’s hurting business- we personally have missed out on hundreds of cars due to not being notified that they were up for auction. OPENLANE (similar platform) has much more reliable notifications",
+      "geo_validation": "apple_us_store",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Rude/Unhelpful Support",
+      "id": "rvw-000142"
     },
     {
       "id": "rvw-000008",
@@ -723,6 +757,21 @@
       "tier3": "Fees"
     },
     {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Birdeye)",
+      "source_url": "https://reviews.birdeye.com/acv-auctions-164822889606828#review-6",
+      "author": "Gustavo C.",
+      "review_date": "2025-07-19",
+      "rating": null,
+      "sentiment": "negative",
+      "review_text": "BE VERY CAREFUL!!!!! Dis-honest auction. Bought green light, was sold car with odometer fraud (proven) and a bad motor. Loss of 6K. They did NOTHING to help[!!!!!!",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Membership / Licensing / Fees & Bidding Policies",
+      "tier2": "Bidding Process, Rules and Fees",
+      "tier3": "Fees",
+      "id": "rvw-000143"
+    },
+    {
       "id": "rvw-000031",
       "source_website": "apps.apple.com",
       "source_label": "Apple App Store (969808943, us)",
@@ -826,6 +875,81 @@
       "tier1": "Lot Condition, Listing Status and related",
       "tier2": "Third-Party Inspection Authorization & Scheduling",
       "tier3": "Previewing/ Inspecting Vehicles"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Birdeye)",
+      "source_url": "https://reviews.birdeye.com/acv-auctions-164822889606828#review-8",
+      "author": "Ben V.",
+      "review_date": "2025-06-14",
+      "rating": null,
+      "sentiment": "positive",
+      "review_text": "I am working with ACV and especially with my account manager Dan Dickinson for last 2 years and i cant say enough good things about the support and help i have received from them. Dan has made my job a breeze. He is the one of the best at the ACV Auction , He is always on top of Everything. We appreciate ACV and Dan very much. They have been the cornerstone of our business.",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Helpful Support Experience",
+      "id": "rvw-000144"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Birdeye)",
+      "source_url": "https://reviews.birdeye.com/acv-auctions-164822889606828?page=2#review-2",
+      "author": "Gary D.",
+      "review_date": "2025-06-14",
+      "rating": null,
+      "sentiment": "positive",
+      "review_text": "customer service is outstanding. Travis Mueller could not be more helpful in assisting me with the purchase of 2 vehicles yesterday. Negotiations were smooth as silk.",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Helpful Support Experience",
+      "id": "rvw-000145"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Birdeye)",
+      "source_url": "https://reviews.birdeye.com/acv-auctions-164822889606828?page=2#review-3",
+      "author": "Frank L.",
+      "review_date": "2025-06-14",
+      "rating": null,
+      "sentiment": "negative",
+      "review_text": "Absolutely Horrible, I have never left a negative review about anyone in my life but ACV finally pushed me to the point where I must. There was a Facebook group that had hundreds of bad reviews on this site but I chose to ignore it at now my own peril. They are unethical and I have been burned one to many times with this auction. They have zero ethics and my dealership is done doing business here.",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Membership / Licensing / Fees & Bidding Policies",
+      "tier2": "Bidding Process, Rules and Fees",
+      "tier3": "Fees",
+      "id": "rvw-000146"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Birdeye)",
+      "source_url": "https://reviews.birdeye.com/acv-auctions-164822889606828?page=2#review-4",
+      "author": "Alex Auto S.",
+      "review_date": "2025-06-14",
+      "rating": null,
+      "sentiment": "negative",
+      "review_text": "ACV is a joke, crook and sell junk. When you do the arbitration they do NOT stand behind their vehicles. We have referred multiple friends to ACV and will contact them to no longer deal with ACV. I have a feeling ACV won't last much longer. Don't waste time and purchase anything from them ever.",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Rude/Unhelpful Support",
+      "id": "rvw-000147"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Birdeye)",
+      "source_url": "https://reviews.birdeye.com/acv-auctions-164822889606828?page=2#review-5",
+      "author": "Tom",
+      "review_date": "2025-06-14",
+      "rating": null,
+      "sentiment": "negative",
+      "review_text": "I have never been as pissed off from any auction like I am right now with ACV. It seems that eveyday they seem to get worse then then week before! I will lay out some issues that we have faced and hopefully this reaches someone that cares, because I have been asking for a higher up to pass along the issues, and so far nothing. We bought a car from them in Jan, and we sold it soon after. The new buyer found out it was reported stolen, we notified ACV. We obviously unwound the deal and notified ACV. 7 months have gone by ... read more",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Membership / Licensing / Fees & Bidding Policies",
+      "tier2": "Bidding Process, Rules and Fees",
+      "tier3": "Fees",
+      "id": "rvw-000148"
     },
     {
       "source_website": "birdeye.com",
@@ -1816,6 +1940,21 @@
       "tier1": "Account / Access / Login",
       "tier2": "Password Reset & Login Troubleshooting",
       "tier3": "App Login Troubleshooting"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Birdeye)",
+      "source_url": "https://reviews.birdeye.com/acv-auctions-164822889606828?page=2#review-6",
+      "author": "Tom B.",
+      "review_date": "2024-06-14",
+      "rating": null,
+      "sentiment": "negative",
+      "review_text": "Their condition report is a joke. They sell you a green light vehicle with a hidden issues and when you arbitrate it, you have to do your own diagnosis and provide them with the report which incur extra cost. At the end of the arbitration, they notify you that's it's not valid. Don't not trust their CRs, Beware!!!",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Membership / Licensing / Fees & Bidding Policies",
+      "tier2": "Bidding Process, Rules and Fees",
+      "tier3": "Fees",
+      "id": "rvw-000149"
     },
     {
       "id": "rvw-000087",
