@@ -97,12 +97,20 @@
     const refreshed = coverageNote.refreshed || [];
     const stale = coverageNote.stale || [];
     const targetUntil = formatCoverageDate(coverageNote.target_until);
+    const sourceWarnings = refreshed.flatMap((company) =>
+      (company.source_audit || [])
+        .filter((row) =>
+          ["blocked", "missing", "not_attempted", "partial", "stale_or_no_recent_candidates"].includes(row.status)
+        )
+        .map((row) => `${company.display_name || company.key}: ${row.source_website} ${row.status}`)
+    );
 
     noteEl.hidden = false;
-    noteEl.classList.toggle("has-warning", stale.length > 0);
+    noteEl.classList.toggle("has-warning", stale.length > 0 || sourceWarnings.length > 0);
 
     if (!stale.length) {
-      noteEl.textContent = `Coverage: all companies refreshed through ${targetUntil}.`;
+      const warningText = sourceWarnings.length ? ` ${sourceWarnings.length} source warning${sourceWarnings.length === 1 ? "" : "s"} flagged.` : "";
+      noteEl.textContent = `Coverage: all companies refreshed through ${targetUntil}.${warningText}`;
       return;
     }
 
@@ -113,7 +121,8 @@
         return `${label} through ${until}`;
       })
       .join("; ");
-    noteEl.textContent = `Coverage target: ${targetUntil}. Refreshed: ${refreshed.length}. Prior data retained: ${staleText}.`;
+    const warningText = sourceWarnings.length ? ` Source warnings: ${sourceWarnings.length}.` : "";
+    noteEl.textContent = `Coverage target: ${targetUntil}. Refreshed: ${refreshed.length}. Prior data retained: ${staleText}.${warningText}`;
   }
 
   function applyBusinessTheme() {
@@ -144,7 +153,54 @@
 
   function renderSources() {
     const sourceList = document.getElementById("source-list");
+    const sourceHealth = document.getElementById("source-health");
     if (!sourceList) return;
+
+    if (sourceHealth) {
+      const audit = reviewsPayload.meta?.source_audit || [];
+      sourceHealth.innerHTML = "";
+      if (audit.length) {
+        const table = document.createElement("table");
+        table.className = "source-health-table";
+        table.innerHTML = `
+          <thead>
+            <tr>
+              <th>Source</th>
+              <th>Status</th>
+              <th>Rows</th>
+              <th>Latest Row</th>
+              <th>Latest Seen</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        `;
+        const tbody = table.querySelector("tbody");
+        audit.forEach((row) => {
+          const tr = document.createElement("tr");
+          const status = row.status || (row.present ? "present" : "missing");
+          tr.className = `source-status-${status.replace(/[^a-z0-9]+/gi, "-").toLowerCase()}`;
+          const notes = [
+            row.fallback_used ? "fallback used" : "",
+            ...(row.notes || []),
+          ].filter(Boolean).join("; ");
+          [
+            row.source_website,
+            status,
+            row.review_count || 0,
+            row.latest_review_date || "n/a",
+            row.latest_candidate_date || "n/a",
+            notes || "-",
+          ].forEach((value) => {
+            const td = document.createElement("td");
+            td.textContent = String(value);
+            tr.appendChild(td);
+          });
+          tbody.appendChild(tr);
+        });
+        sourceHealth.appendChild(table);
+      }
+    }
 
     const urls = reviewsPayload.meta?.source_urls || [];
     sourceList.innerHTML = "";

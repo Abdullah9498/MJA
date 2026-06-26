@@ -52,6 +52,7 @@ def summarize_business(label: str, payload: dict) -> None:
     until_date = meta.get("until_date")
     months = list_month_keys(since_date, until_date)
     sources = sorted({str(row.get("source_website") or "").strip() for row in reviews if row.get("source_website")})
+    source_audit = meta.get("source_audit") or []
 
     company_month_counts = {
         sentiment: {month_key: 0 for month_key in months}
@@ -72,6 +73,21 @@ def summarize_business(label: str, payload: dict) -> None:
         source_month_counts[(source, sentiment, month_key)] += 1
 
     print(f"{label}: since={since_date} until={until_date} reviews={len(reviews)} sources={len(sources)}")
+
+    if source_audit:
+        print("  - source health:")
+        for row in source_audit:
+            source = row.get("source_website")
+            status = row.get("status", "unknown")
+            review_count = int(row.get("review_count") or 0)
+            new_count = int(row.get("new_reviews_added") or 0)
+            latest_review = row.get("latest_review_date") or "n/a"
+            latest_candidate = row.get("latest_candidate_date") or "n/a"
+            fallback = " fallback" if row.get("fallback_used") else ""
+            print(
+                f"    * {source}: status={status}{fallback} reviews={review_count} "
+                f"new={new_count} latest_review={latest_review} latest_candidate={latest_candidate}"
+            )
 
     for sentiment in SENTIMENTS:
         gap_months = [month_key for month_key in months if company_month_counts[sentiment][month_key] <= 0]

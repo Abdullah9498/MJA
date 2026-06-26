@@ -941,6 +941,47 @@ body {
   columns: 2;
 }
 
+.source-health {
+  margin-top: 12px;
+  overflow-x: auto;
+}
+
+.source-health-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.78rem;
+}
+
+.source-health-table th,
+.source-health-table td {
+  border-bottom: 1px solid var(--line);
+  padding: 7px 8px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.source-health-table th {
+  color: var(--copart-blue-1);
+  background: #f3f7fb;
+  font-weight: 800;
+}
+
+.source-health-table td:nth-child(6) {
+  min-width: 260px;
+}
+
+.source-status-blocked td,
+.source-status-missing td,
+.source-status-not-attempted td {
+  background: #fff1f1;
+}
+
+.source-status-partial td,
+.source-status-stale-or-no-recent-candidates td,
+.source-status-parsed-no-new-rows td {
+  background: #fff8e6;
+}
+
 .sources li {
   margin-bottom: 6px;
   font-size: 0.85rem;

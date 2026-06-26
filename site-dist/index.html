@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Copart / IAA External Review Analysis Tool</title>
+  <title>Auction Web Sentiment Analysis Tool</title>
+  <link rel="icon" href="data:," />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -13,21 +14,15 @@
         id="brand-logo"
         class="brand-logo"
         src="assets/copart-logo.svg"
-        alt="Copart logo"
+        alt="Business logo"
       />
       <div>
-        <h1 id="app-title">Copart External Review Analysis Tool</h1>
+        <h1 id="app-title">Auction Web Sentiment Analysis Tool</h1>
       </div>
     </div>
-    <div class="business-switcher" id="business-switcher" aria-label="Website selector">
-      <button type="button" class="business-option is-active" data-business="copart" aria-pressed="true">
-        <img src="assets/copart-logo.svg" alt="Copart" />
-        <span>Copart</span>
-      </button>
-      <button type="button" class="business-option" data-business="iaa" aria-pressed="false">
-        <img src="assets/iaa-logo.png" alt="IAA" />
-        <span>IAA</span>
-      </button>
+    <div class="header-side">
+      <div class="business-switcher" id="business-switcher" aria-label="Website selector"></div>
+      <div class="coverage-note" id="coverage-note" hidden></div>
     </div>
   </header>
 
@@ -36,18 +31,18 @@
       <div class="panel-title-row">
         <h2>Negative Reviews</h2>
         <div class="panel-controls">
-          <label>
-            Website
-            <select class="website-filter"></select>
-          </label>
-          <label>
-            Year
-            <select class="year-filter"></select>
-          </label>
-          <label>
-            Month
-            <select class="month-filter"></select>
-          </label>
+          <div class="filter-group">
+            <span class="filter-label">Website</span>
+            <div class="website-filter"></div>
+          </div>
+          <div class="filter-group">
+            <span class="filter-label">Year</span>
+            <div class="year-filter"></div>
+          </div>
+          <div class="filter-group">
+            <span class="filter-label">Month</span>
+            <div class="month-filter"></div>
+          </div>
           <button class="download-btn" type="button">Download CSV</button>
         </div>
       </div>
@@ -76,21 +71,36 @@
             <p class="selected-label selected-tier2-label"></p>
             <div class="chart tier3-chart"></div>
           </article>
+
+          <div class="left-support-grid">
+            <article class="summary-card compact-insight insight-topics">
+              <h3>Top Reviewed Topics (Top 10)</h3>
+              <ol class="top-topics"></ol>
+            </article>
+
+            <article class="summary-card compact-insight insight-websites">
+              <h3>Top Websites By Current Tier Level</h3>
+              <div class="website-tier-table"></div>
+            </article>
+          </div>
         </div>
 
         <aside class="right-col">
-          <article class="summary-card">
-            <h3>Top Reviewed Topics (Top 10)</h3>
-            <ol class="top-topics"></ol>
+          <div class="insight-tabs" role="tablist" aria-label="Negative insight views">
+            <button type="button" class="insight-tab is-active" data-insight-target="summary" aria-selected="true">Summary</button>
+            <button type="button" class="insight-tab" data-insight-target="reviews" aria-selected="false">Reviews</button>
+          </div>
+
+          <article class="summary-card feature-card insight-card insight-summary is-active" data-insight-panel="summary">
+            <h3>AI Summary Of Current Selection</h3>
+            <div class="ai-summary"></div>
           </article>
 
-          <article class="summary-card">
-            <h3>Top Websites By Current Tier Level</h3>
-            <div class="website-tier-table"></div>
-          </article>
-
-          <article class="summary-card">
-            <h3>Selected Tier Summary (Top 5 Reviews)</h3>
+          <article class="summary-card feature-card insight-card insight-reviews" data-insight-panel="reviews">
+            <div class="summary-card-header">
+              <h3>Selected Tier Summary (Representative Reviews)</h3>
+              <button type="button" class="refresh-reviews-btn">Show Other Reviews</button>
+            </div>
             <p class="selection-path"></p>
             <div class="selection-metrics"></div>
             <ol class="top-reviews"></ol>
@@ -103,18 +113,18 @@
       <div class="panel-title-row">
         <h2>Positive / General Reviews and Questions</h2>
         <div class="panel-controls">
-          <label>
-            Website
-            <select class="website-filter"></select>
-          </label>
-          <label>
-            Year
-            <select class="year-filter"></select>
-          </label>
-          <label>
-            Month
-            <select class="month-filter"></select>
-          </label>
+          <div class="filter-group">
+            <span class="filter-label">Website</span>
+            <div class="website-filter"></div>
+          </div>
+          <div class="filter-group">
+            <span class="filter-label">Year</span>
+            <div class="year-filter"></div>
+          </div>
+          <div class="filter-group">
+            <span class="filter-label">Month</span>
+            <div class="month-filter"></div>
+          </div>
           <button class="download-btn" type="button">Download CSV</button>
         </div>
       </div>
@@ -143,21 +153,36 @@
             <p class="selected-label selected-tier2-label"></p>
             <div class="chart tier3-chart"></div>
           </article>
+
+          <div class="left-support-grid">
+            <article class="summary-card compact-insight insight-topics">
+              <h3>Top Reviewed Topics (Top 10)</h3>
+              <ol class="top-topics"></ol>
+            </article>
+
+            <article class="summary-card compact-insight insight-websites">
+              <h3>Top Websites By Current Tier Level</h3>
+              <div class="website-tier-table"></div>
+            </article>
+          </div>
         </div>
 
         <aside class="right-col">
-          <article class="summary-card">
-            <h3>Top Reviewed Topics (Top 10)</h3>
-            <ol class="top-topics"></ol>
+          <div class="insight-tabs" role="tablist" aria-label="Positive insight views">
+            <button type="button" class="insight-tab is-active" data-insight-target="summary" aria-selected="true">Summary</button>
+            <button type="button" class="insight-tab" data-insight-target="reviews" aria-selected="false">Reviews</button>
+          </div>
+
+          <article class="summary-card feature-card insight-card insight-summary is-active" data-insight-panel="summary">
+            <h3>AI Summary Of Current Selection</h3>
+            <div class="ai-summary"></div>
           </article>
 
-          <article class="summary-card">
-            <h3>Top Websites By Current Tier Level</h3>
-            <div class="website-tier-table"></div>
-          </article>
-
-          <article class="summary-card">
-            <h3>Selected Tier Summary (Top 5 Reviews)</h3>
+          <article class="summary-card feature-card insight-card insight-reviews" data-insight-panel="reviews">
+            <div class="summary-card-header">
+              <h3>Selected Tier Summary (Representative Reviews)</h3>
+              <button type="button" class="refresh-reviews-btn">Show Other Reviews</button>
+            </div>
             <p class="selection-path"></p>
             <div class="selection-metrics"></div>
             <ol class="top-reviews"></ol>
@@ -170,13 +195,13 @@
   <section class="sources" id="sources-section">
     <details class="sources-dropdown">
       <summary>Collected Sources</summary>
+      <div class="source-health" id="source-health"></div>
       <ul id="source-list"></ul>
     </details>
   </section>
 
-  <script src="data/tiers-data.js"></script>
-  <script src="data/reviews-data.js"></script>
-  <script src="data/reviews-data-iaa.js"></script>
+  <script src="data/app-config.js"></script>
+  <script src="data/reviews-data-all.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

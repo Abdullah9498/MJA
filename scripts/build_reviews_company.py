@@ -70,7 +70,6 @@ APPLE_APP_IDS = BUSINESS_SETTINGS.get("apple_app_ids", [])
 APPLE_COUNTRIES = BUSINESS_SETTINGS.get("apple_countries", ["us", "gb", "ca"])
 REVIEWSIO_ROOT = BUSINESS_SETTINGS.get("reviewsio_root")
 COMPLAINTSBOARD_ROOT = BUSINESS_SETTINGS.get("complaintsboard_root")
-PISSEDCONSUMER_ROOT = None
 SMARTCUSTOMER_ROOT = BUSINESS_SETTINGS.get("smartcustomer_root")
 BIRDEYE_PAGES = BUSINESS_SETTINGS.get("birdeye_pages", [])
 BBB_SEARCH_TEXT = BUSINESS_SETTINGS.get("bbb_search_text", DISPLAY_NAME)
@@ -112,6 +111,7 @@ BASE_NON_US_GEO_MARKERS = {
     " whitburn ", " dvla ", " mot ", " v5c ", " vat ", " biba ", " cat s ", " cat n ",
     " ireland ", " dublin ", " germany ", " berlin ", " france ", " spain ", " netherlands ",
     " italy ", " canada ", " ontario ", " british columbia ", " australia ", " new zealand ",
+    " india ", " mumbai ", " delhi ", " bangalore ", " bengaluru ", " lpa ", " ctc ",
     " £", " ł",
 }
 
@@ -211,6 +211,21 @@ def build_exoneration_patterns():
 EXONERATION_PATTERNS = build_exoneration_patterns()
 TRUSTPILOT_LABEL_TOKENS = [f"({slug.lower()})" for slug in TRUSTPILOT_SLUGS]
 TRUSTPILOT_URL_TOKENS = [slug.lower() for slug in TRUSTPILOT_SLUGS]
+NON_US_TRUSTPILOT_SUFFIXES = (".co.uk", ".de", ".ie", ".es", ".fr", ".nl", ".it", ".ca")
+TRUSTPILOT_US_SLUGS = BUSINESS_SETTINGS.get("trustpilot_us_slugs")
+if TRUSTPILOT_US_SLUGS is None:
+    TRUSTPILOT_US_SLUGS = [
+        slug for slug in TRUSTPILOT_SLUGS
+        if not any(str(slug).lower().endswith(suffix) for suffix in NON_US_TRUSTPILOT_SUFFIXES)
+    ]
+TRUSTPILOT_US_LABEL_TOKENS = [f"({slug.lower()})" for slug in TRUSTPILOT_US_SLUGS]
+TRUSTPILOT_US_URL_TOKENS = [slug.lower() for slug in TRUSTPILOT_US_SLUGS]
+TRUSTPILOT_NON_US_LABEL_TOKENS = [
+    f"({slug.lower()})" for slug in TRUSTPILOT_SLUGS if slug not in TRUSTPILOT_US_SLUGS
+]
+TRUSTPILOT_NON_US_URL_TOKENS = [
+    slug.lower() for slug in TRUSTPILOT_SLUGS if slug not in TRUSTPILOT_US_SLUGS
+]
 REVIEWSIO_URL_TOKENS = [token.lower() for token in BUSINESS_SETTINGS.get("reviewsio_url_tokens", [])]
 if not REVIEWSIO_URL_TOKENS and REVIEWSIO_ROOT:
     parsed_root = requests.utils.urlparse(REVIEWSIO_ROOT).path.lower().rstrip("/")
@@ -226,6 +241,16 @@ S.headers.update({
     "Accept": "application/json,text/plain,*/*",
     "Accept-Language": "en-US,en;q=0.9",
 })
+
+READER_PREFIX = "https://r.jina.ai/http://"
+CHALLENGE_TERMS = (
+    "verifying connection",
+    "just a moment",
+    "captcha",
+    "access denied",
+    "cloudflare",
+    "enable javascript",
+)
 
 
 def unique_preserve(items):
@@ -282,7 +307,9 @@ class Collector:
         self.geo_excluded_counts = Counter()
         self.geo_excluded_examples = []
         self.existing_latest_by_source = {}
+        self.existing_counts_by_source = Counter()
         self.existing_review_count = 0
+        self.source_health = {}
         self.reddit_verified = False
         self.reddit_verification_attempted = False
         self.reddit_browser_ready = False
@@ -330,11 +357,297 @@ class Collector:
 
             source_website = str(clean_row.get("source_website") or "").strip()
             review_date = self.normalize_date(clean_row.get("review_date"))
+            if source_website:
+                self.existing_counts_by_source[source_website] += 1
             if source_website and review_date > self.existing_latest_by_source.get(source_website, ""):
                 self.existing_latest_by_source[source_website] = review_date
 
         self.records.extend(existing_rows)
         self.existing_review_count = len(existing_rows)
+
+    def _source_health_entry(self, source_website: str) -> dict:
+        source = str(source_website or "").strip()
+        if source not in self.source_health:
+            self.source_health[source] = {
+                "source_website": source,
+                "attempted": False,
+                "direct_pages": 0,
+                "fallback_pages": 0,
+                "direct_statuses": {},
+                "blocked": False,
+                "fallback_used": False,
+                "candidate_reviews_seen": 0,
+                "new_reviews_added": 0,
+                "advertised_total": None,
+                "latest_candidate_date": None,
+                "notes": [],
+                "errors": [],
+            }
+        return self.source_health[source]
+
+    def note_source_attempt(self, source_website: str, *, status_code=None, blocked=False, fallback=False, pages=0, candidates=0, added=0, latest_date=None, advertised_total=None, note=None, error=None):
+        entry = self._source_health_entry(source_website)
+        entry["attempted"] = True
+        if fallback:
+            entry["fallback_used"] = True
+            entry["fallback_pages"] += int(pages or 0)
+        else:
+            entry["direct_pages"] += int(pages or 0)
+        if status_code is not None:
+            key = str(status_code)
+            entry["direct_statuses"][key] = int(entry["direct_statuses"].get(key, 0)) + 1
+        if blocked:
+            entry["blocked"] = True
+        if candidates:
+            entry["candidate_reviews_seen"] += int(candidates)
+        if added:
+            entry["new_reviews_added"] += int(added)
+        if advertised_total is not None:
+            try:
+                entry["advertised_total"] = int(advertised_total)
+            except Exception:
+                entry["advertised_total"] = advertised_total
+        normalized_latest = self.normalize_date(latest_date) if latest_date else None
+        if normalized_latest and normalized_latest != "1970-01-01":
+            current = entry.get("latest_candidate_date")
+            if not current or normalized_latest > current:
+                entry["latest_candidate_date"] = normalized_latest
+        if note and note not in entry["notes"]:
+            entry["notes"].append(str(note)[:300])
+        if error:
+            entry["errors"].append(str(error)[:300])
+
+    def source_run_start(self, source_website: str) -> int:
+        self.note_source_attempt(source_website)
+        return len(self.records)
+
+    def source_run_finish(self, source_website: str, start_count: int, *, candidates=0, latest_date=None, advertised_total=None, note=None):
+        self.note_source_attempt(
+            source_website,
+            candidates=candidates,
+            added=max(0, len(self.records) - int(start_count)),
+            latest_date=latest_date,
+            advertised_total=advertised_total,
+            note=note,
+        )
+
+    @staticmethod
+    def is_challenge_response(status_code, text: str) -> bool:
+        lowered = str(text or "").lower()
+        return int(status_code or 0) in {401, 403, 429, 503} or any(term in lowered[:20000] for term in CHALLENGE_TERMS)
+
+    @staticmethod
+    def reader_url(url: str) -> str:
+        target = re.sub(r"^https?://", "", str(url or "").strip())
+        return f"{READER_PREFIX}{target}"
+
+    def fetch_reader_text(self, url: str, source_website: str) -> str:
+        reader = self.reader_url(url)
+        try:
+            resp = S.get(reader, timeout=60, headers={"Accept": "text/plain,*/*"})
+            self.note_source_attempt(source_website, status_code=resp.status_code, fallback=True, pages=1)
+            if resp.status_code != 200:
+                self.note_source_attempt(source_website, fallback=True, error=f"reader status {resp.status_code} for {url}")
+                return ""
+            text = resp.text or ""
+            if self.is_challenge_response(resp.status_code, text):
+                self.note_source_attempt(source_website, fallback=True, blocked=True, note=f"reader challenge for {url}")
+                return ""
+            return text
+        except Exception as exc:
+            self.note_source_attempt(source_website, fallback=True, error=f"reader error for {url}: {exc}")
+            return ""
+
+    def parse_trustpilot_reader_reviews(self, markdown: str) -> list[dict]:
+        lines = str(markdown or "").splitlines()
+        heading_re = re.compile(r"^## \[(?P<title>.+?)\]\((?P<url>https?://www\.trustpilot\.com/reviews/(?P<id>[^)]+))\)")
+        date_re = re.compile(
+            r"^(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+\d{1,2},\s+\d{4}$"
+            r"|^\d{1,2}/\d{1,2}/\d{4}$",
+            re.I,
+        )
+        noise_lines = {
+            "unprompted review",
+            "invited review",
+            "verified review",
+            "discover more",
+            "advertisement",
+            "autos & vehicles",
+            "auto",
+            "used vehicles",
+            "auctions",
+        }
+
+        entries = []
+        idx = 0
+        while idx < len(lines):
+            match = heading_re.match(lines[idx].strip())
+            if not match:
+                idx += 1
+                continue
+
+            title = self.normalize_text(unescape(match.group("title")))
+            review_url = match.group("url")
+            review_id = match.group("id")
+            block = []
+            idx += 1
+            while idx < len(lines) and not heading_re.match(lines[idx].strip()):
+                block.append(lines[idx].strip())
+                idx += 1
+
+            review_date = "1970-01-01"
+            body_lines = []
+            for raw_line in block:
+                line = self.normalize_text(unescape(raw_line))
+                if not line:
+                    continue
+                if date_re.match(line):
+                    review_date = self.normalize_date(line)
+                    break
+                lowered = line.lower()
+                if lowered in noise_lines or lowered.startswith("![image") or lowered.startswith("see if a website"):
+                    continue
+                if lowered == title.lower():
+                    continue
+                body_lines.append(line)
+
+            review_text = self.normalize_text(f"{title}. {' '.join(body_lines)}")
+            if review_date == "1970-01-01" or not review_text:
+                continue
+            entries.append({
+                "id": review_id,
+                "title": title,
+                "text": review_text,
+                "date": review_date,
+                "url": review_url,
+            })
+        return entries
+
+    def parse_bbb_reader_customer_reviews(self, markdown: str) -> list[dict]:
+        text = str(markdown or "")
+        matches = list(re.finditer(r"^\*\s+### Review from (?P<author>.+?)\s*$", text, flags=re.M))
+        entries = []
+        for idx, match in enumerate(matches):
+            block = text[match.end(): matches[idx + 1].start() if idx + 1 < len(matches) else len(text)]
+            date_match = re.search(r"\*\*Date:\*\*\s*(?P<date>\d{1,2}/\d{1,2}/\d{4})", block)
+            if not date_match:
+                continue
+            body = block[date_match.end():]
+            body = re.split(r"\n\s*\*\*Date:\*\*", body, maxsplit=1)[0]
+            body = re.split(r"\s+####\s+", body, maxsplit=1)[0]
+            body = self.normalize_text(body)
+            rating = None
+            rating_match = re.search(r"\b([1-5])\s+stars?\b", body, flags=re.I)
+            if rating_match:
+                rating = int(rating_match.group(1))
+                body = self.normalize_text(re.sub(r"^\s*[1-5]\s+stars?\s+", "", body, flags=re.I))
+            if not body:
+                continue
+            entries.append({
+                "author": self.normalize_text(match.group("author")) or "BBB reviewer",
+                "date": self.normalize_date(date_match.group("date")),
+                "rating": rating,
+                "text": body,
+                "url_fragment": f"review-{idx + 1}",
+            })
+        return entries
+
+    def parse_bbb_reader_complaints(self, markdown: str) -> list[dict]:
+        text = str(markdown or "")
+        matches = list(re.finditer(r"^\*\s+### \[Initial Complaint\]\((?P<url>[^)]+)\)", text, flags=re.M))
+        entries = []
+        for idx, match in enumerate(matches):
+            block = text[match.end(): matches[idx + 1].start() if idx + 1 < len(matches) else len(text)]
+            date_match = re.search(r"\*\*Date:\*\*\s*(?P<date>(?:\d{1,2}/\d{1,2}/\d{4}|[A-Za-z]+\s+\d{1,2},\s+\d{4}))", block)
+            if not date_match:
+                continue
+            type_match = re.search(r"\*\*Type:\*\*\s*(?P<type>.*?)\s+\*\*Status:\*\*\s*(?P<status>.*?)(?:\s+More info|\n)", block, flags=re.S)
+            complaint_type = self.normalize_text(type_match.group("type") if type_match else "BBB complaint")
+            status = self.normalize_text(type_match.group("status") if type_match else "")
+
+            body_start = type_match.end() if type_match else date_match.end()
+            body = block[body_start:]
+            body = re.split(r"\s+####\s+Business Response", body, maxsplit=1)[0]
+            body = re.sub(r"^.*?Complaint statuses\s*", "", body, flags=re.S)
+            complaint_match = re.search(r"Complaint:\s*(?P<body>.*)", body, flags=re.S)
+            if complaint_match:
+                body = complaint_match.group("body")
+            body = re.split(r"Desired Resolution:", body, maxsplit=1)[0]
+            body = re.sub(
+                r"Resolved:The complainant.*?Unpursuable:BBB is unable to locate the business\.\s*",
+                "",
+                body,
+                flags=re.S,
+            )
+            body = re.sub(r"\*\*Type:\*\*.*?(?:More info)?", "", body, flags=re.S)
+            body = self.normalize_text(body)
+            if not body:
+                continue
+
+            label = f"{complaint_type} complaint".strip()
+            if status:
+                label = f"{label} ({status})"
+            entries.append({
+                "author": "BBB complainant",
+                "date": self.normalize_date(date_match.group("date")),
+                "rating": 1,
+                "text": self.normalize_text(f"{label}. {body}"),
+                "url": requests.compat.urljoin("https://www.bbb.org", match.group("url")),
+            })
+        return entries
+
+    def build_source_health_audit(self, source_counts: Counter, rows: list[dict]) -> list[dict]:
+        latest_by_source = {}
+        for row in rows:
+            source = row.get("source_website")
+            review_date = self.normalize_date(row.get("review_date"))
+            if source and review_date > latest_by_source.get(source, ""):
+                latest_by_source[source] = review_date
+
+        audit = []
+        for source in EXPECTED_SOURCE_WEBSITES:
+            entry = dict(self.source_health.get(source) or {"source_website": source})
+            review_count = int(source_counts.get(source, 0))
+            existing_count = int(self.existing_counts_by_source.get(source, 0))
+            entry.update({
+                "source_website": source,
+                "review_count": review_count,
+                "existing_review_count": existing_count,
+                "present": bool(review_count),
+                "latest_review_date": latest_by_source.get(source),
+                "existing_latest_date": self.existing_latest_by_source.get(source),
+            })
+
+            if entry.get("blocked") and not entry.get("fallback_used"):
+                status = "blocked"
+            elif not entry.get("attempted"):
+                status = "not_attempted"
+            elif entry.get("candidate_reviews_seen", 0) > 0:
+                status = "ok" if review_count > 0 else "parsed_no_new_rows"
+            elif review_count > 0:
+                notes_text = " ".join(str(note) for note in entry.get("notes", []))
+                if "candidate count is not separately tracked" in notes_text:
+                    status = "ok"
+                else:
+                    status = "stale_or_no_recent_candidates"
+            else:
+                status = "missing"
+
+            if entry.get("advertised_total") and review_count:
+                try:
+                    total = int(entry["advertised_total"])
+                    if total > review_count * 2:
+                        entry.setdefault("notes", []).append(
+                            f"Advertised total {total} is much larger than accepted rows {review_count}; source is likely partially covered after filters/pagination."
+                        )
+                        if status == "ok":
+                            status = "partial"
+                except Exception:
+                    pass
+
+            entry["status"] = status
+            audit.append(entry)
+        return audit
 
     def _remember_existing_key(self, row: dict):
         source_website = str(row.get("source_website") or "").strip()
@@ -464,6 +777,19 @@ class Collector:
     @staticmethod
     def normalize_text(text: str) -> str:
         text = str(text or "").replace("\x00", " ")
+        replacements = {
+            "â€™": "'",
+            "â€˜": "'",
+            "â€œ": '"',
+            "â€": '"',
+            "â€": '"',
+            "â€¦": "...",
+            "â€“": "-",
+            "â€”": "-",
+            "Â": "",
+        }
+        for bad, good in replacements.items():
+            text = text.replace(bad, good)
         text = re.sub(r"\s+", " ", text).strip()
         return text
 
@@ -475,6 +801,17 @@ class Collector:
         m = re.search(r"(\d{4}-\d{2}-\d{2})", s)
         if m:
             return m.group(1)
+        m = re.search(r"(\d{1,2})/(\d{1,2})/(\d{4})", s)
+        if m:
+            try:
+                d = datetime.strptime(m.group(0), "%m/%d/%Y")
+                return d.date().isoformat()
+            except Exception:
+                try:
+                    d = datetime.strptime(m.group(0), "%d/%m/%Y")
+                    return d.date().isoformat()
+                except Exception:
+                    pass
         for fmt in ("%b %d, %Y", "%B %d, %Y"):
             try:
                 d = datetime.strptime(s, fmt)
@@ -594,10 +931,20 @@ class Collector:
             return True, "birdeye_us_profile"
 
         if source_website == "trustpilot.com":
-            if any(token in label_lower for token in TRUSTPILOT_LABEL_TOKENS) or any(token in url_lower for token in TRUSTPILOT_URL_TOKENS):
+            is_us_slug = (
+                any(token in label_lower for token in TRUSTPILOT_US_LABEL_TOKENS)
+                or any(token in url_lower for token in TRUSTPILOT_US_URL_TOKENS)
+            )
+            is_non_us_slug = (
+                any(token in label_lower for token in TRUSTPILOT_NON_US_LABEL_TOKENS)
+                or any(token in url_lower for token in TRUSTPILOT_NON_US_URL_TOKENS)
+            )
+            if is_us_slug:
                 if has_non_us_marker and not has_strong_us_marker:
                     return False, "trustpilot_us_slug_non_us_marker"
                 return True, "trustpilot_us_slug"
+            if is_non_us_slug and not has_strong_us_marker:
+                return False, "trustpilot_non_us_slug"
             if has_strong_us_marker:
                 return True, "trustpilot_us_exception"
             return False, "trustpilot_non_us_slug"
@@ -728,14 +1075,13 @@ class Collector:
 
     def is_copart_relevant(self, source_website: str, source_label: str, text: str) -> bool:
         t = str(text or "").lower()
-        source_haystack = f" {source_label or ''} {text or ''} ".lower()
 
         if not t:
             return False
         if any(term in t for term in OFFTOPIC_TERMS):
             return False
 
-        has_copart = self.mentions_company(source_haystack)
+        has_copart = self.mentions_company(f" {text or ''} ".lower())
         has_context = any(term in t for term in COMPANY_CONTEXT_TERMS)
         has_experience_signal = any(term in t for term in {
             "i ", "my ", "me ", "we ", "our ", "called", "emailed", "bought", "won",
@@ -753,7 +1099,9 @@ class Collector:
             return True
 
         # For dedicated review endpoints (app stores, Trustpilot, BBB, etc.), explicit mention
-        # is not always present, but review text still needs some operational context.
+        # is not always present, but review text still needs operational context. Do not count
+        # the source label itself as a company mention; otherwise off-topic Trustpilot posts
+        # such as hiring/interview complaints can be incorrectly admitted.
         return has_context or has_copart or has_experience_signal
 
     @staticmethod
@@ -1005,6 +1353,9 @@ class Collector:
 
     def collect_google_play(self):
         print("[collect] Google Play reviews")
+        start_count = self.source_run_start("play.google.com")
+        candidates_seen = 0
+        latest_candidate_date = None
         for app_id in GOOGLE_PLAY_APPS:
             for country, lang in GOOGLE_PLAY_MARKETS:
                 continuation = None
@@ -1036,6 +1387,9 @@ class Collector:
                             date_iso = "1970-01-01"
                         if batch_oldest_date is None or date_iso < batch_oldest_date:
                             batch_oldest_date = date_iso
+                        candidates_seen += 1
+                        if date_iso != "1970-01-01" and (latest_candidate_date is None or date_iso > latest_candidate_date):
+                            latest_candidate_date = date_iso
 
                         self.add_review(
                             source_website="play.google.com",
@@ -1056,6 +1410,7 @@ class Collector:
                         break
                     if not continuation:
                         break
+        self.source_run_finish("play.google.com", start_count, candidates=candidates_seen, latest_date=latest_candidate_date)
 
     @staticmethod
     def _decode_apple_html_value(value: str) -> str:
@@ -1142,6 +1497,9 @@ class Collector:
 
     def collect_apple(self):
         print("[collect] Apple App Store reviews")
+        start_count = self.source_run_start("apps.apple.com")
+        candidates_seen = 0
+        latest_candidate_date = None
         for app_id in APPLE_APP_IDS:
             for country in APPLE_COUNTRIES:
                 empty_streak = 0
@@ -1194,6 +1552,9 @@ class Collector:
                         author = ((e.get("author") or {}).get("name") or {}).get("label") or "Apple user"
                         updated = (e.get("updated") or {}).get("label") or "1970-01-01"
                         review_date = updated[:10]
+                        candidates_seen += 1
+                        if review_date != "1970-01-01" and (latest_candidate_date is None or review_date > latest_candidate_date):
+                            latest_candidate_date = review_date
                         if page_oldest_date is None or review_date < page_oldest_date:
                             page_oldest_date = review_date
 
@@ -1213,6 +1574,14 @@ class Collector:
                 added = self.collect_apple_html_reviews(app_id, country)
                 if added:
                     print(f"  - HTML supplement {app_id} {country}: +{added}")
+
+        self.source_run_finish(
+            "apps.apple.com",
+            start_count,
+            candidates=candidates_seen,
+            latest_date=latest_candidate_date,
+            note="Apple RSS can be sparse for some app IDs; HTML supplement captures visible App Store review cards only.",
+        )
 
                     
     def collect_youtube_comments(self):
@@ -2114,7 +2483,9 @@ class Collector:
 
     def collect_trustpilot(self):
         print("[collect] Trustpilot reviews")
-        start_count = len(self.records)
+        start_count = self.source_run_start("trustpilot.com")
+        candidates_seen = 0
+        latest_candidate_date = None
 
         for slug in TRUSTPILOT_SLUGS:
             page = 1
@@ -2126,7 +2497,11 @@ class Collector:
 
                 try:
                     resp = S.get(url, timeout=45)
+                    self.note_source_attempt("trustpilot.com", status_code=resp.status_code, pages=1)
                     if resp.status_code != 200:
+                        if self.is_challenge_response(resp.status_code, resp.text):
+                            self.note_source_attempt("trustpilot.com", blocked=True, note=f"direct Trustpilot blocked for {slug}")
+                            break
                         break
                     html = resp.text
                 except Exception:
@@ -2134,6 +2509,8 @@ class Collector:
 
                 m = re.search(r'<script id="__NEXT_DATA__" type="application/json">(.*?)</script>', html, re.S)
                 if not m:
+                    if self.is_challenge_response(resp.status_code, html):
+                        self.note_source_attempt("trustpilot.com", blocked=True, note=f"direct Trustpilot challenge for {slug}")
                     break
 
                 try:
@@ -2148,6 +2525,7 @@ class Collector:
 
                 if page == 1:
                     total_reviews = pp.get("businessUnit", {}).get("numberOfReviews") or len(reviews)
+                    self.note_source_attempt("trustpilot.com", advertised_total=total_reviews)
                     try:
                         max_pages = min(1400, math.ceil(int(total_reviews) / 20) + 2)
                     except Exception:
@@ -2164,10 +2542,13 @@ class Collector:
                     normalized_published = self.normalize_date(published)
                     if page_oldest_date is None or normalized_published < page_oldest_date:
                         page_oldest_date = normalized_published
+                    if normalized_published != "1970-01-01" and (latest_candidate_date is None or normalized_published > latest_candidate_date):
+                        latest_candidate_date = normalized_published
                     consumer = r.get("consumer") or {}
                     author = consumer.get("displayName") or "Trustpilot user"
                     review_url = f"https://www.trustpilot.com/reviews/{rid}" if rid else url
 
+                    candidates_seen += 1
                     self.add_review(
                         source_website="trustpilot.com",
                         source_label=f"Trustpilot ({slug})",
@@ -2190,113 +2571,92 @@ class Collector:
 
             print(f"  - {slug} done at page {page - 1}")
 
+            # Trustpilot often serves a challenge page to non-browser HTTP clients.
+            # Reader fallback gives us the current public review markdown when direct
+            # JSON is unavailable.
+            if page == 1:
+                fallback_added = self.collect_trustpilot_reader_slug(slug)
+                if fallback_added:
+                    print(f"  - reader fallback {slug}: +{fallback_added}")
+
+        self.source_run_finish(
+            "trustpilot.com",
+            start_count,
+            candidates=candidates_seen,
+            latest_date=latest_candidate_date,
+        )
         print(f"  - Added {len(self.records) - start_count} Trustpilot reviews")
 
-    def collect_pissedconsumer(self):
-        print("[collect] PissedConsumer reviews")
-        start_count = len(self.records)
+    def collect_trustpilot_reader_slug(self, slug: str) -> int:
+        source_start = len(self.records)
+        candidates_seen = 0
+        latest_candidate_date = None
+        seen_page_signatures = set()
 
-        if not PISSEDCONSUMER_ROOT:
-            return
+        for page in range(1, 80):
+            url = f"https://www.trustpilot.com/review/{slug}"
+            if page > 1:
+                url += f"?page={page}"
+            markdown = self.fetch_reader_text(url, "trustpilot.com")
+            if not markdown:
+                break
 
-        first_url = f"{PISSEDCONSUMER_ROOT.rstrip('/')}/review.html?page=1"
-        try:
-            html = S.get(first_url, timeout=40).text
-        except Exception:
-            return
+            entries = self.parse_trustpilot_reader_reviews(markdown)
+            if not entries:
+                break
 
-        title_match = re.search(r"(\d+)\s+[A-Za-z0-9 '&+.-]+ Reviews", html, re.I)
-        total_est = int(title_match.group(1)) if title_match else 350
-        max_pages = min(80, math.ceil(total_est / 15) + 5)
+            signature = tuple((entry["url"], entry["date"], entry["text"][:80]) for entry in entries[:8])
+            if signature in seen_page_signatures:
+                break
+            seen_page_signatures.add(signature)
 
-        seen_signatures = set()
-
-        for page in range(1, max_pages + 1):
-            url = f"{PISSEDCONSUMER_ROOT.rstrip('/')}/review.html?page={page}"
-            try:
-                html = S.get(url, timeout=40).text
-            except Exception:
-                continue
-
-            soup = BeautifulSoup(html, "html.parser")
-            items = soup.select("div.f-component-item.review-item")
-            if not items:
-                continue
-
-            page_ids = []
-            before_page_count = len(self.records)
-            for item in items:
-                rid = item.get("data-id")
-                if rid:
-                    page_ids.append(rid)
-
-                body_node = item.find(attrs={"itemprop": "reviewBody"})
-                body = self.normalize_text(body_node.get_text(" ", strip=True) if body_node else "")
-
-                title_node = item.find(["h1", "h2", "h3"])
-                title = self.normalize_text(title_node.get_text(" ", strip=True) if title_node else "")
-
-                author_node = item.find(attrs={"itemprop": "author"})
-                author = self.normalize_text(author_node.get_text(" ", strip=True) if author_node else "PissedConsumer user")
-
-                date_node = item.find(attrs={"itemprop": "datePublished"})
-                if date_node and date_node.get("content"):
-                    date_raw = date_node.get("content")
-                elif date_node:
-                    date_raw = date_node.get_text(" ", strip=True)
-                else:
-                    date_raw = "1970-01-01"
-
-                rating_node = item.find(attrs={"itemprop": "ratingValue"})
-                rating_raw = None
-                if rating_node:
-                    rating_raw = rating_node.get("content") or rating_node.get_text(" ", strip=True)
-                try:
-                    rating = float(rating_raw) if rating_raw else None
-                except Exception:
-                    rating = None
-
-                if title and title.lower() not in body.lower():
-                    review_text = f"{title}. {body}" if body else title
-                else:
-                    review_text = body or title
-
+            page_oldest_date = None
+            for entry in entries:
+                review_date = self.normalize_date(entry["date"])
+                candidates_seen += 1
+                if page_oldest_date is None or review_date < page_oldest_date:
+                    page_oldest_date = review_date
+                if review_date != "1970-01-01" and (latest_candidate_date is None or review_date > latest_candidate_date):
+                    latest_candidate_date = review_date
                 self.add_review(
-                    source_website="pissedconsumer.com",
-                    source_label="PissedConsumer",
-                    source_url=f"{url}#review-{rid}" if rid else url,
-                    author=author,
-                    review_date=date_raw,
-                    rating=rating,
-                    review_text=review_text,
-                    external_id=f"pc_{rid}" if rid else None,
+                    source_website="trustpilot.com",
+                    source_label=f"Trustpilot ({slug})",
+                    source_url=entry["url"],
+                    author="Trustpilot user",
+                    review_date=review_date,
+                    rating=None,
+                    review_text=entry["text"],
+                    external_id=f"tp_reader_{slug}_{entry['id']}",
                 )
 
-            sig = tuple(page_ids)
-            if sig in seen_signatures:
+            if page_oldest_date and page_oldest_date < self.since:
                 break
-            seen_signatures.add(sig)
-
-            if len(self.records) == before_page_count and page > 5:
+            if len(entries) < 8:
                 break
+            time.sleep(0.12)
 
-            if page % 10 == 0:
-                print(f"  - page {page}/{max_pages}: {len(self.records)} collected")
-
-            time.sleep(0.07)
-
-        print(f"  - Added {len(self.records) - start_count} PissedConsumer reviews")
+        self.note_source_attempt(
+            "trustpilot.com",
+            candidates=candidates_seen,
+            latest_date=latest_candidate_date,
+            fallback=True,
+        )
+        return max(0, len(self.records) - source_start)
 
     def collect_smartcustomer(self):
         print("[collect] SmartCustomer reviews")
-        start_count = len(self.records)
+        start_count = self.source_run_start("smartcustomer.com")
+        candidates_seen = 0
+        latest_candidate_date = None
 
         if not SMARTCUSTOMER_ROOT:
             return
 
         url = SMARTCUSTOMER_ROOT
         try:
-            html = S.get(url, timeout=35).text
+            resp = S.get(url, timeout=35)
+            html = resp.text
+            self.note_source_attempt("smartcustomer.com", status_code=resp.status_code, pages=1)
         except Exception:
             return
 
@@ -2324,6 +2684,10 @@ class Collector:
                 except Exception:
                     rating = None
                 date_raw = r.get("datePublished") or "1970-01-01"
+                review_date = self.normalize_date(date_raw)
+                candidates_seen += 1
+                if review_date != "1970-01-01" and (latest_candidate_date is None or review_date > latest_candidate_date):
+                    latest_candidate_date = review_date
                 headline = self.normalize_text(r.get("headline") or "")
                 body = self.normalize_text(r.get("reviewBody") or "")
                 review_text = self.normalize_text(f"{headline}. {body}")
@@ -2334,17 +2698,21 @@ class Collector:
                     source_label="SmartCustomer",
                     source_url=review_url,
                     author=author,
-                    review_date=date_raw,
+                    review_date=review_date,
                     rating=rating,
                     review_text=review_text,
                     external_id=f"sc_{review_url}",
                 )
 
+        self.source_run_finish("smartcustomer.com", start_count, candidates=candidates_seen, latest_date=latest_candidate_date)
         print(f"  - Added {len(self.records) - start_count} SmartCustomer reviews")
 
     def collect_birdeye(self):
         print("[collect] Birdeye reviews")
-        start_count = len(self.records)
+        start_count = self.source_run_start("birdeye.com")
+        candidates_seen = 0
+        latest_candidate_date = None
+        advertised_total = None
 
         if not BIRDEYE_PAGES:
             return
@@ -2354,11 +2722,27 @@ class Collector:
             for page in range(1, 450):
                 paged_url = page_url if page == 1 else f"{page_url}{'&' if '?' in page_url else '?'}page={page}"
                 try:
-                    html = S.get(paged_url, timeout=35).text
+                    resp = S.get(paged_url, timeout=35)
+                    html = resp.text
+                    self.note_source_attempt("birdeye.com", status_code=resp.status_code, pages=1)
                 except Exception:
                     break
 
                 soup = BeautifulSoup(html, "html.parser")
+                if page == 1:
+                    for script in soup.find_all("script", type="application/ld+json"):
+                        try:
+                            data = json.loads(script.get_text())
+                        except Exception:
+                            continue
+                        candidates = data if isinstance(data, list) else [data]
+                        for item in candidates:
+                            if isinstance(item, dict):
+                                rating = item.get("aggregateRating") or {}
+                                if rating.get("reviewCount"):
+                                    advertised_total = max(int(advertised_total or 0), int(rating.get("reviewCount")))
+                if advertised_total:
+                    self.note_source_attempt("birdeye.com", advertised_total=advertised_total)
                 blocks = soup.find_all("div", class_=re.compile(r"CustomerReview_clientsReviews"))
                 if not blocks:
                     break
@@ -2391,9 +2775,12 @@ class Collector:
                             review_date_raw = summary_parts[on_index + 2]
 
                     review_date = self.normalize_relative_date(review_date_raw)
+                    candidates_seen += 1
                     if review_date != "1970-01-01":
                         if page_oldest_date is None or review_date < page_oldest_date:
                             page_oldest_date = review_date
+                        if latest_candidate_date is None or review_date > latest_candidate_date:
+                            latest_candidate_date = review_date
 
                     external_seed = f"{paged_url}|{author}|{review_date}|{review_text[:160]}"
                     external_id = hashlib.md5(external_seed.encode("utf-8")).hexdigest()[:16]
@@ -2425,11 +2812,22 @@ class Collector:
                 if len(blocks) < 3:
                     break
 
+        self.source_run_finish(
+            "birdeye.com",
+            start_count,
+            candidates=candidates_seen,
+            latest_date=latest_candidate_date,
+            advertised_total=advertised_total,
+            note="Birdeye advertised totals may include syndicated Google/Birdeye network reviews; accepted rows are visible textual review cards that pass filters.",
+        )
         print(f"  - Added {len(self.records) - start_count} Birdeye reviews")
 
     def collect_reviewsio(self):
         print("[collect] Reviews.io reviews")
-        start_count = len(self.records)
+        start_count = self.source_run_start("reviews.io")
+        candidates_seen = 0
+        latest_candidate_date = None
+        advertised_total = None
 
         if not REVIEWSIO_ROOT:
             return
@@ -2446,7 +2844,9 @@ class Collector:
             seen_pages.add(url)
 
             try:
-                html = S.get(url, timeout=40).text
+                resp = S.get(url, timeout=40)
+                html = resp.text
+                self.note_source_attempt("reviews.io", status_code=resp.status_code, pages=1)
             except Exception:
                 continue
 
@@ -2459,6 +2859,11 @@ class Collector:
                 data = json.loads(script.get_text())
             except Exception:
                 continue
+
+            try:
+                advertised_total = (((data.get("aggregateRating") or {}).get("reviewCount")) or advertised_total)
+            except Exception:
+                pass
 
             reviews = data.get("review") if isinstance(data, dict) else None
             if not isinstance(reviews, list) or not reviews:
@@ -2488,6 +2893,9 @@ class Collector:
                 headline = self.normalize_text(unescape(str(row.get("name") or row.get("headline") or "")))
                 body = self.normalize_text(unescape(str(row.get("reviewBody") or "")))
                 review_text = self.normalize_text(f"{headline}. {body}")
+                candidates_seen += 1
+                if review_date != "1970-01-01" and (latest_candidate_date is None or review_date > latest_candidate_date):
+                    latest_candidate_date = review_date
 
                 review_url = row.get("url") or f"{url}#review-{idx + 1}"
                 self.add_review(
@@ -2512,11 +2920,21 @@ class Collector:
                 if href not in seen_pages and href not in queue:
                     queue.append(href)
 
+        self.source_run_finish(
+            "reviews.io",
+            start_count,
+            candidates=candidates_seen,
+            latest_date=latest_candidate_date,
+            advertised_total=advertised_total,
+        )
         print(f"  - Added {len(self.records) - start_count} Reviews.io reviews")
 
     def collect_complaintsboard(self):
         print("[collect] ComplaintsBoard reviews")
-        start_count = len(self.records)
+        start_count = self.source_run_start("complaintsboard.com")
+        candidates_seen = 0
+        latest_candidate_date = None
+        advertised_total = None
 
         if not COMPLAINTSBOARD_ROOT:
             return
@@ -2533,11 +2951,23 @@ class Collector:
             seen_pages.add(url)
 
             try:
-                html = S.get(url, timeout=45).text
+                resp = S.get(url, timeout=45)
+                html = resp.text
+                self.note_source_attempt("complaintsboard.com", status_code=resp.status_code, pages=1)
             except Exception:
                 continue
 
             soup = BeautifulSoup(html, "html.parser")
+            if advertised_total is None:
+                for script in soup.find_all("script", type="application/ld+json"):
+                    try:
+                        data = json.loads(script.get_text())
+                    except Exception:
+                        continue
+                    if isinstance(data, dict):
+                        advertised_total = data.get("reviewCount") or data.get("interactionCount") or advertised_total
+                if advertised_total is not None:
+                    self.note_source_attempt("complaintsboard.com", advertised_total=advertised_total)
             cards = soup.select(".complaint")
             if not cards:
                 continue
@@ -2557,6 +2987,9 @@ class Collector:
                 location = self.normalize_text(location_node.get_text(" ", strip=True) if location_node else "")
                 location = re.sub(r"^of\s+", "", location, flags=re.I).strip()
                 review_date = self.normalize_date(date_node.get_text(" ", strip=True) if date_node else "1970-01-01")
+                candidates_seen += 1
+                if review_date != "1970-01-01" and (latest_candidate_date is None or review_date > latest_candidate_date):
+                    latest_candidate_date = review_date
                 country_map = {
                     "US": "United States",
                     "GB": "United Kingdom",
@@ -2625,6 +3058,13 @@ class Collector:
                 if href not in seen_pages and href not in queue:
                     queue.append(href)
 
+        self.source_run_finish(
+            "complaintsboard.com",
+            start_count,
+            candidates=candidates_seen,
+            latest_date=latest_candidate_date,
+            advertised_total=advertised_total,
+        )
         print(f"  - Added {len(self.records) - start_count} ComplaintsBoard reviews")
 
     def discover_bbb_profiles(self):
@@ -2662,22 +3102,60 @@ class Collector:
 
     def collect_bbb_complaints(self):
         print("[collect] BBB complaints")
-        start_count = len(self.records)
+        start_count = self.source_run_start("bbb.org")
+        candidates_seen = 0
+        latest_candidate_date = None
 
         profiles = self.discover_bbb_profiles()
         for profile in profiles:
             complaints_root = f"{profile.rstrip('/')}/complaints"
+            seen_page_signatures = set()
             for page in range(1, 70):
                 url = complaints_root if page == 1 else f"{complaints_root}?page={page}"
                 try:
-                    html = S.get(url, timeout=45).text
+                    resp = S.get(url, timeout=45)
+                    html = resp.text
+                    self.note_source_attempt("bbb.org", status_code=resp.status_code, pages=1)
                 except Exception:
                     break
 
                 soup = BeautifulSoup(html, "html.parser")
                 cards = soup.select("li.card.bpr-complaint-grid")
                 if not cards:
-                    break
+                    if self.is_challenge_response(getattr(resp, "status_code", 0), html):
+                        self.note_source_attempt("bbb.org", blocked=True, note=f"direct BBB complaints blocked for {profile}")
+                    markdown = self.fetch_reader_text(url, "bbb.org")
+                    entries = self.parse_bbb_reader_complaints(markdown)
+                    if not entries:
+                        break
+                    signature = tuple((entry["url"], entry["date"], entry["text"][:80]) for entry in entries[:8])
+                    if signature in seen_page_signatures:
+                        break
+                    seen_page_signatures.add(signature)
+                    page_oldest_date = None
+                    for idx, entry in enumerate(entries, start=1):
+                        review_date = self.normalize_date(entry["date"])
+                        candidates_seen += 1
+                        if page_oldest_date is None or review_date < page_oldest_date:
+                            page_oldest_date = review_date
+                        if review_date != "1970-01-01" and (latest_candidate_date is None or review_date > latest_candidate_date):
+                            latest_candidate_date = review_date
+                        self.add_review(
+                            source_website="bbb.org",
+                            source_label="BBB Complaints",
+                            source_url=entry["url"] or f"{url}#complaint-{idx}",
+                            author=entry["author"],
+                            review_date=review_date,
+                            rating=entry["rating"],
+                            review_text=entry["text"],
+                            external_id=f"bbb_reader_c_{profile}_{page}_{idx}_{review_date}",
+                        )
+                    if page_oldest_date and page_oldest_date < self.since:
+                        break
+                    if len(entries) < 8:
+                        break
+                    time.sleep(0.12)
+                    continue
 
                 for card in cards:
                     cid = (card.get("id") or "").strip()
@@ -2697,6 +3175,9 @@ class Collector:
                     body = re.split(r"Business response", body, maxsplit=1, flags=re.I)[0].strip()
                     review_text = self.normalize_text(f"{issue_type}. {body}" if issue_type and issue_type.lower() not in body.lower() else body)
 
+                    candidates_seen += 1
+                    if review_date != "1970-01-01" and (latest_candidate_date is None or review_date > latest_candidate_date):
+                        latest_candidate_date = review_date
                     self.add_review(
                         source_website="bbb.org",
                         source_label="BBB Complaints",
@@ -2716,26 +3197,65 @@ class Collector:
 
                 time.sleep(0.06)
 
+        self.source_run_finish("bbb.org", start_count, candidates=candidates_seen, latest_date=latest_candidate_date)
         print(f"  - Added {len(self.records) - start_count} BBB complaints")
 
     def collect_bbb_customer_reviews(self):
         print("[collect] BBB customer reviews")
-        start_count = len(self.records)
+        start_count = self.source_run_start("bbb.org")
+        candidates_seen = 0
+        latest_candidate_date = None
 
         profiles = self.discover_bbb_profiles()
         for profile in profiles:
             reviews_root = f"{profile.rstrip('/')}/customer-reviews"
+            seen_page_signatures = set()
             for page in range(1, 30):
                 url = reviews_root if page == 1 else f"{reviews_root}?page={page}"
                 try:
-                    html = S.get(url, timeout=45).text
+                    resp = S.get(url, timeout=45)
+                    html = resp.text
+                    self.note_source_attempt("bbb.org", status_code=resp.status_code, pages=1)
                 except Exception:
                     break
 
                 soup = BeautifulSoup(html, "html.parser")
                 cards = soup.select("li.card.bpr-review")
                 if not cards:
-                    break
+                    if self.is_challenge_response(getattr(resp, "status_code", 0), html):
+                        self.note_source_attempt("bbb.org", blocked=True, note=f"direct BBB customer reviews blocked for {profile}")
+                    markdown = self.fetch_reader_text(url, "bbb.org")
+                    entries = self.parse_bbb_reader_customer_reviews(markdown)
+                    if not entries:
+                        break
+                    signature = tuple((entry["author"], entry["date"], entry["text"][:80]) for entry in entries[:8])
+                    if signature in seen_page_signatures:
+                        break
+                    seen_page_signatures.add(signature)
+                    page_oldest_date = None
+                    for idx, entry in enumerate(entries, start=1):
+                        review_date = self.normalize_date(entry["date"])
+                        candidates_seen += 1
+                        if page_oldest_date is None or review_date < page_oldest_date:
+                            page_oldest_date = review_date
+                        if review_date != "1970-01-01" and (latest_candidate_date is None or review_date > latest_candidate_date):
+                            latest_candidate_date = review_date
+                        self.add_review(
+                            source_website="bbb.org",
+                            source_label="BBB Customer Reviews",
+                            source_url=f"{url}#{entry['url_fragment']}",
+                            author=entry["author"],
+                            review_date=review_date,
+                            rating=entry["rating"],
+                            review_text=entry["text"],
+                            external_id=f"bbb_reader_r_{profile}_{page}_{idx}_{review_date}",
+                        )
+                    if page_oldest_date and page_oldest_date < self.since:
+                        break
+                    if len(entries) < 8:
+                        break
+                    time.sleep(0.12)
+                    continue
 
                 for card in cards:
                     cid = (card.get("id") or "").strip()
@@ -2773,6 +3293,9 @@ class Collector:
                     if not body:
                         body = rating_text
 
+                    candidates_seen += 1
+                    if review_date != "1970-01-01" and (latest_candidate_date is None or review_date > latest_candidate_date):
+                        latest_candidate_date = review_date
                     self.add_review(
                         source_website="bbb.org",
                         source_label="BBB Customer Reviews",
@@ -2792,6 +3315,7 @@ class Collector:
 
                 time.sleep(0.06)
 
+        self.source_run_finish("bbb.org", start_count, candidates=candidates_seen, latest_date=latest_candidate_date)
         print(f"  - Added {len(self.records) - start_count} BBB customer reviews")
 
     def collect_ripoffreport(self):
@@ -2903,6 +3427,7 @@ class Collector:
 
         source_counts = Counter(r["source_website"] for r in rows)
         sentiment_counts = Counter(r["sentiment"] for r in rows)
+        source_health_audit = self.build_source_health_audit(source_counts, rows)
 
         unique_source_urls = []
         seen_urls = set()
@@ -2917,14 +3442,7 @@ class Collector:
                 "description": f"Large-scale English-only {DISPLAY_NAME} textual review/problem dataset from public web sources (recency-first).",
                 "review_count": len(rows),
                 "source_counts": dict(source_counts),
-                "source_audit": [
-                    {
-                        "source_website": source_website,
-                        "review_count": int(source_counts.get(source_website, 0)),
-                        "present": bool(source_counts.get(source_website, 0)),
-                    }
-                    for source_website in EXPECTED_SOURCE_WEBSITES
-                ],
+                "source_audit": source_health_audit,
                 "sentiments": {
                     "positive": int(sentiment_counts.get("positive", 0)),
                     "negative": int(sentiment_counts.get("negative", 0)),
@@ -2996,8 +3514,6 @@ class Collector:
                 ("bbb_customer_reviews", self.collect_bbb_customer_reviews),
                 ("bbb_complaints", self.collect_bbb_complaints),
             ])
-        if PISSEDCONSUMER_ROOT:
-            collectors.append(("pissedconsumer", self.collect_pissedconsumer))
         if RIPOFF_SEARCH_URL:
             collectors.append(("ripoffreport", self.collect_ripoffreport))
         if SMARTCUSTOMER_ROOT:
@@ -3009,11 +3525,30 @@ class Collector:
         if APPLE_APP_IDS:
             collectors.append(("apple", self.collect_apple))
         self.active_collectors = [name for name, _ in collectors]
+        wrapper_health_sources = {
+            "reddit_pullpush": "reddit.com",
+            "reddit_arctic_shift": "reddit.com",
+            "ripoffreport": "ripoffreport.com",
+        }
         for name, fn in collectors:
+            health_source = wrapper_health_sources.get(name)
+            wrapper_start = len(self.records)
+            if health_source:
+                self.note_source_attempt(
+                    health_source,
+                    note=f"{name} ran; candidate count is not separately tracked for this collector.",
+                )
             try:
                 fn()
+                if health_source:
+                    self.note_source_attempt(
+                        health_source,
+                        added=max(0, len(self.records) - wrapper_start),
+                    )
             except Exception as exc:
                 self.collector_failures.append({"collector": name, "error": str(exc)})
+                if health_source:
+                    self.note_source_attempt(health_source, error=str(exc))
                 print(f"[warn] collector failed: {name}: {exc}")
 
 

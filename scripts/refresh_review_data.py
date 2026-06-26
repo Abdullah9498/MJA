@@ -47,12 +47,34 @@ def audit_dataset(relative_path: str, label: str) -> None:
     if missing_required:
         raise RuntimeError(f"{label}: required sources missing after refresh: {missing_required}")
 
+    unhealthy_required = []
+    for row in source_audit:
+        source = row.get("source_website")
+        status = row.get("status")
+        if source in required_sources and status in {"blocked", "missing", "not_attempted"}:
+            unhealthy_required.append({"source": source, "status": status, "notes": row.get("notes", [])})
+    if unhealthy_required:
+        raise RuntimeError(f"{label}: required sources unhealthy after refresh: {unhealthy_required}")
+
     present_sources = [row["source_website"] for row in source_audit if int(row.get("review_count", 0)) > 0]
     zero_count_sources = [row["source_website"] for row in source_audit if int(row.get("review_count", 0)) <= 0]
+    partial_sources = [
+        {
+            "source": row.get("source_website"),
+            "status": row.get("status"),
+            "latest_candidate_date": row.get("latest_candidate_date"),
+            "latest_review_date": row.get("latest_review_date"),
+            "notes": row.get("notes", []),
+        }
+        for row in source_audit
+        if row.get("status") in {"partial", "stale_or_no_recent_candidates", "parsed_no_new_rows"}
+    ]
 
     print(f"{label} source audit present: {present_sources}")
     if zero_count_sources:
         print(f"{label} source audit zero-count: {zero_count_sources}")
+    if partial_sources:
+        print(f"{label} source audit warnings: {partial_sources}")
 
 
 def load_baseline_outputs(config_payload: dict) -> dict[str, dict[str, bytes]]:
@@ -93,6 +115,7 @@ def write_coverage_note(config_payload: dict, since: str, until: str) -> None:
                 "until_date": meta.get("until_date"),
                 "review_count": int(meta.get("review_count") or 0),
                 "source_counts": meta.get("source_counts") or {},
+                "source_audit": meta.get("source_audit") or [],
             }
         )
 
