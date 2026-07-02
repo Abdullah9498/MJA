@@ -1,12 +1,12 @@
 {
   "meta": {
     "description": "Large-scale English-only ADESA textual review/problem dataset from public web sources (recency-first).",
-    "review_count": 243,
+    "review_count": 255,
     "source_counts": {
-      "birdeye.com": 59,
+      "birdeye.com": 70,
+      "trustpilot.com": 17,
       "apps.apple.com": 115,
       "reddit.com": 25,
-      "trustpilot.com": 16,
       "bbb.org": 6,
       "play.google.com": 22
     },
@@ -65,7 +65,7 @@
         "blocked": false,
         "fallback_used": false,
         "candidate_reviews_seen": 200,
-        "new_reviews_added": 1,
+        "new_reviews_added": 0,
         "advertised_total": null,
         "latest_candidate_date": "2026-05-20",
         "notes": [
@@ -73,7 +73,7 @@
         ],
         "errors": [],
         "review_count": 115,
-        "existing_review_count": 114,
+        "existing_review_count": 115,
         "present": true,
         "latest_review_date": "2026-05-20",
         "existing_latest_date": "2026-05-20",
@@ -83,23 +83,21 @@
         "source_website": "bbb.org",
         "attempted": true,
         "direct_pages": 12,
-        "fallback_pages": 12,
+        "fallback_pages": 11,
         "direct_statuses": {
           "403": 12,
-          "200": 12
+          "200": 11
         },
         "blocked": true,
         "fallback_used": true,
-        "candidate_reviews_seen": 3,
-        "new_reviews_added": 3,
+        "candidate_reviews_seen": 2,
+        "new_reviews_added": 0,
         "advertised_total": null,
         "latest_candidate_date": "2026-03-02",
         "notes": [
           "direct BBB customer reviews blocked for https://www.bbb.org/us/ca/sacramento/profile/auto-auction/adesa-sacramento-1156-33008688",
           "direct BBB customer reviews blocked for https://www.bbb.org/us/ca/san-diego/profile/auto-auction/adesa-san-diego-1126-23000806",
-          "reader challenge for https://www.bbb.org/us/ca/san-diego/profile/auto-auction/adesa-san-diego-1126-23000806/customer-reviews",
           "direct BBB customer reviews blocked for https://www.bbb.org/us/fl/tampa/profile/auto-auction/adesa-tampa-0653-24838",
-          "reader challenge for https://www.bbb.org/us/fl/tampa/profile/auto-auction/adesa-tampa-0653-24838/customer-reviews",
           "direct BBB customer reviews blocked for https://www.bbb.org/us/mn/maple-grove/profile/auto-auction/adesa-minnesota-llc-0704-96174765",
           "direct BBB customer reviews blocked for https://www.bbb.org/us/nv/north-las-vegas/profile/auto-auction/adesa-las-vegas-1086-90040145",
           "direct BBB customer reviews blocked for https://www.bbb.org/us/tn/memphis/profile/auto-auction/adesa-auctions-memphis-0543-44000064",
@@ -108,11 +106,14 @@
           "direct BBB complaints blocked for https://www.bbb.org/us/fl/tampa/profile/auto-auction/adesa-tampa-0653-24838",
           "direct BBB complaints blocked for https://www.bbb.org/us/mn/maple-grove/profile/auto-auction/adesa-minnesota-llc-0704-96174765",
           "direct BBB complaints blocked for https://www.bbb.org/us/nv/north-las-vegas/profile/auto-auction/adesa-las-vegas-1086-90040145",
-          "direct BBB complaints blocked for https://www.bbb.org/us/tn/memphis/profile/auto-auction/adesa-auctions-memphis-0543-44000064"
+          "direct BBB complaints blocked for https://www.bbb.org/us/tn/memphis/profile/auto-auction/adesa-auctions-memphis-0543-44000064",
+          "reader challenge for https://www.bbb.org/us/tn/memphis/profile/auto-auction/adesa-auctions-memphis-0543-44000064/complaints"
         ],
-        "errors": [],
+        "errors": [
+          "reader error for https://www.bbb.org/us/ca/sacramento/profile/auto-auction/adesa-sacramento-1156-33008688/customer-reviews: HTTPSConnectionPool(host='r.jina.ai', port=443): Read timed out. (read timeout=60)"
+        ],
         "review_count": 6,
-        "existing_review_count": 3,
+        "existing_review_count": 6,
         "present": true,
         "latest_review_date": "2026-03-02",
         "existing_latest_date": "2026-03-02",
@@ -130,7 +131,7 @@
         "blocked": true,
         "fallback_used": true,
         "candidate_reviews_seen": 10,
-        "new_reviews_added": 7,
+        "new_reviews_added": 1,
         "advertised_total": null,
         "latest_candidate_date": "2026-06-08",
         "notes": [
@@ -138,11 +139,11 @@
           "reader challenge for https://www.trustpilot.com/review/adesa.com?page=2"
         ],
         "errors": [],
-        "review_count": 16,
-        "existing_review_count": 9,
+        "review_count": 17,
+        "existing_review_count": 16,
         "present": true,
-        "latest_review_date": "2026-04-01",
-        "existing_latest_date": "2026-02-26",
+        "latest_review_date": "2026-06-08",
+        "existing_latest_date": "2026-04-01",
         "status": "ok"
       },
       {
@@ -202,27 +203,30 @@
         "blocked": false,
         "fallback_used": false,
         "candidate_reviews_seen": 70,
-        "new_reviews_added": 9,
+        "new_reviews_added": 11,
         "advertised_total": 631,
-        "latest_candidate_date": "2026-06-23",
+        "latest_candidate_date": "2026-06-25",
         "notes": [
           "Birdeye advertised totals may include syndicated Google/Birdeye network reviews; accepted rows are visible textual review cards that pass filters.",
-          "Advertised total 631 is much larger than accepted rows 59; source is likely partially covered after filters/pagination."
+          "Advertised total 631 is much larger than accepted rows 70; source is likely partially covered after filters/pagination."
         ],
         "errors": [],
-        "review_count": 59,
-        "existing_review_count": 50,
+        "review_count": 70,
+        "existing_review_count": 59,
         "present": true,
-        "latest_review_date": "2026-05-27",
-        "existing_latest_date": "2026-05-24",
+        "latest_review_date": "2026-06-25",
+        "existing_latest_date": "2026-05-27",
         "status": "partial"
       }
     ],
     "sentiments": {
-      "positive": 92,
-      "negative": 151
+      "positive": 101,
+      "negative": 154
     },
     "source_urls": [
+      "https://reviews.birdeye.com/adesa-los-angeles-167825716184717#review-1",
+      "https://reviews.birdeye.com/adesa-las-vegas-164841342274985#review-1",
+      "https://www.trustpilot.com/reviews/6a26997ac47664f0cb6eed94",
       "https://reviews.birdeye.com/adesa-portland-166735343287887#review-2",
       "https://reviews.birdeye.com/adesa-phoenix-166641883198682#review-5",
       "https://reviews.birdeye.com/adesa-phoenix-166641883198682#review-3",
@@ -230,19 +234,19 @@
       "https://reviews.birdeye.com/adesa-portland-166735343287887#review-1",
       "https://itunes.apple.com/us/review?id=1660253652&type=Purple%20Software&reviewId=14068121266",
       "https://itunes.apple.com/us/review?id=1660253652&type=Purple%20Software&reviewId=14032877339",
+      "https://reviews.birdeye.com/adesa-charlotte-166631397236159#review-3",
       "https://itunes.apple.com/us/review?id=1660253652&type=Purple%20Software&reviewId=13976371755",
       "https://itunes.apple.com/us/review?id=1660253652&type=Purple%20Software&reviewId=13968753748",
       "https://reviews.birdeye.com/adesa-las-vegas-164841342274985#review-4",
       "https://itunes.apple.com/us/review?id=1660253652&type=Purple%20Software&reviewId=13962344664",
       "https://itunes.apple.com/us/review?id=1660253652&type=Purple%20Software&reviewId=13943418550",
       "https://www.reddit.com/r/askcarsales/comments/1sd3mh4/pics_from_the_auction_is_this_a_common_thing_now/",
+      "https://reviews.birdeye.com/adesa-las-vegas-164841342274985#review-5",
       "https://reviews.birdeye.com/adesa-las-vegas-164841342274985#review-2",
       "https://www.trustpilot.com/reviews/69e110277dc17eb68ae7e3ee",
-      "https://reviews.birdeye.com/adesa-las-vegas-164841342274985#review-5",
       "https://reviews.birdeye.com/adesa-cincinnati-dayton-149147997743249#review-1",
       "https://itunes.apple.com/us/review?id=1660253652&type=Purple%20Software&reviewId=13886396596",
       "https://www.reddit.com/r/askcarsales/comments/1s0wmrl/why_are_dealers_over_bidding_at_dealer_auctions/",
-      "https://reviews.birdeye.com/adesa-las-vegas-164841342274985#review-1",
       "https://reviews.birdeye.com/adesa-las-vegas-164841342274985?page=2#review-1",
       "https://itunes.apple.com/us/review?id=1660253652&type=Purple%20Software&reviewId=13836933966",
       "https://www.reddit.com/r/askcarsales/comments/1rm0r45/how_can_i_get_access_to_adesa_or_manheim_i_want/",
@@ -278,16 +282,15 @@
       "https://reviews.birdeye.com/adesa-seattle-166635448334315?page=2#review-3",
       "https://itunes.apple.com/us/review?id=1660253652&type=Purple%20Software&reviewId=13271392395",
       "https://itunes.apple.com/us/review?id=1660253652&type=Purple%20Software&reviewId=13246458016",
+      "https://reviews.birdeye.com/adesa-seattle-166635448334315#review-5",
       "https://apps.apple.com/us/app/id1660253652?see-all=reviews&platform=iphone&reviewId=13216452678",
       "https://itunes.apple.com/us/review?id=1660253652&type=Purple%20Software&reviewId=13216452678",
-      "https://reviews.birdeye.com/adesa-seattle-166635448334315#review-5",
       "https://itunes.apple.com/us/review?id=1660253652&type=Purple%20Software&reviewId=13171749895",
       "https://reviews.birdeye.com/adesa-seattle-166635448334315?page=2#review-5",
       "https://www.trustpilot.com/reviews/68c991a0b77ea7dac74f788a",
       "https://itunes.apple.com/us/review?id=1660253652&type=Purple%20Software&reviewId=13130787728",
       "https://itunes.apple.com/us/review?id=1660253652&type=Purple%20Software&reviewId=13118711823",
       "https://itunes.apple.com/us/review?id=1660253652&type=Purple%20Software&reviewId=13118214472",
-      "https://reviews.birdeye.com/adesa-charlotte-166631397236159#review-3",
       "https://itunes.apple.com/us/review?id=1660253652&type=Purple%20Software&reviewId=13068863691",
       "https://itunes.apple.com/us/review?id=1660253652&type=Purple%20Software&reviewId=13068386930",
       "https://itunes.apple.com/us/review?id=1660253652&type=Purple%20Software&reviewId=13067904668",
@@ -404,12 +407,12 @@
       "https://www.trustpilot.com/reviews/63e5f51f745e480021a07c28",
       "https://itunes.apple.com/us/review?id=903860668&type=Purple%20Software&reviewId=9549096674"
     ],
-    "generated_at_utc": "2026-06-26T17:10:46.684698+00:00",
+    "generated_at_utc": "2026-07-02T12:04:22.211470+00:00",
     "since_date": "2023-01-01",
-    "until_date": "2026-05-31",
+    "until_date": "2026-06-30",
     "collector_failures": [],
-    "existing_review_count": 223,
-    "new_reviews_added": 20,
+    "existing_review_count": 243,
+    "new_reviews_added": 12,
     "youtube_excluded": true,
     "usa_only": true,
     "english_only": true,
@@ -429,15 +432,30 @@
       "bbb.org"
     ],
     "geo_validation_counts": {
-      "trustpilot_us_slug": 7,
-      "bbb_us_business": 3,
-      "birdeye_us_profile": 9,
-      "apple_us_store": 1
+      "trustpilot_us_slug": 1,
+      "birdeye_us_profile": 11
     },
     "geo_excluded_counts": {
+      "birdeye.com:birdeye_us_profile_non_us_marker": 2,
       "apps.apple.com:apple_non_us_store": 13
     },
     "geo_excluded_examples": [
+      {
+        "source_website": "birdeye.com",
+        "source_label": "Birdeye (Google)",
+        "source_url": "https://reviews.birdeye.com/adesa-los-angeles-167825716184717#review-2",
+        "review_date": "2026-06-18",
+        "reason": "birdeye_us_profile_non_us_marker",
+        "review_text": "without a doubt , the WORST MANAGEMENT of any auction we deal with across Canada and the USA when buying RV's Zero care for the customer or willing to help ,, whoever manages this location needs a lesson on true leadership ."
+      },
+      {
+        "source_website": "birdeye.com",
+        "source_label": "Birdeye (Google)",
+        "source_url": "https://reviews.birdeye.com/adesa-los-angeles-167825716184717?page=2#review-2",
+        "review_date": "2026-06-18",
+        "reason": "birdeye_us_profile_non_us_marker",
+        "review_text": "without a doubt , the WORST MANAGEMENT of any auction we deal with across Canada and the USA when buying RV's Zero care for the customer or willing to help ,, whoever manages this location needs a lesson on true leadership ."
+      },
       {
         "source_website": "apps.apple.com",
         "source_label": "Apple App Store (903860668, ca)",
@@ -560,6 +578,81 @@
     {
       "source_website": "birdeye.com",
       "source_label": "Birdeye (Google)",
+      "source_url": "https://reviews.birdeye.com/adesa-los-angeles-167825716184717#review-1",
+      "author": "John Contreras",
+      "review_date": "2026-06-25",
+      "rating": null,
+      "sentiment": "positive",
+      "review_text": "Good car auction to buy cars.",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Membership / Licensing / Fees & Bidding Policies",
+      "tier2": "Bidding Process, Rules and Fees",
+      "tier3": "How to Bid (First Time)",
+      "id": "rvw-000244"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Google)",
+      "source_url": "https://reviews.birdeye.com/adesa-las-vegas-164841342274985#review-1",
+      "author": "J M",
+      "review_date": "2026-06-18",
+      "rating": null,
+      "sentiment": "negative",
+      "review_text": "Website lists pickup gate hours as Sat and Sun 8am-4pm Employee told us same. Arrived Saturday 8am to pickup trailer and security says closed weekends. Apparently poorly managed, resulting in added costs to dealers for their Errors",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Membership / Licensing / Fees & Bidding Policies",
+      "tier2": "Bidding Process, Rules and Fees",
+      "tier3": "Fees",
+      "id": "rvw-000245"
+    },
+    {
+      "source_website": "trustpilot.com",
+      "source_label": "Trustpilot (adesa.com)",
+      "source_url": "https://www.trustpilot.com/reviews/6a26997ac47664f0cb6eed94",
+      "author": "Trustpilot user",
+      "review_date": "2026-06-08",
+      "rating": null,
+      "sentiment": "positive",
+      "review_text": "Terrible experience purchasing through…. Terrible experience purchasing through Adesa Clear on a Carvana owned vehicle. It was advertised as title present at the Haines City location and takes 30 days to get the title. They act like they are doing something by creating a tracking number for the title shipment then it does not ship out to you. As a dealer I would not recommend buying anything from this auction.",
+      "geo_validation": "trustpilot_us_slug",
+      "tier1": "Title, Ownership, POA and Documentation",
+      "tier2": "Power of Attorney (POA) Handling",
+      "tier3": "POA Requirements Clarification",
+      "id": "rvw-000246"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Google)",
+      "source_url": "https://reviews.birdeye.com/adesa-portland-166735343287887#review-2",
+      "author": "lucky sidhu",
+      "review_date": "2026-06-02",
+      "rating": null,
+      "sentiment": "positive",
+      "review_text": "nice staff ( Jaimi shaffer",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Helpful Support Experience",
+      "id": "rvw-000247"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Google)",
+      "source_url": "https://reviews.birdeye.com/adesa-phoenix-166641883198682#review-5",
+      "author": "S Bradfield",
+      "review_date": "2026-06-02",
+      "rating": null,
+      "sentiment": "positive",
+      "review_text": "Easy communication great employees amazing auction",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Helpful Support Experience",
+      "id": "rvw-000248"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Google)",
       "source_url": "https://reviews.birdeye.com/adesa-portland-166735343287887#review-2",
       "author": "lucky sidhu",
       "review_date": "2026-05-27",
@@ -678,6 +771,21 @@
       "id": "rvw-000212"
     },
     {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Google)",
+      "source_url": "https://reviews.birdeye.com/adesa-charlotte-166631397236159#review-3",
+      "author": "Amjed Rasheed",
+      "review_date": "2026-05-03",
+      "rating": null,
+      "sentiment": "positive",
+      "review_text": "Left multiple messages and still no response from this location. Calls go unanswered and no one follows up. Pretty frustrating experience, especially since every other ADESA location I’ve dealt with has been responsive and easy to work with. Huge difference in service here compared to the rest.",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Support Access & Response Time",
+      "tier3": "Delayed Email/Phone Response",
+      "id": "rvw-000249"
+    },
+    {
       "source_website": "apps.apple.com",
       "source_label": "Apple App Store (1660253652, us)",
       "source_url": "https://itunes.apple.com/us/review?id=1660253652&type=Purple%20Software&reviewId=13976371755",
@@ -766,6 +874,21 @@
       "tier2": "Agent Professionalism & Responsiveness",
       "tier3": "Helpful Support Experience",
       "id": "rvw-000149"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Google)",
+      "source_url": "https://reviews.birdeye.com/adesa-las-vegas-164841342274985#review-5",
+      "author": "Jessie Allen",
+      "review_date": "2026-04-03",
+      "rating": null,
+      "sentiment": "positive",
+      "review_text": "But a mistake that I had to pay for. There is no type of professionalism anymore..I should not had to wait for something when there is a appointment involved..thats the whole concept of appointments...is it not?? I'm still fuming.. But will get over it..this place is bad business when it comes to professionalism...",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Helpful Support Experience",
+      "id": "rvw-000250"
     },
     {
       "source_website": "birdeye.com",
@@ -991,6 +1114,21 @@
       "tier1": "Account / Access / Login",
       "tier2": "Password Reset & Login Troubleshooting",
       "tier3": "App Login Troubleshooting"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Birdeye)",
+      "source_url": "https://reviews.birdeye.com/adesa-cincinnati-dayton-149147997743249#review-1",
+      "author": "Jason K.",
+      "review_date": "2026-03-04",
+      "rating": null,
+      "sentiment": "negative",
+      "review_text": "The worst auction in the world charged me $67 to charge my electric car for one hour Fees are out of control Hope they go out of business Absolute garbage",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Membership / Licensing / Fees & Bidding Policies",
+      "tier2": "Bidding Process, Rules and Fees",
+      "tier3": "Fees",
+      "id": "rvw-000251"
     },
     {
       "source_website": "birdeye.com",
@@ -1548,6 +1686,21 @@
       "id": "rvw-000218"
     },
     {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Google)",
+      "source_url": "https://reviews.birdeye.com/adesa-seattle-166635448334315#review-3",
+      "author": "Incredible California",
+      "review_date": "2025-11-04",
+      "rating": null,
+      "sentiment": "positive",
+      "review_text": "They charging $25 a day for storage fee!! That’s not fair, what options do we have if you don’t have forklift!!! At least provide one so we can get a transportation or take it easy on storage fee! I called today to try to get my fee waived but useless and the accountant was mean “WE CHARGE $25 a day” Wake up!! You are not a two yard You need to make it easy for your customers not make it harder I’m done you are no different from copart",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Membership / Licensing / Fees & Bidding Policies",
+      "tier2": "Bidding Process, Rules and Fees",
+      "tier3": "Fees",
+      "id": "rvw-000252"
+    },
+    {
       "id": "rvw-000026",
       "source_website": "apps.apple.com",
       "source_label": "Apple App Store (1660253652, us)",
@@ -1681,6 +1834,21 @@
       "tier1": "Account / Access / Login",
       "tier2": "Password Reset & Login Troubleshooting",
       "tier3": "App Login Troubleshooting"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Google)",
+      "source_url": "https://reviews.birdeye.com/adesa-seattle-166635448334315#review-5",
+      "author": "Abdullah Ali",
+      "review_date": "2025-10-05",
+      "rating": null,
+      "sentiment": "negative",
+      "review_text": "Worst auction in WA state , horrible customer service. Majority of their vehicles junk and they’re deceptive",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Rude/Unhelpful Support",
+      "id": "rvw-000253"
     },
     {
       "source_website": "apps.apple.com",
@@ -3517,6 +3685,21 @@
       "source_label": "Birdeye (Birdeye)",
       "source_url": "https://reviews.birdeye.com/adesa-cincinnati-dayton-149147997743249#review-3",
       "author": "Joan S.",
+      "review_date": "2024-07-02",
+      "rating": null,
+      "sentiment": "positive",
+      "review_text": "I would rate Adesa Auto Body A + They were professional, pleasant and did an amazing job!",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Helpful Support Experience",
+      "id": "rvw-000254"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Birdeye)",
+      "source_url": "https://reviews.birdeye.com/adesa-cincinnati-dayton-149147997743249#review-3",
+      "author": "Joan S.",
       "review_date": "2024-06-26",
       "rating": null,
       "sentiment": "positive",
@@ -3856,6 +4039,21 @@
       "tier2": "Auction Eligibility & Licensing",
       "tier3": "Unable to Bid",
       "id": "rvw-000189"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Birdeye)",
+      "source_url": "https://reviews.birdeye.com/adesa-cincinnati-dayton-149147997743249#review-4",
+      "author": "Tim J.",
+      "review_date": "2023-07-03",
+      "rating": null,
+      "sentiment": "positive",
+      "review_text": "Great customer service!!! The staff is top notch, friendly and knowledgeable!!!.",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Helpful Support Experience",
+      "id": "rvw-000255"
     },
     {
       "source_website": "birdeye.com",

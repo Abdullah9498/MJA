@@ -1,12 +1,12 @@
 {
   "meta": {
     "description": "Large-scale English-only IAA textual review/problem dataset from public web sources (recency-first).",
-    "review_count": 1844,
+    "review_count": 1850,
     "source_counts": {
+      "play.google.com": 242,
+      "reddit.com": 1000,
       "trustpilot.com": 87,
       "bbb.org": 380,
-      "play.google.com": 237,
-      "reddit.com": 999,
       "apps.apple.com": 138,
       "complaintsboard.com": 3
     },
@@ -20,7 +20,7 @@
         "blocked": false,
         "fallback_used": false,
         "candidate_reviews_seen": 0,
-        "new_reviews_added": 0,
+        "new_reviews_added": 1,
         "advertised_total": null,
         "latest_candidate_date": null,
         "notes": [
@@ -28,10 +28,10 @@
           "reddit_arctic_shift ran; candidate count is not separately tracked for this collector."
         ],
         "errors": [],
-        "review_count": 999,
+        "review_count": 1000,
         "existing_review_count": 999,
         "present": true,
-        "latest_review_date": "2026-05-19",
+        "latest_review_date": "2026-06-16",
         "existing_latest_date": "2026-05-19",
         "status": "ok"
       },
@@ -44,15 +44,15 @@
         "blocked": false,
         "fallback_used": false,
         "candidate_reviews_seen": 1361,
-        "new_reviews_added": 0,
+        "new_reviews_added": 5,
         "advertised_total": null,
-        "latest_candidate_date": "2026-06-21",
+        "latest_candidate_date": "2026-06-30",
         "notes": [],
         "errors": [],
-        "review_count": 237,
+        "review_count": 242,
         "existing_review_count": 237,
         "present": true,
-        "latest_review_date": "2026-05-22",
+        "latest_review_date": "2026-06-29",
         "existing_latest_date": "2026-05-22",
         "status": "ok"
       },
@@ -64,7 +64,7 @@
         "direct_statuses": {},
         "blocked": false,
         "fallback_used": false,
-        "candidate_reviews_seen": 239,
+        "candidate_reviews_seen": 238,
         "new_reviews_added": 0,
         "advertised_total": null,
         "latest_candidate_date": "2026-04-12",
@@ -82,57 +82,59 @@
       {
         "source_website": "bbb.org",
         "attempted": true,
-        "direct_pages": 18,
-        "fallback_pages": 18,
+        "direct_pages": 2,
+        "fallback_pages": 1,
         "direct_statuses": {
-          "403": 18,
-          "200": 18
+          "403": 2,
+          "200": 1
         },
         "blocked": true,
         "fallback_used": true,
-        "candidate_reviews_seen": 160,
-        "new_reviews_added": 131,
+        "candidate_reviews_seen": 0,
+        "new_reviews_added": 0,
         "advertised_total": null,
-        "latest_candidate_date": "2026-06-01",
+        "latest_candidate_date": null,
         "notes": [
           "direct BBB customer reviews blocked for https://www.bbb.org/us/il/westchester/profile/auto-auction/iaa-0654-88276839",
-          "reader challenge for https://www.bbb.org/us/il/westchester/profile/auto-auction/iaa-0654-88276839/customer-reviews?page=9",
           "direct BBB complaints blocked for https://www.bbb.org/us/il/westchester/profile/auto-auction/iaa-0654-88276839",
-          "reader challenge for https://www.bbb.org/us/il/westchester/profile/auto-auction/iaa-0654-88276839/complaints?page=9"
+          "reader challenge for https://www.bbb.org/us/il/westchester/profile/auto-auction/iaa-0654-88276839/complaints"
         ],
-        "errors": [],
+        "errors": [
+          "reader error for https://www.bbb.org/us/il/westchester/profile/auto-auction/iaa-0654-88276839/customer-reviews: HTTPSConnectionPool(host='r.jina.ai', port=443): Read timed out. (read timeout=60)"
+        ],
         "review_count": 380,
-        "existing_review_count": 249,
+        "existing_review_count": 380,
         "present": true,
         "latest_review_date": "2026-05-27",
-        "existing_latest_date": "2026-03-27",
-        "status": "ok"
+        "existing_latest_date": "2026-05-27",
+        "status": "stale_or_no_recent_candidates"
       },
       {
         "source_website": "trustpilot.com",
         "attempted": true,
         "direct_pages": 1,
-        "fallback_pages": 4,
+        "fallback_pages": 1,
         "direct_statuses": {
           "403": 1,
-          "200": 4
+          "200": 1
         },
         "blocked": true,
         "fallback_used": true,
-        "candidate_reviews_seen": 73,
-        "new_reviews_added": 38,
+        "candidate_reviews_seen": 0,
+        "new_reviews_added": 0,
         "advertised_total": null,
-        "latest_candidate_date": "2026-06-26",
+        "latest_candidate_date": null,
         "notes": [
-          "direct Trustpilot blocked for iaai.com"
+          "direct Trustpilot blocked for iaai.com",
+          "reader challenge for https://www.trustpilot.com/review/iaai.com"
         ],
         "errors": [],
         "review_count": 87,
-        "existing_review_count": 49,
+        "existing_review_count": 87,
         "present": true,
         "latest_review_date": "2026-05-28",
-        "existing_latest_date": "2026-04-08",
-        "status": "ok"
+        "existing_latest_date": "2026-05-28",
+        "status": "stale_or_no_recent_candidates"
       },
       {
         "source_website": "ripoffreport.com",
@@ -205,13 +207,15 @@
       }
     ],
     "sentiments": {
-      "positive": 581,
-      "negative": 1263
+      "positive": 584,
+      "negative": 1266
     },
     "source_urls": [
+      "https://play.google.com/store/apps/details?id=com.iaai.android&hl=en&gl=us",
+      "https://play.google.com/store/apps/details?id=com.iaa.mobile.IaaTow&hl=en&gl=us",
+      "https://www.reddit.com/r/askcarsales/comments/1u7t0fr/how_do_you_determine_your_max_bid_before_bidding/",
       "https://www.trustpilot.com/reviews/6a1876c5133821263e6809f5",
       "http://www.bbb.org/us/il/westchester/profile/auto-auction/iaa-0654-88276839/complaints#0654_88276839_24884682",
-      "https://play.google.com/store/apps/details?id=com.iaai.android&hl=en&gl=us",
       "https://play.google.com/store/apps/details?id=com.iaai.android&hl=es&gl=us",
       "https://www.reddit.com/r/askcarsales/comments/1ti1r7n/platforms_like_cargoloop_w8shipping/",
       "https://www.reddit.com/r/carflipping/comments/1tg491u/2020_hellcat_experiences/",
@@ -220,7 +224,6 @@
       "http://www.bbb.org/us/il/westchester/profile/auto-auction/iaa-0654-88276839/complaints#0654_88276839_24830895",
       "https://www.bbb.org/us/il/westchester/profile/auto-auction/iaa-0654-88276839/customer-reviews#review-1",
       "http://www.bbb.org/us/il/westchester/profile/auto-auction/iaa-0654-88276839/complaints#0654_88276839_24802183",
-      "https://play.google.com/store/apps/details?id=com.iaa.mobile.IaaTow&hl=en&gl=us",
       "http://www.bbb.org/us/il/westchester/profile/auto-auction/iaa-0654-88276839/complaints#0654_88276839_24761059",
       "https://www.bbb.org/us/il/westchester/profile/auto-auction/iaa-0654-88276839/customer-reviews#review-2",
       "https://itunes.apple.com/us/review?id=468532534&type=Purple%20Software&reviewId=13952259223",
@@ -507,15 +510,14 @@
       "https://www.reddit.com/r/askcarsales/comments/1jc0ttm/is_the_iaa_still_worth_buying_from/mhydz24/",
       "https://www.reddit.com/r/askcarsales/comments/1jc0ttm/is_the_iaa_still_worth_buying_from/",
       "https://www.reddit.com/r/Ransomfeed/comments/1jbeg4s/iaaicom_washington_dc_dmv/",
-      "https://www.reddit.com/r/WhatCarShouldIBuyGULF/comments/1jbd7vu/how_to_buy_a_maserati_for_half_the_price_the/",
-      "https://www.reddit.com/r/u_Character-Gur-5928/comments/1jbd4b6/how_to_buy_a_maserati_for_half_the_price_the/"
+      "https://www.reddit.com/r/WhatCarShouldIBuyGULF/comments/1jbd7vu/how_to_buy_a_maserati_for_half_the_price_the/"
     ],
-    "generated_at_utc": "2026-06-26T17:00:16.455865+00:00",
+    "generated_at_utc": "2026-07-02T12:02:49.233974+00:00",
     "since_date": "2023-01-01",
-    "until_date": "2026-05-31",
+    "until_date": "2026-06-30",
     "collector_failures": [],
-    "existing_review_count": 1675,
-    "new_reviews_added": 169,
+    "existing_review_count": 1844,
+    "new_reviews_added": 6,
     "youtube_excluded": true,
     "usa_only": true,
     "english_only": true,
@@ -535,12 +537,12 @@
       "bbb.org"
     ],
     "geo_validation_counts": {
-      "trustpilot_us_slug": 38,
-      "bbb_us_business": 131
+      "google_play_us_store": 5,
+      "mixed_source_ok": 1
     },
     "geo_excluded_counts": {
       "play.google.com:google_play_us_store_non_us_marker": 7,
-      "trustpilot.com:trustpilot_us_slug_non_us_marker": 3,
+      "reddit.com:mixed_source_non_us_marker": 3,
       "complaintsboard.com:complaintsboard_us_profile_non_us_marker": 1,
       "apps.apple.com:apple_non_us_store": 12
     },
@@ -565,7 +567,7 @@
         "source_website": "play.google.com",
         "source_label": "Google Play (com.iaai.android)",
         "source_url": "https://play.google.com/store/apps/details?id=com.iaai.android&hl=en&gl=us",
-        "review_date": "2024-09-30",
+        "review_date": "2024-10-01",
         "reason": "google_play_us_store_non_us_marker",
         "review_text": "Is there any app for auctions in Canada?"
       },
@@ -573,7 +575,7 @@
         "source_website": "play.google.com",
         "source_label": "Google Play (com.iaai.android)",
         "source_url": "https://play.google.com/store/apps/details?id=com.iaai.android&hl=en&gl=us",
-        "review_date": "2024-02-22",
+        "review_date": "2024-02-23",
         "reason": "google_play_us_store_non_us_marker",
         "review_text": "How to install iaa canada application?"
       },
@@ -589,7 +591,7 @@
         "source_website": "play.google.com",
         "source_label": "Google Play (com.iaai.android)",
         "source_url": "https://play.google.com/store/apps/details?id=com.iaai.android&hl=en&gl=us",
-        "review_date": "2024-01-27",
+        "review_date": "2024-01-28",
         "reason": "google_play_us_store_non_us_marker",
         "review_text": "This app is not for India."
       },
@@ -602,28 +604,28 @@
         "review_text": "This application is not working for me I don't know why I paid already $226 in Canada dollar but still asking me to pay again"
       },
       {
-        "source_website": "trustpilot.com",
-        "source_label": "Trustpilot (iaai.com)",
-        "source_url": "https://www.trustpilot.com/reviews/68f2ada067bc62568782c085",
-        "review_date": "2024-10-17",
-        "reason": "trustpilot_us_slug_non_us_marker",
-        "review_text": "Bought a car from Charlottes Salvage on…. Bought a car from Charlottes Salvage on Synetiq auctions a few years ago. Bidded 3 hours before at £1430 and was the highest bidder at £720 until 10 minutes before the auction started. Then at 10 mi"
+        "source_website": "reddit.com",
+        "source_label": "Reddit r/JeepGrandCherokee",
+        "source_url": "https://www.reddit.com/r/JeepGrandCherokee/comments/1jqow42/jeep_garnd_cherokee_2024_4xe_navigation/",
+        "review_date": "2025-04-03",
+        "reason": "mixed_source_non_us_marker",
+        "review_text": "Jeep garnd cherokee 2024 4xe navigation Hello, I have an inquiry and I hope you can help me with it. I bought a Jeep Grand Cherokee 2024 from the iaai buyer auction and I live in Iraq and I want to download the map of the Middle East, as on"
       },
       {
-        "source_website": "trustpilot.com",
-        "source_label": "Trustpilot (iaai.com)",
-        "source_url": "https://www.trustpilot.com/reviews/68c83be8172e8eb29d664b3b",
-        "review_date": "2025-09-15",
-        "reason": "trustpilot_us_slug_non_us_marker",
-        "review_text": "I bought a car from IAA UK in…. I bought a car from IAA UK in [month/year]. The auction listing and VIN data showed the engine code as CUNA (GTD spec, 184PS), but when I collected the vehicle it was fitted with CRBC (150PS). When I raised t"
+        "source_website": "reddit.com",
+        "source_label": "Reddit r/autorepair",
+        "source_url": "https://www.reddit.com/r/autorepair/comments/1j6pnic/need_advice_on_a_salvage_car_from_auction_im/",
+        "review_date": "2025-03-08",
+        "reason": "mixed_source_non_us_marker",
+        "review_text": "Need advice on a salvage car from auction I’m looking to purchase I’m driving a Tesla, but want an iconic driver’s car to keep for a few years and drive in the weekend. I‘ve driven Mercedes AMG GT C in the past and love the drama of the cra"
       },
       {
-        "source_website": "trustpilot.com",
-        "source_label": "Trustpilot (iaai.com)",
-        "source_url": "https://www.trustpilot.com/reviews/63e0e4139b64b1bdaf4e5592",
-        "review_date": "2023-02-01",
-        "reason": "trustpilot_us_slug_non_us_marker",
-        "review_text": "***FRAUD STAY AWAY FROM THEM*** went to…. ***FRAUD STAY AWAY FROM THEM*** went to pick a car which we bought through the online auction, on approach we realized windscreen was cracked and rear seat belt was cut into 2 pieces ( and in pictur"
+        "source_website": "reddit.com",
+        "source_label": "Reddit r/economy",
+        "source_url": "https://www.reddit.com/r/economy/comments/1h13afl/cars_are_about_to_get_even_more_expensive_thanks/lz97nky/",
+        "review_date": "2024-11-27",
+        "reason": "mixed_source_non_us_marker",
+        "review_text": "My family had a body shop for a couple of decades. It’s a bunch of factors. Cars are more high tech now. It has been shown that the new technology does save lives and prevents accidents though. That’s why insurance is often lower on cars wi"
       },
       {
         "source_website": "complaintsboard.com",
@@ -721,6 +723,66 @@
   },
   "reviews": [
     {
+      "source_website": "play.google.com",
+      "source_label": "Google Play (com.iaai.android)",
+      "source_url": "https://play.google.com/store/apps/details?id=com.iaai.android&hl=en&gl=us",
+      "author": "Michael Olatunji",
+      "review_date": "2026-06-29",
+      "rating": 4,
+      "sentiment": "positive",
+      "review_text": "Could Not Get Update To IAA Buyer Salvage Auction Update.",
+      "geo_validation": "google_play_us_store",
+      "tier1": "Account / Access / Login",
+      "tier2": "Password Reset & Login Troubleshooting",
+      "tier3": "App Login Troubleshooting",
+      "id": "rvw-001849"
+    },
+    {
+      "source_website": "play.google.com",
+      "source_label": "Google Play (com.iaa.mobile.IaaTow)",
+      "source_url": "https://play.google.com/store/apps/details?id=com.iaa.mobile.IaaTow&hl=en&gl=us",
+      "author": "Frank Hoskins",
+      "review_date": "2026-06-19",
+      "rating": 2,
+      "sentiment": "negative",
+      "review_text": "it constantly kicks me mid pic upload and sometimes its just plain out slow it says it has an update but no option to download it",
+      "geo_validation": "google_play_us_store",
+      "tier1": "Account / Access / Login",
+      "tier2": "Document Upload & Verification",
+      "tier3": "Upload Troubleshooting",
+      "id": "rvw-001850"
+    },
+    {
+      "source_website": "reddit.com",
+      "source_label": "Reddit r/askcarsales",
+      "source_url": "https://www.reddit.com/r/askcarsales/comments/1u7t0fr/how_do_you_determine_your_max_bid_before_bidding/",
+      "author": "developer-xyz",
+      "review_date": "2026-06-16",
+      "rating": null,
+      "sentiment": "positive",
+      "review_text": "\"How do you determine your max bid before bidding?\" I'm a frequent Copart/IAAI buyer and I've noticed that almost everyone seems to use a different process before bidding. Some check KBB. Some check Facebook Marketplace. Some check auction fees manually. Some use spreadsheets. I'm thinking about building a tool where you paste a Copart or IAAI link and it automatically shows: * Local Market Value * Dealer Retail Value * Estimated Auction Fees * Estimated Transport Cost * Risk Factors * Suggested Bid Range (Conservative / Recommended / Aggressive) The goal isn't to tell people what to buy. The goal is to answer one question: \"What is the maximum bid I should place and still have room for profit?\" Would something like this actually be useful? What's currently the most frustrating part of buying from Copart or IAAI?",
+      "geo_validation": "mixed_source_ok",
+      "tier1": "Membership / Licensing / Fees & Bidding Policies",
+      "tier2": "Bidding Process, Rules and Fees",
+      "tier3": "Fees",
+      "id": "rvw-001851"
+    },
+    {
+      "source_website": "play.google.com",
+      "source_label": "Google Play (com.iaa.mobile.IaaTow)",
+      "source_url": "https://play.google.com/store/apps/details?id=com.iaa.mobile.IaaTow&hl=en&gl=us",
+      "author": "James Landero",
+      "review_date": "2026-06-10",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "really bad. the transporter is there at the facility and they don't want give the vehicle to the transporter, who will pay the transporter",
+      "geo_validation": "google_play_us_store",
+      "tier1": "Vehicle Pickup, Delivery and Scheduling",
+      "tier2": "Scheduled Pickup Status",
+      "tier3": "Missed/ Delayed Pickup and Dispatch Window",
+      "id": "rvw-001852"
+    },
+    {
       "source_website": "trustpilot.com",
       "source_label": "Trustpilot (iaai.com)",
       "source_url": "https://www.trustpilot.com/reviews/6a1876c5133821263e6809f5",
@@ -755,6 +817,21 @@
       "source_label": "Google Play (com.iaai.android)",
       "source_url": "https://play.google.com/store/apps/details?id=com.iaai.android&hl=en&gl=us",
       "author": "Gio Garcia",
+      "review_date": "2026-05-23",
+      "rating": 4,
+      "sentiment": "positive",
+      "review_text": "the app has improved so much since I started using it",
+      "geo_validation": "google_play_us_store",
+      "tier1": "Account / Access / Login",
+      "tier2": "Password Reset & Login Troubleshooting",
+      "tier3": "App Login Troubleshooting",
+      "id": "rvw-001853"
+    },
+    {
+      "source_website": "play.google.com",
+      "source_label": "Google Play (com.iaai.android)",
+      "source_url": "https://play.google.com/store/apps/details?id=com.iaai.android&hl=en&gl=us",
+      "author": "Gio Garcia",
       "review_date": "2026-05-22",
       "rating": 4,
       "sentiment": "positive",
@@ -764,6 +841,21 @@
       "tier2": "Password Reset & Login Troubleshooting",
       "tier3": "App Login Troubleshooting",
       "id": "rvw-001665"
+    },
+    {
+      "source_website": "play.google.com",
+      "source_label": "Google Play (com.iaai.android)",
+      "source_url": "https://play.google.com/store/apps/details?id=com.iaai.android&hl=es&gl=us",
+      "author": "Danilo Cruz",
+      "review_date": "2026-05-21",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "This app is terrible; it's very slow and takes forever to open a timed auction. If I could give it 0 stars, I would.",
+      "geo_validation": "google_play_us_store",
+      "tier1": "Account / Access / Login",
+      "tier2": "Password Reset & Login Troubleshooting",
+      "tier3": "App Login Troubleshooting",
+      "id": "rvw-001854"
     },
     {
       "source_website": "play.google.com",

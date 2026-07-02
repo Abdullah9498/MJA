@@ -1,13 +1,13 @@
 {
   "meta": {
     "description": "Large-scale English-only Manheim textual review/problem dataset from public web sources (recency-first).",
-    "review_count": 580,
+    "review_count": 594,
     "source_counts": {
-      "reddit.com": 145,
+      "birdeye.com": 60,
+      "reddit.com": 148,
+      "bbb.org": 230,
       "apps.apple.com": 90,
       "play.google.com": 60,
-      "birdeye.com": 52,
-      "bbb.org": 227,
       "trustpilot.com": 6
     },
     "source_audit": [
@@ -20,7 +20,7 @@
         "blocked": false,
         "fallback_used": false,
         "candidate_reviews_seen": 0,
-        "new_reviews_added": 0,
+        "new_reviews_added": 3,
         "advertised_total": null,
         "latest_candidate_date": null,
         "notes": [
@@ -28,10 +28,10 @@
           "reddit_arctic_shift ran; candidate count is not separately tracked for this collector."
         ],
         "errors": [],
-        "review_count": 145,
+        "review_count": 148,
         "existing_review_count": 145,
         "present": true,
-        "latest_review_date": "2026-05-27",
+        "latest_review_date": "2026-06-28",
         "existing_latest_date": "2026-05-27",
         "status": "ok"
       },
@@ -64,16 +64,16 @@
         "direct_statuses": {},
         "blocked": false,
         "fallback_used": false,
-        "candidate_reviews_seen": 121,
-        "new_reviews_added": 1,
+        "candidate_reviews_seen": 120,
+        "new_reviews_added": 0,
         "advertised_total": null,
-        "latest_candidate_date": "2026-06-05",
+        "latest_candidate_date": "2026-05-27",
         "notes": [
           "Apple RSS can be sparse for some app IDs; HTML supplement captures visible App Store review cards only."
         ],
         "errors": [],
         "review_count": 90,
-        "existing_review_count": 89,
+        "existing_review_count": 90,
         "present": true,
         "latest_review_date": "2026-05-27",
         "existing_latest_date": "2026-05-27",
@@ -82,16 +82,16 @@
       {
         "source_website": "bbb.org",
         "attempted": true,
-        "direct_pages": 23,
-        "fallback_pages": 23,
+        "direct_pages": 16,
+        "fallback_pages": 16,
         "direct_statuses": {
-          "403": 23,
-          "200": 23
+          "403": 16,
+          "200": 16
         },
         "blocked": true,
         "fallback_used": true,
-        "candidate_reviews_seen": 92,
-        "new_reviews_added": 83,
+        "candidate_reviews_seen": 23,
+        "new_reviews_added": 3,
         "advertised_total": null,
         "latest_candidate_date": "2026-06-02",
         "notes": [
@@ -99,27 +99,24 @@
           "direct BBB customer reviews blocked for https://www.bbb.org/us/ca/anaheim/profile/auto-auction/manheim-auctions-1126-1000068323",
           "direct BBB customer reviews blocked for https://www.bbb.org/us/fl/tampa/profile/auto-auction/manheim-auctions-0653-90021503",
           "direct BBB customer reviews blocked for https://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743",
-          "reader challenge for https://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/customer-reviews",
           "direct BBB customer reviews blocked for https://www.bbb.org/us/in/indianapolis/profile/auto-auction/manheim-indianapolis-auto-auction-0382-90005341",
-          "reader challenge for https://www.bbb.org/us/in/indianapolis/profile/auto-auction/manheim-indianapolis-auto-auction-0382-90005341/customer-reviews",
           "direct BBB customer reviews blocked for https://www.bbb.org/us/mi/carleton/profile/auto-auction/manheims-detroit-auto-auction-0422-6001794",
           "direct BBB customer reviews blocked for https://www.bbb.org/us/pa/manheim/profile/auctioneer/manheim-pennsylvania-auto-auction-0241-184056004",
           "direct BBB complaints blocked for https://www.bbb.org/us/az/tolleson/profile/auto-auction/manheim-phoenix-1126-15000273",
           "direct BBB complaints blocked for https://www.bbb.org/us/ca/anaheim/profile/auto-auction/manheim-auctions-1126-1000068323",
           "direct BBB complaints blocked for https://www.bbb.org/us/fl/tampa/profile/auto-auction/manheim-auctions-0653-90021503",
           "direct BBB complaints blocked for https://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743",
-          "reader challenge for https://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=10",
+          "reader challenge for https://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=2",
           "direct BBB complaints blocked for https://www.bbb.org/us/in/indianapolis/profile/auto-auction/manheim-indianapolis-auto-auction-0382-90005341",
           "direct BBB complaints blocked for https://www.bbb.org/us/mi/carleton/profile/auto-auction/manheims-detroit-auto-auction-0422-6001794",
-          "reader challenge for https://www.bbb.org/us/mi/carleton/profile/auto-auction/manheims-detroit-auto-auction-0422-6001794/complaints",
           "direct BBB complaints blocked for https://www.bbb.org/us/pa/manheim/profile/auctioneer/manheim-pennsylvania-auto-auction-0241-184056004"
         ],
         "errors": [],
-        "review_count": 227,
-        "existing_review_count": 144,
+        "review_count": 230,
+        "existing_review_count": 227,
         "present": true,
-        "latest_review_date": "2026-05-06",
-        "existing_latest_date": "2026-03-25",
+        "latest_review_date": "2026-06-02",
+        "existing_latest_date": "2026-05-06",
         "status": "ok"
       },
       {
@@ -182,28 +179,34 @@
         },
         "blocked": false,
         "fallback_used": false,
-        "candidate_reviews_seen": 60,
-        "new_reviews_added": 6,
+        "candidate_reviews_seen": 56,
+        "new_reviews_added": 8,
         "advertised_total": 1439,
-        "latest_candidate_date": "2026-06-05",
+        "latest_candidate_date": "2026-06-29",
         "notes": [
           "Birdeye advertised totals may include syndicated Google/Birdeye network reviews; accepted rows are visible textual review cards that pass filters.",
-          "Advertised total 1439 is much larger than accepted rows 52; source is likely partially covered after filters/pagination."
+          "Advertised total 1439 is much larger than accepted rows 60; source is likely partially covered after filters/pagination."
         ],
         "errors": [],
-        "review_count": 52,
-        "existing_review_count": 46,
+        "review_count": 60,
+        "existing_review_count": 52,
         "present": true,
-        "latest_review_date": "2026-05-15",
+        "latest_review_date": "2026-06-29",
         "existing_latest_date": "2026-05-15",
         "status": "partial"
       }
     ],
     "sentiments": {
-      "positive": 147,
-      "negative": 433
+      "positive": 154,
+      "negative": 440
     },
     "source_urls": [
+      "https://reviews.birdeye.com/manheim-fredericksburg-167784557350491#review-1",
+      "https://www.reddit.com/r/carflipping/comments/1ui0kip/auction_access_tech_issues/",
+      "https://www.reddit.com/r/askcarsales/comments/1u4f58y/utah_hobbyscale_used_license/",
+      "https://www.reddit.com/r/carflipping/comments/1u3656n/lost_my_job_is_car_flippingauction_buying_still/",
+      "https://reviews.birdeye.com/manheim-indianapolis-167758900611879#review-2",
+      "http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints#0443_6001743_24904513",
       "https://www.reddit.com/r/askcarsales/comments/1tpid5w/new_used_car_dealer/",
       "https://itunes.apple.com/us/review?id=6744660081&type=Purple%20Software&reviewId=14113994395",
       "https://itunes.apple.com/us/review?id=6744660081&type=Purple%20Software&reviewId=14109200908",
@@ -212,9 +215,9 @@
       "https://www.reddit.com/r/askcarsales/comments/1tdovfy/bought_a_clean_title_prius_from_manheim_spent_10k/",
       "https://reviews.birdeye.com/manheim-indianapolis-167758900611879#review-4",
       "http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints#0443_6001743_24822639",
+      "https://reviews.birdeye.com/manheim-indianapolis-167758900611879#review-5",
       "https://www.reddit.com/r/carflipping/comments/1szocvk/my_old_car_is_up_for_auction_at_a_manheim_socal/",
       "https://www.reddit.com/r/askcarsales/comments/1sxvpa7/are_pickles_auctions_alright_for_electric_cars/",
-      "https://reviews.birdeye.com/manheim-indianapolis-167758900611879#review-5",
       "https://itunes.apple.com/us/review?id=6744660081&type=Purple%20Software&reviewId=13978360721",
       "https://reviews.birdeye.com/manheim-indianapolis-167758900611879#review-1",
       "http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints#0443_6001743_24759570",
@@ -222,7 +225,6 @@
       "https://itunes.apple.com/us/review?id=6744660081&type=Purple%20Software&reviewId=13919512848",
       "https://reviews.birdeye.com/manheim-fredericksburg-167784557350491#review-2",
       "https://reviews.birdeye.com/manheim-fredericksburg-167784557350491#review-3",
-      "https://reviews.birdeye.com/manheim-fredericksburg-167784557350491#review-1",
       "https://reviews.birdeye.com/manheim-fredericksburg-167784557350491?page=2#review-1",
       "https://reviews.birdeye.com/manheim-fredericksburg-167784557350491?page=2#review-2",
       "https://reviews.birdeye.com/manheim-dallas-fort-worth-166658799426873#review-5",
@@ -278,8 +280,8 @@
       "https://reviews.birdeye.com/manheim-pittsburgh-166598588464399?page=2#review-5",
       "https://itunes.apple.com/us/review?id=1480842917&type=Purple%20Software&reviewId=13513929579",
       "https://itunes.apple.com/us/review?id=1480842917&type=Purple%20Software&reviewId=13498248848",
-      "https://www.reddit.com/r/askcarsales/comments/1pdc1be/washington_state_dealers/",
       "https://reviews.birdeye.com/manheim-st-louis-166697023560226#review-1",
+      "https://www.reddit.com/r/askcarsales/comments/1pdc1be/washington_state_dealers/",
       "https://www.reddit.com/r/askcarsales/comments/1p7dz95/purchased_a_vehicle_as_isred_light_at_manheim_phx/",
       "https://www.reddit.com/r/carflipping/comments/1p50v2z/looking_to_partner_with_a_tx_dealer/",
       "https://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/customer-reviews#0443_6001743_337032",
@@ -397,6 +399,7 @@
       "https://itunes.apple.com/us/review?id=1480842917&type=Purple%20Software&reviewId=12488689320",
       "https://www.reddit.com/r/askcarsales/comments/1jmg4bk/looking_for_help_exporting_cars_from_us_wholesale/",
       "https://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/customer-reviews#0443_6001743_318126",
+      "https://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/customer-reviews#review-10",
       "https://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/customer-reviews?page=2#0443_6001743_318063",
       "https://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=5#0443_6001743_23121574",
       "https://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=5#0443_6001743_23118924",
@@ -497,20 +500,14 @@
       "https://www.reddit.com/r/legaladvice/comments/1f8vtcx/fraudscammed_need_advice/",
       "https://www.reddit.com/r/AskMechanics/comments/1f8vsle/fraudscammed_need_advice/",
       "https://www.reddit.com/r/Poconos/comments/1f4bvlb/first_time_rver_where/",
-      "https://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=7#0443_6001743_22216192",
-      "http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=7#0443_6001743_22216192",
-      "https://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=7#0443_6001743_22185203",
-      "http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=7#0443_6001743_22185203",
-      "https://www.reddit.com/r/CarsAustralia/comments/1exfvqp/first_car_and_all_by_myself_need_help/",
-      "https://www.reddit.com/r/askcarsales/comments/1ewxnso/manheim_auction/",
-      "https://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=7#0443_6001743_22140211"
+      "https://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=7#0443_6001743_22216192"
     ],
-    "generated_at_utc": "2026-06-26T17:06:08.662108+00:00",
+    "generated_at_utc": "2026-07-02T12:04:59.233022+00:00",
     "since_date": "2023-01-01",
-    "until_date": "2026-05-31",
+    "until_date": "2026-06-30",
     "collector_failures": [],
-    "existing_review_count": 490,
-    "new_reviews_added": 90,
+    "existing_review_count": 580,
+    "new_reviews_added": 14,
     "youtube_excluded": true,
     "usa_only": true,
     "english_only": true,
@@ -529,12 +526,13 @@
       "bbb.org"
     ],
     "geo_validation_counts": {
-      "bbb_us_business": 83,
-      "birdeye_us_profile": 6,
-      "apple_us_store": 1
+      "mixed_source_ok": 3,
+      "bbb_us_business": 3,
+      "birdeye_us_profile": 8
     },
     "geo_excluded_counts": {
       "play.google.com:google_play_us_store_non_us_marker": 1,
+      "reddit.com:mixed_source_non_us_marker": 1,
       "apps.apple.com:apple_non_us_store": 2
     },
     "geo_excluded_examples": [
@@ -545,6 +543,14 @@
         "review_date": "2024-08-27",
         "reason": "google_play_us_store_non_us_marker",
         "review_text": "Please clarify this app supports which region? I'm trying to access Manheim Australia but its not working .."
+      },
+      {
+        "source_website": "reddit.com",
+        "source_label": "Reddit r/googlemapsshenanigans",
+        "source_url": "https://www.reddit.com/r/googlemapsshenanigans/comments/1khnbvl/phantom_buildings_near_coalmine_in_cologne_germany/",
+        "review_date": "2025-05-08",
+        "reason": "mixed_source_non_us_marker",
+        "review_text": "Phantom Buildings near coalmine in Cologne, Germany Near the city of Cologne, Germany (I come from there) there are 3 Major sites for digging up coal. The Energy-Giant RWE bought up multiple small towns and acres of land to expand their min"
       },
       {
         "source_website": "apps.apple.com",
@@ -576,6 +582,96 @@
     ]
   },
   "reviews": [
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Google)",
+      "source_url": "https://reviews.birdeye.com/manheim-fredericksburg-167784557350491#review-1",
+      "author": "Akita May",
+      "review_date": "2026-06-29",
+      "rating": null,
+      "sentiment": "negative",
+      "review_text": "I hope someone at Manheim Fredericksburg takes the time to acknowledge this feedback. I recently spoke with Todd in the department that handles payments for purchased vehicles. Unfortunately, his tone came across as rude and made me feel like I was bothering him just by asking questions. Instead of simply answering my question, he directed me to the website without providing the assistance I was looking for. Customer service is an important part of the buying experience, and I hope this feedback helps improve future interact... read more",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Rude/Unhelpful Support",
+      "id": "rvw-000581"
+    },
+    {
+      "source_website": "reddit.com",
+      "source_label": "Reddit r/carflipping",
+      "source_url": "https://www.reddit.com/r/carflipping/comments/1ui0kip/auction_access_tech_issues/",
+      "author": "antler-imports",
+      "review_date": "2026-06-28",
+      "rating": null,
+      "sentiment": "negative",
+      "review_text": "auction access tech issues i have been having a tough fight with Manheim auction access. the auction access web site will not let you upload any of your information you can go so far then it kicks you to the app. the App crashes non stop on every device i have used apple , android etc i email them with no help or support i cant get my business uploaded to there system and i sit on the phone for hours trying to get help with nothing im a licensed ga auto dealer and i cant get any thing uploaded to there network has any one had any issues or does any one have a contact far up the network there i can contact to get some help",
+      "geo_validation": "mixed_source_ok",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Case Resolution Quality",
+      "tier3": "Issue Not Resolved",
+      "id": "rvw-000582"
+    },
+    {
+      "source_website": "reddit.com",
+      "source_label": "Reddit r/askcarsales",
+      "source_url": "https://www.reddit.com/r/askcarsales/comments/1u4f58y/utah_hobbyscale_used_license/",
+      "author": "Affectionate-Tax2650",
+      "review_date": "2026-06-13",
+      "rating": null,
+      "sentiment": "positive",
+      "review_text": "Utah hobby-scale used license Hi - I mainly want a Utah used dealer license for wholesale auction access (Manheim, etc) and very low-volume hobby and reselling — a few cars a year. The lot/bond/office/sign costs kill that, so I'm looking at ways to share the load: If 2–4 people form one dealership LLC, can each owner be authorized as their own buyer on the auction account? Or team up with an existing licensed dealer who already has the lot and bond — as an owner? Looking for the cheapest legit path, and open to connecting with anyone who's done this or wants to explore it. Appreciate any input or DMs",
+      "geo_validation": "mixed_source_ok",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Helpful Support Experience",
+      "id": "rvw-000583"
+    },
+    {
+      "source_website": "reddit.com",
+      "source_label": "Reddit r/carflipping",
+      "source_url": "https://www.reddit.com/r/carflipping/comments/1u3656n/lost_my_job_is_car_flippingauction_buying_still/",
+      "author": "Life-Love-Time-Death",
+      "review_date": "2026-06-11",
+      "rating": null,
+      "sentiment": "positive",
+      "review_text": "LOST MY JOB! Is car flipping/auction buying still profitable in 2026? I've got 10 years of dealer experience, looking for honest advice. Hey everyone, I’m looking for some real insight from people who are actively flipping cars right now, specifically buying from auctions like Manheim, Facebook Marketplace, or any other auctions. I recently got let go from my job of 10 years (got caught in the middle of some corporate BS, nothing fraudulent, they basically realized I was making too much money on commission), and I want to finally dive into flipping cars full time. I have a good chunk of capital saved up, so the money to invest isn't an issue. I’m trying to figure out if this business model is still viable today or if the auction prices and market shift have made it not worth the time. To give you an idea of my background so you know where I'm coming from: * **Dealer Experience:** I started working at one of the largest used car dealerships in the world when I was 18 and spent 10 years there. I know the entire business, the logistics, and the sales process inside and out. * **Detailing Skills:** My actual job there was a detailer. I built a system to be incredibly efficient while maintaining top-tier quality. I do full paint correction, buffing, scratch removal, headlights, etc. I can look at any car and tell you instantly if the paint can be saved or if it needs a respray. I know how to turn a absolute pig into a beautiful looking pig, I'm very confident in my detailing skills. * **Mechanically Inclined:** I’ve worked on cars my whole life, I do work on all my personal cars and all the cars I've bought to flip. Major jobs don't really scare me, I'd like to say I'm very mechanically inclined. * **Flipping History:** I've flipped a few cars a year on the side, I've bought from Japan, flipped on Facebook Marketplace, and sold on Bring a Trailer and Cars & Bids. My biggest profit on a single car was $14,000, mostly because I had access from the dealer i worked at which was a perk, did a full timing belt job, and fully documented/photographed it perfectly, besides the point, i saw the potential due to understanding the market, plus the work i put into it is what i believe got me those results. A few months ago, right after I got let go, a buddy and I were looking into opening a physical dealership. We started the licensing process, but looking at a $4,000 a month warehouse lease felt way too risky since we didn't fully know how the auction scene is looking post-Covid. Before Covid, I bought cars from auctions when I was way less experienced, made a tiny bit of profit, but I was basically an amateur back then and stopped when Covid hit. I also have connections where I can use a dealer's license for $200 a fee per car, but having to drag the customer 20 minutes away to their lot to sign papers was incredibly annoying, which is why I wanted my own license. Right now, I am located in the Miami market, but I’m totally open to buying cars nationwide and shipping them to my place. My strategy would be to target clean dailies for regular people, but also pull in some niche enthusiast cars for BaT when the potential is there. I'm also considering a wholesale-to-wholesale play where I buy auction cars, clean them up fast, and send them right back to another auction. I genuinely love working on cars and making them look perfect, and I'd much rather do it for my own profit than for a corporate dealership. I just want to make sure I'm not running blindly into a dead market. Appreciate any honest advice, tips, or reality checks you guys can throw my way. Thanks!",
+      "geo_validation": "mixed_source_ok",
+      "tier1": "Account / Access / Login",
+      "tier2": "Document Upload & Verification",
+      "tier3": "Upload Troubleshooting",
+      "id": "rvw-000584"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Google)",
+      "source_url": "https://reviews.birdeye.com/manheim-indianapolis-167758900611879#review-2",
+      "author": "armando cardona",
+      "review_date": "2026-06-11",
+      "rating": null,
+      "sentiment": "positive",
+      "review_text": "We were notified that we were the winning bidder for the 2017 Isuzu NQR at the June 3 Manheim Indianapolis auction with a bid of $7,000. We are very concerned to now be told that we are no longer the winning bidder and that we must pay $9,500 if we want the truck. Based on the auction results, we immediately arranged transportation from Indiana to North Carolina and currently have a driver en route, resulting in approximately $1,500 in expenses.",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Vehicle Pickup, Delivery and Scheduling",
+      "tier2": "Scheduled Pickup Status",
+      "tier3": "Schedule/ Reschedule Pickup",
+      "id": "rvw-000585"
+    },
+    {
+      "source_website": "bbb.org",
+      "source_label": "BBB Complaints",
+      "source_url": "http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints#0443_6001743_24904513",
+      "author": "BBB complainant",
+      "review_date": "2026-06-02",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Sales and Advertising Issues complaint (Answered). On Feb 12, 2026 we purchased a 2017 Merc REMOVED with a condition score of 4.6. The vehicle had a rip in the leather seat, damaged headlights, scratches on the body and worn out tire none of which were disclosed. Our arbitration claim handled by REMOVED was denied. After bringing up the issue with Manheim they offered us a small discount to keep the car. After two months when the car didn't sell and putting in 3K to refurbish the car, new tires, new headlights, buffing scratch marks and repairing the rip in the seat we returned the car to Manheim to sell and they issued a condition score of 3.3 thereby causing us to lose even more money on this vehicle. On May 6, 2026 we purchased a 2018 Merc REMOVED the car was green light with condition score of 4.4. The vehicle had an oil and transmission leak. We submitted for arbitration and it was denied by Arbitrator-REMOVED due to the fact that ARB repair cost estimate was under $700.00 there was no way that we could get the car repaired for that amount of money. We retunred it so Manheim could repair it - three weeks later they claim \"they don't have the tools to repair it\" meanwhile this vehicle is sitting on out Nextgear line of credit collecting interest fees. Manheim is systematically taking advantage of small dealers and causing big losses to drive us out of business.",
+      "geo_validation": "bbb_us_business",
+      "tier1": "Membership / Licensing / Fees & Bidding Policies",
+      "tier2": "Bidding Process, Rules and Fees",
+      "tier3": "Fees",
+      "id": "rvw-000586"
+    },
     {
       "source_website": "reddit.com",
       "source_label": "Reddit r/askcarsales",
@@ -725,6 +821,21 @@
       "tier2": "Password Reset & Login Troubleshooting",
       "tier3": "App Login Troubleshooting",
       "id": "rvw-000481"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Google)",
+      "source_url": "https://reviews.birdeye.com/manheim-indianapolis-167758900611879#review-5",
+      "author": "Tyra Bostic",
+      "review_date": "2026-05-03",
+      "rating": null,
+      "sentiment": "negative",
+      "review_text": "My car was repo there and I regret it was even sent there for auction. They steal out your car, the representative and workers there are unprofessional, thieves and rude. The manager there (TJ or Lynn Jackson) does not go above and beyond on handling situations or issues regarding the professionalism of his team…he’ll smirk at you instead. Worst place ever to do business with. Do not recommend.",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Rude/Unhelpful Support",
+      "id": "rvw-000587"
     },
     {
       "source_website": "reddit.com",
@@ -2000,6 +2111,21 @@
       "tier1": "Account / Access / Login",
       "tier2": "Password Reset & Login Troubleshooting",
       "tier3": "App Login Troubleshooting"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Google)",
+      "source_url": "https://reviews.birdeye.com/manheim-st-louis-166697023560226#review-1",
+      "author": "Orhan",
+      "review_date": "2025-12-04",
+      "rating": null,
+      "sentiment": "negative",
+      "review_text": "Be careful with their process! We’ve been in business for over 2 years and bought 100+ cars, all green light and scored over 4. Still had to wait 3–4 days to pick them up even after payment was taken. They falsely claimed a late payment but can’t prove it. By the time cars were released, they were out of arbitration and most were in bad condition — 3 even had engine problems. Watch out and inspect your cars carefully!",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Lot Condition, Listing Status and related",
+      "tier2": "Third-Party Inspection Authorization & Scheduling",
+      "tier3": "Previewing/ Inspecting Vehicles",
+      "id": "rvw-000588"
     },
     {
       "source_website": "reddit.com",
@@ -4055,6 +4181,21 @@
       "tier1": "Membership / Licensing / Fees & Bidding Policies",
       "tier2": "Bidding Process, Rules and Fees",
       "tier3": "Fees"
+    },
+    {
+      "source_website": "bbb.org",
+      "source_label": "BBB Customer Reviews",
+      "source_url": "https://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/customer-reviews#review-10",
+      "author": "Shawnta M",
+      "review_date": "2025-03-28",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "They lie about information with cars the auction they are really junk cars * [Page 1](http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/customer-reviews?page=1) * [Page 2](http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/customer-reviews?page=2) * [Page 3](http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/customer-reviews?page=3) [Next](http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/customer-reviews?page=2)[Last](http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/customer-reviews?page=3) ## Manheim Auctions is NOT a BBB Accredited Business. To become accredited, a business must agree to[BBB Standards for Trust](https://www.bbb.org/all/standards-for-trust)and pass BBB's vetting process. [Why choose a BBB Accredited Business?](https://www.bbb.org/all/why-choose-a-bbb-accredited-business) BBB Business Profiles are provided solely to assist you in exercising your own best judgment. BBB does not verify the accuracy of information provided by third parties, and does not guarantee the accuracy of any information in Business Profiles. As a matter of policy, BBB does not endorse any product, service, or business. Businesses are under no obligation to seek BBB accreditation, and some businesses are not accredited because they have not sought BBB accreditation. When considering complaint information, please consider the company's size and volume of transactions. Note that the nature of complaints and a company’s responses to them are often more important than the number of complaints. BBB Business Profiles generally cover a three-year reporting period. [![Image 17: BBB](https://m.bbb.org/brand/logos/BBB_PrimaryLogo_White_RGB.svg)](https://www.bbb.org/)TM ## For Consumers * [Get a Quote](http://www.bbb.org/get-a-quote) * [Start a Review](http://www.bbb.org/leave-a-review) * [File a Complaint](http://www.bbb.org/file-a-complaint) ## For Businesses * [Get Your Business Listed](http://www.bbb.org/get-listed) * [BBB Accreditation](http://www.bbb.org/get-accredited) * [Apply for BBB Accreditation](http://www.bbb.org/apply) * [Newsroom and Resources](http://www.bbb.org/us/news) ## Affiliated Programs * [BBB Institute for Marketplace Trust](https://www.bbbmarketplacetrust.org/) * [BBB Wise Giving Alliance (Give.org)](https://give.org/) * [BBB National Programs](https://bbbprograms.org/) * [our Twitter (opens in a new tab)](https://x.com/bbb_us) * [our LinkedIn (opens in a new tab)](https://www.linkedin.com/company/better-business-bureau/) * [our Facebook (opens in a new tab)](https://www.facebook.com/BetterBusinessBureau) * [our Instagram (opens in a new tab)](https://www.instagram.com/betterbusinessbureau_/) * [About BBB®](http://www.bbb.org/about) * [Terms of Use](http://www.bbb.org/terms-of-use) * [Privacy Policy](http://www.bbb.org/all/privacy-policy) * [Contact Us](http://www.bbb.org/bbb-directory) © 2026 BBB, Inc. All rights reserved. All trademarks are property of BBB, Inc.",
+      "geo_validation": "bbb_us_business",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Rude/Unhelpful Support",
+      "id": "rvw-000589"
     },
     {
       "id": "rvw-000112",
@@ -7297,6 +7438,21 @@
       "tier3": "Rude/Unhelpful Support"
     },
     {
+      "source_website": "bbb.org",
+      "source_label": "BBB Complaints",
+      "source_url": "http://www.bbb.org/us/mi/carleton/profile/auto-auction/manheims-detroit-auto-auction-0422-6001794/complaints#0422_6001794_21357955",
+      "author": "BBB complainant",
+      "review_date": "2024-02-28",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Customer Service Issues complaint (Unanswered). On 12-26-23 my Ally leased vehicle was turned in to Feldman Livonia in perfect condition (re: no broken windshield and no dents or scratches. At some point in time the vehicle was turned over to Manheim. On 2-13-24 I received an inspection report from Ally. What was done to my vehicle was criminal. 9 various scratches, a broken windshield extensive damage charges to the tune of $1000. Between Feldman Livonia and Manhein Detroit nobody is owning up to the damages that were caused to my vehicle while in their possession and I am being told it is my problem with the leasing company. As well as my vehicle had 287 additional miles on it from the date I turned it in. Its obvious someone had the vehicle and abused it and now the leasing company is charging me for the damage. Whoever is responsible for this should be fired from their job. ## Manheim's Detroit Auto Auction is NOT a BBB Accredited Business. To become accredited, a business must agree to[BBB Standards for Trust](https://www.bbb.org/all/standards-for-trust)and pass BBB's vetting process. [Why choose a BBB Accredited Business?](https://www.bbb.org/all/why-choose-a-bbb-accredited-business) BBB Business Profiles are provided solely to assist you in exercising your own best judgment. BBB does not verify the accuracy of information provided by third parties, and does not guarantee the accuracy of any information in Business Profiles. As a matter of policy, BBB does not endorse any product, service, or business. Businesses are under no obligation to seek BBB accreditation, and some businesses are not accredited because they have not sought BBB accreditation. When considering complaint information, please consider the company's size and volume of transactions. Note that the nature of complaints and a company’s responses to them are often more important than the number of complaints. BBB Business Profiles generally cover a three-year reporting period. [![Image 9: BBB](https://m.bbb.org/brand/logos/BBB_PrimaryLogo_White_RGB.svg)](https://www.bbb.org/)TM ## For Consumers * [Get a Quote](http://www.bbb.org/get-a-quote) * [Start a Review](http://www.bbb.org/leave-a-review) * [File a Complaint](http://www.bbb.org/file-a-complaint) ## For Businesses * [Get Your Business Listed](http://www.bbb.org/get-listed) * [BBB Accreditation](http://www.bbb.org/get-accredited) * [Apply for BBB Accreditation](http://www.bbb.org/apply) * [Newsroom and Resources](http://www.bbb.org/us/news) ## Affiliated Programs * [BBB Institute for Marketplace Trust](https://www.bbbmarketplacetrust.org/) * [BBB Wise Giving Alliance (Give.org)](https://give.org/) * [BBB National Programs](https://bbbprograms.org/) * [our Twitter (opens in a new tab)](https://x.com/bbb_us) * [our LinkedIn (opens in a new tab)](https://www.linkedin.com/company/better-business-bureau/) * [our Facebook (opens in a new tab)](https://www.facebook.com/BetterBusinessBureau) * [our Instagram (opens in a new tab)](https://www.instagram.com/betterbusinessbureau_/) * [About BBB®](http://www.bbb.org/about) * [Terms of Use](http://www.bbb.org/terms-of-use) * [Privacy Policy](http://www.bbb.org/all/privacy-policy) * [Contact Us](http://www.bbb.org/bbb-directory) © 2026 BBB, Inc. All rights reserved. All trademarks are property of BBB, Inc.",
+      "geo_validation": "bbb_us_business",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Rude/Unhelpful Support",
+      "id": "rvw-000590"
+    },
+    {
       "id": "rvw-000211",
       "source_website": "apps.apple.com",
       "source_label": "Apple App Store (1480842917, us)",
@@ -8495,6 +8651,66 @@
       "tier1": "Account / Access / Login",
       "tier2": "Password Reset & Login Troubleshooting",
       "tier3": "App Login Troubleshooting"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Insider Pages)",
+      "source_url": "https://reviews.birdeye.com/manheim-statesville-166651026035079#review-1",
+      "author": "dovie",
+      "review_date": "2023-07-03",
+      "rating": null,
+      "sentiment": "positive",
+      "review_text": "Mississippi Auto Auction Incorporated you have to know adealer to attend but the prices here are far better than on a car lot. this place is opened every thursday. the location is good and the staff is very friendly. i often go with a friend to see all the nice cars and trucks they have to offer.",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Helpful Support Experience",
+      "id": "rvw-000591"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Insider Pages)",
+      "source_url": "https://reviews.birdeye.com/manheim-statesville-166651026035079#review-3",
+      "author": "Linda",
+      "review_date": "2023-07-03",
+      "rating": null,
+      "sentiment": "positive",
+      "review_text": "Low key auction house! This auction house accept a variety of things to sell, but does deal in alot of antiques or specialized items. It is a good auction house for general merchandise..and alot of good things can be had.. but it varies like most auction houses. PROS: Good for general merchandise CONS: No high end items",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Membership / Licensing / Fees & Bidding Policies",
+      "tier2": "Bidding Process, Rules and Fees",
+      "tier3": "How to Bid (First Time)",
+      "id": "rvw-000592"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Insider Pages)",
+      "source_url": "https://reviews.birdeye.com/manheim-statesville-166651026035079#review-4",
+      "author": "Barbara",
+      "review_date": "2023-07-03",
+      "rating": null,
+      "sentiment": "positive",
+      "review_text": "Auto Auctions Statesville Auto Auction has every kind of car, truck and van known to mankind. Acres and acres of cars are for sale at their on-site auctions. Licensed buyers can purchase at an auction-type setting for resale later. PROS: uncoutable numbers of vehicles for sale CONS: huge, non-personalized service",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Membership / Licensing / Fees & Bidding Policies",
+      "tier2": "Bidding Process, Rules and Fees",
+      "tier3": "How to Bid (First Time)",
+      "id": "rvw-000593"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Insider Pages)",
+      "source_url": "https://reviews.birdeye.com/manheim-statesville-166651026035079#review-5",
+      "author": "BEN",
+      "review_date": "2023-07-03",
+      "rating": null,
+      "sentiment": "positive",
+      "review_text": "CAR HAULER / OWNER HELLO WE ARE LOOKING TO PURCHASE A CARHAULER EZ LOADER BY NAME 3-4 CAR CAPACITY A WEDGE WOULD BE SECOND TO LAST CHOICE IN YOUR FINE LINE PLEASE CONTACT US TO ASSURE THE PROPER CONTACT MANNER IF NOT WE APOLOGIZE THANKS FOR YOUR CO OPERATION",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Helpful Support Experience",
+      "id": "rvw-000594"
     },
     {
       "id": "rvw-000270",
