@@ -1,9 +1,9 @@
 {
   "meta": {
     "description": "Large-scale English-only America's Auto Auction textual review/problem dataset from public web sources (recency-first).",
-    "review_count": 81,
+    "review_count": 93,
     "source_counts": {
-      "birdeye.com": 77,
+      "birdeye.com": 89,
       "bbb.org": 4
     },
     "source_audit": [
@@ -35,15 +35,15 @@
         "source_website": "bbb.org",
         "attempted": true,
         "direct_pages": 6,
-        "fallback_pages": 5,
+        "fallback_pages": 6,
         "direct_statuses": {
           "403": 6,
-          "200": 5
+          "200": 6
         },
         "blocked": true,
         "fallback_used": true,
         "candidate_reviews_seen": 2,
-        "new_reviews_added": 2,
+        "new_reviews_added": 0,
         "advertised_total": null,
         "latest_candidate_date": "2026-01-21",
         "notes": [
@@ -54,11 +54,9 @@
           "direct BBB complaints blocked for https://www.bbb.org/us/il/crestwood/profile/auto-auction/americas-auto-auction-chicago-0654-12015440",
           "direct BBB complaints blocked for https://www.bbb.org/us/tx/buda/profile/auto-auction/americas-auto-auction-austin-0825-90094147"
         ],
-        "errors": [
-          "reader error for https://www.bbb.org/us/il/centreville/profile/auto-auction/americas-auto-auction-0734-310446804/customer-reviews: HTTPSConnectionPool(host='r.jina.ai', port=443): Read timed out. (read timeout=60)"
-        ],
+        "errors": [],
         "review_count": 4,
-        "existing_review_count": 2,
+        "existing_review_count": 4,
         "present": true,
         "latest_review_date": "2026-01-21",
         "existing_latest_date": "2026-01-21",
@@ -117,49 +115,50 @@
       {
         "source_website": "birdeye.com",
         "attempted": true,
-        "direct_pages": 23,
+        "direct_pages": 22,
         "fallback_pages": 0,
         "direct_statuses": {
-          "200": 23
+          "200": 22
         },
         "blocked": false,
         "fallback_used": false,
-        "candidate_reviews_seen": 95,
-        "new_reviews_added": 13,
+        "candidate_reviews_seen": 92,
+        "new_reviews_added": 12,
         "advertised_total": 527,
-        "latest_candidate_date": "2026-06-28",
+        "latest_candidate_date": "2026-07-12",
         "notes": [
           "Birdeye advertised totals may include syndicated Google/Birdeye network reviews; accepted rows are visible textual review cards that pass filters.",
-          "Advertised total 527 is much larger than accepted rows 77; source is likely partially covered after filters/pagination."
+          "Advertised total 527 is much larger than accepted rows 89; source is likely partially covered after filters/pagination."
         ],
         "errors": [],
-        "review_count": 77,
-        "existing_review_count": 64,
+        "review_count": 89,
+        "existing_review_count": 77,
         "present": true,
-        "latest_review_date": "2026-06-25",
-        "existing_latest_date": "2026-05-27",
+        "latest_review_date": "2026-07-12",
+        "existing_latest_date": "2026-06-25",
         "status": "partial"
       }
     ],
     "sentiments": {
-      "positive": 41,
-      "negative": 40
+      "positive": 49,
+      "negative": 44
     },
     "source_urls": [
-      "https://reviews.birdeye.com/americas-auto-auction-boston-175285312088477#review-2",
-      "https://reviews.birdeye.com/americas-auto-auction-atlanta-175285312123278#review-1",
       "https://reviews.birdeye.com/americas-auto-auction-atlanta-175285312123278#review-2",
-      "https://reviews.birdeye.com/americas-auto-auction-greater-kalamazoo-175285312088026#review-2",
+      "https://reviews.birdeye.com/americas-auto-auction-atlanta-175285312123278#review-3",
       "https://reviews.birdeye.com/americas-auto-auction-atlanta-175285312123278#review-4",
-      "https://reviews.birdeye.com/americas-auto-auction-kansas-city-175285312126035#review-4",
       "https://reviews.birdeye.com/americas-auto-auction-boston-175285312088477#review-3",
+      "https://reviews.birdeye.com/americas-auto-auction-boston-175285312088477#review-2",
+      "https://reviews.birdeye.com/americas-auto-auction-atlanta-175285312123278#review-5",
+      "https://reviews.birdeye.com/americas-auto-auction-greater-kalamazoo-175285312088026#review-2",
+      "https://reviews.birdeye.com/americas-auto-auction-atlanta-175285312123278#review-1",
+      "https://reviews.birdeye.com/americas-auto-auction-kansas-city-175285312126035#review-4",
       "https://reviews.birdeye.com/americas-auto-auction-kansas-city-175285312126035#review-2",
       "https://reviews.birdeye.com/americas-auto-auction-kansas-city-175285312126035?page=2#review-2",
       "https://reviews.birdeye.com/americas-auto-auction-boston-175285312088477?page=2#review-2",
       "https://reviews.birdeye.com/americas-auto-auction-166687512715050#review-5",
       "https://reviews.birdeye.com/americas-auto-auction-boston-175285312088477#review-4",
       "https://reviews.birdeye.com/americas-auto-auction-166687512715050#review-3",
-      "https://reviews.birdeye.com/americas-auto-auction-atlanta-175285312123278#review-3",
       "https://reviews.birdeye.com/americas-auto-auction-166687512715050?page=2#review-3",
       "https://reviews.birdeye.com/americas-auto-auction-atlanta-175285312123278?page=2#review-3",
       "https://reviews.birdeye.com/americas-auto-auction-atlanta-175285312123278?page=2#review-4",
@@ -179,12 +178,12 @@
       "https://www.bbb.org/us/il/centreville/profile/auto-auction/americas-auto-auction-0734-310446804/complaints#0734_310446804_23564283",
       "http://www.bbb.org/us/il/centreville/profile/auto-auction/americas-auto-auction-0734-310446804/complaints#0734_310446804_23564283"
     ],
-    "generated_at_utc": "2026-07-02T12:03:26.316383+00:00",
+    "generated_at_utc": "2026-08-02T10:59:35.171521+00:00",
     "since_date": "2023-01-01",
-    "until_date": "2026-06-30",
+    "until_date": "2026-07-31",
     "collector_failures": [],
-    "existing_review_count": 66,
-    "new_reviews_added": 15,
+    "existing_review_count": 81,
+    "new_reviews_added": 12,
     "youtube_excluded": true,
     "usa_only": true,
     "english_only": true,
@@ -199,8 +198,7 @@
       "bbb.org"
     ],
     "geo_validation_counts": {
-      "bbb_us_business": 2,
-      "birdeye_us_profile": 13
+      "birdeye_us_profile": 12
     },
     "geo_excluded_counts": {},
     "geo_excluded_examples": [],
@@ -218,6 +216,66 @@
     {
       "source_website": "birdeye.com",
       "source_label": "Birdeye (Google)",
+      "source_url": "https://reviews.birdeye.com/americas-auto-auction-atlanta-175285312123278#review-2",
+      "author": "Mohammed Daoud",
+      "review_date": "2026-07-12",
+      "rating": null,
+      "sentiment": "positive",
+      "review_text": "Good auction family runs it well",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Membership / Licensing / Fees & Bidding Policies",
+      "tier2": "Bidding Process, Rules and Fees",
+      "tier3": "How to Bid (First Time)",
+      "id": "rvw-000082"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Google)",
+      "source_url": "https://reviews.birdeye.com/americas-auto-auction-atlanta-175285312123278#review-3",
+      "author": "Moe Daoud",
+      "review_date": "2026-07-12",
+      "rating": null,
+      "sentiment": "positive",
+      "review_text": "Good auction family runs it well",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Membership / Licensing / Fees & Bidding Policies",
+      "tier2": "Bidding Process, Rules and Fees",
+      "tier3": "How to Bid (First Time)",
+      "id": "rvw-000083"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Google)",
+      "source_url": "https://reviews.birdeye.com/americas-auto-auction-atlanta-175285312123278#review-4",
+      "author": "Libass Thiam",
+      "review_date": "2026-07-03",
+      "rating": null,
+      "sentiment": "negative",
+      "review_text": "I have been doing business over a decade without complaint until today after I bought my 5th car in a row with them on green light. It happened that after I requested for a Psi over the phone the same day I purchased the cars and even the week after which means last week I called several times to get my Psi results and could not get them to do it til a coworker who works with me check that we have that car in our inventory and pick it up drove 20 miles and the engine oil, coolant and all starts licking. My issues is I will n... read more",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Lot Condition, Listing Status and related",
+      "tier2": "Listing Status",
+      "tier3": "Selling/ Relisting vehicle or Parts purchase",
+      "id": "rvw-000084"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Google)",
+      "source_url": "https://reviews.birdeye.com/americas-auto-auction-boston-175285312088477#review-3",
+      "author": "Rj Jr",
+      "review_date": "2026-07-03",
+      "rating": null,
+      "sentiment": "positive",
+      "review_text": "Angelica is such a great help, she can get issues solved smoothly, the Auction is very well organized with a nice friendly environment.",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Membership / Licensing / Fees & Bidding Policies",
+      "tier2": "Bidding Process, Rules and Fees",
+      "tier3": "How to Bid (First Time)",
+      "id": "rvw-000085"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Google)",
       "source_url": "https://reviews.birdeye.com/americas-auto-auction-boston-175285312088477#review-2",
       "author": "Rj Jr",
       "review_date": "2026-06-25",
@@ -229,6 +287,36 @@
       "tier2": "Bidding Process, Rules and Fees",
       "tier3": "How to Bid (First Time)",
       "id": "rvw-000067"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Google)",
+      "source_url": "https://reviews.birdeye.com/americas-auto-auction-atlanta-175285312123278#review-5",
+      "author": "All Things Porsche",
+      "review_date": "2026-06-03",
+      "rating": null,
+      "sentiment": "positive",
+      "review_text": "I wish I could leave the team here 500 starts. One of the best auctions I have ever had the pleasure of dealing with. Always responsive to all requests and emails. Forget 500 starts -- how about 5000!!!!",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Helpful Support Experience",
+      "id": "rvw-000086"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Google)",
+      "source_url": "https://reviews.birdeye.com/americas-auto-auction-greater-kalamazoo-175285312088026#review-2",
+      "author": "Peter Schultz",
+      "review_date": "2026-06-03",
+      "rating": null,
+      "sentiment": "negative",
+      "review_text": "Friendly people, but astronomical fees. Paid $15100 for a green light gold certified car and ended up with an $845 fee including a $75 online bid fee. Really? Adesa only charges $50 for this ridiculous money grab! But the base fee was over $700 for a car that should have had a $550 fee anywhere else. So buyers, be ready to add a few hundred to your fees when bidding here.",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Membership / Licensing / Fees & Bidding Policies",
+      "tier2": "Bidding Process, Rules and Fees",
+      "tier3": "Fees",
+      "id": "rvw-000087"
     },
     {
       "source_website": "birdeye.com",
@@ -499,6 +587,21 @@
       "tier2": "Bidding Process, Rules and Fees",
       "tier3": "Fees",
       "id": "rvw-000049"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Google)",
+      "source_url": "https://reviews.birdeye.com/americas-auto-auction-166687512715050#review-5",
+      "author": "David Schmucker",
+      "review_date": "2026-03-05",
+      "rating": null,
+      "sentiment": "positive",
+      "review_text": "Would not recommend. Staff is incredible dude and was yelling at me when making a delivery.",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Helpful Support Experience",
+      "id": "rvw-000088"
     },
     {
       "source_website": "birdeye.com",
@@ -835,6 +938,21 @@
       "source_label": "Birdeye (Google)",
       "source_url": "https://reviews.birdeye.com/americas-auto-auction-greater-kalamazoo-175285312088026#review-4",
       "author": "BOBBY STONE v.c.",
+      "review_date": "2026-02-03",
+      "rating": null,
+      "sentiment": "positive",
+      "review_text": "Awesome Experience to meet these guys!! Great doing business with the staff!!",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Helpful Support Experience",
+      "id": "rvw-000089"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Google)",
+      "source_url": "https://reviews.birdeye.com/americas-auto-auction-greater-kalamazoo-175285312088026#review-4",
+      "author": "BOBBY STONE v.c.",
       "review_date": "2026-02-02",
       "rating": null,
       "sentiment": "positive",
@@ -949,6 +1067,21 @@
       "tier1": "Customer Service & Communication",
       "tier2": "Agent Professionalism & Responsiveness",
       "tier3": "Helpful Support Experience"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Google)",
+      "source_url": "https://reviews.birdeye.com/americas-auto-auction-166658630045147#review-1",
+      "author": "bassheadtahoe",
+      "review_date": "2025-12-05",
+      "rating": null,
+      "sentiment": "negative",
+      "review_text": "Its was either these people or the tow company that stole my multi thousand dollar audio system out of my car",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Vehicle Pickup, Delivery and Scheduling",
+      "tier2": "Tow and Storage Charges",
+      "tier3": "Tow and Storage Fees",
+      "id": "rvw-000090"
     },
     {
       "source_website": "birdeye.com",
@@ -1178,6 +1311,36 @@
     {
       "source_website": "birdeye.com",
       "source_label": "Birdeye (Google)",
+      "source_url": "https://reviews.birdeye.com/americas-auto-auction-166658630045147#review-2",
+      "author": "T Ashford",
+      "review_date": "2025-11-05",
+      "rating": null,
+      "sentiment": "positive",
+      "review_text": "I love the atmosphere, no hassle. Workers are friendly and very helpful. It's like one big family with the buyers and sellers. Hassle free and awesome selection of cars.",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Helpful Support Experience",
+      "id": "rvw-000091"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Google)",
+      "source_url": "https://reviews.birdeye.com/americas-auto-auction-st-louis-165330156623701#review-2",
+      "author": "Dmitry M.",
+      "review_date": "2025-11-05",
+      "rating": null,
+      "sentiment": "negative",
+      "review_text": "That's an A+ service for the car pickup. They printed gate pass, gave me a ride to the car, jumpstarted and moved the car that blocked mine",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Vehicle Pickup, Delivery and Scheduling",
+      "tier2": "Pickup Order Management",
+      "tier3": "Gate Pass Assistance",
+      "id": "rvw-000092"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Google)",
       "source_url": "https://reviews.birdeye.com/americas-auto-auction-166658630045147?page=2#review-1",
       "author": "bassheadtahoe",
       "review_date": "2025-11-04",
@@ -1294,6 +1457,21 @@
       "tier2": "Pickup Order Management",
       "tier3": "Gate Pass Assistance",
       "id": "rvw-000034"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Google)",
+      "source_url": "https://reviews.birdeye.com/americas-auto-auction-166658630045147#review-5",
+      "author": "Demetrius Smith",
+      "review_date": "2025-10-06",
+      "rating": null,
+      "sentiment": "positive",
+      "review_text": "I am a dealer and have been doing business with this auction for over 25 years before it was changed from tri state and the way I was treated by Julie K was not professional and very wrong I bout a car and sold it and and proof of sale and dated titled when sold she did not want to see it and barred my business from making any purchases and made me pay for tickets tickets that was caused by the buyer who bought the car and told me I responsible for someone else actions and wouldn't let me talk maria or Larry's she instructed... read more",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Helpful Support Experience",
+      "id": "rvw-000093"
     },
     {
       "source_website": "birdeye.com",

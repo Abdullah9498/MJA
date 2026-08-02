@@ -1,20 +1,20 @@
 {
-  "generated_at": "2026-07-02T12:11:14.538797Z",
+  "generated_at": "2026-08-02T11:22:14.252050Z",
   "target_since": "2023-01-01",
-  "target_until": "2026-06-30",
+  "target_until": "2026-07-31",
   "refreshed": [
     {
       "key": "copart",
       "display_name": "Copart",
-      "until_date": "2026-06-30",
+      "until_date": "2026-07-31",
       "since_date": "2023-01-01",
-      "review_count": 8494,
+      "review_count": 8769,
       "source_counts": {
-        "reddit.com": 6327,
-        "play.google.com": 643,
-        "apps.apple.com": 240,
-        "bbb.org": 892,
-        "trustpilot.com": 152,
+        "reddit.com": 6464,
+        "play.google.com": 656,
+        "apps.apple.com": 248,
+        "trustpilot.com": 241,
+        "bbb.org": 920,
         "reviews.io": 225,
         "complaintsboard.com": 15
       }
@@ -22,43 +22,43 @@
     {
       "key": "iaa",
       "display_name": "IAA",
-      "until_date": "2026-06-30",
+      "until_date": "2026-07-31",
       "since_date": "2023-01-01",
-      "review_count": 1850,
+      "review_count": 2079,
       "source_counts": {
-        "play.google.com": 242,
-        "reddit.com": 1000,
+        "reddit.com": 1003,
+        "bbb.org": 600,
+        "play.google.com": 246,
+        "apps.apple.com": 140,
         "trustpilot.com": 87,
-        "bbb.org": 380,
-        "apps.apple.com": 138,
         "complaintsboard.com": 3
       }
     },
     {
       "key": "manheim",
       "display_name": "Manheim",
-      "until_date": "2026-06-30",
+      "until_date": "2026-07-31",
       "since_date": "2023-01-01",
-      "review_count": 594,
+      "review_count": 649,
       "source_counts": {
-        "birdeye.com": 60,
-        "reddit.com": 148,
-        "bbb.org": 230,
-        "apps.apple.com": 90,
-        "play.google.com": 60,
+        "play.google.com": 62,
+        "reddit.com": 150,
+        "apps.apple.com": 96,
+        "bbb.org": 269,
+        "birdeye.com": 66,
         "trustpilot.com": 6
       }
     },
     {
       "key": "adesa",
       "display_name": "ADESA",
-      "until_date": "2026-06-30",
+      "until_date": "2026-07-31",
       "since_date": "2023-01-01",
-      "review_count": 255,
+      "review_count": 270,
       "source_counts": {
-        "birdeye.com": 70,
+        "apps.apple.com": 117,
+        "birdeye.com": 83,
         "trustpilot.com": 17,
-        "apps.apple.com": 115,
         "reddit.com": 25,
         "bbb.org": 6,
         "play.google.com": 22
@@ -67,41 +67,41 @@
     {
       "key": "openlane",
       "display_name": "OPENLANE",
-      "until_date": "2026-06-30",
+      "until_date": "2026-07-31",
       "since_date": "2023-01-01",
-      "review_count": 489,
+      "review_count": 513,
       "source_counts": {
-        "apps.apple.com": 126,
-        "birdeye.com": 8,
-        "play.google.com": 249,
-        "trustpilot.com": 76,
-        "bbb.org": 25,
+        "play.google.com": 253,
+        "apps.apple.com": 135,
+        "trustpilot.com": 80,
+        "bbb.org": 30,
+        "birdeye.com": 10,
         "reddit.com": 5
       }
     },
     {
       "key": "acv",
       "display_name": "ACV",
-      "until_date": "2026-06-30",
+      "until_date": "2026-07-31",
       "since_date": "2023-01-01",
-      "review_count": 192,
+      "review_count": 205,
       "source_counts": {
+        "trustpilot.com": 30,
+        "birdeye.com": 57,
         "play.google.com": 28,
-        "apps.apple.com": 80,
-        "birdeye.com": 48,
-        "trustpilot.com": 28,
-        "bbb.org": 7,
+        "apps.apple.com": 81,
+        "bbb.org": 8,
         "reddit.com": 1
       }
     },
     {
       "key": "americas_auto_auction",
       "display_name": "America's Auto Auction",
-      "until_date": "2026-06-30",
+      "until_date": "2026-07-31",
       "since_date": "2023-01-01",
-      "review_count": 81,
+      "review_count": 93,
       "source_counts": {
-        "birdeye.com": 77,
+        "birdeye.com": 89,
         "bbb.org": 4
       }
     }

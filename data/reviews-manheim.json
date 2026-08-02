@@ -1,13 +1,13 @@
 {
   "meta": {
     "description": "Large-scale English-only Manheim textual review/problem dataset from public web sources (recency-first).",
-    "review_count": 594,
+    "review_count": 649,
     "source_counts": {
-      "birdeye.com": 60,
-      "reddit.com": 148,
-      "bbb.org": 230,
-      "apps.apple.com": 90,
-      "play.google.com": 60,
+      "play.google.com": 62,
+      "reddit.com": 150,
+      "apps.apple.com": 96,
+      "bbb.org": 269,
+      "birdeye.com": 66,
       "trustpilot.com": 6
     },
     "source_audit": [
@@ -20,7 +20,7 @@
         "blocked": false,
         "fallback_used": false,
         "candidate_reviews_seen": 0,
-        "new_reviews_added": 3,
+        "new_reviews_added": 2,
         "advertised_total": null,
         "latest_candidate_date": null,
         "notes": [
@@ -28,11 +28,11 @@
           "reddit_arctic_shift ran; candidate count is not separately tracked for this collector."
         ],
         "errors": [],
-        "review_count": 148,
-        "existing_review_count": 145,
+        "review_count": 150,
+        "existing_review_count": 148,
         "present": true,
-        "latest_review_date": "2026-06-28",
-        "existing_latest_date": "2026-05-27",
+        "latest_review_date": "2026-07-24",
+        "existing_latest_date": "2026-06-28",
         "status": "ok"
       },
       {
@@ -43,16 +43,16 @@
         "direct_statuses": {},
         "blocked": false,
         "fallback_used": false,
-        "candidate_reviews_seen": 252,
-        "new_reviews_added": 0,
+        "candidate_reviews_seen": 255,
+        "new_reviews_added": 2,
         "advertised_total": null,
-        "latest_candidate_date": "2026-05-23",
+        "latest_candidate_date": "2026-07-27",
         "notes": [],
         "errors": [],
-        "review_count": 60,
+        "review_count": 62,
         "existing_review_count": 60,
         "present": true,
-        "latest_review_date": "2026-05-23",
+        "latest_review_date": "2026-07-27",
         "existing_latest_date": "2026-05-23",
         "status": "ok"
       },
@@ -64,36 +64,36 @@
         "direct_statuses": {},
         "blocked": false,
         "fallback_used": false,
-        "candidate_reviews_seen": 120,
-        "new_reviews_added": 0,
+        "candidate_reviews_seen": 126,
+        "new_reviews_added": 6,
         "advertised_total": null,
-        "latest_candidate_date": "2026-05-27",
+        "latest_candidate_date": "2026-07-21",
         "notes": [
           "Apple RSS can be sparse for some app IDs; HTML supplement captures visible App Store review cards only."
         ],
         "errors": [],
-        "review_count": 90,
+        "review_count": 96,
         "existing_review_count": 90,
         "present": true,
-        "latest_review_date": "2026-05-27",
+        "latest_review_date": "2026-07-21",
         "existing_latest_date": "2026-05-27",
         "status": "ok"
       },
       {
         "source_website": "bbb.org",
         "attempted": true,
-        "direct_pages": 16,
-        "fallback_pages": 16,
+        "direct_pages": 29,
+        "fallback_pages": 29,
         "direct_statuses": {
-          "403": 16,
-          "200": 16
+          "403": 29,
+          "200": 29
         },
         "blocked": true,
         "fallback_used": true,
-        "candidate_reviews_seen": 23,
-        "new_reviews_added": 3,
+        "candidate_reviews_seen": 152,
+        "new_reviews_added": 39,
         "advertised_total": null,
-        "latest_candidate_date": "2026-06-02",
+        "latest_candidate_date": "2026-07-16",
         "notes": [
           "direct BBB customer reviews blocked for https://www.bbb.org/us/az/tolleson/profile/auto-auction/manheim-phoenix-1126-15000273",
           "direct BBB customer reviews blocked for https://www.bbb.org/us/ca/anaheim/profile/auto-auction/manheim-auctions-1126-1000068323",
@@ -106,17 +106,16 @@
           "direct BBB complaints blocked for https://www.bbb.org/us/ca/anaheim/profile/auto-auction/manheim-auctions-1126-1000068323",
           "direct BBB complaints blocked for https://www.bbb.org/us/fl/tampa/profile/auto-auction/manheim-auctions-0653-90021503",
           "direct BBB complaints blocked for https://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743",
-          "reader challenge for https://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=2",
           "direct BBB complaints blocked for https://www.bbb.org/us/in/indianapolis/profile/auto-auction/manheim-indianapolis-auto-auction-0382-90005341",
           "direct BBB complaints blocked for https://www.bbb.org/us/mi/carleton/profile/auto-auction/manheims-detroit-auto-auction-0422-6001794",
           "direct BBB complaints blocked for https://www.bbb.org/us/pa/manheim/profile/auctioneer/manheim-pennsylvania-auto-auction-0241-184056004"
         ],
         "errors": [],
-        "review_count": 230,
-        "existing_review_count": 227,
+        "review_count": 269,
+        "existing_review_count": 230,
         "present": true,
-        "latest_review_date": "2026-06-02",
-        "existing_latest_date": "2026-05-06",
+        "latest_review_date": "2026-07-16",
+        "existing_latest_date": "2026-06-02",
         "status": "ok"
       },
       {
@@ -179,41 +178,51 @@
         },
         "blocked": false,
         "fallback_used": false,
-        "candidate_reviews_seen": 56,
-        "new_reviews_added": 8,
+        "candidate_reviews_seen": 62,
+        "new_reviews_added": 6,
         "advertised_total": 1439,
-        "latest_candidate_date": "2026-06-29",
+        "latest_candidate_date": "2026-08-02",
         "notes": [
           "Birdeye advertised totals may include syndicated Google/Birdeye network reviews; accepted rows are visible textual review cards that pass filters.",
-          "Advertised total 1439 is much larger than accepted rows 60; source is likely partially covered after filters/pagination."
+          "Advertised total 1439 is much larger than accepted rows 66; source is likely partially covered after filters/pagination."
         ],
         "errors": [],
-        "review_count": 60,
-        "existing_review_count": 52,
+        "review_count": 66,
+        "existing_review_count": 60,
         "present": true,
-        "latest_review_date": "2026-06-29",
-        "existing_latest_date": "2026-05-15",
+        "latest_review_date": "2026-07-03",
+        "existing_latest_date": "2026-06-29",
         "status": "partial"
       }
     ],
     "sentiments": {
-      "positive": 154,
-      "negative": 440
+      "positive": 162,
+      "negative": 487
     },
     "source_urls": [
+      "https://play.google.com/store/apps/details?id=com.manheim.mktplace&hl=en&gl=us",
+      "https://www.reddit.com/r/askcarsales/comments/1v4wk9t/whats_your_actual_process_for_setting_a_walkaway/",
+      "https://itunes.apple.com/us/review?id=6744660081&type=Purple%20Software&reviewId=14331795775",
+      "https://itunes.apple.com/us/review?id=6744660081&type=Purple%20Software&reviewId=14327786509",
+      "http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints#0443_6001743_25054770",
+      "https://itunes.apple.com/us/review?id=6744660081&type=Purple%20Software&reviewId=14302911346",
+      "https://itunes.apple.com/us/review?id=6744660081&type=Purple%20Software&reviewId=14300834265",
+      "https://www.reddit.com/r/askcarsales/comments/1uqf6q6/car_was_flooded_and_now_inoperable_while_in/",
+      "https://reviews.birdeye.com/manheim-indianapolis-167758900611879#review-4",
+      "http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints#0443_6001743_25001784",
       "https://reviews.birdeye.com/manheim-fredericksburg-167784557350491#review-1",
       "https://www.reddit.com/r/carflipping/comments/1ui0kip/auction_access_tech_issues/",
+      "https://itunes.apple.com/us/review?id=6744660081&type=Purple%20Software&reviewId=14202088294",
       "https://www.reddit.com/r/askcarsales/comments/1u4f58y/utah_hobbyscale_used_license/",
       "https://www.reddit.com/r/carflipping/comments/1u3656n/lost_my_job_is_car_flippingauction_buying_still/",
       "https://reviews.birdeye.com/manheim-indianapolis-167758900611879#review-2",
+      "https://itunes.apple.com/us/review?id=6744660081&type=Purple%20Software&reviewId=14148135492",
       "http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints#0443_6001743_24904513",
       "https://www.reddit.com/r/askcarsales/comments/1tpid5w/new_used_car_dealer/",
       "https://itunes.apple.com/us/review?id=6744660081&type=Purple%20Software&reviewId=14113994395",
       "https://itunes.apple.com/us/review?id=6744660081&type=Purple%20Software&reviewId=14109200908",
       "https://apps.apple.com/us/app/id6744660081?see-all=reviews&platform=iphone&reviewId=14109200908",
-      "https://play.google.com/store/apps/details?id=com.manheim.mktplace&hl=en&gl=us",
       "https://www.reddit.com/r/askcarsales/comments/1tdovfy/bought_a_clean_title_prius_from_manheim_spent_10k/",
-      "https://reviews.birdeye.com/manheim-indianapolis-167758900611879#review-4",
       "http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints#0443_6001743_24822639",
       "https://reviews.birdeye.com/manheim-indianapolis-167758900611879#review-5",
       "https://www.reddit.com/r/carflipping/comments/1szocvk/my_old_car_is_up_for_auction_at_a_manheim_socal/",
@@ -447,6 +456,7 @@
       "https://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=6#0443_6001743_22843976",
       "http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=6#0443_6001743_22843976",
       "https://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/customer-reviews?page=2#0443_6001743_312613",
+      "https://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/customer-reviews?page=2#review-3",
       "https://itunes.apple.com/us/review?id=1480842917&type=Purple%20Software&reviewId=12205403014",
       "https://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=6#0443_6001743_22818024",
       "http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=6#0443_6001743_22818024",
@@ -460,6 +470,7 @@
       "https://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=6#0443_6001743_22617644",
       "http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=6#0443_6001743_22617644",
       "https://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/customer-reviews?page=2#0443_6001743_308695",
+      "https://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/customer-reviews?page=2#review-4",
       "https://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=6#0443_6001743_22609479",
       "http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=6#0443_6001743_22609479",
       "https://itunes.apple.com/us/review?id=1480842917&type=Purple%20Software&reviewId=11995145896",
@@ -488,26 +499,14 @@
       "https://www.reddit.com/r/askcarsales/comments/1fquphb/expired_tags/",
       "https://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=6#0443_6001743_22350244",
       "http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=7#0443_6001743_22350244",
-      "https://www.reddit.com/r/criminalminds/comments/1fov42f/the_inspiration_the_inspired/",
-      "https://www.reddit.com/r/OnceHumanOfficial/comments/1fnyffl/is_lea_still_able_to_be_soloed/",
-      "https://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/customer-reviews?page=2#0443_6001743_301860",
-      "https://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/customer-reviews?page=2#0443_6001743_301661",
-      "https://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=7#0443_6001743_22309896",
-      "http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=7#0443_6001743_22309896",
-      "https://itunes.apple.com/us/review?id=1480842917&type=Purple%20Software&reviewId=11738748332",
-      "https://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=7#0443_6001743_22271968",
-      "http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=7#0443_6001743_22271968",
-      "https://www.reddit.com/r/legaladvice/comments/1f8vtcx/fraudscammed_need_advice/",
-      "https://www.reddit.com/r/AskMechanics/comments/1f8vsle/fraudscammed_need_advice/",
-      "https://www.reddit.com/r/Poconos/comments/1f4bvlb/first_time_rver_where/",
-      "https://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=7#0443_6001743_22216192"
+      "https://www.reddit.com/r/criminalminds/comments/1fov42f/the_inspiration_the_inspired/"
     ],
-    "generated_at_utc": "2026-07-02T12:04:59.233022+00:00",
+    "generated_at_utc": "2026-08-02T11:10:34.781622+00:00",
     "since_date": "2023-01-01",
-    "until_date": "2026-06-30",
+    "until_date": "2026-07-31",
     "collector_failures": [],
-    "existing_review_count": 580,
-    "new_reviews_added": 14,
+    "existing_review_count": 594,
+    "new_reviews_added": 55,
     "youtube_excluded": true,
     "usa_only": true,
     "english_only": true,
@@ -526,13 +525,14 @@
       "bbb.org"
     ],
     "geo_validation_counts": {
-      "mixed_source_ok": 3,
-      "bbb_us_business": 3,
-      "birdeye_us_profile": 8
+      "google_play_us_store": 2,
+      "mixed_source_ok": 2,
+      "bbb_us_business": 39,
+      "birdeye_us_profile": 6,
+      "apple_us_store": 6
     },
     "geo_excluded_counts": {
       "play.google.com:google_play_us_store_non_us_marker": 1,
-      "reddit.com:mixed_source_non_us_marker": 1,
       "apps.apple.com:apple_non_us_store": 2
     },
     "geo_excluded_examples": [
@@ -543,14 +543,6 @@
         "review_date": "2024-08-27",
         "reason": "google_play_us_store_non_us_marker",
         "review_text": "Please clarify this app supports which region? I'm trying to access Manheim Australia but its not working .."
-      },
-      {
-        "source_website": "reddit.com",
-        "source_label": "Reddit r/googlemapsshenanigans",
-        "source_url": "https://www.reddit.com/r/googlemapsshenanigans/comments/1khnbvl/phantom_buildings_near_coalmine_in_cologne_germany/",
-        "review_date": "2025-05-08",
-        "reason": "mixed_source_non_us_marker",
-        "review_text": "Phantom Buildings near coalmine in Cologne, Germany Near the city of Cologne, Germany (I come from there) there are 3 Major sites for digging up coal. The Energy-Giant RWE bought up multiple small towns and acres of land to expand their min"
       },
       {
         "source_website": "apps.apple.com",
@@ -583,6 +575,171 @@
   },
   "reviews": [
     {
+      "source_website": "play.google.com",
+      "source_label": "Google Play (com.manheim.mktplace)",
+      "source_url": "https://play.google.com/store/apps/details?id=com.manheim.mktplace&hl=en&gl=us",
+      "author": "Daniel",
+      "review_date": "2026-07-27",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "doesnt recognise password or username even though im using the exact bloody one on my pc",
+      "geo_validation": "google_play_us_store",
+      "tier1": "Account / Access / Login",
+      "tier2": "Password Reset & Login Troubleshooting",
+      "tier3": "App Login Troubleshooting",
+      "id": "rvw-000595"
+    },
+    {
+      "source_website": "play.google.com",
+      "source_label": "Google Play (com.manheim.mktplace)",
+      "source_url": "https://play.google.com/store/apps/details?id=com.manheim.mktplace&hl=en&gl=us",
+      "author": "Jon Wick",
+      "review_date": "2026-07-26",
+      "rating": 3,
+      "sentiment": "positive",
+      "review_text": "poor app not as good and use friendly as it's predecessor",
+      "geo_validation": "google_play_us_store",
+      "tier1": "Account / Access / Login",
+      "tier2": "Password Reset & Login Troubleshooting",
+      "tier3": "App Login Troubleshooting",
+      "id": "rvw-000596"
+    },
+    {
+      "source_website": "reddit.com",
+      "source_label": "Reddit r/askcarsales",
+      "source_url": "https://www.reddit.com/r/askcarsales/comments/1v4wk9t/whats_your_actual_process_for_setting_a_walkaway/",
+      "author": "CerealSean",
+      "review_date": "2026-07-24",
+      "rating": null,
+      "sentiment": "positive",
+      "review_text": "What's your actual process for setting a walk-away number at auction? Curious how other people handle this — when you're at a public auction (Manheim open lanes, municipal tow auctions, IAAI, wherever) how are you actually deciding your max bid in the moment? I've been flipping cars in Georgia for a bit and I've gotten burned more than once doing the \"gut feeling + quick KBB check on my phone\" thing — bought a Focus with a bad DCT transmission and a Mustang with a salvage title I didn't fully think through before bidding. Trying to figure out if I'm the only one basically doing this on a napkin, or if everyone's got a spreadsheet system that actually works. What's your process — comp check, mental repair budget, just experience at this point?",
+      "geo_validation": "mixed_source_ok",
+      "tier1": "Vehicle Pickup, Delivery and Scheduling",
+      "tier2": "Tow and Storage Charges",
+      "tier3": "Tow and Storage Fees",
+      "id": "rvw-000597"
+    },
+    {
+      "source_website": "apps.apple.com",
+      "source_label": "Apple App Store (6744660081, us)",
+      "source_url": "https://itunes.apple.com/us/review?id=6744660081&type=Purple%20Software&reviewId=14331795775",
+      "author": "Used car buyer",
+      "review_date": "2026-07-21",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Take 1 step forward, 2 steps back. I swear they do this to annoy us. They hear us one 1 problem fix that problem, then cause another one. The latest issue is you cannot grab a screenshot now. THAT DEFEATS THE PURPOSE OF THE APP!!! Now you have to get on a computer to grab a screenshot from there if you want to easily send information. Big swing and a miss",
+      "geo_validation": "apple_us_store",
+      "tier1": "Account / Access / Login",
+      "tier2": "Password Reset & Login Troubleshooting",
+      "tier3": "App Login Troubleshooting",
+      "id": "rvw-000598"
+    },
+    {
+      "source_website": "apps.apple.com",
+      "source_label": "Apple App Store (6744660081, us)",
+      "source_url": "https://itunes.apple.com/us/review?id=6744660081&type=Purple%20Software&reviewId=14327786509",
+      "author": "gary rippee",
+      "review_date": "2026-07-20",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "No snapshots. For some reason, they took away the ability to snapshot from the app. Now, when I have information, I want to send to someone else in the dealership, I have to take a picture from another device. Why slow down the process. So childish and NOT user friendly.",
+      "geo_validation": "apple_us_store",
+      "tier1": "Account / Access / Login",
+      "tier2": "Password Reset & Login Troubleshooting",
+      "tier3": "App Login Troubleshooting",
+      "id": "rvw-000599"
+    },
+    {
+      "source_website": "bbb.org",
+      "source_label": "BBB Complaints",
+      "source_url": "http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints#0443_6001743_25054770",
+      "author": "BBB complainant",
+      "review_date": "2026-07-16",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Customer Service Issues complaint (Answered). I purchased a truck on the Manhiem site, and ordered logistics through the site, and 2 weeks later I only have the title and not the vehicle. The company will not take responsibility for the error, and I yet to have a ship date on the truck. If I was utilizing a floor plan, I would be losing a significant amount of money. Manhiem needs to be held accountable for not shipping the vehicle, and I need to be reinbursed for the amount of time is taking to get me the truck.",
+      "geo_validation": "bbb_us_business",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Rude/Unhelpful Support",
+      "id": "rvw-000600"
+    },
+    {
+      "source_website": "apps.apple.com",
+      "source_label": "Apple App Store (6744660081, us)",
+      "source_url": "https://itunes.apple.com/us/review?id=6744660081&type=Purple%20Software&reviewId=14302911346",
+      "author": "M2bad4u",
+      "review_date": "2026-07-14",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Bad app. I’ve had nothing but problems from this app. The Old classic app was better. Never had any issues with this one locked you out sometimes like they want you to be late on payment so they can charge you.",
+      "geo_validation": "apple_us_store",
+      "tier1": "Membership / Licensing / Fees & Bidding Policies",
+      "tier2": "Bidding Process, Rules and Fees",
+      "tier3": "Fees",
+      "id": "rvw-000601"
+    },
+    {
+      "source_website": "apps.apple.com",
+      "source_label": "Apple App Store (6744660081, us)",
+      "source_url": "https://itunes.apple.com/us/review?id=6744660081&type=Purple%20Software&reviewId=14300834265",
+      "author": "Mike Larry8732",
+      "review_date": "2026-07-13",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "App. Terrible app. Especially for online bidders.",
+      "geo_validation": "apple_us_store",
+      "tier1": "Account / Access / Login",
+      "tier2": "Password Reset & Login Troubleshooting",
+      "tier3": "App Login Troubleshooting",
+      "id": "rvw-000602"
+    },
+    {
+      "source_website": "reddit.com",
+      "source_label": "Reddit r/askcarsales",
+      "source_url": "https://www.reddit.com/r/askcarsales/comments/1uqf6q6/car_was_flooded_and_now_inoperable_while_in/",
+      "author": "aabdelr129",
+      "review_date": "2026-07-08",
+      "rating": null,
+      "sentiment": "negative",
+      "review_text": "Car was flooded and now inoperable while in Manheim's posession I brought a vehicle to Manheim to sell about two weeks ago. The vehicle was delivered to Manheim in running/driving condition with a 4.0 CR. Their own condition report documents a normally functioning instrument cluster, running, and driving vehicle and it physically crossed the block twice. The pictures taken in the CR also show no water and fully operational sunroof and windows. The vehicle remained in Manheim's possession through recent storms and ran across the block twice, but didn't meet my reserve. I noticed it didn't run today while I was watching the auction and the auctioneer did not know why. I called Dealer Services to find out why it didn't cross the block and was told it would be investigated, but never heard back. I decided to pull it to wholesale elswhere. When I got to the facility, I tried starting the car, but it was inoperable. That's when I noticed the rear window down, the carpet was soaked and all the cupholders and storage trays were filled with water. The vehicle would no longer start despite having a battery charge and gas, and every fault light on the dash appeared. The facility offoce was closed for the day so I have to wait until tomorrow to report it, but I've never had this happen before. I left the car there because I'm not taking posession of this vehicle in this condition. What recourse do I have? The car also has a bunch of fault codes that it didn't have when I dropped it off. I took some videos and photos of the damage and have the condition report proving none of these issues existed when the car was brought to the facility, but this has never happened to me. What are the next steps and what should I expect? One thing to note is the car was driven to the lane by a facility employee. This facility does not allow test driving, but does allow vehicles to be inspected. Also, the sunroof shade was open, but the sunroof was closed. Sunroof is still operable. In the CR photos, the sunroof shade was closed.",
+      "geo_validation": "mixed_source_ok",
+      "tier1": "Account / Access / Login",
+      "tier2": "Document Upload & Verification",
+      "tier3": "Upload Troubleshooting",
+      "id": "rvw-000603"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Google)",
+      "source_url": "https://reviews.birdeye.com/manheim-indianapolis-167758900611879#review-4",
+      "author": "armando cardona",
+      "review_date": "2026-07-03",
+      "rating": null,
+      "sentiment": "positive",
+      "review_text": "We were notified that we were the winning bidder for the 2017 Isuzu NQR at the June 3 Manheim Indianapolis auction with a bid of $7,000. We are very concerned to now be told that we are no longer the winning bidder and that we must pay $9,500 if we want the truck. Based on the auction results, we immediately arranged transportation from Indiana to North Carolina and currently have a driver en route, resulting in approximately $1,500 in expenses.",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Vehicle Pickup, Delivery and Scheduling",
+      "tier2": "Scheduled Pickup Status",
+      "tier3": "Schedule/ Reschedule Pickup",
+      "id": "rvw-000604"
+    },
+    {
+      "source_website": "bbb.org",
+      "source_label": "BBB Complaints",
+      "source_url": "http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints#0443_6001743_25001784",
+      "author": "BBB complainant",
+      "review_date": "2026-07-01",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Product Issues complaint (Answered). On May 19th 2026 I Purchased a vehicle from Manheim REMOVED Auto Auction. The auction has 30 days to send me the title for this car. Ive contacted Manheim many times by phone and email only to get the run around and nobody seems to have any answers. I was told after REMOVED their possession by Friday 06-26-2026. I told them ive waited this long a few more days wouldnt hurt that i needed the title. I have lost a customer I have lost money and 45 days later still no title and they have my money. This is bad business and the seller and auction should be held accountable. Thank You for your assistance.",
+      "geo_validation": "bbb_us_business",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Rude/Unhelpful Support",
+      "id": "rvw-000605"
+    },
+    {
       "source_website": "birdeye.com",
       "source_label": "Birdeye (Google)",
       "source_url": "https://reviews.birdeye.com/manheim-fredericksburg-167784557350491#review-1",
@@ -611,6 +768,21 @@
       "tier2": "Case Resolution Quality",
       "tier3": "Issue Not Resolved",
       "id": "rvw-000582"
+    },
+    {
+      "source_website": "apps.apple.com",
+      "source_label": "Apple App Store (6744660081, us)",
+      "source_url": "https://itunes.apple.com/us/review?id=6744660081&type=Purple%20Software&reviewId=14202088294",
+      "author": "vakekr",
+      "review_date": "2026-06-19",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Terrible. The new update is god awful, completely changed it and ruined the app. It was great before and it’s trash now, can barely get it to work and I have to constantly log in almost every time I use it. Won’t be using it anymore.",
+      "geo_validation": "apple_us_store",
+      "tier1": "Account / Access / Login",
+      "tier2": "Password Reset & Login Troubleshooting",
+      "tier3": "App Login Troubleshooting",
+      "id": "rvw-000606"
     },
     {
       "source_website": "reddit.com",
@@ -656,6 +828,21 @@
       "tier2": "Scheduled Pickup Status",
       "tier3": "Schedule/ Reschedule Pickup",
       "id": "rvw-000585"
+    },
+    {
+      "source_website": "apps.apple.com",
+      "source_label": "Apple App Store (6744660081, us)",
+      "source_url": "https://itunes.apple.com/us/review?id=6744660081&type=Purple%20Software&reviewId=14148135492",
+      "author": "atrex",
+      "review_date": "2026-06-05",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Very Unreliable. It keeps getting stuck in an authentication loop. I’ve killed the app, deleted the app. But still nothing works. It’s says Authentication Okay, then it dismisses and takes back to the login screen again….it does this incessantly. It take 2-4 rounds of this before I am able to get in",
+      "geo_validation": "apple_us_store",
+      "tier1": "Account / Access / Login",
+      "tier2": "Password Reset & Login Troubleshooting",
+      "tier3": "App Login Troubleshooting",
+      "id": "rvw-000607"
     },
     {
       "source_website": "bbb.org",
@@ -2111,6 +2298,21 @@
       "tier1": "Account / Access / Login",
       "tier2": "Password Reset & Login Troubleshooting",
       "tier3": "App Login Troubleshooting"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Google)",
+      "source_url": "https://reviews.birdeye.com/manheim-st-louis-166697023560226#review-1",
+      "author": "Orhan",
+      "review_date": "2025-12-05",
+      "rating": null,
+      "sentiment": "negative",
+      "review_text": "Be careful with their process! We’ve been in business for over 2 years and bought 100+ cars, all green light and scored over 4. Still had to wait 3–4 days to pick them up even after payment was taken. They falsely claimed a late payment but can’t prove it. By the time cars were released, they were out of arbitration and most were in bad condition — 3 even had engine problems. Watch out and inspect your cars carefully!",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Lot Condition, Listing Status and related",
+      "tier2": "Third-Party Inspection Authorization & Scheduling",
+      "tier3": "Previewing/ Inspecting Vehicles",
+      "id": "rvw-000608"
     },
     {
       "source_website": "birdeye.com",
@@ -4198,6 +4400,21 @@
       "id": "rvw-000589"
     },
     {
+      "source_website": "bbb.org",
+      "source_label": "BBB Customer Reviews",
+      "source_url": "https://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/customer-reviews#review-10",
+      "author": "Shawnta M",
+      "review_date": "2025-03-28",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "They lie about information with cars the auction they are really junk cars * [Page 1](http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/customer-reviews?page=1) * [Page 2](http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/customer-reviews?page=2) * [Page 3](http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/customer-reviews?page=3) [Next](http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/customer-reviews?page=2)[Last](http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/customer-reviews?page=3) ## Manheim Auctions is NOT a BBB Accredited Business. To become accredited, a business must agree to[BBB Standards for Trust](https://www.bbb.org/all/standards-for-trust)and pass BBB's vetting process. [Why choose a BBB Accredited Business?](https://www.bbb.org/all/why-choose-a-bbb-accredited-business) BBB Business Profiles are provided solely to assist you in exercising your own best judgment. BBB does not verify the accuracy of information provided by third parties, and does not guarantee the accuracy of any information in Business Profiles. As a matter of policy, BBB does not endorse any product, service, or business. Businesses are under no obligation to seek BBB accreditation, and some businesses are not accredited because they have not sought BBB accreditation. When considering complaint information, please consider the company's size and volume of transactions. Note that the nature of complaints and a company’s responses to them are often more important than the number of complaints. BBB Business Profiles generally cover a three-year reporting period. [![Image 17: BBB](https://m.bbb.org/brand/logos/BBB_PrimaryLogo_White_RGB.svg)](https://www.bbb.org/)TM ## For Consumers * [Get a Quote](http://www.bbb.org/get-a-quote) * [Start a Review](http://www.bbb.org/leave-a-review) * [File a Complaint](http://www.bbb.org/file-a-complaint) ## For Businesses * [Get Your Business Listed](http://www.bbb.org/get-listed) * [BBB Accreditation](http://www.bbb.org/get-accredited) * [Apply for BBB Accreditation](http://www.bbb.org/apply) * [Newsroom and Resources](http://www.bbb.org/us/news) ## Affiliated Programs * [BBB Institute for Marketplace Trust](https://www.bbbmarketplacetrust.org/) * [BBB Wise Giving Alliance (Give.org)](https://give.org/) * [BBB National Programs](https://bbbprograms.org/) * [our Twitter (opens in a new tab)](https://x.com/bbb_us) * [our LinkedIn (opens in a new tab)](https://www.linkedin.com/company/better-business-bureau/) * [our Facebook (opens in a new tab)](https://www.facebook.com/BetterBusinessBureau) * [our Instagram (opens in a new tab)](https://www.instagram.com/betterbusinessbureau_/) * [About BBB®](http://www.bbb.org/about) * [Terms of Use](http://www.bbb.org/terms-of-use) * [Privacy Policy](http://www.bbb.org/all/privacy-policy) * [Contact Us](http://www.bbb.org/bbb-directory) © 2026 International Association of Better Business Bureaus, Inc. (IABBB). All rights reserved. All trademarks are property of IABBB.",
+      "geo_validation": "bbb_us_business",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Rude/Unhelpful Support",
+      "id": "rvw-000609"
+    },
+    {
       "id": "rvw-000112",
       "source_website": "bbb.org",
       "source_label": "BBB Customer Reviews",
@@ -4903,6 +5120,21 @@
       "tier3": "Rude/Unhelpful Support"
     },
     {
+      "source_website": "bbb.org",
+      "source_label": "BBB Customer Reviews",
+      "source_url": "https://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/customer-reviews?page=2#review-3",
+      "author": "Mohamed Z",
+      "review_date": "2025-01-19",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "I started my wholesale business three years ago and recently purchased a car online from REMOVED. This is my first bad experience with one of the largest auction platforms in REMOVED and one of the largest dealers. Unfortunately, Im facing a terrible situation that I never expected from such trusted brands like Manheim Auctions and REMOVED They explicitly guaranteed that the car was green light , but it turned out to be a trapa deception and a scam. The car has multiple issues: it keeps overheating, the red warning light is on, and it is unsafe to drive. Additionally, the heater does not work in freezing weather conditions, and the drivers leather seat is torn. None of these issues were mentioned in Manheims report.The price I paid is unfair and unreasonable given these problems. Manheim and REMOVED, as trusted brands with significant reputations, must take responsibility for their mistakes rather than passing the consequences on to those who trusted them.I submitted an arbitration case because I purchased the car under the green light guarantee, yet it is unsafe to drive due to overheating, the heater malfunction, and the torn leather seat. I followed up via email and phone calls , but after three weeks, their only response was an apology for the reportnot for the trouble Ive had with the car or the unreasonable price I paid.Manheims only resolution was to waive the auction fee, which is insufficient. The car is still at the auction, and they should take it back. This situation is unacceptable, and their response does not reflect the accountability expected of a company of their stature",
+      "geo_validation": "bbb_us_business",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Rude/Unhelpful Support",
+      "id": "rvw-000610"
+    },
+    {
       "id": "rvw-000132",
       "source_website": "apps.apple.com",
       "source_label": "Apple App Store (1480842917, us)",
@@ -5126,6 +5358,21 @@
       "tier1": "Customer Service & Communication",
       "tier2": "Agent Professionalism & Responsiveness",
       "tier3": "Rude/Unhelpful Support"
+    },
+    {
+      "source_website": "bbb.org",
+      "source_label": "BBB Customer Reviews",
+      "source_url": "https://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/customer-reviews?page=2#review-4",
+      "author": "Keith W",
+      "review_date": "2024-11-29",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "K.W. I recently worked for Manheim REMOVED. By far the most unethical company I've ever been a part of. REMOVED constantly makes mistakes and take forever to correct. Management can never be wrong and couldn't care less about safety as they allow people on the Lot who are constantly high or drunk and management knows this.",
+      "geo_validation": "bbb_us_business",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Rude/Unhelpful Support",
+      "id": "rvw-000611"
     },
     {
       "id": "rvw-000140",
@@ -5531,6 +5778,21 @@
       "tier2": "Agent Professionalism & Responsiveness",
       "tier3": "Rude/Unhelpful Support",
       "id": "rvw-000551"
+    },
+    {
+      "source_website": "bbb.org",
+      "source_label": "BBB Complaints",
+      "source_url": "http://www.bbb.org/us/az/tolleson/profile/auto-auction/manheim-phoenix-1126-15000273/complaints#1126_15000273_22391936",
+      "author": "BBB complainant",
+      "review_date": "2024-10-07",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Service or Repair Issues complaint (Unanswered). My vehicle was transported to Manheim Auto Auction (REMOVED) on or about 07/08/2024-07/12/2024 due to a repo of a 17 day late payment to the bank. At the time of delivery, my vehicle was in good condition with several valuable personal items inside. Upon retrieving the vehicle on 07/23/2024, I was shocked to find that not only had my personal belongings, including my car audio system, dash camera, license plate, other valuable personal articles, been stolen, but my vehicle had also sustained noticeable damage to the factory Radio, amplifier, and navigation system. I immediately reported this to the staff on-site, but despite assurances, no meaningful actions have been taken to rectify the situation. After weeks of frustration and distress, an initial payment was made after weeks of back an forth and told originally they were not liable. I demanded a payment of no less than $7500, thinking that would be the end of this based on the quote I received with out a full diagnosis. Once the payment was issued my vehicle went to a shop for repairs. An additional $12,500 of damage was found by the stereo shop which at that point new equipment from the REMOVED dealership was needed. I reached out to Manheim to explain the situation. A diagnosis from the shop that was then provided and denied by Manheim. Then a request from the REMOVED dealership it self was provided. It was supplied to Manheim, they then stated they would participate in paying for the work done if it was done by REMOVED. REMOVED quoted me over $13,500,(paid in full first) but even then there was no guarantees since there was custom work and aftermarket parts that were previously installed.. I tried to settle this in house before moving forward with other costly legal proceedings were taken. The response is they will not pay anything further unless REMOVED does the work. So now I'm stuck with an invoice of $12,533.39- (their partial initial payment of $7,719)=$9,759.39. Class action lawsuit is next due to the process. ## Manheim Phoenix is NOT a BBB Accredited Business. To become accredited, a business must agree to[BBB Standards for Trust](https://www.bbb.org/all/standards-for-trust)and pass BBB's vetting process. [Why choose a BBB Accredited Business?](https://www.bbb.org/all/why-choose-a-bbb-accredited-business) BBB Business Profiles are provided solely to assist you in exercising your own best judgment. BBB does not verify the accuracy of information provided by third parties, and does not guarantee the accuracy of any information in Business Profiles. As a matter of policy, BBB does not endorse any product, service, or business. Businesses are under no obligation to seek BBB accreditation, and some businesses are not accredited because they have not sought BBB accreditation. When considering complaint information, please consider the company's size and volume of transactions. Note that the nature of complaints and a company’s responses to them are often more important than the number of complaints. BBB Business Profiles generally cover a three-year reporting period. [![Image 9: BBB](https://m.bbb.org/brand/logos/BBB_PrimaryLogo_White_RGB.svg)](https://www.bbb.org/)TM ## For Consumers * [Get a Quote](http://www.bbb.org/get-a-quote) * [Start a Review](http://www.bbb.org/leave-a-review) * [File a Complaint](http://www.bbb.org/file-a-complaint) ## For Businesses * [Get Your Business Listed](http://www.bbb.org/get-listed) * [BBB Accreditation](http://www.bbb.org/get-accredited) * [Apply for BBB Accreditation](http://www.bbb.org/apply) * [Newsroom and Resources](http://www.bbb.org/us/news) ## Affiliated Programs * [BBB Institute for Marketplace Trust](https://www.bbbmarketplacetrust.org/) * [BBB Wise Giving Alliance (Give.org)](https://give.org/) * [BBB National Programs](https://bbbprograms.org/) * [our Twitter (opens in a new tab)](https://x.com/bbb_us) * [our LinkedIn (opens in a new tab)](https://www.linkedin.com/company/better-business-bureau/) * [our Facebook (opens in a new tab)](https://www.facebook.com/BetterBusinessBureau) * [our Instagram (opens in a new tab)](https://www.instagram.com/betterbusinessbureau_/) * [About BBB®](http://www.bbb.org/about) * [Terms of Use](http://www.bbb.org/terms-of-use) * [Privacy Policy](http://www.bbb.org/all/privacy-policy) * [Contact Us](http://www.bbb.org/bbb-directory) © 2026 International Association of Better Business Bureaus, Inc. (IABBB). All rights reserved. All trademarks are property of IABBB.",
+      "geo_validation": "bbb_us_business",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Rude/Unhelpful Support",
+      "id": "rvw-000612"
     },
     {
       "id": "rvw-000150",
@@ -6011,6 +6273,21 @@
       "tier2": "Document Upload & Verification",
       "tier3": "Upload Troubleshooting",
       "id": "rvw-000559"
+    },
+    {
+      "source_website": "bbb.org",
+      "source_label": "BBB Customer Reviews",
+      "source_url": "https://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/customer-reviews?page=2#review-8",
+      "author": "ROBERT P",
+      "review_date": "2024-08-13",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Today 8/13/2024 we are unable to pay for a vehicle because Manheim has decided to arbitrarily audit dealerships with no notice. They will not unwind a purchase we made on the 12th, while the10 days we have to ship and inspect the car are passing. Once again this as many problems they create become ours. UNREAL!!!REMOVED Riverwatch auto sales",
+      "geo_validation": "bbb_us_business",
+      "tier1": "Lot Condition, Listing Status and related",
+      "tier2": "Third-Party Inspection Authorization & Scheduling",
+      "tier3": "Previewing/ Inspecting Vehicles",
+      "id": "rvw-000613"
     },
     {
       "id": "rvw-000164",
@@ -6671,6 +6948,21 @@
       "tier1": "Customer Service & Communication",
       "tier2": "Agent Professionalism & Responsiveness",
       "tier3": "Rude/Unhelpful Support"
+    },
+    {
+      "source_website": "bbb.org",
+      "source_label": "BBB Customer Reviews",
+      "source_url": "https://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/customer-reviews?page=2#review-9",
+      "author": "Abby D",
+      "review_date": "2024-06-06",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "My name is REMOVED, and I own REMOVED Auto Sales in REMOVED, REMOVED. Manheim is an unethical company that's getting worse during this economic slowdown. We own a small, independent, family-owned used car dealership, and we've purchased only green-light vehicles from Manheim for over 15 years. Last month, we bought a 2020 Kia REMOVED that REMOVED Car Rental previously owned. Before even receiving the REMOVED we learned that the title was branded in REMOVED as a salvage title. We pay extra to purchase ONLY green-light automobiles, so how did this happen? We called the auction, and they said the title is clean IN REMOVED. However, as the title is branded as salvaged IN REMOVED, it cannot be registered in REMOVED, much less sold or EVEN driven. We contacted the REMOVED of REMOVED Vehicles in REMOVED and REMOVED. Neither governmental office has been helpful, and neither REMOVED nor Manheim will take responsibility for this deceitful sale. We recently discovered that this car has been sitting in a Manheim Auction facility since January 2021. We also pay $250 per vehicle for DealShield in case of such emergencies. Manheim refuses to accept the return of the car as arbitrated. This is costing our already slow business $14,535. Something this negligent could put our dealership at risk of closing, putting our 6 employees out of work, and us having to declare bankruptcy. This vehicle is unacceptable to sell, and DMV, REMOVED, and Manheim have stuck us with a defective vehicle, which is only good for parts. My husband is in the Emergency Room as we speak, experiencing symptoms of a stroke due to the stress of this debacle. PLEASE be VERY wary of buying from Manheim Auctions. Use Adesa instead, as that company is much more ethical and honest.",
+      "geo_validation": "bbb_us_business",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Rude/Unhelpful Support",
+      "id": "rvw-000614"
     },
     {
       "source_website": "reddit.com",
@@ -7348,6 +7640,21 @@
       "tier3": "Rude/Unhelpful Support"
     },
     {
+      "source_website": "bbb.org",
+      "source_label": "BBB Complaints",
+      "source_url": "http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=10#0443_6001743_21403394",
+      "author": "BBB complainant",
+      "review_date": "2024-03-08",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Service or Repair Issues complaint (Answered). I PURCHASED THIS REMOVED AT MANHEIM PA 0N 10/24/2023 FOR REMOVED ONLINE. I WENT TO PICK UP THE REMOVED ONLY TO FOUND OUT THE REMOVED WAS WRECKED BY SOME ONE AFTER IT WAS SOLD TO ME, SO I PUT THE REMOVED IN ARBITRATION. AND I TOLD THEM I DONT WANT A WRECKED REMOVED AND I NEED THEM TO TAKE IT BACK. THEY TOLD ME THEY WILL NOT TAKE IT BACK. BUT THEY WILL FIX THE REMOVED. I TOLD THE MANAGER OF MANHEIM PA THAT THE REMOVED FEE THAT HE OFFERED AND FIXED REMOVED IS NOT ENOUGH. I DONT WANT A REMOVED THAT WAS WRECKED AFTER I BOUGHT IF OR BEFORE I DONT KNOW. I'VE ALREADY LOST A LOT OF CASH DO TO FACT I JUST CAME 570 MILES TO GET A REMOVED I CAN'T EVEN PICK UP BECAUSE IT HAS TO GO IN ARBITRATION AND LEAVE EMPTY HANDED.",
+      "geo_validation": "bbb_us_business",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Rude/Unhelpful Support",
+      "id": "rvw-000615"
+    },
+    {
       "id": "rvw-000207",
       "source_website": "bbb.org",
       "source_label": "BBB Complaints",
@@ -7361,6 +7668,21 @@
       "tier1": "Customer Service & Communication",
       "tier2": "Agent Professionalism & Responsiveness",
       "tier3": "Rude/Unhelpful Support"
+    },
+    {
+      "source_website": "bbb.org",
+      "source_label": "BBB Complaints",
+      "source_url": "http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=10#0443_6001743_21398710",
+      "author": "BBB complainant",
+      "review_date": "2024-03-07",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Customer Service Issues complaint (Answered). I have so many complaints. First off leaving an employee personal information on the ground with social security and bank info on it. REMOVED the REMOVED always comes into work high and threatens people saying do not try me today unfair treatment to most employees except their favorite. OSHA as well nothing is up to date and REMOVED said we are not required gloves when we work with filthy cars with needles and stuff.",
+      "geo_validation": "bbb_us_business",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Rude/Unhelpful Support",
+      "id": "rvw-000616"
     },
     {
       "id": "rvw-000208",
@@ -7453,6 +7775,21 @@
       "id": "rvw-000590"
     },
     {
+      "source_website": "bbb.org",
+      "source_label": "BBB Complaints",
+      "source_url": "http://www.bbb.org/us/mi/carleton/profile/auto-auction/manheims-detroit-auto-auction-0422-6001794/complaints#0422_6001794_21357955",
+      "author": "BBB complainant",
+      "review_date": "2024-02-28",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Customer Service Issues complaint (Unanswered). On 12-26-23 my Ally leased vehicle was turned in to Feldman Livonia in perfect condition (re: no broken windshield and no dents or scratches. At some point in time the vehicle was turned over to Manheim. On 2-13-24 I received an inspection report from Ally. What was done to my vehicle was criminal. 9 various scratches, a broken windshield extensive damage charges to the tune of $1000. Between Feldman Livonia and Manhein Detroit nobody is owning up to the damages that were caused to my vehicle while in their possession and I am being told it is my problem with the leasing company. As well as my vehicle had 287 additional miles on it from the date I turned it in. Its obvious someone had the vehicle and abused it and now the leasing company is charging me for the damage. Whoever is responsible for this should be fired from their job. ## Manheim's Detroit Auto Auction is NOT a BBB Accredited Business. To become accredited, a business must agree to[BBB Standards for Trust](https://www.bbb.org/all/standards-for-trust)and pass BBB's vetting process. [Why choose a BBB Accredited Business?](https://www.bbb.org/all/why-choose-a-bbb-accredited-business) BBB Business Profiles are provided solely to assist you in exercising your own best judgment. BBB does not verify the accuracy of information provided by third parties, and does not guarantee the accuracy of any information in Business Profiles. As a matter of policy, BBB does not endorse any product, service, or business. Businesses are under no obligation to seek BBB accreditation, and some businesses are not accredited because they have not sought BBB accreditation. When considering complaint information, please consider the company's size and volume of transactions. Note that the nature of complaints and a company’s responses to them are often more important than the number of complaints. BBB Business Profiles generally cover a three-year reporting period. [![Image 9: BBB](https://m.bbb.org/brand/logos/BBB_PrimaryLogo_White_RGB.svg)](https://www.bbb.org/)TM ## For Consumers * [Get a Quote](http://www.bbb.org/get-a-quote) * [Start a Review](http://www.bbb.org/leave-a-review) * [File a Complaint](http://www.bbb.org/file-a-complaint) ## For Businesses * [Get Your Business Listed](http://www.bbb.org/get-listed) * [BBB Accreditation](http://www.bbb.org/get-accredited) * [Apply for BBB Accreditation](http://www.bbb.org/apply) * [Newsroom and Resources](http://www.bbb.org/us/news) ## Affiliated Programs * [BBB Institute for Marketplace Trust](https://www.bbbmarketplacetrust.org/) * [BBB Wise Giving Alliance (Give.org)](https://give.org/) * [BBB National Programs](https://bbbprograms.org/) * [our Twitter (opens in a new tab)](https://x.com/bbb_us) * [our LinkedIn (opens in a new tab)](https://www.linkedin.com/company/better-business-bureau/) * [our Facebook (opens in a new tab)](https://www.facebook.com/BetterBusinessBureau) * [our Instagram (opens in a new tab)](https://www.instagram.com/betterbusinessbureau_/) * [About BBB®](http://www.bbb.org/about) * [Terms of Use](http://www.bbb.org/terms-of-use) * [Privacy Policy](http://www.bbb.org/all/privacy-policy) * [Contact Us](http://www.bbb.org/bbb-directory) © 2026 International Association of Better Business Bureaus, Inc. (IABBB). All rights reserved. All trademarks are property of IABBB.",
+      "geo_validation": "bbb_us_business",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Rude/Unhelpful Support",
+      "id": "rvw-000617"
+    },
+    {
       "id": "rvw-000211",
       "source_website": "apps.apple.com",
       "source_label": "Apple App Store (1480842917, us)",
@@ -7543,6 +7880,21 @@
       "tier3": "Fees"
     },
     {
+      "source_website": "bbb.org",
+      "source_label": "BBB Complaints",
+      "source_url": "http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=10#0443_6001743_21319860",
+      "author": "BBB complainant",
+      "review_date": "2024-02-20",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Product Issues complaint (Answered). Date of Transaction was February 16,2023 The amount: $640 The money was for an 2017 jeep grand Cherokee, and a black REMOVED They wanted $1100 for the delivery fee but i was told to only send $640 n i could do the rest in cash.I was told to send it to REMOVED app $Shaneka919 . Afterwards i sent the $640 i got a call and was told to send the other money. I Said no because i was told i could pay in cash. I said i didnt want the cars and to me my $640 back. They didnt and REMOVED said he was only going send $390 because he was taking out for tag and title and insurance. He never sent anything and told me in text messages he will see me in court. I spoke with Mr. REMOVED at REMOVED and REMOVED at REMOVED",
+      "geo_validation": "bbb_us_business",
+      "tier1": "Membership / Licensing / Fees & Bidding Policies",
+      "tier2": "Bidding Process, Rules and Fees",
+      "tier3": "Fees",
+      "id": "rvw-000618"
+    },
+    {
       "source_website": "reddit.com",
       "source_label": "Reddit r/askcarsales",
       "source_url": "https://www.reddit.com/r/askcarsales/comments/1atbhp9/my_2013_highlander_se_is_totaled_but_still_runs/",
@@ -7571,6 +7923,21 @@
       "tier1": "Lot Condition, Listing Status and related",
       "tier2": "Lot Condition Reporting",
       "tier3": "Lot Damage"
+    },
+    {
+      "source_website": "bbb.org",
+      "source_label": "BBB Complaints",
+      "source_url": "http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=10#0443_6001743_21308845",
+      "author": "BBB complainant",
+      "review_date": "2024-02-17",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Service or Repair Issues complaint (Answered). My Vehicle 2021 Kia REMOVED VIN number REMOVED was repo on Thursday January 11th By REMOVED. On Tuesday January 16th My Fianc went to pick up the plates from the car and TURN IN TWO SETS OF KEYS and signed off on returning it. On January 22nd My Vehicle Was Transported To Manheim Auction 730 Route 68 REMOVED, REMOVED 08505-0188 . On Friday January 27th I paid off what was owed to the REMOVED set an appointment to come in on Monday January 29th to come pick up the car from Manheim. When I went to pick up the car there were damages to the REMOVED only received ONE KEY BACK. When I gave in TWO Keys. I EXPRESSED THIS BOTH TO Manheim and REMOVED who are both pointing the finger at each other. In conclusion I will like my damages fixed and my other key returned back to me.",
+      "geo_validation": "bbb_us_business",
+      "tier1": "Lot Condition, Listing Status and related",
+      "tier2": "Lot Condition Reporting",
+      "tier3": "Lot Damage",
+      "id": "rvw-000619"
     },
     {
       "id": "rvw-000215",
@@ -7693,6 +8060,36 @@
       "tier3": "Rude/Unhelpful Support"
     },
     {
+      "source_website": "bbb.org",
+      "source_label": "BBB Customer Reviews",
+      "source_url": "https://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/customer-reviews?page=2#review-10",
+      "author": "David B",
+      "review_date": "2024-02-07",
+      "rating": 5,
+      "sentiment": "positive",
+      "review_text": "Had a problem tonight Wed Feb. 7th with a trucker loading my vehicles to ship to REMOVED. I had left a Suburban I drove to the auction and left in customer parking but the trucker had no idea where it was. Manheim called Central REMOVED and talked to Mark in security and REMOVED and the lady who talked to REMOVED got it done for me. Thank You both so much. You did a GREAT JOB and I really appreciate it. [First](http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/customer-reviews?page=1)[Prev.](http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/customer-reviews?page=1) * [Page 1](http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/customer-reviews?page=1) * [Page 2](http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/customer-reviews?page=2) * [Page 3](http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/customer-reviews?page=3) [Next](http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/customer-reviews?page=3)[Last](http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/customer-reviews?page=3) ## Manheim Auctions is NOT a BBB Accredited Business. To become accredited, a business must agree to[BBB Standards for Trust](https://www.bbb.org/all/standards-for-trust)and pass BBB's vetting process. [Why choose a BBB Accredited Business?](https://www.bbb.org/all/why-choose-a-bbb-accredited-business) BBB Business Profiles are provided solely to assist you in exercising your own best judgment. BBB does not verify the accuracy of information provided by third parties, and does not guarantee the accuracy of any information in Business Profiles. As a matter of policy, BBB does not endorse any product, service, or business. Businesses are under no obligation to seek BBB accreditation, and some businesses are not accredited because they have not sought BBB accreditation. When considering complaint information, please consider the company's size and volume of transactions. Note that the nature of complaints and a company’s responses to them are often more important than the number of complaints. BBB Business Profiles generally cover a three-year reporting period. [![Image 17: BBB](https://m.bbb.org/brand/logos/BBB_PrimaryLogo_White_RGB.svg)](https://www.bbb.org/)TM ## For Consumers * [Get a Quote](http://www.bbb.org/get-a-quote) * [Start a Review](http://www.bbb.org/leave-a-review) * [File a Complaint](http://www.bbb.org/file-a-complaint) ## For Businesses * [Get Your Business Listed](http://www.bbb.org/get-listed) * [BBB Accreditation](http://www.bbb.org/get-accredited) * [Apply for BBB Accreditation](http://www.bbb.org/apply) * [Newsroom and Resources](http://www.bbb.org/us/news) ## Affiliated Programs * [BBB Institute for Marketplace Trust](https://www.bbbmarketplacetrust.org/) * [BBB Wise Giving Alliance (Give.org)](https://give.org/) * [BBB National Programs](https://bbbprograms.org/) * [our Twitter (opens in a new tab)](https://x.com/bbb_us) * [our LinkedIn (opens in a new tab)](https://www.linkedin.com/company/better-business-bureau/) * [our Facebook (opens in a new tab)](https://www.facebook.com/BetterBusinessBureau) * [our Instagram (opens in a new tab)](https://www.instagram.com/betterbusinessbureau_/) * [About BBB®](http://www.bbb.org/about) * [Terms of Use](http://www.bbb.org/terms-of-use) * [Privacy Policy](http://www.bbb.org/all/privacy-policy) * [Contact Us](http://www.bbb.org/bbb-directory) © 2026 International Association of Better Business Bureaus, Inc. (IABBB). All rights reserved. All trademarks are property of IABBB.",
+      "geo_validation": "bbb_us_business",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Case Resolution Quality",
+      "tier3": "Issue Resolved",
+      "id": "rvw-000620"
+    },
+    {
+      "source_website": "bbb.org",
+      "source_label": "BBB Complaints",
+      "source_url": "http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=10#0443_6001743_21261050",
+      "author": "BBB complainant",
+      "review_date": "2024-02-07",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Service or Repair Issues complaint (Answered). We bid for Audi A8L 2012 on 19 Oct 2021 on the Manheim portal where it showed a drivable car, when we sent the tow truck it informed car did not start. we went to the location REMOVED Atlanta and the agent called the mechanics who told us the car had been standing there for one year and did not start, they also told us that the last 6 vin numbers got mixed up with another Hond CRV which is driveable. We refused to pick up the car and Manheim put the case for arbitration for which we were never called. After 2 years they called us on 2nd February REMOVED and told us to pick up the damaged car which was falsely advertised on their website and forcibly gave it to us, due to their negligence.",
+      "geo_validation": "bbb_us_business",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Rude/Unhelpful Support",
+      "id": "rvw-000621"
+    },
+    {
       "id": "rvw-000220",
       "source_website": "apps.apple.com",
       "source_label": "Apple App Store (1480842917, us)",
@@ -7751,6 +8148,21 @@
       "tier1": "Customer Service & Communication",
       "tier2": "Communication Follow-up & Escalation",
       "tier3": "No Callback / Unresolved Case"
+    },
+    {
+      "source_website": "bbb.org",
+      "source_label": "BBB Complaints",
+      "source_url": "http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=10#0443_6001743_21235948",
+      "author": "BBB complainant",
+      "review_date": "2024-02-02",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Service or Repair Issues complaint (Resolved). On january 18th REMOVED i purchased a 2022 *odge Ram Promaster vin number REMOVED for the amount of $29,000 and also purchased a Post Sale inspection, For $175, after the vehicle passed inspection i noticed that the van had structural damage to the * pillar of the van by, the van had holes drilled into the d pillar of the van which damaged the * pillar and is structural damage, i arbitrated this with Manheim REMOVED arbitration and they took a long time to reach back out to me and when they did email me they said that their \"mechanics inspected the unit and found no frame damage\" even though the REMOVED arbitration guidelines state that the * pillar is a structural component and a load bearing brace on the van. I sent the REMOVED arbitration guidelines and policies to the arbitration department who then ignored my emails and has not responded. Im now being forced to either pay for the unit, re run the unit which will incur huge financial losses that will force me to the point of bankruptcy. I have spoken to multiple people at manheim REMOVED and the arbitration is supposedly to protect buyers in case of undisclosed damage, the condition report did not disclose any structural damage. And they are refusing to acknowledge the structural damage that is clearly visible in the photos on their condition report. Arbitration is supposed to help the buyers when the vehicle is misrepresented which they did misrepresent the vehicle as having no structural damage and the vehicle clearly has structural damage to the * pillar, if i sell this vehicle to a customer i can be sued due to the d pillar structural integrity being compromised by the drilling and installation of the aftermarket accessories, this is all stated in the REMOVED arbitration policies that manheim is supposedly upholding but they are not following the policy stated and are not working with me to resolve the issue. This is unacceptable because the policy is clearly stated on their website and they refuse to uphold it.",
+      "geo_validation": "bbb_us_business",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Communication Follow-up & Escalation",
+      "tier3": "No Callback / Unresolved Case",
+      "id": "rvw-000622"
     },
     {
       "source_website": "reddit.com",
@@ -7858,6 +8270,21 @@
       "tier3": "Rude/Unhelpful Support"
     },
     {
+      "source_website": "bbb.org",
+      "source_label": "BBB Complaints",
+      "source_url": "http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=10#0443_6001743_21152748",
+      "author": "BBB complainant",
+      "review_date": "2024-01-16",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Service or Repair Issues complaint (Answered). I Purchased a 2011 Audi S4 Vin# REMOVED 108,107mi, with a good condition report, Graded at 3.6 out of a 5.0. ( I can provide) I paid good money for the car based on that info $7,635.00 when the car was transported to PA, I found that the \"Transmission Gear Icon\" light was on, indicating that the transmission wasn't opearating correctly. Attempted to drive car, slipping badly, no reverse, I Proceeded to call the REMOVED auction, Told them about transmission issue, and they stated car was sold \"as-is\" deal stands. I asked why the condition report didn't show REMOVED light\" No reponse ? My concerns are;1) Why wasn't the Trans light reported on the condition report ?2) Are the auction people doing these condition reports that incompitant, that they didn't see icon ?3) When car was tested or moved, they didn't feel slipping ?4) When I asked auction about this, They claimed that they only make sure car moves foward & backwards. They don't road test the car, No reponse. 5) Now I checked the REMOVED arbitration rules, and it didn't state that, Strangely enough they revised the REMOVED rules, \"after my purchase to reflect, that they only make sure the car moves foward & reverse. 6) To me, its obvious, the auction condition reports, favors the seller, not the buyer. \"3.6 REMOVED\"7) I realize, I've been taken, Under advise from REMOVED PA, I attempt to resell the car and cut my losses. I register the car at REMOVED PA, They do a condition report, and grade the car as a \"1.2 REMOVED\", announcing the trans issues, I'm at a loss for words, that the REMOVED was changed to such a low REMOVED, How can PA, differ from REMOVED so much ? the car barely bids to $2,000, far too low for me to sell it at such a loss. and when I purchased it, it ran thru a normal running lane, yet REMOVED PA ran it the REMOVED Lane\" which is for cars needing extensive repairs !!8) The repairs required to fix the trans issue, requires a new clutch $1,800, and a valve body $3.000 in parts plus labor @ $2,000. making it impossible to fix, and resell the car !!9) Had the REMOVED auction disclosed the trans issue, I would have Not Purchased the car !!Now comes the 2nd part: I went onto \"OVE\" on the auction site, found a 2012 Land Rover LR4, Vin# REMOVED needing timing chains, at REMOVED, Now I thought, I was wise to REMOVED policy, i contacted the seller before the purchase, I confirmed the issue was \"Timing Chains\" and verified the truck \"Ran\" in order to load it up on the transport truck, which I also contracted thru the auction. Seller agreed, and I purchased it for the agreed price of $3,600. plus a $700. transport fee. Afterwards, the transporter, contacts us that truck doesn't run, making it impossible to load onto the truck. I called REMOVED CH, and they stated to file an Arbitration claim, to which I did, and the auction stated \"the deal stands, sold as is\" I explained my conversation, with the seller, NO change, sold. I told them, that if the truck couldn't be loaded, it would have to be \"Flat bed towed\" from REMOVED to PA, would be significanly higher $2500-3,000. and if it didn't run, it now probably needs and engine, due to valve damage \"interference motor\" $10-12000. for a used engine, plus labor making the purchase impractible. My position is, if the auction would have accuratly reported the condition report, I wouldn't be in this position. I am an ASE ceritfied mechanic, with over 40 years experience. I know the costs involved to replace timing chains on Land Rovers, which allowed me to bid accordingdly. With regaurds to the Audi, If they would have disclosed REMOVED light on, Or Announced \"No REMOVED\" I would have NOT PURCHASED either car. Manheim should undo the deals and make me whole. I will gladly supply the condition reports, and any other infomation, you may require for clarification.\"OVE\" is Manhiems \"ON Line Vehicle Exchange\" sales, not running thru physical lanes \"REMOVED\" is Manheim Auto Auction\" CHI is Manheim REMOVED, PA is Manheim PA, REMOVED\" is Manheims Total Resouce Auction, for disabled vehicles \"REMOVED\" is Cond",
+      "geo_validation": "bbb_us_business",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Rude/Unhelpful Support",
+      "id": "rvw-000623"
+    },
+    {
       "id": "rvw-000229",
       "source_website": "bbb.org",
       "source_label": "BBB Complaints",
@@ -7871,6 +8298,21 @@
       "tier1": "Customer Service & Communication",
       "tier2": "Communication Follow-up & Escalation",
       "tier3": "No Callback / Unresolved Case"
+    },
+    {
+      "source_website": "bbb.org",
+      "source_label": "BBB Complaints",
+      "source_url": "http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=10#0443_6001743_21149897",
+      "author": "BBB complainant",
+      "review_date": "2024-01-15",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Service or Repair Issues complaint (Answered). I purchased a 2016 Acura mdx from Manheim chicago last Thursday. Condition report is 4.4 out of 5. That is almost a flawless car. Vehicle is as is but the condition report is 4.4. The report stated very minor issues and after purchasing car and having it transported to me. Further inspection revealed many issues with the exterior paint and very poor patch up paint job on parts of vehicle that middle school kids could've done better. Yet it wa rated 4.4 Took pictures of all the things not listed in report and started the arbitration. Got a call back today saying since it was as is they aren't able to do anything. I asked the lady who was named Jennifer why was the condition report false because people who buy cars online are relying solely on the reports the auction generates. This is an absolute scam to put high condition report on cars while they are as is and then once sold they use the \"you bought it as is\" excuse to show you they hold power over the customers. This is malicious malpractice and I know many other customers have the same complaint and this also isn't the first time it happened to me. I'm not sure if this is a Manheim issue or a Manheim Chicago issue where people in charge are misusing their position at work to dupe customers. Photographic evidence exists of all items missing in condition report, like purposely left out because they're intention is to give car higher rating and then when confronted about it they fall back on its as is car. That doesn't give them the right to mislead customers and then to degrade them for buying as is. Why put a condition report on a car if your not going to honor the intentional missing damages? Please help resolve this issue and prevent this from happening as a common occurrence. Thank you and looking forward to a response.",
+      "geo_validation": "bbb_us_business",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Communication Follow-up & Escalation",
+      "tier3": "No Callback / Unresolved Case",
+      "id": "rvw-000624"
     },
     {
       "source_website": "reddit.com",
@@ -7903,6 +8345,21 @@
       "tier3": "Long Hold Time / Hard to Reach Support"
     },
     {
+      "source_website": "bbb.org",
+      "source_label": "BBB Complaints",
+      "source_url": "http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=11#0443_6001743_21121488",
+      "author": "BBB complainant",
+      "review_date": "2024-01-11",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Service or Repair Issues complaint (Answered). REMOVED 2017 PORSCHE Hello, This Dates back to 2022, When I owned a REMOVED On 02/07/2022, I lent 10,000$ to a Customer REMOVED. Months go by REMOVED goes a-wall. 0$ in payments are made! Account goes in default and the repossession process is started! After failed attempts to locate the vehicle. I ceased attempts to locate as its costing me money day by day. I write this off as a loss. On 12/01/23 vehicle is found in possession of Manheim Auction in REMOVED. (By a quick search) I then hired a Recovery Agent in the REMOVED, 01/02/24 And an attempt was made to recover the vehicle, 01/05/23 Per the agents attempt was unsuccessful. U guys are in position of a vehicle without a valid title, & a lien on it. I simply need the vehicle or contract be paid in full. Borrower was granted title loan, REMOVED sold vehicle to shift, Shift couldnt sell car due to car not being available to register vehicle ( I hold current title REMOVED), Shift then tries to get rid of car by selling vehicle at auction. And have another buyer deal with trouble. I have since transferred the title in my name and will not release anything to anyone till dues are paid",
+      "geo_validation": "bbb_us_business",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Support Access & Response Time",
+      "tier3": "Long Hold Time / Hard to Reach Support",
+      "id": "rvw-000625"
+    },
+    {
       "source_website": "reddit.com",
       "source_label": "Reddit r/askcarsales",
       "source_url": "https://www.reddit.com/r/askcarsales/comments/18yr90h/buying_car_for_personal_use_i_have_wholesale_gdn/",
@@ -7931,6 +8388,21 @@
       "tier1": "Customer Service & Communication",
       "tier2": "Agent Professionalism & Responsiveness",
       "tier3": "Rude/Unhelpful Support"
+    },
+    {
+      "source_website": "bbb.org",
+      "source_label": "BBB Complaints",
+      "source_url": "http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=11#0443_6001743_21068507",
+      "author": "BBB complainant",
+      "review_date": "2023-12-28",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Product Issues complaint (Answered). 11/15/2023 purchased 8 vehicles. received late charge of $400 per unit on 6 of them. We are on a REMOVED automatic sweep where REMOVED pays automatically. Called the awful phone system under which no one wishes to take ownership of an issue and everything gets emailed along with a statement that \"they will call you back\". The claim was denied by REMOVED and one can only assume that the email from the call center did not provide the details (as per usual). There is a message in their file that they called me which of course did not occur. The complaint is that we want a refund AND A NEW FORM OF COMMUNICATION> One way communication is simply not acceptable.",
+      "geo_validation": "bbb_us_business",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Rude/Unhelpful Support",
+      "id": "rvw-000626"
     },
     {
       "id": "rvw-000232",
@@ -7978,6 +8450,21 @@
       "tier3": "Previewing/ Inspecting Vehicles"
     },
     {
+      "source_website": "bbb.org",
+      "source_label": "BBB Complaints",
+      "source_url": "http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=11#0443_6001743_21004509",
+      "author": "BBB complainant",
+      "review_date": "2023-12-13",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Service or Repair Issues complaint (Answered). We purchased a vehicle that was represented by Manheim REMOVED as a REMOVED Sienna XSE Anniversary edition. We bought this vehicle on November 27th and had to have it transported to S REMOVED. The vehicle took a longer than expected time to get here. When it did arrive, we had a routine inspection done a few days later at REMOVED. It was found that this vehicle was not an XSE Anniversary edition but a XLE which is valued about $7,000 less. We arbitrated the vehicle through Manheim REMOVED and were too essentially, too bad its been 16 days which is longer than the 10 we give you.were closing the case. The vehicle has not been driven and is in the same condition as when we purchased it. Furthermore, all the badging on the vehicle is blacked out making it extremely difficult to see. Manheim STILL is showing this vehicle as an XSE Anniversary Edition through their own valuation system called MMR. There are definitely extenuating circumstances that call for their policy to be extended. The uploaded images show what Manheim represented it as (with the balance paid) and what it actually is (MMR)",
+      "geo_validation": "bbb_us_business",
+      "tier1": "Lot Condition, Listing Status and related",
+      "tier2": "Third-Party Inspection Authorization & Scheduling",
+      "tier3": "Previewing/ Inspecting Vehicles",
+      "id": "rvw-000627"
+    },
+    {
       "id": "rvw-000235",
       "source_website": "bbb.org",
       "source_label": "BBB Customer Reviews",
@@ -7993,6 +8480,21 @@
       "tier3": "Previewing/ Inspecting Vehicles"
     },
     {
+      "source_website": "bbb.org",
+      "source_label": "BBB Customer Reviews",
+      "source_url": "https://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/customer-reviews?page=3#review-7",
+      "author": "Yousef F",
+      "review_date": "2023-12-11",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "We are appealing because we brought it in for a bad motor and excessive smoking and Manheim claimed the motor was good after inspecting it in the allotted time given to us. We then picked up the vehicle from manheim brought it back and the unit was still smoking with same issue obvious bad motor. We took right to the REMOVED Dealer paid for a inspection which confirmed a $18000 dollar fix for the motor. We went to the head of arbitration REMOVED and REMOVED who told us i quote \"REMOVED, as I reviewed this claim, when the unit was on lot these issues did not exist. I understand you then took it to a dealer after-the-fact.However, if you are appealing the decision. The unit cannot leave the lot. We would either have a Manger, 3rd Party inspect the unit as next step. At this point, because the unit was removed from lot, we can no longer entertain the claim.\" This vehicle was picked up and taken to arbitration and manheims mechanics confirmed it was good so we picked it up. We then brought it back because it was still bad after taking it to the actual dealer to prove manheim wrong. Why would we appeal the decision and not pick up the vehicle when we trusted what manheims claim the motor had no issues. We were not aware we have to bring a mechanic to the auction to confirm what you all stated. It could not be an issue after the fact we took the vehicle back assuming your mechanics checked the vehicle. So we continued to see the smoke and took the vehicle to the dealer who confirmed the issue and REMOVED in the oil. . We will not accept this decision. We have had this same issue before with a different vehicle and were refunded as we should be. We also know Manheim has run the vehicle twice under our name since returning the vehicle to try and sell and see what you all could salvage from Manheim's mistake. We spend $500,000 to REMOVED per week still treated like trash. REMOVED",
+      "geo_validation": "bbb_us_business",
+      "tier1": "Lot Condition, Listing Status and related",
+      "tier2": "Third-Party Inspection Authorization & Scheduling",
+      "tier3": "Previewing/ Inspecting Vehicles",
+      "id": "rvw-000628"
+    },
+    {
       "id": "rvw-000236",
       "source_website": "bbb.org",
       "source_label": "BBB Complaints",
@@ -8006,6 +8508,21 @@
       "tier1": "Payment Refunds, Transaction Issues and Deposits",
       "tier2": "Refunds & Membership Billing",
       "tier3": "Deposit Refund Status"
+    },
+    {
+      "source_website": "bbb.org",
+      "source_label": "BBB Complaints",
+      "source_url": "http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=11#0443_6001743_20977105",
+      "author": "BBB complainant",
+      "review_date": "2023-12-08",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Delivery Issues complaint (Answered). Ordered transportation for a car. I paid for it. When i learned there was no ETA after 5 days, i callled. It has been more than one months since i have been waiting for a refund. That is with calling about 20 times and each time about an average of 30 minutes on the phone.",
+      "geo_validation": "bbb_us_business",
+      "tier1": "Payment Refunds, Transaction Issues and Deposits",
+      "tier2": "Refunds & Membership Billing",
+      "tier3": "Deposit Refund Status",
+      "id": "rvw-000629"
     },
     {
       "id": "rvw-000237",
@@ -8038,6 +8555,21 @@
       "tier3": "Rude/Unhelpful Support"
     },
     {
+      "source_website": "bbb.org",
+      "source_label": "BBB Complaints",
+      "source_url": "http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=11#0443_6001743_20921644",
+      "author": "BBB complainant",
+      "review_date": "2023-11-27",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Sales and Advertising Issues complaint (Resolved). We have posted a vehicle for auction on \"Red Light\" \"AS IS\" sale on Nov 14, 23. We contacted the auction to ensure the listing is \"AS IS\", on Nov16th (attached is a phone log), they have assured us that it's posted as \"RED\" line We later spoke to the auction rep. about the payment and he stated that it's being held for arbitration despite that he see the listing is posted as \"Red\" line \"As Is\" and no arbitration allowed, those two calls where made on Nov 20th. (attached is a phone log), his statement confirmed the previous call on Nov 16th Today, Nov 27th, we have been informed that the sale has been cancelled and that we have to pay for shipping the vehicle from REMOVED to VA at our expenses.REMOVED, Automotive Claims, from Manheim quoted in his email today that \"The REMOVED may show it as a Red-light vehicle, but it was listed as Green light. The seller is responsible for the transportation of the buyer if there is an issue found with the vehicle that is subject to arbitration.\"We mentioned to Mr. REMOVED that such error is generated by Manheim auction system, not us. His response was \"the sellers responsibility to monitor the sale\" For the record, we have monitored the sale, made the call to ensure a proper classification of sale. Furthermore, sellers have no control over Manheim's posting system as he claimed and thus, his statement must be dismissed His admission that the vehicle is listed as \"AS IS\" and yet, the auction still accepted the arbitration, is substantial, conflicting with NAAA policy and guideline and rather discriminatory as some buyers receive favors or treated better than others.Such action and decision from Manheim has caused us a loss of sale, time and efforts, and arranging and paying for posting the vehicle and ship it back from REMOVED to VA.We are seeking the reimbursement of the cost of posting the vehicle for sale on Manheim site, in addition to the cost of shipping the vehicle back from REMOVED to VA. Yours,REMOVED",
+      "geo_validation": "bbb_us_business",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Rude/Unhelpful Support",
+      "id": "rvw-000630"
+    },
+    {
       "id": "rvw-000239",
       "source_website": "bbb.org",
       "source_label": "BBB Complaints",
@@ -8051,6 +8583,21 @@
       "tier1": "Lot Condition, Listing Status and related",
       "tier2": "Lot Condition Reporting",
       "tier3": "Lot Damage"
+    },
+    {
+      "source_website": "bbb.org",
+      "source_label": "BBB Complaints",
+      "source_url": "http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=11#0443_6001743_20913596",
+      "author": "BBB complainant",
+      "review_date": "2023-11-24",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Service or Repair Issues complaint (Resolved). On November 21, I purchased a 2017 REMOVED Focus SE, the associated VIN is 1fadp3k29hl202543 from the public auction. I purchased this vehicle as a birthday gift for my 18 year old son. The day prior I was told I could preview the cars going for sale as long as I arrived by 4 pm, when I arrived I was told only dealers could preview the vehicles - red flag #1. I arrived on the morning of the auction and registered as required. The picture displayed showed a green light silver car with extra clean interior so I bid $3800 as the final bidding price. When I went to check out, the paperwork listed structural damage and the price was listed as $3900 - red flag #2. Upon driving the vehicle home I noticed a few roaches but when I turned on the heat they began to take over the vehicle - red flag #3. I cant even open the hood how can they guarantee no engine, transmission damage - final straw. Im concerned because roaches emit harmful bacteria that could be harmful to my son who needs this car to make it back and forth to school. In addition to not fully knowing whats under the hood. After reaching out they offered to mail a check for a nominal amount and the 2nd time offered to pay for a cleaning but the work is on me to identify cleaning company, have car towed, etc. on 11/24, I found this VIN # on co-parts in a terrible condition with significant damage to the front. Shame on Manheim and REMOVED for betraying the and the public trust as I believe they clearly knew the condition of this vehicle and at best probably should have listed it as yellow or even red given the imminent infestation.",
+      "geo_validation": "bbb_us_business",
+      "tier1": "Lot Condition, Listing Status and related",
+      "tier2": "Lot Condition Reporting",
+      "tier3": "Lot Damage",
+      "id": "rvw-000631"
     },
     {
       "source_website": "play.google.com",
@@ -8098,6 +8645,36 @@
       "tier3": "Lot Damage"
     },
     {
+      "source_website": "bbb.org",
+      "source_label": "BBB Complaints",
+      "source_url": "http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=11#0443_6001743_20846268",
+      "author": "BBB complainant",
+      "review_date": "2023-11-08",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Service or Repair Issues complaint (Answered). Manheim employee, REMOVED, deliberately violated Manheim's REMOVED arbitration policy, In specific section VII part G on page 8. It states: \". Vehicles may not be arbitrated based solely upon information provided in REMOVED Vehicle Histories (REMOVED) or printed REMOVED reports. Auction and Seller are not bound by information listed in REMOVED. Examples of REMOVED include Carfax, AutoCheck, NMVTIS, etc.\" I sold this vehicle \" REMOVED\" on 9/15/23 and it has a clean title, clean transfer documents, and a clean auto check. They are in direct violation of the aforementioned arbitration section. The arbitration manager at Manheim REMOVED, REMOVED along with AGM REMOVED intentionally \"solely\" used an edvh as the only means to arbitrate this vehicle. After alerting him to this violation of the policy he ignored my requests to find a reasonable resolution and made an unpopulated announcement on my own vehicle. REMOVED has a personal issue in regard to this matter and I request he relinquish himself from all aspects of \"MY\" vehicle. REMOVED is unjustifiably making me take the vehicle back even though they violated their own arbitration policy. I have supporting documents to justify this complaint. Also states that seller and buyer are not bound by an electronic vehicle history report. They are binding me by using this report which it also clearly states that's a violation of. Neither REMOVED nor REMOVED pulled the REMOVED inspection reports themselves therefore in direct violation of Manheim arbitration policies on two fronts. One for solely using Carfax as a means of arbitration and the second by binding me with a Carfax report. This is all stated in their own arbitration policies as seen on their own website. I'm requesting Manheim absorb this car under element or meridian or make up the difference in sale price discrepancy.",
+      "geo_validation": "bbb_us_business",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Rude/Unhelpful Support",
+      "id": "rvw-000632"
+    },
+    {
+      "source_website": "bbb.org",
+      "source_label": "BBB Complaints",
+      "source_url": "http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=11#0443_6001743_20842292",
+      "author": "BBB complainant",
+      "review_date": "2023-11-08",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Service or Repair Issues complaint (Resolved). Purchased the vehicle with vin number: REMOVED on October 12th, 2023 with condition report of score 4.3 out of 5. The vehicle was on our possession next day(October 13th, 2023), however, we noticed that there is a substandard damage on the rear truck door and rear bumper. We immediately opened arbitration case same day and sent back the car to the Manheim REMOVED for further inspection. A new report came back two weeks later, showing score of 3.7, as it was 4.3 previously. In addition, the new Credit Report also illustrates that there is a substandard paint work on the rear lift gate needs to be replaced. Manheim REMOVED closed our case on October 22nd, 2023, explained the repair would not costs more the $800, and agreed to reimburse us $800 for repair. They refused to provide further settlement or unwind the deal. However, it is made by all plastic on a 21 Siennas rear truck door, there is no way to repair it, instead we would need to replace the whole thing, which could costs more than $3,000. Since there are major misrepresentation of the vehicles condition per Credit Report provided by the auction company, it affected our decision making. Although they offered $800 for repair expense reimbursement, it could costs way more than $800 to repair. Due to this fact, our company would like to terminate the transaction. Our case would qualified to unwind the deal under NAAA policy.",
+      "geo_validation": "bbb_us_business",
+      "tier1": "Lot Condition, Listing Status and related",
+      "tier2": "Lot Condition Reporting",
+      "tier3": "Lot Damage",
+      "id": "rvw-000633"
+    },
+    {
       "id": "rvw-000242",
       "source_website": "play.google.com",
       "source_label": "Google Play (com.manheim.mobile.refresh)",
@@ -8126,6 +8703,21 @@
       "tier1": "Membership / Licensing / Fees & Bidding Policies",
       "tier2": "Bidding Process, Rules and Fees",
       "tier3": "Fees"
+    },
+    {
+      "source_website": "bbb.org",
+      "source_label": "BBB Complaints",
+      "source_url": "http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=11#0443_6001743_20834835",
+      "author": "BBB complainant",
+      "review_date": "2023-11-06",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Service or Repair Issues complaint (Answered). On November 2, 2023 Manheim Auctions of REMOVED received my 2021 GMC Truck. I made payment with my lender and Manheim Auctions is refusing to release my vehicle back to me even after they have received paperwork from my lender stating to release the truck back to me.",
+      "geo_validation": "bbb_us_business",
+      "tier1": "Membership / Licensing / Fees & Bidding Policies",
+      "tier2": "Bidding Process, Rules and Fees",
+      "tier3": "Fees",
+      "id": "rvw-000634"
     },
     {
       "id": "rvw-000244",
@@ -8173,6 +8765,21 @@
       "tier3": "Deposit Refund Status"
     },
     {
+      "source_website": "bbb.org",
+      "source_label": "BBB Complaints",
+      "source_url": "http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=11#0443_6001743_20752010",
+      "author": "BBB complainant",
+      "review_date": "2023-10-19",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Service or Repair Issues complaint (Answered). I bought a vehicle at MANHEIM Southern REMOVED VIN# REMOVED. 2011 REMOVED 335i. I started the vehicle and it caught fire with me in it I got injuries to my right leg burned I have attached pictures for proof. That is a liability and safety issue. The vehicle should not just catch fire. Luckily I wasnt that severely hurt. I am going to go to the hospital just to make sure its ok. I demand a refunded for this vehicle in full. I paid $2,185. The vehicle had to be removed per REMOVED",
+      "geo_validation": "bbb_us_business",
+      "tier1": "Payment Refunds, Transaction Issues and Deposits",
+      "tier2": "Refunds & Membership Billing",
+      "tier3": "Deposit Refund Status",
+      "id": "rvw-000635"
+    },
+    {
       "id": "rvw-000247",
       "source_website": "bbb.org",
       "source_label": "BBB Complaints",
@@ -8186,6 +8793,21 @@
       "tier1": "Customer Service & Communication",
       "tier2": "Agent Professionalism & Responsiveness",
       "tier3": "Rude/Unhelpful Support"
+    },
+    {
+      "source_website": "bbb.org",
+      "source_label": "BBB Complaints",
+      "source_url": "http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=12#0443_6001743_20748377",
+      "author": "BBB complainant",
+      "review_date": "2023-10-18",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Sales and Advertising Issues complaint (Answered). Two select Manheim employees, REMOVED and REMOVED deliberately violated Manheim's REMOVED arbitration policy, In specific section VII part G on page 8. It states :\". Vehicles may not be arbitrated based solely upon information provided in REMOVED Vehicle Histories (REMOVED) or printed REMOVED reports. Auction and Seller are not bound by information listed in REMOVED.Examples of REMOVED include Carfax,AutoCheck, NMVTIS, etc.\"They also violated Manheim New York's local arbitration policy, specifically part II. it states \" Sale day purchases must be arbitrated before exiting the auction gate to be eligible for a sale day arbitration.\" the vehicle was purchased in the lane on sale day and exited the auction lot. therefore ineligible for arbitration. I sold this vehicle \" REMOVED\" on 9/15/23 and it has a clean title, clean transfer documents, and clean autocheck. They are claiming because of a carfax mileage discrepancy \"potential odometer rollback\" notice on the carfax, that they are arbitrating the vehicle. I have sold over 1k cars with Manheim and have never had this happen before. They are in direct violation of the aforementioned arbitration section. The arbitration manager at Manheim REMOVED, REMOVED along with AGM REMOVED intentionally \"solely\" used an edvh as the only means to arbitrate this vehicle. After alerting him to this violation of the policy he ignored my requests to find a reasonable resolution as I am the seller and have been selling with Manheim for over ten years. REMOVED is unjustifiably making me take the vehicle back even though they violated their own arbitration policy. I have supporting documents to justify this complaint.",
+      "geo_validation": "bbb_us_business",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Rude/Unhelpful Support",
+      "id": "rvw-000636"
     },
     {
       "id": "rvw-000248",
@@ -8263,6 +8885,21 @@
       "id": "rvw-000429"
     },
     {
+      "source_website": "bbb.org",
+      "source_label": "BBB Customer Reviews",
+      "source_url": "https://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/customer-reviews?page=3#review-10",
+      "author": "Mmmmm M",
+      "review_date": "2023-09-17",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Cause they have co workers sleeping and dating I know first hand REMOVED and REMOVED.. I know I lost twelve years .and the company REMOVED [First](http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/customer-reviews?page=1)[Prev.](http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/customer-reviews?page=2) * [Page 1](http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/customer-reviews?page=1) * [Page 2](http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/customer-reviews?page=2) * [Page 3](http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/customer-reviews?page=3) ## Manheim Auctions is NOT a BBB Accredited Business. To become accredited, a business must agree to[BBB Standards for Trust](https://www.bbb.org/all/standards-for-trust)and pass BBB's vetting process. [Why choose a BBB Accredited Business?](https://www.bbb.org/all/why-choose-a-bbb-accredited-business) BBB Business Profiles are provided solely to assist you in exercising your own best judgment. BBB does not verify the accuracy of information provided by third parties, and does not guarantee the accuracy of any information in Business Profiles. As a matter of policy, BBB does not endorse any product, service, or business. Businesses are under no obligation to seek BBB accreditation, and some businesses are not accredited because they have not sought BBB accreditation. When considering complaint information, please consider the company's size and volume of transactions. Note that the nature of complaints and a company’s responses to them are often more important than the number of complaints. BBB Business Profiles generally cover a three-year reporting period. [![Image 17: BBB](https://m.bbb.org/brand/logos/BBB_PrimaryLogo_White_RGB.svg)](https://www.bbb.org/)TM ## For Consumers * [Get a Quote](http://www.bbb.org/get-a-quote) * [Start a Review](http://www.bbb.org/leave-a-review) * [File a Complaint](http://www.bbb.org/file-a-complaint) ## For Businesses * [Get Your Business Listed](http://www.bbb.org/get-listed) * [BBB Accreditation](http://www.bbb.org/get-accredited) * [Apply for BBB Accreditation](http://www.bbb.org/apply) * [Newsroom and Resources](http://www.bbb.org/us/news) ## Affiliated Programs * [BBB Institute for Marketplace Trust](https://www.bbbmarketplacetrust.org/) * [BBB Wise Giving Alliance (Give.org)](https://give.org/) * [BBB National Programs](https://bbbprograms.org/) * [our Twitter (opens in a new tab)](https://x.com/bbb_us) * [our LinkedIn (opens in a new tab)](https://www.linkedin.com/company/better-business-bureau/) * [our Facebook (opens in a new tab)](https://www.facebook.com/BetterBusinessBureau) * [our Instagram (opens in a new tab)](https://www.instagram.com/betterbusinessbureau_/) * [About BBB®](http://www.bbb.org/about) * [Terms of Use](http://www.bbb.org/terms-of-use) * [Privacy Policy](http://www.bbb.org/all/privacy-policy) * [Contact Us](http://www.bbb.org/bbb-directory) © 2026 International Association of Better Business Bureaus, Inc. (IABBB). All rights reserved. All trademarks are property of IABBB.",
+      "geo_validation": "bbb_us_business",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Rude/Unhelpful Support",
+      "id": "rvw-000637"
+    },
+    {
       "id": "rvw-000251",
       "source_website": "bbb.org",
       "source_label": "BBB Complaints",
@@ -8276,6 +8913,21 @@
       "tier1": "Customer Service & Communication",
       "tier2": "Agent Professionalism & Responsiveness",
       "tier3": "Rude/Unhelpful Support"
+    },
+    {
+      "source_website": "bbb.org",
+      "source_label": "BBB Complaints",
+      "source_url": "http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=12#0443_6001743_20612546",
+      "author": "BBB complainant",
+      "review_date": "2023-09-15",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Sales and Advertising Issues complaint (Answered). Someone took my brand new ACDelco battery out of my vehicle while it was being stored at the REMOVED location and replaced it with a bad used battery thats leaking battery acid all over my car and fuming sulfur smells. I dont understand why someone took my battery. I got the email from OnStar as soon as my battery was unhooked and Im not happy about it. I just replaced my car battery less than 6 months ago. I need to speak to someone higher power about this and my missing items.",
+      "geo_validation": "bbb_us_business",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Rude/Unhelpful Support",
+      "id": "rvw-000638"
     },
     {
       "id": "rvw-000252",
@@ -8338,6 +8990,21 @@
       "tier3": "Rude/Unhelpful Support"
     },
     {
+      "source_website": "bbb.org",
+      "source_label": "BBB Complaints",
+      "source_url": "http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=12#0443_6001743_20548724",
+      "author": "BBB complainant",
+      "review_date": "2023-08-31",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Order Issues complaint (Resolved). Auction is lieing for other dealers purchased a vehicle as is but with a cr runs and drive , send 4 companies to pick and engine is locked up , contacted the auciton , come to find out cr was done in January I purchased in august with policy for cr is 90 days , SO THEY OPEN CASE AGAIN THEY LIED AND SAID THE REMOVED AFTER I PURCHASED IT RAN WHICH IS A LIE HAS 2 companies there REMOVED FROM ARBITRATION IS RACIST AND UNPROFESSIONAL I already contact an attorney about this fraud",
+      "geo_validation": "bbb_us_business",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Rude/Unhelpful Support",
+      "id": "rvw-000639"
+    },
+    {
       "id": "rvw-000256",
       "source_website": "bbb.org",
       "source_label": "BBB Complaints",
@@ -8351,6 +9018,21 @@
       "tier1": "Customer Service & Communication",
       "tier2": "Agent Professionalism & Responsiveness",
       "tier3": "Rude/Unhelpful Support"
+    },
+    {
+      "source_website": "bbb.org",
+      "source_label": "BBB Complaints",
+      "source_url": "http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=12#0443_6001743_20529200",
+      "author": "BBB complainant",
+      "review_date": "2023-08-27",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Service or Repair Issues complaint (Answered). Manheims arbitration and REMOVED is corrupt and discriminatory. They treat small dealers like second class citizens and they treat the big sellers and dealers like they are all in the same club. The auctions have always been corrupt. Auctioneers and big dealers do side deals to get what they want and that small dealers get nothing but the scraps. Time after time I have tried to arbitrate cars that were guaranteed but they dont care that they sell you junk as long as their big sellers are happy. The PSIs are also corrupt. I have plenty of examples but this last one has topped all of them. I used REMOVED to floor a 21 cargo van a couple months ago. I ordered a PSi and it passed. When it was delivered we noticed it was a V6 when it was announced as a V8. I had a very good client that bought a couple V8s from me. When I tried to arbitrate I was ignored. I called and emailed for a month. Finally somebody called me and said I am responsible to know what engine is in every single car. I asked them to show me the policy and send me something in writing. I was again ignored for about a month. Meanwhile Next Gear interest incurs. But they dont care because Next Gear and Manheim are part of the same monopoly and racketeering cartel. I was stuck with the van and tried to sell but I ended up having to put the van back in the auction. It sold the second week but then it did not Pass PSI because the van had cabinets which are considered structural alterations. Mind you the van had the same cabinets when I bought it and it passed PSI when I bought it. They also said the van had no oil on the stick. Which is a complete fabrication. I have no doubt in my mind that next gear and Manheim colluded to sabotage the sale. They both discriminate against small dealers and they feed off each other to ruin the lil guy. I know that my next gear rep colluded with the Manheim arbitration /psi team to destroy my business. This is organized crime. No other flooring company can do that",
+      "geo_validation": "bbb_us_business",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Rude/Unhelpful Support",
+      "id": "rvw-000640"
     },
     {
       "source_website": "reddit.com",
@@ -8396,6 +9078,36 @@
       "tier1": "Customer Service & Communication",
       "tier2": "Agent Professionalism & Responsiveness",
       "tier3": "Rude/Unhelpful Support"
+    },
+    {
+      "source_website": "bbb.org",
+      "source_label": "BBB Complaints",
+      "source_url": "http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=12#0443_6001743_20501004",
+      "author": "BBB complainant",
+      "review_date": "2023-08-21",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Service or Repair Issues complaint (Resolved). My car was taken to Manheim REMOVED on 8/11/23. On 8/17/23 the lien holder sent them a vehicle release authorization. I tried that day to get ahold of someone to figure out what i needed to pickup my car but was unsuccessful. Finally spoke to someone on 8/18/23 and they informed me that they do releases by appointment only and their earliest appointment was 8/24/23!!! That is unacceptable, and outrageous. There is absolutely no reason i should have to wait a whole week to get my vehicle from when they received the release authorization.",
+      "geo_validation": "bbb_us_business",
+      "tier1": "Vehicle Pickup, Delivery and Scheduling",
+      "tier2": "Scheduled Pickup Status",
+      "tier3": "Missed/ Delayed Pickup and Dispatch Window",
+      "id": "rvw-000641"
+    },
+    {
+      "source_website": "bbb.org",
+      "source_label": "BBB Complaints",
+      "source_url": "http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=12#0443_6001743_20498847",
+      "author": "BBB complainant",
+      "review_date": "2023-08-21",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Billing Issues complaint (Resolved). On June 18 2023 I bought from REMOVED, a MANHEIM AUTO AUCTION Division, an used Black 2018 REMOVED AMG GLE 43, VIN # REMOVED for $33,400. On June 21, I called Manheim Auction to ask where I should send the money, they told me to ask the Dealer who owned the vehicle because they had nothing to do with such payment because it was on the REMOVED platform. So that was exactly what I did, I contacted REMOVED) Owner of REMOVED in REMOVED, asked for his Bank information and I sent the $33,400 payment directly to the Dealer's Owner. He verified money was received. Vehicle was sent by the Dealer in REMOVED to my address in REMOVED, and I received vehicle in perfect conditions one week later, but, when I called MANHEIM to ask for my vehicle's title they objected saying that I did not have to send payment to the Dealer's Owner, because that payment was supposed to be received by them, (Manheim). NOW they have BLOCKED my account with them, and they are asking for a full payment (Yes! Again) for $33,400 to cover the car payment. I told them that I was going to pay for the Auction fees again so they could release my account and the title, because the vehicle is paid for, they said NO, they want the whole amount. Recently, per Manheim instruction, I sent sent a new wire transfer for $620.00 to cover auctions fee's to another Auto Auction Company named AAAG Sunshine REMOVED, they said if I make that payment to them, they were going to release REMOVED I DID sent this payment, NOTHING HAPPENED, please, I need my title and I need to access my Manheim account for my business good health. But, they do not want to release them for me, this is the reason i am completing this form with BBB, just to see if they listen to you guys. Manheim Account #REMOVED Under MAYAH AUTO SALES LLC Thank You in advance for help",
+      "geo_validation": "bbb_us_business",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Rude/Unhelpful Support",
+      "id": "rvw-000642"
     },
     {
       "source_website": "play.google.com",
@@ -8458,6 +9170,21 @@
       "tier3": "No Callback / Unresolved Case"
     },
     {
+      "source_website": "bbb.org",
+      "source_label": "BBB Complaints",
+      "source_url": "http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=12#0443_6001743_20454989",
+      "author": "BBB complainant",
+      "review_date": "2023-08-11",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Service or Repair Issues complaint (Answered). I sold car at Manheim REMOVED in June 21 2023 as is including structural and no arb and after 45 days was checking my account I found the car in arbitration August 9 I called the auction and I being told the buyer try to arbitrate the car in july 23 2023 and they arbitration department declined it because too old and they closed the case in july 25 REMOVED the auction to open the casein August 9 2023 and without any notice or email from the cash they unwind the car I tried to call the arbitration and try to rich who handle the case and left him massage more than one time and I never get respond I need to know if theres if in the arbitration policy talk about wnwind car after 45 days except late title please I need assist REMOVED Tacoma vin#REMOVED Thank you and looking forward to hear from you",
+      "geo_validation": "bbb_us_business",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Communication Follow-up & Escalation",
+      "tier3": "No Callback / Unresolved Case",
+      "id": "rvw-000643"
+    },
+    {
       "id": "rvw-000262",
       "source_website": "apps.apple.com",
       "source_label": "Apple App Store (1480842917, us)",
@@ -8488,6 +9215,21 @@
       "tier3": "Long Hold Time / Hard to Reach Support"
     },
     {
+      "source_website": "bbb.org",
+      "source_label": "BBB Complaints",
+      "source_url": "http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=12#0443_6001743_20444963",
+      "author": "BBB complainant",
+      "review_date": "2023-08-09",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Service or Repair Issues complaint (Answered). Refusing to let me pick up my car because of their stringent policies.They transferred my car more than a city away and refuse to let the tow company retrieve the car for me because they will not adjust the appointment to accommodate finding a driver to deliver the vehicle. The customer service has lied to me, refused to put me in contact with management or leadership and has hung up in my face after yelling at me on the phone. This is not how you run a business, this is not how you provide customer service.",
+      "geo_validation": "bbb_us_business",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Support Access & Response Time",
+      "tier3": "Long Hold Time / Hard to Reach Support",
+      "id": "rvw-000644"
+    },
+    {
       "id": "rvw-000264",
       "source_website": "bbb.org",
       "source_label": "BBB Complaints",
@@ -8501,6 +9243,81 @@
       "tier1": "Customer Service & Communication",
       "tier2": "Case Resolution Quality",
       "tier3": "Issue Not Resolved"
+    },
+    {
+      "source_website": "bbb.org",
+      "source_label": "BBB Complaints",
+      "source_url": "http://www.bbb.org/us/ga/atlanta/profile/auctioneer/manheim-auctions-0443-6001743/complaints?page=12#0443_6001743_20088079",
+      "author": "BBB complainant",
+      "review_date": "2023-08-04",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Customer Service Issues complaint (Answered). I have attached the receipt from the seller. I never bid on this car, The seller should sale the car to someone else.uy an REMOVED report and CARFAX report on this unit showing accident history and with structural damages. #### Customer Answer **Date:**08/04/2023 On May 6th,2023. Premium Auto Wholesale placed for sale a 2019 REMOVED RAV4 LE for $24,955, in Manheim Facilitating Location in Manheim Southern REMOVED, The seller made a false representation of the Unit with the intent of selling the REMOVED RAV4 above market value and they did not fully disclose the accident history of the car. The car was a total loss and should be advertised as a Total Loss vehicle from IAA. Moreover, the bid was placed by accident by someone who was not authorized to log into our business account and bid. Once I noticed that my computer was hacked. I immediately tried to retract the bid, I contacted the REMOVED and I contacted REMOVED from Manheim phone# REMOVED and explained to her what has happened, she immediately contact the seller and asked them to unwind the bid as a courtesy but the seller refused, stating that I should buy the car and they will not unwind the bid, and that I should buy the car for $24.455. The car that, I did not bid on it,The Seller should Note: Both federal and REMOVED laws prohibit auto dealers from knowingly or negligently making false representations to a buyer or potential buyer in the course of selling a vehicle. While some misrepresentations are less serious than others, any kind of false statement or representation regarding a vehicle's accident history is always a serious offense.I have the REMOVED report and CARFAX report on this unit showing the accident history and pictures of this unit showing the structure damages.I have been with Manheim for more than 16 years and my purchasing decision is always based on Manheim's Condition Report, CarFax vehicle history, PSC, and REMOVED history report. This car was falsely misrepresented by the seller and I never bid on this car to begin with. It. Again, I will not accept this unit in any Shape or Form. I will file a complaint with DMV business regulation section if this issue is not resolved in a timely manner.",
+      "geo_validation": "bbb_us_business",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Case Resolution Quality",
+      "tier3": "Issue Not Resolved",
+      "id": "rvw-000645"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Insider Pages)",
+      "source_url": "https://reviews.birdeye.com/manheim-statesville-166651026035079#review-1",
+      "author": "dovie",
+      "review_date": "2023-08-03",
+      "rating": null,
+      "sentiment": "positive",
+      "review_text": "Mississippi Auto Auction Incorporated you have to know adealer to attend but the prices here are far better than on a car lot. this place is opened every thursday. the location is good and the staff is very friendly. i often go with a friend to see all the nice cars and trucks they have to offer.",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Helpful Support Experience",
+      "id": "rvw-000646"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Insider Pages)",
+      "source_url": "https://reviews.birdeye.com/manheim-statesville-166651026035079#review-3",
+      "author": "Linda",
+      "review_date": "2023-08-03",
+      "rating": null,
+      "sentiment": "positive",
+      "review_text": "Low key auction house! This auction house accept a variety of things to sell, but does deal in alot of antiques or specialized items. It is a good auction house for general merchandise..and alot of good things can be had.. but it varies like most auction houses. PROS: Good for general merchandise CONS: No high end items",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Membership / Licensing / Fees & Bidding Policies",
+      "tier2": "Bidding Process, Rules and Fees",
+      "tier3": "How to Bid (First Time)",
+      "id": "rvw-000647"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Insider Pages)",
+      "source_url": "https://reviews.birdeye.com/manheim-statesville-166651026035079#review-4",
+      "author": "Barbara",
+      "review_date": "2023-08-03",
+      "rating": null,
+      "sentiment": "positive",
+      "review_text": "Auto Auctions Statesville Auto Auction has every kind of car, truck and van known to mankind. Acres and acres of cars are for sale at their on-site auctions. Licensed buyers can purchase at an auction-type setting for resale later. PROS: uncoutable numbers of vehicles for sale CONS: huge, non-personalized service",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Membership / Licensing / Fees & Bidding Policies",
+      "tier2": "Bidding Process, Rules and Fees",
+      "tier3": "How to Bid (First Time)",
+      "id": "rvw-000648"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Insider Pages)",
+      "source_url": "https://reviews.birdeye.com/manheim-statesville-166651026035079#review-5",
+      "author": "BEN",
+      "review_date": "2023-08-03",
+      "rating": null,
+      "sentiment": "positive",
+      "review_text": "CAR HAULER / OWNER HELLO WE ARE LOOKING TO PURCHASE A CARHAULER EZ LOADER BY NAME 3-4 CAR CAPACITY A WEDGE WOULD BE SECOND TO LAST CHOICE IN YOUR FINE LINE PLEASE CONTACT US TO ASSURE THE PROPER CONTACT MANNER IF NOT WE APOLOGIZE THANKS FOR YOUR CO OPERATION",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Helpful Support Experience",
+      "id": "rvw-000649"
     },
     {
       "id": "rvw-000265",
