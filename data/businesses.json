@@ -36,6 +36,21 @@
         "copart go",
         "quickauction"
       ],
+      "google_business_search_names": [
+        "Copart"
+      ],
+      "google_business_search_queries": [
+        "auto auction Casper Wyoming",
+        "Copart 801 Opal Ave Mentone California",
+        "auto auction North Seattle Washington",
+        "auto auction Spartanburg South Carolina"
+      ],
+      "google_business_name_prefixes": [
+        "copart"
+      ],
+      "google_business_domains": [
+        "copart.com"
+      ],
       "google_play_apps": [
         "com.copart.membermobile",
         "com.copart.transportation",
@@ -218,6 +233,20 @@
         "insurance auto auctions",
         "iaa buyer salvage auctions"
       ],
+      "google_business_search_names": [
+        "IAA",
+        "Insurance Auto Auctions"
+      ],
+      "google_business_name_prefixes": [
+        "iaa",
+        "insurance auto auctions"
+      ],
+      "google_business_name_exclude_terms": [
+        "credit union"
+      ],
+      "google_business_domains": [
+        "iaai.com"
+      ],
       "google_play_apps": [
         "com.iaai.android",
         "com.iaa.mobile.IaaTow",
@@ -393,6 +422,16 @@
         "manheim express",
         "manheim marketplace"
       ],
+      "google_business_search_names": [
+        "Manheim Auto Auction"
+      ],
+      "google_business_name_prefixes": [
+        "manheim",
+        "maheim"
+      ],
+      "google_business_domains": [
+        "manheim.com"
+      ],
       "google_play_apps": [
         "com.manheim.mktplace",
         "com.manheim.mobile.refresh"
@@ -542,6 +581,15 @@
         "dealerblock",
         "liveblock"
       ],
+      "google_business_search_names": [
+        "ADESA Auto Auction"
+      ],
+      "google_business_name_prefixes": [
+        "adesa"
+      ],
+      "google_business_domains": [
+        "adesa.com"
+      ],
       "google_play_apps": [
         "com.adesa.marketplace"
       ],
@@ -690,6 +738,24 @@
         "openlane us",
         "traderev"
       ],
+      "google_business_search_names": [
+        "OPENLANE",
+        "BacklotCars"
+      ],
+      "google_business_name_prefixes": [
+        "openlane",
+        "backlotcars",
+        "backlot cars",
+        "traderev",
+        "trade rev",
+        "carsarrive"
+      ],
+      "google_business_domains": [
+        "openlane.com",
+        "backlotcars.com",
+        "traderev.com",
+        "carsarrive.com"
+      ],
       "google_play_apps": [
         "com.backlotcars.backlotcars",
         "com.nthgensoftware.traderev.android",
@@ -836,6 +902,18 @@
         "carrier by acv",
         "acv pro"
       ],
+      "google_business_search_names": [
+        "ACV Auctions"
+      ],
+      "google_business_name_prefixes": [
+        "acv auctions",
+        "acv auction",
+        "carrier by acv"
+      ],
+      "google_business_domains": [
+        "acvauctions.com",
+        "acvauto.com"
+      ],
       "google_play_apps": [
         "com.acvauctions.acvauctions",
         "com.acv.carrier",
@@ -944,6 +1022,21 @@
         "america's auto auction",
         "americas auto auction",
         "america auto auction"
+      ],
+      "google_business_search_names": [
+        "America's Auto Auction"
+      ],
+      "google_business_search_queries": [
+        "auto auction Albany Georgia"
+      ],
+      "google_business_name_prefixes": [
+        "america's auto auction",
+        "americas auto auction",
+        "america auto auction"
+      ],
+      "google_business_domains": [
+        "americasaa.com",
+        "americasautoauction.com"
       ],
       "trustpilot_slugs": [
         "www.americasautoauction.com"

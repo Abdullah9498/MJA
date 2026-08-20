@@ -9,7 +9,7 @@ import time
 from collections import Counter
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
-from urllib.parse import unquote, urljoin
+from urllib.parse import parse_qs, quote, unquote, urlencode, urljoin, urlparse
 
 import requests
 from bs4 import BeautifulSoup
@@ -72,6 +72,23 @@ REVIEWSIO_ROOT = BUSINESS_SETTINGS.get("reviewsio_root")
 COMPLAINTSBOARD_ROOT = BUSINESS_SETTINGS.get("complaintsboard_root")
 SMARTCUSTOMER_ROOT = BUSINESS_SETTINGS.get("smartcustomer_root")
 BIRDEYE_PAGES = BUSINESS_SETTINGS.get("birdeye_pages", [])
+GOOGLE_BUSINESS_SEARCH_NAMES = BUSINESS_SETTINGS.get("google_business_search_names", [])
+GOOGLE_BUSINESS_SEARCH_QUERIES = BUSINESS_SETTINGS.get("google_business_search_queries", [])
+GOOGLE_BUSINESS_NAME_PREFIXES = [
+    str(value).strip().lower()
+    for value in BUSINESS_SETTINGS.get("google_business_name_prefixes", [])
+    if str(value).strip()
+]
+GOOGLE_BUSINESS_NAME_EXCLUDE_TERMS = {
+    str(value).strip().lower()
+    for value in BUSINESS_SETTINGS.get("google_business_name_exclude_terms", [])
+    if str(value).strip()
+}
+GOOGLE_BUSINESS_DOMAINS = {
+    str(value).strip().lower().removeprefix("www.")
+    for value in BUSINESS_SETTINGS.get("google_business_domains", [])
+    if str(value).strip()
+}
 BBB_SEARCH_TEXT = BUSINESS_SETTINGS.get("bbb_search_text", DISPLAY_NAME)
 BBB_FALLBACK_PROFILES = BUSINESS_SETTINGS.get("bbb_fallback_profiles", [])
 BBB_PROFILE_TOKENS = {token.lower() for token in BUSINESS_SETTINGS.get("bbb_profile_tokens", [])}
@@ -139,6 +156,8 @@ if COMPLAINTSBOARD_ROOT:
     EXPECTED_SOURCE_WEBSITES.append("complaintsboard.com")
 if BIRDEYE_PAGES:
     EXPECTED_SOURCE_WEBSITES.append("birdeye.com")
+if GOOGLE_BUSINESS_SEARCH_NAMES:
+    EXPECTED_SOURCE_WEBSITES.append("google.com")
 REQUIRED_SOURCE_WEBSITES = []
 if GOOGLE_PLAY_APPS:
     REQUIRED_SOURCE_WEBSITES.append("play.google.com")
@@ -252,6 +271,29 @@ CHALLENGE_TERMS = (
     "enable javascript",
 )
 
+GOOGLE_MAPS_USER_AGENT = (
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+    "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+)
+GOOGLE_BUSINESS_SEARCH_REGIONS = (
+    "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado",
+    "Connecticut", "Delaware", "District of Columbia", "Florida", "Georgia",
+    "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky",
+    "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota",
+    "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire",
+    "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota",
+    "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island",
+    "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont",
+    "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming",
+    "Puerto Rico", "United States",
+)
+US_GOOGLE_ADDRESS_RE = re.compile(
+    r",\s*(?:AL|AK|AZ|AR|CA|CO|CT|DE|DC|FL|GA|HI|ID|IL|IN|IA|KS|KY|LA|ME|MD|MA|"
+    r"MI|MN|MS|MO|MT|NE|NV|NH|NJ|NM|NY|NC|ND|OH|OK|OR|PA|RI|SC|SD|TN|TX|UT|VT|"
+    r"VA|WA|WV|WI|WY|PR)\s+\d{5}(?:-\d{4})?(?:\b|$)",
+    re.I,
+)
+
 
 def unique_preserve(items):
     seen = set()
@@ -290,10 +332,27 @@ def is_context_enriched_reddit_comment(source_website: str, review_text: str = "
 
 
 class Collector:
-    def __init__(self, target: int, since: str, until: str | None, max_output: int, reddit_time_budget: int = 900):
+    def __init__(
+        self,
+        target: int,
+        since: str,
+        until: str | None,
+        max_output: int,
+        reddit_time_budget: int = 900,
+        google_business_query_limit: int = 0,
+        google_business_location_limit: int = 0,
+        replace_source_websites: set[str] | None = None,
+    ):
         self.target = max(0, int(target))
         self.max_output = max(1, int(max_output))
         self.reddit_time_budget = max(60, int(reddit_time_budget))
+        self.google_business_query_limit = max(0, int(google_business_query_limit))
+        self.google_business_location_limit = max(0, int(google_business_location_limit))
+        self.replace_source_websites = {
+            str(source).strip().lower()
+            for source in (replace_source_websites or set())
+            if str(source).strip()
+        }
         self.since = self.normalize_date(since)
         self.until = self.normalize_date(until) if until else None
         self.since_date_obj = datetime.strptime(self.since, "%Y-%m-%d").date()
@@ -309,6 +368,9 @@ class Collector:
         self.existing_latest_by_source = {}
         self.existing_counts_by_source = Counter()
         self.existing_review_count = 0
+        self.existing_meta = {}
+        self.existing_source_audit = {}
+        self.google_business_profiles = []
         self.source_health = {}
         self.reddit_verified = False
         self.reddit_verification_attempted = False
@@ -337,12 +399,32 @@ class Collector:
         except Exception:
             return
 
+        self.existing_meta = dict(payload.get("meta") or {})
+        self.existing_source_audit = {
+            str(row.get("source_website") or "").strip(): dict(row)
+            for row in self.existing_meta.get("source_audit") or []
+            if isinstance(row, dict) and str(row.get("source_website") or "").strip()
+        }
+        self.google_business_profiles = [
+            dict(row)
+            for row in self.existing_meta.get("google_business_profiles") or []
+            if isinstance(row, dict) and row.get("feature_id") and row.get("cid")
+        ]
+
         existing_rows = []
+        profile_registry = {
+            str(row["cid"]): dict(row)
+            for row in self.google_business_profiles
+            if row.get("feature_id") and row.get("cid")
+        }
         for row in payload.get("reviews", []):
             if not isinstance(row, dict):
                 continue
             clean_row = dict(row)
-            if str(clean_row.get("source_website") or "").strip().lower() == "pissedconsumer.com":
+            source_website_lower = str(clean_row.get("source_website") or "").strip().lower()
+            if source_website_lower in self.replace_source_websites:
+                continue
+            if source_website_lower == "pissedconsumer.com":
                 continue
             review_text = f" {str(clean_row.get('review_text') or '').lower()} "
             if any(self._term_in_text(term, review_text) for term in OFFTOPIC_TERMS):
@@ -362,8 +444,29 @@ class Collector:
             if source_website and review_date > self.existing_latest_by_source.get(source_website, ""):
                 self.existing_latest_by_source[source_website] = review_date
 
+            if source_website_lower == "google.com":
+                source_url = str(clean_row.get("source_url") or "")
+                match = re.search(r"!1s0x0:0x([0-9a-f]+)", source_url, re.I)
+                if match:
+                    suffix = match.group(1).lower()
+                    cid = str(int(suffix, 16))
+                    label = str(clean_row.get("source_label") or "")
+                    name_match = re.fullmatch(r"Google Business Profile \((.+)\)", label)
+                    if cid not in profile_registry and name_match:
+                        profile_registry[cid] = {
+                            "feature_id": f"0x0:0x{suffix}",
+                            "cid": cid,
+                            "place_id": "",
+                            "name": name_match.group(1),
+                            "address": "Previously validated U.S. Google Business Profile",
+                            "website": "",
+                            "rating": None,
+                            "review_count": 0,
+                        }
+
         self.records.extend(existing_rows)
         self.existing_review_count = len(existing_rows)
+        self.google_business_profiles = list(profile_registry.values())
 
     def _source_health_entry(self, source_website: str) -> dict:
         source = str(source_website or "").strip()
@@ -606,7 +709,11 @@ class Collector:
 
         audit = []
         for source in EXPECTED_SOURCE_WEBSITES:
-            entry = dict(self.source_health.get(source) or {"source_website": source})
+            entry = dict(
+                self.source_health.get(source)
+                or self.existing_source_audit.get(source)
+                or {"source_website": source}
+            )
             review_count = int(source_counts.get(source, 0))
             existing_count = int(self.existing_counts_by_source.get(source, 0))
             entry.update({
@@ -929,6 +1036,11 @@ class Collector:
             if has_non_us_marker and not has_strong_us_marker:
                 return False, "birdeye_us_profile_non_us_marker"
             return True, "birdeye_us_profile"
+
+        if source_website == "google.com":
+            # The Google collector admits only profiles whose street address is
+            # independently validated as US-based before any reviews are read.
+            return True, "google_business_us_profile"
 
         if source_website == "trustpilot.com":
             is_us_slug = (
@@ -1350,6 +1462,749 @@ class Collector:
         self.geo_validation_counts[geo_reason] += 1
         self.records.append(row)
         return True
+
+    @staticmethod
+    def _nested_get(value, *path, default=None):
+        try:
+            for index in path:
+                value = value[index]
+            return value
+        except (IndexError, KeyError, TypeError):
+            return default
+
+    @staticmethod
+    def _google_review_count(place_node) -> int | None:
+        raw = Collector._nested_get(place_node, 4, 8)
+        if raw is None:
+            raw = Collector._nested_get(place_node, 4, 3, 1)
+        if isinstance(raw, (int, float)):
+            return max(0, int(raw))
+        match = re.search(r"([\d,]+)\s+reviews?", str(raw or ""), re.I)
+        return int(match.group(1).replace(",", "")) if match else None
+
+    @staticmethod
+    def _google_cid(feature_id: str) -> str | None:
+        match = re.fullmatch(r"0x[0-9a-f]+:0x([0-9a-f]+)", str(feature_id or "").lower())
+        if not match:
+            return None
+        try:
+            return str(int(match.group(1), 16))
+        except ValueError:
+            return None
+
+    @staticmethod
+    def _google_feature_suffix(feature_id: str) -> str:
+        return str(feature_id or "").strip().lower().split(":")[-1]
+
+    @staticmethod
+    def _is_us_google_address(address: str) -> bool:
+        text = str(address or "").strip()
+        return bool(
+            US_GOOGLE_ADDRESS_RE.search(text)
+            or re.search(r"\bUnited States\b", text, re.I)
+            or re.search(r"\bPuerto Rico\b", text, re.I)
+        )
+
+    @staticmethod
+    def _google_business_domain_matches(website: str) -> bool:
+        if not website or not GOOGLE_BUSINESS_DOMAINS:
+            return False
+        candidate = str(website).strip()
+        if "://" not in candidate:
+            candidate = f"https://{candidate}"
+        host = (urlparse(candidate).hostname or "").lower().removeprefix("www.")
+        return any(host == domain or host.endswith(f".{domain}") for domain in GOOGLE_BUSINESS_DOMAINS)
+
+    @staticmethod
+    def _google_business_name_matches(name: str) -> bool:
+        normalized = re.sub(r"\s+", " ", str(name or "").strip().lower())
+        if any(term in normalized for term in GOOGLE_BUSINESS_NAME_EXCLUDE_TERMS):
+            return False
+        return any(
+            re.match(rf"^{re.escape(prefix)}(?:\b|\s|[-–—/&,.])", normalized)
+            for prefix in GOOGLE_BUSINESS_NAME_PREFIXES
+        )
+
+    def _parse_google_business_search_response(self, body: str) -> list[dict]:
+        raw = str(body or "")
+        if raw.startswith(")]}'"):
+            raw = raw.split("\n", 1)[1] if "\n" in raw else ""
+        root = json.loads(raw)
+        result_rows = self._nested_get(root, 64, default=[])
+        if result_rows is None:
+            return []
+        if not isinstance(result_rows, list):
+            raise ValueError("Google Maps search response no longer contains the calibrated result list")
+
+        places = []
+        for result in result_rows:
+            node = self._nested_get(result, 1)
+            if not isinstance(node, list):
+                continue
+            feature_id = self._nested_get(node, 10)
+            cid = self._google_cid(feature_id)
+            name = self.normalize_text(self._nested_get(node, 11, default=""))
+            address = self.normalize_text(
+                self._nested_get(node, 39, default="")
+                or self._nested_get(node, 18, default="")
+            )
+            website = str(self._nested_get(node, 7, 0, default="") or "").strip()
+            if not cid or not name or not self._is_us_google_address(address):
+                continue
+            normalized_name = re.sub(r"\s+", " ", name.strip().lower())
+            if any(term in normalized_name for term in GOOGLE_BUSINESS_NAME_EXCLUDE_TERMS):
+                continue
+            if not (
+                self._google_business_domain_matches(website)
+                or self._google_business_name_matches(name)
+            ):
+                continue
+            places.append({
+                "feature_id": feature_id,
+                "cid": cid,
+                "place_id": (
+                    self._nested_get(node, 78)
+                    or self._nested_get(node, 227, 4)
+                    or ""
+                ),
+                "name": name,
+                "address": address,
+                "website": website,
+                "rating": self._nested_get(node, 4, 7),
+                "review_count": self._google_review_count(node),
+            })
+        return places
+
+    def _google_maps_search_places(self, query: str) -> tuple[list[dict], bool]:
+        search_url = f"https://www.google.com/maps/search/{quote(query, safe='')}?hl=en&gl=us"
+        headers = {
+            "User-Agent": GOOGLE_MAPS_USER_AGENT,
+            "Accept": "text/html,application/xhtml+xml,application/json;q=0.9,*/*;q=0.8",
+            "Accept-Language": "en-US,en;q=0.9",
+        }
+        last_error = None
+        for attempt in range(1, 4):
+            try:
+                landing = S.get(search_url, timeout=45, headers=headers)
+                self.note_source_attempt("google.com", status_code=landing.status_code, pages=1)
+                if self.is_challenge_response(landing.status_code, landing.text):
+                    last_error = f"search challenge ({landing.status_code}) for {query}"
+                    time.sleep(attempt * 1.5)
+                    continue
+
+                soup = BeautifulSoup(landing.text, "html.parser")
+                map_href = next((
+                    unescape(link.get("href") or "")
+                    for link in soup.find_all("link", href=True)
+                    if "tbm=map" in (link.get("href") or "")
+                ), "")
+                if not map_href:
+                    last_error = f"Google Maps discovery link missing for {query}"
+                    time.sleep(attempt * 1.5)
+                    continue
+
+                map_response = S.get(urljoin("https://www.google.com", map_href), timeout=45, headers=headers)
+                self.note_source_attempt("google.com", status_code=map_response.status_code, pages=1)
+                if self.is_challenge_response(map_response.status_code, map_response.text):
+                    last_error = f"map search challenge ({map_response.status_code}) for {query}"
+                    time.sleep(attempt * 1.5)
+                    continue
+                return self._parse_google_business_search_response(map_response.text), True
+            except Exception as exc:
+                last_error = f"Google Maps search failed for {query}: {exc}"
+                time.sleep(attempt * 1.5)
+
+        self.note_source_attempt("google.com", error=last_error)
+        return [], False
+
+    def discover_google_business_places(self) -> list[dict]:
+        queue = [
+            (f"{search_name} {region}", search_name, region, False)
+            for search_name in GOOGLE_BUSINESS_SEARCH_NAMES
+            for region in GOOGLE_BUSINESS_SEARCH_REGIONS
+        ]
+        queue.extend(
+            (str(query), str(query), "", True)
+            for query in GOOGLE_BUSINESS_SEARCH_QUERIES
+            if str(query).strip()
+        )
+        discovered = {
+            str(row["cid"]): dict(row)
+            for row in self.google_business_profiles
+            if row.get("feature_id") and row.get("cid")
+        }
+        successful_queries = 0
+        attempted_queries = 0
+        failed_queries = []
+        queued_queries = {query.lower() for query, _, _, _ in queue}
+
+        while queue:
+            if self.google_business_query_limit and attempted_queries >= self.google_business_query_limit:
+                break
+            query, search_name, region, is_refinement = queue.pop(0)
+            attempted_queries += 1
+            rows, succeeded = self._google_maps_search_places(query)
+            if succeeded:
+                successful_queries += 1
+            else:
+                failed_queries.append(query)
+            for row in rows:
+                discovered[str(row["cid"])] = row
+
+            # The search endpoint returns at most about 20 profiles. Refine a
+            # saturated state query so large state networks are not truncated.
+            if succeeded and not is_refinement and len(rows) >= 18 and region != "United States":
+                for direction in ("North", "South", "East", "West", "Central"):
+                    refined = f"{search_name} {direction} {region}"
+                    key = refined.lower()
+                    if key not in queued_queries:
+                        queued_queries.add(key)
+                        queue.append((refined, search_name, region, True))
+            time.sleep(0.08)
+
+        if successful_queries == 0:
+            self.note_source_attempt(
+                "google.com",
+                blocked=True,
+                error="Google Business Profile discovery failed for every query",
+            )
+            raise RuntimeError("Google Business Profile discovery failed for every query")
+        if failed_queries:
+            failure_preview = ", ".join(failed_queries[:5])
+            self.note_source_attempt(
+                "google.com",
+                error=(
+                    f"Google Business Profile discovery remained incomplete after retries: "
+                    f"{len(failed_queries)}/{attempted_queries} queries failed ({failure_preview})"
+                ),
+            )
+            raise RuntimeError(
+                "Google Business Profile discovery was incomplete after retries; "
+                "refusing to write a partial company artifact"
+            )
+
+        places = sorted(
+            discovered.values(),
+            key=lambda row: (row["name"].lower(), row["address"].lower(), row["feature_id"]),
+        )
+        if self.google_business_location_limit:
+            places = places[:self.google_business_location_limit]
+        self.google_business_profiles = [dict(row) for row in places]
+        self.note_source_attempt(
+            "google.com",
+            note=(
+                f"Google Business Profile discovery completed: {successful_queries}/{attempted_queries} "
+                f"queries succeeded and {len(places)} unique validated US profiles were selected."
+            ),
+        )
+        return places
+
+    @staticmethod
+    def _parse_google_rpc_request(post_data: str) -> dict:
+        form = parse_qs(str(post_data or ""))
+        outer = json.loads(form["f.req"][0])
+        inner = json.loads(outer[0][0][1])
+        return {
+            "feature_id": Collector._nested_get(inner, 0, 0, 0, default=""),
+            "continuation": Collector._nested_get(inner, 1, 1),
+            "sort_mode": Collector._nested_get(inner, -1, 0),
+        }
+
+    @staticmethod
+    def _build_google_rpc_continuation(post_data: str, continuation: str) -> str:
+        form = parse_qs(str(post_data or ""))
+        outer = json.loads(form["f.req"][0])
+        inner = json.loads(outer[0][0][1])
+        inner[1][1] = continuation
+        outer[0][0][1] = json.dumps(inner, separators=(",", ":"))
+        return urlencode({"f.req": json.dumps(outer, separators=(",", ":"))}) + "&"
+
+    @staticmethod
+    def _parse_google_rpc_payload(body: str) -> tuple[list, str | None]:
+        for line in str(body or "").splitlines():
+            line = line.strip()
+            if not line.startswith("[["):
+                continue
+            try:
+                wrapper = json.loads(line)
+            except Exception:
+                continue
+            for item in wrapper if isinstance(wrapper, list) else []:
+                if not (isinstance(item, list) and len(item) >= 3 and item[0] == "wrb.fr" and item[1] == "qv9Egd"):
+                    continue
+                payload = json.loads(item[2])
+                batches = payload[2] if len(payload) > 2 and isinstance(payload[2], list) else []
+                rows = []
+                for batch in batches:
+                    candidate = batch[0] if isinstance(batch, list) and batch else None
+                    if isinstance(candidate, list) and len(candidate) >= 3:
+                        rows.append(candidate)
+                return rows, payload[1] if len(payload) > 1 else None
+        raise ValueError("Google review RPC response no longer matches the calibrated schema")
+
+    @staticmethod
+    def _google_timestamp(value) -> tuple[str, str]:
+        try:
+            numeric = float(value)
+            if numeric > 10**14:
+                numeric /= 1_000_000
+            elif numeric > 10**11:
+                numeric /= 1_000
+            parsed = datetime.fromtimestamp(numeric, tz=timezone.utc)
+            if not 2000 <= parsed.year <= 2100:
+                raise ValueError("timestamp year out of range")
+            return parsed.date().isoformat(), parsed.isoformat()
+        except Exception:
+            return "1970-01-01", "1970-01-01T00:00:00+00:00"
+
+    def _parse_google_review_record(self, record: list, feature_id: str) -> dict | None:
+        metadata = self._nested_get(record, 1)
+        content = self._nested_get(record, 2)
+        if not isinstance(metadata, list) or not isinstance(content, list):
+            return None
+        expected_entity = f"0x0:{str(feature_id).split(':')[-1].lower()}"
+        entity = str(self._nested_get(metadata, 0, default="") or "").lower()
+        if entity and entity != expected_entity:
+            return None
+
+        review_id = str(self._nested_get(record, 0, default="") or "").strip()
+        author = self.normalize_text(self._nested_get(metadata, 4, 5, 0, default=""))
+        created_date, created_at = self._google_timestamp(self._nested_get(metadata, 2))
+        modified_date, modified_at = self._google_timestamp(self._nested_get(metadata, 3))
+        rating = self._nested_get(content, 0, 0)
+        language_metadata = self._nested_get(content, 14, default=[])
+        original_language = (
+            str(language_metadata[0]).strip().lower()
+            if isinstance(language_metadata, list) and language_metadata
+            else ""
+        )
+        fragments = self._nested_get(content, 15, default=[])
+        # Google may return the original review followed by an English
+        # translation. Keep only the original fragment so translated
+        # non-English reviews cannot pass the English-only rule.
+        review_text = self.normalize_text(
+            next((
+                str(fragment[0])
+                for fragment in fragments
+                if isinstance(fragment, list) and fragment and fragment[0]
+            ), "")
+        )
+        permalink = str(self._nested_get(record, 4, 3, 0, default="") or "").strip()
+        return {
+            "review_id": review_id,
+            "author": author or "Google user",
+            "review_date": created_date,
+            "created_at": created_at,
+            "sort_date": modified_date if modified_date != "1970-01-01" else created_date,
+            "modified_at": modified_at,
+            "rating": rating,
+            "original_language": original_language,
+            "review_text": review_text,
+            "permalink": permalink,
+        }
+
+    @staticmethod
+    def _click_google_control(page, *, role: str, text_pattern: re.Pattern) -> bool:
+        # Native buttons expose an implicit ARIA role and therefore do not
+        # necessarily carry a literal role="button" attribute in the DOM.
+        locator = page.locator("button") if role == "button" else page.locator(f"[role='{role}']")
+        for index in range(locator.count()):
+            control = locator.nth(index)
+            try:
+                label = f"{control.get_attribute('aria-label') or ''} {control.inner_text()}".strip()
+                if text_pattern.search(label):
+                    control.click(timeout=5000)
+                    return True
+            except Exception:
+                continue
+        return False
+
+    def _scrape_google_business_place(self, page, place: dict) -> tuple[list[dict], bool, str]:
+        feature_id = place["feature_id"]
+        state = {"feature_id": feature_id, "newest": [], "relevant": [], "errors": []}
+
+        def handle_response(response):
+            if "rpcids=qv9Egd" not in response.url:
+                return
+            try:
+                request_info = self._parse_google_rpc_request(response.request.post_data or "")
+                if self._google_feature_suffix(request_info["feature_id"]) != self._google_feature_suffix(state["feature_id"]):
+                    return
+                body = response.body().decode("utf-8", "replace")
+                rows, continuation = self._parse_google_rpc_payload(body)
+                parsed = [
+                    review for review in (
+                        self._parse_google_review_record(row, feature_id) for row in rows
+                    ) if review is not None
+                ]
+                request_headers = response.request.all_headers()
+                entry = {
+                    "reviews": parsed,
+                    "continuation": continuation,
+                    "request_url": response.request.url,
+                    "post_data": response.request.post_data or "",
+                    "bgkey": request_headers.get("x-maps-bgkey", ""),
+                }
+                target = "newest" if request_info["sort_mode"] == 2 else "relevant"
+                state[target].append(entry)
+                self.note_source_attempt("google.com", status_code=response.status, pages=1)
+            except Exception as exc:
+                state["errors"].append(str(exc))
+
+        page.on("response", handle_response)
+        maps_url = f"https://www.google.com/maps?cid={place['cid']}&hl=en&gl=us"
+        completed = False
+        failure_reason = ""
+
+        try:
+            for attempt in range(2):
+                state["newest"].clear()
+                state["relevant"].clear()
+                state["errors"].clear()
+                try:
+                    page.goto(maps_url, wait_until="domcontentloaded", timeout=60000)
+                    page.wait_for_timeout(4500)
+                    opened = self._click_google_control(
+                        page,
+                        role="tab",
+                        text_pattern=re.compile(r"^\s*Reviews\b", re.I),
+                    )
+                    if not opened:
+                        opened = self._click_google_control(
+                            page,
+                            role="button",
+                            text_pattern=re.compile(r"\bMore reviews\b", re.I),
+                        )
+                    if opened:
+                        page.wait_for_timeout(5000)
+
+                    sort_opened = self._click_google_control(
+                        page,
+                        role="button",
+                        text_pattern=re.compile(r"\bSort reviews\b", re.I),
+                    )
+                    if sort_opened:
+                        page.wait_for_timeout(500)
+                        self._click_google_control(
+                            page,
+                            role="menuitemradio",
+                            text_pattern=re.compile(r"^\s*Newest\s*$", re.I),
+                        )
+                        for _ in range(40):
+                            if state["newest"]:
+                                break
+                            page.wait_for_timeout(250)
+
+                    if state["newest"]:
+                        break
+
+                    advertised = int(place.get("review_count") or 0)
+                    relevant_rows = sum(len(batch["reviews"]) for batch in state["relevant"])
+                    if state["relevant"] and (advertised <= 10 or relevant_rows >= advertised):
+                        state["newest"] = list(state["relevant"])
+                        break
+                    if advertised <= 0:
+                        return [], True, "profile has no advertised reviews"
+
+                    if attempt == 0:
+                        bootstrap = quote(f"{place['name']} {place['address']}", safe="")
+                        page.goto(
+                            f"https://www.google.com/maps/search/{bootstrap}?hl=en&gl=us",
+                            wait_until="domcontentloaded",
+                            timeout=60000,
+                        )
+                        page.wait_for_timeout(2500)
+                except Exception as exc:
+                    failure_reason = str(exc)
+
+            if not state["newest"]:
+                detail = "; ".join(state["errors"][-3:]) or failure_reason or "newest review RPC did not load"
+                return [], False, detail
+
+            unique_reviews = {}
+            processed_batches = 0
+            idle_rounds = 0
+            stop_by_date = False
+            terminal_page = False
+            advertised = int(place.get("review_count") or 0)
+
+            while processed_batches < len(state["newest"]):
+                batch = state["newest"][processed_batches]
+                processed_batches += 1
+                for review in batch["reviews"]:
+                    key = review["review_id"] or hashlib.sha1(
+                        f"{review['author']}|{review['created_at']}|{review['review_text']}".encode("utf-8")
+                    ).hexdigest()
+                    unique_reviews[key] = review
+
+                sort_dates = [
+                    review["sort_date"] for review in batch["reviews"]
+                    if review["sort_date"] != "1970-01-01"
+                ]
+                if sort_dates and max(sort_dates) < self.since:
+                    stop_by_date = True
+                    break
+                if not batch["continuation"] or len(batch["reviews"]) < 10:
+                    terminal_page = True
+                    break
+
+            # Replay Google's signed continuation request directly. This keeps
+            # the browser-established session and exact RPC schema but avoids
+            # the Maps UI's roughly 500-card virtual-scroll ceiling.
+            direct_template = next((
+                batch for batch in state["newest"]
+                if batch.get("post_data") and batch.get("request_url") and batch.get("bgkey")
+            ), None)
+            seen_continuations = set()
+            direct_failed = False
+            while not (stop_by_date or terminal_page):
+                last_batch = state["newest"][-1]
+                continuation = last_batch.get("continuation")
+                if not continuation:
+                    terminal_page = True
+                    break
+                if continuation in seen_continuations:
+                    direct_failed = True
+                    state["errors"].append("Google review RPC repeated a continuation token")
+                    break
+                seen_continuations.add(continuation)
+                if direct_template is None:
+                    direct_failed = True
+                    state["errors"].append("Google review RPC signing header was unavailable")
+                    break
+                try:
+                    request_body = self._build_google_rpc_continuation(
+                        direct_template["post_data"], continuation
+                    )
+                    api_response = page.context.request.post(
+                        direct_template["request_url"],
+                        data=request_body,
+                        headers={
+                            "content-type": "application/x-www-form-urlencoded;charset=UTF-8",
+                            "origin": "https://www.google.com",
+                            "referer": "https://www.google.com/",
+                            "x-maps-bgkey": direct_template["bgkey"],
+                            "x-same-domain": "1",
+                        },
+                        timeout=60000,
+                    )
+                    self.note_source_attempt(
+                        "google.com", status_code=api_response.status, pages=1
+                    )
+                    rpc_rows, next_continuation = self._parse_google_rpc_payload(api_response.text())
+                    parsed = [
+                        review for review in (
+                            self._parse_google_review_record(row, feature_id) for row in rpc_rows
+                        ) if review is not None
+                    ]
+                    if not parsed:
+                        raise ValueError("Google continuation RPC returned no review records")
+                    batch = {"reviews": parsed, "continuation": next_continuation}
+                    state["newest"].append(batch)
+                    processed_batches += 1
+                    for review in parsed:
+                        key = review["review_id"] or hashlib.sha1(
+                            f"{review['author']}|{review['created_at']}|{review['review_text']}".encode("utf-8")
+                        ).hexdigest()
+                        unique_reviews[key] = review
+                    sort_dates = [
+                        review["sort_date"] for review in parsed
+                        if review["sort_date"] != "1970-01-01"
+                    ]
+                    if sort_dates and max(sort_dates) < self.since:
+                        stop_by_date = True
+                        break
+                    if not next_continuation or len(parsed) < 10:
+                        terminal_page = True
+                        break
+                    if advertised and len(unique_reviews) >= advertised:
+                        terminal_page = True
+                        break
+                    time.sleep(0.08)
+                except Exception as exc:
+                    direct_failed = True
+                    state["errors"].append(f"direct continuation failed: {exc}")
+                    break
+
+            while direct_failed and not (stop_by_date or terminal_page):
+                if advertised and len(unique_reviews) >= advertised:
+                    terminal_page = True
+                    break
+                before = len(state["newest"])
+                scroll_state = page.evaluate("""
+                    () => {
+                      const panels = Array.from(document.querySelectorAll('div')).filter((node) =>
+                        node.scrollHeight > node.clientHeight + 200 &&
+                        node.clientHeight > 250 &&
+                        node.getBoundingClientRect().left < 650
+                      ).sort((a, b) => b.scrollHeight - a.scrollHeight);
+                      if (!panels.length) return { moved: false, x: 300, y: 600 };
+                      const panel = panels[0];
+                      const previous = panel.scrollTop;
+                      panel.scrollTop = Math.min(
+                        panel.scrollHeight,
+                        panel.scrollTop + Math.round(panel.clientHeight * 0.8)
+                      );
+                      const box = panel.getBoundingClientRect();
+                      return {
+                        moved: panel.scrollTop > previous + 5,
+                        x: Math.max(1, Math.min(window.innerWidth - 2, box.left + box.width / 2)),
+                        y: Math.max(1, Math.min(window.innerHeight - 2, box.top + box.height / 2))
+                      };
+                    }
+                """)
+                page.wait_for_timeout(1800)
+                if len(state["newest"]) == before:
+                    idle_rounds += 1
+                    if idle_rounds >= 8:
+                        break
+                    if not scroll_state.get("moved"):
+                        page.mouse.move(scroll_state["x"], scroll_state["y"])
+                        page.mouse.wheel(0, 6000)
+                        page.keyboard.press("PageDown")
+                    continue
+                idle_rounds = 0
+                while processed_batches < len(state["newest"]):
+                    batch = state["newest"][processed_batches]
+                    processed_batches += 1
+                    for review in batch["reviews"]:
+                        key = review["review_id"] or hashlib.sha1(
+                            f"{review['author']}|{review['created_at']}|{review['review_text']}".encode("utf-8")
+                        ).hexdigest()
+                        unique_reviews[key] = review
+                    sort_dates = [
+                        review["sort_date"] for review in batch["reviews"]
+                        if review["sort_date"] != "1970-01-01"
+                    ]
+                    if sort_dates and max(sort_dates) < self.since:
+                        stop_by_date = True
+                        break
+                    if not batch["continuation"] or len(batch["reviews"]) < 10:
+                        terminal_page = True
+                        break
+
+            completed = stop_by_date or terminal_page or (advertised and len(unique_reviews) >= advertised)
+            if not completed:
+                failure_reason = (
+                    f"pagination stopped before the 2023 boundary/terminal page "
+                    f"({len(unique_reviews)} RPC reviews; advertised={advertised or 'unknown'})"
+                )
+            return list(unique_reviews.values()), bool(completed), failure_reason
+        finally:
+            page.remove_listener("response", handle_response)
+
+    def collect_google_business(self):
+        print("[collect] Google Business Profile reviews")
+        start_count = self.source_run_start("google.com")
+        places = self.discover_google_business_places()
+        if not places:
+            self.source_run_finish(
+                "google.com",
+                start_count,
+                note="No matching US Google Business Profiles were discoverable for this company.",
+            )
+            raise RuntimeError(
+                "Google Business Profile discovery returned zero validated profiles; "
+                "refusing to write a partial company artifact"
+            )
+        if sync_playwright is None:
+            raise RuntimeError("Playwright is required for Google Business Profile review pagination")
+
+        candidates_seen = 0
+        latest_candidate_date = None
+        failed_profiles = []
+        completed_profiles = 0
+        existing_author_text = {
+            hashlib.sha1(
+                f"{self.normalize_text(row.get('author')).lower()}|{self.normalize_text(row.get('review_text')).lower()}".encode("utf-8")
+            ).hexdigest()
+            for row in self.records
+            if row.get("review_text")
+        }
+
+        with sync_playwright() as playwright:
+            browser = playwright.chromium.launch(
+                headless=True,
+                args=["--disable-blink-features=AutomationControlled", "--lang=en-US"],
+            )
+            context = browser.new_context(
+                user_agent=GOOGLE_MAPS_USER_AGENT,
+                viewport={"width": 1200, "height": 1800},
+                locale="en-US",
+                timezone_id="America/Chicago",
+            )
+            page = context.new_page()
+            bootstrap = quote(f"{GOOGLE_BUSINESS_SEARCH_NAMES[0]} United States", safe="")
+            page.goto(
+                f"https://www.google.com/maps/search/{bootstrap}?hl=en&gl=us",
+                wait_until="domcontentloaded",
+                timeout=60000,
+            )
+            page.wait_for_timeout(3000)
+
+            for index, place in enumerate(places, start=1):
+                reviews, completed, error = self._scrape_google_business_place(page, place)
+                if not completed:
+                    failed_profiles.append(f"{place['name']} [{place['feature_id']}]: {error}")
+                    continue
+                completed_profiles += 1
+                candidates_seen += len(reviews)
+                for review in reviews:
+                    if review.get("original_language") not in {"", "en"}:
+                        continue
+                    if review["review_date"] != "1970-01-01":
+                        if latest_candidate_date is None or review["review_date"] > latest_candidate_date:
+                            latest_candidate_date = review["review_date"]
+                    cross_source_key = hashlib.sha1(
+                        f"{self.normalize_text(review['author']).lower()}|{self.normalize_text(review['review_text']).lower()}".encode("utf-8")
+                    ).hexdigest()
+                    if cross_source_key in existing_author_text:
+                        continue
+                    source_url = review["permalink"] or (
+                        f"https://www.google.com/maps?cid={place['cid']}&hl=en&gl=us"
+                        f"#review-{quote(review['review_id'], safe='')}"
+                    )
+                    added = self.add_review(
+                        source_website="google.com",
+                        source_label=f"Google Business Profile ({place['name']})",
+                        source_url=source_url,
+                        author=review["author"],
+                        review_date=review["review_date"],
+                        rating=review["rating"],
+                        review_text=review["review_text"],
+                        external_id=f"google_business_{review['review_id']}",
+                    )
+                    if added:
+                        existing_author_text.add(cross_source_key)
+
+                if index % 10 == 0 or index == len(places):
+                    print(
+                        f"  - Google profiles {index}/{len(places)}; "
+                        f"RPC candidates {candidates_seen}; added {len(self.records) - start_count}"
+                    )
+
+            context.close()
+            browser.close()
+
+        if failed_profiles:
+            for error in failed_profiles[:20]:
+                self.note_source_attempt("google.com", error=error)
+            raise RuntimeError(
+                f"Google Business Profile coverage incomplete: {len(failed_profiles)}/{len(places)} "
+                f"profiles failed pagination; first failure: {failed_profiles[0]}"
+            )
+
+        self.source_run_finish(
+            "google.com",
+            start_count,
+            candidates=candidates_seen,
+            latest_date=latest_candidate_date,
+            note=(
+                f"Validated {completed_profiles} US Google Business Profiles; paginated newest-first "
+                f"with exact RPC timestamps through the 2023 boundary."
+            ),
+        )
+        print(f"  - Added {len(self.records) - start_count} Google Business Profile reviews")
 
     def collect_google_play(self):
         print("[collect] Google Play reviews")
@@ -3437,6 +4292,34 @@ class Collector:
                 seen_urls.add(u)
                 unique_source_urls.append(u)
 
+        geo_validation_counts = Counter()
+        geo_excluded_counts = Counter()
+        geo_excluded_examples = []
+        active_collectors = list(getattr(self, "active_collectors", []))
+        if getattr(self, "only_collector", None):
+            existing_geo_validation = dict(self.existing_meta.get("geo_validation_counts") or {})
+            existing_geo_excluded = dict(self.existing_meta.get("geo_excluded_counts") or {})
+            existing_geo_examples = list(self.existing_meta.get("geo_excluded_examples") or [])
+            if "google.com" in self.replace_source_websites:
+                existing_geo_validation.pop("google_business_us_profile", None)
+                existing_geo_excluded = {
+                    key: value for key, value in existing_geo_excluded.items()
+                    if not str(key).startswith("google.com:")
+                }
+                existing_geo_examples = [
+                    row for row in existing_geo_examples
+                    if str(row.get("source_website") or "").lower() != "google.com"
+                ]
+            geo_validation_counts.update(existing_geo_validation)
+            geo_excluded_counts.update(existing_geo_excluded)
+            geo_excluded_examples.extend(existing_geo_examples)
+            active_collectors = unique_preserve(
+                list(self.existing_meta.get("active_collectors") or []) + active_collectors
+            )
+        geo_validation_counts.update(self.geo_validation_counts)
+        geo_excluded_counts.update(self.geo_excluded_counts)
+        geo_excluded_examples.extend(self.geo_excluded_examples)
+
         payload = {
             "meta": {
                 "description": f"Large-scale English-only {DISPLAY_NAME} textual review/problem dataset from public web sources (recency-first).",
@@ -3459,10 +4342,11 @@ class Collector:
                 "english_only": True,
                 "expected_source_websites": EXPECTED_SOURCE_WEBSITES,
                 "required_source_websites": REQUIRED_SOURCE_WEBSITES,
-                "geo_validation_counts": dict(self.geo_validation_counts),
-                "geo_excluded_counts": dict(self.geo_excluded_counts),
-                "geo_excluded_examples": self.geo_excluded_examples,
-                "active_collectors": getattr(self, "active_collectors", []),
+                "geo_validation_counts": dict(geo_validation_counts),
+                "geo_excluded_counts": dict(geo_excluded_counts),
+                "geo_excluded_examples": geo_excluded_examples[:40],
+                "active_collectors": active_collectors,
+                "google_business_profiles": self.google_business_profiles,
             },
             "reviews": rows,
         }
@@ -3498,10 +4382,13 @@ class Collector:
             writer.writeheader()
             writer.writerows(rows)
 
-    def run_collectors(self):
+    def run_collectors(self, only_collector: str | None = None):
+        self.only_collector = only_collector
         collectors = []
         if GOOGLE_PLAY_APPS:
             collectors.append(("google_play", self.collect_google_play))
+        if GOOGLE_BUSINESS_SEARCH_NAMES:
+            collectors.append(("google_business", self.collect_google_business))
         if TRUSTPILOT_SLUGS:
             collectors.append(("trustpilot", self.collect_trustpilot))
         if REVIEWSIO_ROOT:
@@ -3524,6 +4411,10 @@ class Collector:
             collectors.append(("complaintsboard", self.collect_complaintsboard))
         if APPLE_APP_IDS:
             collectors.append(("apple", self.collect_apple))
+        if only_collector:
+            collectors = [(name, fn) for name, fn in collectors if name == only_collector]
+            if not collectors:
+                raise ValueError(f"Unknown or unavailable collector: {only_collector}")
         self.active_collectors = [name for name, _ in collectors]
         wrapper_health_sources = {
             "reddit_pullpush": "reddit.com",
@@ -3550,6 +4441,10 @@ class Collector:
                 if health_source:
                     self.note_source_attempt(health_source, error=str(exc))
                 print(f"[warn] collector failed: {name}: {exc}")
+                if name == "google_business":
+                    # A Google schema/blocking failure must preserve the last good
+                    # company artifact rather than publish a silently partial refresh.
+                    raise
 
 
 def main():
@@ -3566,6 +4461,29 @@ def main():
         default=900,
         help="Maximum seconds to spend in each Reddit collector before keeping partial Reddit results.",
     )
+    parser.add_argument(
+        "--only-collector",
+        choices=["google_business"],
+        default=None,
+        help="Run only the selected collector while preserving all existing rows.",
+    )
+    parser.add_argument(
+        "--google-business-query-limit",
+        type=int,
+        default=0,
+        help="Limit Google profile-discovery queries for diagnostics (0 means all).",
+    )
+    parser.add_argument(
+        "--google-business-location-limit",
+        type=int,
+        default=0,
+        help="Limit Google profiles scraped for diagnostics (0 means all).",
+    )
+    parser.add_argument(
+        "--replace-google-business",
+        action="store_true",
+        help="Rebuild Google Business Profile rows atomically instead of merging new rows.",
+    )
     args = parser.parse_args()
 
     collector = Collector(
@@ -3574,9 +4492,19 @@ def main():
         until=args.until,
         max_output=args.max_output,
         reddit_time_budget=args.reddit_time_budget,
+        google_business_query_limit=args.google_business_query_limit,
+        google_business_location_limit=args.google_business_location_limit,
+        replace_source_websites=(
+            {"google.com"}
+            if args.replace_google_business
+            and GOOGLE_BUSINESS_SEARCH_NAMES
+            and not args.google_business_query_limit
+            and not args.google_business_location_limit
+            else set()
+        ),
     )
 
-    collector.run_collectors()
+    collector.run_collectors(only_collector=args.only_collector)
 
     collector.finalize()
 

@@ -11,6 +11,58 @@ BUSINESSES_PATH = DATA_DIR / "businesses.json"
 SENTIMENTS = ("negative", "positive")
 
 
+def validate_google_business(label: str, business: dict, payload: dict) -> list[str]:
+    if not business.get("google_business_search_names"):
+        return []
+
+    meta = payload.get("meta") or {}
+    reviews = [
+        row for row in payload.get("reviews") or []
+        if str(row.get("source_website") or "").strip().lower() == "google.com"
+    ]
+    registry = meta.get("google_business_profiles") or []
+    audit = next((
+        row for row in meta.get("source_audit") or []
+        if str(row.get("source_website") or "").strip().lower() == "google.com"
+    ), {})
+    excluded_terms = {
+        str(term).strip().lower()
+        for term in business.get("google_business_name_exclude_terms") or []
+        if str(term).strip()
+    }
+    errors = []
+    if not reviews:
+        errors.append(f"{label}: Google Business Profile source has no accepted reviews")
+    if not registry:
+        errors.append(f"{label}: Google Business Profile registry is empty")
+    if audit.get("status") != "ok":
+        errors.append(f"{label}: Google Business Profile source audit status is {audit.get('status') or 'missing'}")
+    if int(audit.get("candidate_reviews_seen") or 0) <= 0:
+        errors.append(f"{label}: Google Business Profile source audit has no candidate count")
+
+    seen_content = set()
+    for row in reviews:
+        source_label = str(row.get("source_label") or "")
+        source_url = str(row.get("source_url") or "")
+        if not source_label.startswith("Google Business Profile ("):
+            errors.append(f"{label}: malformed Google source label on {row.get('id')}")
+        if excluded_terms and any(term in source_label.lower() for term in excluded_terms):
+            errors.append(f"{label}: excluded Google business name admitted on {row.get('id')}")
+        if "google.com/maps/" not in source_url:
+            errors.append(f"{label}: malformed Google review URL on {row.get('id')}")
+        if row.get("geo_validation") != "google_business_us_profile":
+            errors.append(f"{label}: Google row lacks U.S. profile validation on {row.get('id')}")
+        content_key = (
+            str(row.get("author") or "").strip().lower(),
+            " ".join(str(row.get("review_text") or "").lower().split()),
+        )
+        if content_key in seen_content:
+            errors.append(f"{label}: duplicate Google author/text content on {row.get('id')}")
+        seen_content.add(content_key)
+
+    return errors
+
+
 def list_month_keys(since_date: str, until_date: str) -> list[str]:
     if not since_date or not until_date:
         return []
@@ -136,6 +188,7 @@ def main() -> None:
 
     windows = {}
     payloads = {}
+    google_errors = []
     for key in business_order:
         business = config["businesses"][key]
         path = DATA_DIR / business["output_json"]
@@ -143,6 +196,7 @@ def main() -> None:
             continue
         payload = json.loads(path.read_text(encoding="utf-8"))
         payloads[business["display_name"]] = payload
+        google_errors.extend(validate_google_business(business["display_name"], business, payload))
         meta = payload.get("meta") or {}
         review_count = int(meta.get("review_count") or 0)
         if review_count <= 0:
@@ -171,6 +225,10 @@ def main() -> None:
             raise SystemExit(message)
     else:
         print("Dataset windows are consistent.")
+
+    if google_errors:
+        raise SystemExit("Google Business Profile audit failed:\n" + "\n".join(f"- {error}" for error in google_errors))
+    print("Google Business Profile source checks passed for all configured companies.")
 
     for name, row in windows.items():
         print(f"- {name}: since={row['since']} until={row['until']} reviews={row['review_count']}")
