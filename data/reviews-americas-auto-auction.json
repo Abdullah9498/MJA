@@ -1,10 +1,10 @@
 {
   "meta": {
     "description": "Large-scale English-only America's Auto Auction textual review/problem dataset from public web sources (recency-first).",
-    "review_count": 626,
+    "review_count": 668,
     "source_counts": {
-      "google.com": 533,
-      "birdeye.com": 89,
+      "birdeye.com": 102,
+      "google.com": 562,
       "bbb.org": 4
     },
     "source_audit": [
@@ -36,10 +36,10 @@
         "source_website": "bbb.org",
         "attempted": true,
         "direct_pages": 6,
-        "fallback_pages": 6,
+        "fallback_pages": 5,
         "direct_statuses": {
           "403": 6,
-          "200": 6
+          "200": 5
         },
         "blocked": true,
         "fallback_used": true,
@@ -55,7 +55,9 @@
           "direct BBB complaints blocked for https://www.bbb.org/us/il/crestwood/profile/auto-auction/americas-auto-auction-chicago-0654-12015440",
           "direct BBB complaints blocked for https://www.bbb.org/us/tx/buda/profile/auto-auction/americas-auto-auction-austin-0825-90094147"
         ],
-        "errors": [],
+        "errors": [
+          "reader error for https://www.bbb.org/us/il/centreville/profile/auto-auction/americas-auto-auction-0734-310446804/customer-reviews: HTTPSConnectionPool(host='r.jina.ai', port=443): Read timed out. (read timeout=60)"
+        ],
         "review_count": 4,
         "existing_review_count": 4,
         "present": true,
@@ -123,58 +125,66 @@
         },
         "blocked": false,
         "fallback_used": false,
-        "candidate_reviews_seen": 92,
-        "new_reviews_added": 12,
+        "candidate_reviews_seen": 66,
+        "new_reviews_added": 13,
         "advertised_total": 527,
-        "latest_candidate_date": "2026-07-12",
+        "latest_candidate_date": "2026-08-26",
         "notes": [
           "Birdeye advertised totals may include syndicated Google/Birdeye network reviews; accepted rows are visible textual review cards that pass filters.",
-          "Advertised total 527 is much larger than accepted rows 89; source is likely partially covered after filters/pagination.",
-          "Advertised total 527 is much larger than accepted rows 89; source is likely partially covered after filters/pagination.",
-          "Advertised total 527 is much larger than accepted rows 89; source is likely partially covered after filters/pagination.",
-          "Advertised total 527 is much larger than accepted rows 89; source is likely partially covered after filters/pagination.",
-          "Advertised total 527 is much larger than accepted rows 89; source is likely partially covered after filters/pagination."
+          "Advertised total 527 is much larger than accepted rows 102; source is likely partially covered after filters/pagination."
         ],
         "errors": [],
-        "review_count": 89,
+        "review_count": 102,
         "existing_review_count": 89,
         "present": true,
-        "latest_review_date": "2026-07-12",
+        "latest_review_date": "2026-08-26",
         "existing_latest_date": "2026-07-12",
         "status": "partial"
       },
       {
         "source_website": "google.com",
         "attempted": true,
-        "direct_pages": 466,
+        "direct_pages": 478,
         "fallback_pages": 0,
         "direct_statuses": {
-          "200": 466
+          "200": 478
         },
         "blocked": false,
         "fallback_used": false,
-        "candidate_reviews_seen": 3062,
-        "new_reviews_added": 533,
+        "candidate_reviews_seen": 3172,
+        "new_reviews_added": 29,
         "advertised_total": null,
-        "latest_candidate_date": "2026-08-20",
+        "latest_candidate_date": "2026-09-01",
         "notes": [
-          "Google Business Profile discovery completed: 54/54 queries succeeded and 51 unique validated US profiles were selected.",
-          "Validated 51 US Google Business Profiles; paginated newest-first with exact RPC timestamps through the 2023 boundary."
+          "Google Business Profile discovery completed: 54/54 queries succeeded and 52 unique validated US profiles were selected.",
+          "Validated 52 US Google Business Profiles; paginated newest-first with exact RPC timestamps through the 2023 boundary."
         ],
         "errors": [],
-        "review_count": 533,
-        "existing_review_count": 0,
+        "review_count": 562,
+        "existing_review_count": 533,
         "present": true,
-        "latest_review_date": "2026-07-29",
-        "existing_latest_date": null,
+        "latest_review_date": "2026-08-25",
+        "existing_latest_date": "2026-07-29",
         "status": "ok"
       }
     ],
     "sentiments": {
-      "positive": 346,
-      "negative": 280
+      "positive": 368,
+      "negative": 300
     },
     "source_urls": [
+      "https://reviews.birdeye.com/americas-auto-auction-atlanta-175285312123278#review-1",
+      "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25WcVZsOUdhVjlPTkZGa2N6WjROMk5uWnpCMVNWRRAB!2m1!1s0x0:0xca16bdc1dbd9386f!3m1!1s2@1:CAIQACodChtycF9oOnVqVl9GaV9ONFFkczZ4N2NnZzB1SVE%7C%7C?hl=en",
+      "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2tweGIzbHVkekV4VVdOWlRXZDRPV2QyU2pSeFdYYxAB!2m1!1s0x0:0x6c1da0d0e62c9fa7!3m1!1s2@1:CAIQACodChtycF9oOkpxb3ludzExUWNZTWd4OWd2SjRxWXc%7C%7C?hl=en",
+      "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT21KTWRGaDVSRWQwV2xONFJWSjBXRTVNTUU5RVpHYxAB!2m1!1s0x0:0xfb5905925251d4e3!3m1!1s2@1:CAIQACodChtycF9oOmJMdFh5REd0WlN4RVJ0WE5MME9EZGc%7C%7C?hl=en",
+      "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2tSamNqRnRZbkZMYTNabFNYWTNjRGRYT0VVMFowRRAB!2m1!1s0x0:0x27941a768d1a6e81!3m1!1s2@1:CAIQACodChtycF9oOkRjcjFtYnFLa3ZlSXY3cDdXOEU0Z0E%7C%7C?hl=en",
+      "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25aVVozcEphUzF5V1daak1FSXpWbFpEVDBaU1IyYxAB!2m1!1s0x0:0x9097e28fb0bf740c!3m1!1s2@1:CAIQACodChtycF9oOnZUZ3pJaS1yWWZjMEIzVlZDT0ZSR2c%7C%7C?hl=en",
+      "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT21ORFgxcFBOVGhmVjJWQlgxcEtXa3BVZEhZeE4yYxAB!2m1!1s0x0:0xf41ed977b990df4a!3m1!1s2@1:CAIQACodChtycF9oOmNDX1pPNThfV2VBX1pKWkpUdHYxN2c%7C%7C?hl=en",
+      "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2tkNmRqY3lWa0p1ZUhkd1kwaGxVVXBSVmtKQmQyYxAB!2m1!1s0x0:0xf41ed977b990df4a!3m1!1s2@1:CAIQACodChtycF9oOkd6djcyVkJueHdwY0hlUUpRVkJBd2c%7C%7C?hl=en",
+      "https://reviews.birdeye.com/americas-auto-auction-atlanta-175285312123278#review-3",
+      "https://reviews.birdeye.com/americas-auto-auction-atlanta-175285312123278#review-4",
+      "https://reviews.birdeye.com/americas-auto-auction-boston-175285312088477#review-2",
+      "https://reviews.birdeye.com/americas-auto-auction-kansas-city-175285312126035#review-3",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2tSS2QydHlTR2d3VmxWM09EQTNVVkYxVEdkVFduYxAB!2m1!1s0x0:0x30cc1248b033d002!3m1!1s2@1:CAIQACodChtycF9oOkRKd2tySGgwVlV3ODA3UVF1TGdTWnc%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2pCUFlVbEtRbkpaV2tWdGJuSkJNV0l3UWtnemMyYxAB!2m1!1s0x0:0x3179d1232ef972b1!3m1!1s2@1:CAIQACodChtycF9oOjBPYUlKQnJZWkVtbnJBMWIwQkgzc2c%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2tFNVRYVnhhVjh6ZDNabFIxOTBaMVJCUldsUVExRRAB!2m1!1s0x0:0xcd18b722b82b3068!3m1!1s2@1:CAIQACodChtycF9oOkE5TXVxaV8zd3ZlR190Z1RBRWlQQ1E%7C%7C?hl=en",
@@ -182,15 +192,14 @@
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2tOalQyaEZXSFY1UjFwSFZIbFNObWR2WDJKRmQyYxAB!2m1!1s0x0:0x469321afdfbc97af!3m1!1s2@1:CAIQACodChtycF9oOkNjT2hFWHV5R1pHVHlSNmdvX2JFd2c%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2s5d01WTmhTbk0wY2paaFUxQmhXQzF1VFRCNVpsRRAB!2m1!1s0x0:0x69bb1d22d647b967!3m1!1s2@1:CAIQACodChtycF9oOk9wMVNhSnM0cjZhU1BhWC1uTTB5ZlE%7C%7C?hl=en",
       "https://reviews.birdeye.com/americas-auto-auction-atlanta-175285312123278#review-2",
-      "https://reviews.birdeye.com/americas-auto-auction-atlanta-175285312123278#review-3",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2xKTk9VNUJkM1pmY2psNVRHZEZNWGxPZFU1NlIzYxAB!2m1!1s0x0:0xf17205dcc576655f!3m1!1s2@1:CAIQACodChtycF9oOlJNOU5Bd3Zfcjl5TGdFMXlOdU56R3c%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2xFeGFXdHllbUpxU20xUmJFSjBZVWRWU2tWcmNIYxAB!2m1!1s0x0:0xd4b21820e6c03fb2!3m1!1s2@1:CAIQACodChtycF9oOlExaWtyemJqSm1RbEJ0YUdVSkVrcHc%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25SV09FMVZRMTlzYzNoR1dFcHpSVzlTUkd4bFNIYxAB!2m1!1s0x0:0xf41ed977b990df4a!3m1!1s2@1:CAIQACodChtycF9oOnRWOE1VQ19sc3hGWEpzRW9SRGxlSHc%7C%7C?hl=en",
-      "https://reviews.birdeye.com/americas-auto-auction-atlanta-175285312123278#review-4",
+      "https://reviews.birdeye.com/americas-auto-auction-atlanta-175285312123278#review-5",
+      "https://reviews.birdeye.com/americas-auto-auction-boston-175285312088477#review-5",
       "https://reviews.birdeye.com/americas-auto-auction-boston-175285312088477#review-3",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25WQldtVjRaMGxmTFcwMWVVdDRPVk5XVVU1UmEzYxAB!2m1!1s0x0:0xfaaf593acbde1df5!3m1!1s2@1:CAIQACodChtycF9oOnVBWmV4Z0lfLW01eUt4OVNWUU5Ra3c%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2pWbVExWlBSbUZrV0RKNVZUWnNiRkF0TmxsUUxVRRAB!2m1!1s0x0:0xcd18b722b82b3068!3m1!1s2@1:CAIQACodChtycF9oOjVmQ1ZPRmFkWDJ5VTZsbFAtNllQLUE%7C%7C?hl=en",
-      "https://reviews.birdeye.com/americas-auto-auction-boston-175285312088477#review-2",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2tsV2VsVmtURmhKVUUxUGVtNTNUMDl3VlY5MFNWRRAB!2m1!1s0x0:0x69bb1d22d647b967!3m1!1s2@1:CAIQACodChtycF9oOklWelVkTFhJUE1Pem53T09wVV90SVE%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT20wNWRIRkRWbnBWUW5SZmFtRldNVTlVZWpWcVZIYxAB!2m1!1s0x0:0x48373f348838596a!3m1!1s2@1:CAIQACodChtycF9oOm05dHFDVnpVQnRfamFWMU9UejVqVHc%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT20xblVHVXdhalUzWmxKek0zUk9hak5yWDBwbFRYYxAB!2m1!1s0x0:0xb1f5c3c66da56911!3m1!1s2@1:CAIQACodChtycF9oOm1nUGUwajU3ZlJzM3ROajNrX0plTXc%7C%7C?hl=en",
@@ -206,12 +215,11 @@
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT21wU2NqTnpNbWwwTnpkeWJWUlBTVXhWVjI5R2JHYxAB!2m1!1s0x0:0x1aa343ea3eb92075!3m1!1s2@1:CAIQACodChtycF9oOmpScjNzMml0NzdybVRPSUxVV29GbGc%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25KSFgwVnpRWEl6Tkc1bVVXRm5iSFkzZGxRNE5WRRAB!2m1!1s0x0:0xbecbdd5ed6e965ae!3m1!1s2@1:CAIQACodChtycF9oOnJHX0VzQXIzNG5mUWFnbHY3dlQ4NVE%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2xjMmRXMHllbEIwY2xWc1JrUXpVSFV6ZERJdGFuYxAB!2m1!1s0x0:0xfb5905925251d4e3!3m1!1s2@1:CAIQACodChtycF9oOlc2dW0yelB0clVsRkQzUHUzdDItanc%7C%7C?hl=en",
+      "https://reviews.birdeye.com/americas-auto-auction-greater-kalamazoo-175285312088026#review-3",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT21wV2VubGxWalptTmtGb1UxRkRURGxFV1RKWVZIYxAB!2m1!1s0x0:0xde6b19ecf7eda82!3m1!1s2@1:CAIQACodChtycF9oOmpWenllVjZmNkFoU1FDTDlEWTJYVHc%7C%7C?hl=en",
-      "https://reviews.birdeye.com/americas-auto-auction-atlanta-175285312123278#review-5",
       "https://reviews.birdeye.com/americas-auto-auction-greater-kalamazoo-175285312088026#review-2",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2xaUWVGRkZWV3BDVTBaS05Hb3RjR3RXWWtObWJsRRAB!2m1!1s0x0:0x6c1da0d0e62c9fa7!3m1!1s2@1:CAIQACodChtycF9oOlZQeFFFVWpCU0ZKNGotcGtWYkNmblE%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT20xcE9GODJVR0ZQTkVOR2FsaFJYM2RPZVdSUGVHYxAB!2m1!1s0x0:0xb1f5c3c66da56911!3m1!1s2@1:CAIQACodChtycF9oOm1pOF82UGFPNENGalhRX3dOeWRPeGc%7C%7C?hl=en",
-      "https://reviews.birdeye.com/americas-auto-auction-atlanta-175285312123278#review-1",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2tSM2FGWTFWM2x2TkVReFkwTnNlbUpSU3pKMFVHYxAB!2m1!1s0x0:0x69bb1d22d647b967!3m1!1s2@1:CAIQACodChtycF9oOkR3aFY1V3lvNEQxY0NsemJRSzJ0UGc%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT21WNGNXc3RVbWhXZW1WMU4xTm1NMlJvTjBONWRYYxAB!2m1!1s0x0:0xab9f158e8c0ad9a9!3m1!1s2@1:CAIQACodChtycF9oOmV4cWstUmhWemV1N1NmM2RoN0N5dXc%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25KUUxUWjZMVXRaUzB0U2NtbFNiRVZQUVV0elUxRRAB!2m1!1s0x0:0x9097e28fb0bf740c!3m1!1s2@1:CAIQACodChtycF9oOnJQLTZ6LUtZS0tScmlSbEVPQUtzU1E%7C%7C?hl=en",
@@ -221,6 +229,7 @@
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2pGTE0wVklXbTh5VjBaTmFHWTRhR0YwT1RkWFZVRRAB!2m1!1s0x0:0x1aa343ea3eb92075!3m1!1s2@1:CAIQACodChtycF9oOjFLM0VIWm8yV0ZNaGY4aGF0OTdXVUE%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT21KdkxUTnViV0Z4TFV4UVgzRjNSa1JJVUU4eFMxRRAB!2m1!1s0x0:0x1aa343ea3eb92075!3m1!1s2@1:CAIQACodChtycF9oOmJvLTNubWFxLUxQX3F3RkRIUE8xS1E%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2poU0xXUjVlREJ3WjJOMGFuUlVaelZaYzFKWmRHYxAB!2m1!1s0x0:0xfa107851a42a9650!3m1!1s2@1:CAIQACodChtycF9oOjhSLWR5eDBwZ2N0anRUZzVZc1JZdGc%7C%7C?hl=en",
+      "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT21SdlZtdzFkMHBtTVMxb056QTRZbEJxZW5GRlNGRRAB!2m1!1s0x0:0xf0374305e12e5a3!3m1!1s2@1:CAIQACodChtycF9oOmRvVmw1d0pmMS1oNzA4YlBqenFFSFE%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2xWcFUwbFJaRGxRV0hwRVZEUlJWR05KTmpaMk1IYxAB!2m1!1s0x0:0xb1f5c3c66da56911!3m1!1s2@1:CAIQACodChtycF9oOlVpU0lRZDlQWHpEVDRRVGNJNjZ2MHc%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2poNVpqVmpWbmhoVG1Jd1ZuWm9XR2hIZW5aMmFVRRAB!2m1!1s0x0:0x53e4ffc641ff70bf!3m1!1s2@1:CAIQACodChtycF9oOjh5ZjVjVnhhTmIwVnZoWGhHenZ2aUE%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT21wb016UkRkbDlZYzE5aE1VOUliMUkyV2toWFFuYxAB!2m1!1s0x0:0x69bb1d22d647b967!3m1!1s2@1:CAIQACodChtycF9oOmpoMzRDdl9Yc19hMU9Ib1I2WkhXQnc%7C%7C?hl=en",
@@ -272,6 +281,7 @@
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2xwNU1Ib3RSakZmVmtobVVrczVlVzAwWkZwTU5WRRAB!2m1!1s0x0:0xf56bc5e71d5f7c65!3m1!1s2@1:CAIQACodChtycF9oOlp5MHotRjFfVkhmUks5eW00ZFpMNVE%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2poSFQwTk5SMlJIZWpsYVlWUktkbkI0TUVjeFZsRRAB!2m1!1s0x0:0xb1f5c3c66da56911!3m1!1s2@1:CAIQACodChtycF9oOjhHT0NNR2RHejlaYVRKdnB4MEcxVlE%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT201T1VXMXBWMnBJYkdwTVpVd3RVMnhPVVhseFVrRRAB!2m1!1s0x0:0x30cc1248b033d002!3m1!1s2@1:CAIQACodChtycF9oOm5OUW1pV2pIbGpMZUwtU2xOUXlxUkE%7C%7C?hl=en",
+      "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT210ak1ITmFRMGRyWDFSa1ZIUmZjV0puVW1wcU9XYxAB!2m1!1s0x0:0xf0374305e12e5a3!3m1!1s2@1:CAIQACodChtycF9oOmtjMHNaQ0drX1RkVHRfcWJnUmpqOWc%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2xCa1QxSjNUUzFDYVcxdWFrdG5iemN3TlVwbk9FRRAB!2m1!1s0x0:0xb1f5c3c66da56911!3m1!1s2@1:CAIQACodChtycF9oOlBkT1J3TS1CaW1uaktnbzcwNUpnOEE%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2pWa1p6VmljbmMxWVdwbU5GcHhjWEZoWkhwQkxVRRAB!2m1!1s0x0:0xb1f5c3c66da56911!3m1!1s2@1:CAIQACodChtycF9oOjVkZzVicnc1YWpmNFpxcXFhZHpBLUE%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2sxaWNWQk5UWEUxYzFCU1VFZEZUVkpwTUROdlgwRRAB!2m1!1s0x0:0xb1f5c3c66da56911!3m1!1s2@1:CAIQACodChtycF9oOk1icVBNTXE1c1BSUEdFTVJpMDNvX0E%7C%7C?hl=en",
@@ -279,6 +289,7 @@
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2twbFIyZGZTa0ZNZDFGVmN6aHNTR3h3U1c1UVdYYxAB!2m1!1s0x0:0xb1f5c3c66da56911!3m1!1s2@1:CAIQACodChtycF9oOkplR2dfSkFMd1FVczhsSGxwSW5QWXc%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2pBM2RtZG1SbmR3YUdWWFFXMXNkMWRDVVVoRVExRRAB!2m1!1s0x0:0xb1f5c3c66da56911!3m1!1s2@1:CAIQACodChtycF9oOjA3dmdmRndwaGVXQW1sd1dCUUhEQ1E%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25ocGNtWTFRWHB4Y3pFNVEyOVRSM0pwWVV0NFEzYxAB!2m1!1s0x0:0x3179d1232ef972b1!3m1!1s2@1:CAIQACodChtycF9oOnhpcmY1QXpxczE5Q29TR3JpYUt4Q3c%7C%7C?hl=en",
+      "https://reviews.birdeye.com/americas-auto-auction-greater-kalamazoo-175285312088026#review-5",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25WcFdFNURTMFE0YkdoNVFVUnpORTB6ZEVSNFEwRRAB!2m1!1s0x0:0x1aa343ea3eb92075!3m1!1s2@1:CAIQACodChtycF9oOnVpWE5DS0Q4bGh5QURzNE0zdER4Q0E%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2pBMk5YRmtjR2RWTTB0bGFVWXlNekpSYm1GTFoyYxAB!2m1!1s0x0:0x6c1da0d0e62c9fa7!3m1!1s2@1:CAIQACodChtycF9oOjA2NXFkcGdVM0tlaUYyMzJRbmFLZ2c%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25GVlVuRktSbmt4TVZZNU5XUkdiVjgxUmpVM1ZtYxAB!2m1!1s0x0:0xbecbdd5ed6e965ae!3m1!1s2@1:CAIQACodChtycF9oOnFVUnFKRnkxMVY5NWRGbV81RjU3Vmc%7C%7C?hl=en",
@@ -342,14 +353,15 @@
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2tadlIydDBlRUp1Y3pScWEyMUpUeTFIVDJsNGNVRRAB!2m1!1s0x0:0x6d813930b9992ad0!3m1!1s2@1:CAIQACodChtycF9oOkZvR2t0eEJuczRqa21JTy1HT2l4cUE%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2pBMGVIb3hTbXRZYUcxS1FYZ3hZbXRaTFUxUlZHYxAB!2m1!1s0x0:0xd4b21820e6c03fb2!3m1!1s2@1:CAIQACodChtycF9oOjA0eHoxSmtYaG1KQXgxYmtZLU1RVGc%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2toTWVuQkxkV1JWTTFwaFdETXdkRTlFWTFCalQzYxAB!2m1!1s0x0:0xd4b21820e6c03fb2!3m1!1s2@1:CAIQACodChtycF9oOkhMenBLdWRVM1phWDMwdE9EY1BjT3c%7C%7C?hl=en",
-      "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2xOM1gxOXhabUZOWWtkRldUWjNabHBKZEdOcU0yYxAB!2m1!1s0x0:0xfb5905925251d4e3!3m1!1s2@1:CAIQACodChtycF9oOlN3X19xZmFNYkdFWTZ3ZlpJdGNqM2c%7C%7C?hl=en",
       "https://reviews.birdeye.com/americas-auto-auction-166658630045147#review-5",
+      "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2xOM1gxOXhabUZOWWtkRldUWjNabHBKZEdOcU0yYxAB!2m1!1s0x0:0xfb5905925251d4e3!3m1!1s2@1:CAIQACodChtycF9oOlN3X19xZmFNYkdFWTZ3ZlpJdGNqM2c%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT21GWWFUUkRNM1ZCWmkxRGJIWlRTWFpPYVRWa1kzYxAB!2m1!1s0x0:0xa66e140b55d08b91!3m1!1s2@1:CAIQACodChtycF9oOmFYaTRDM3VBZi1DbHZTSXZOaTVkY3c%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2tkMFVETkRNMmxKVVdOUWNsZExZelpoZUhGRWNYYxAB!2m1!1s0x0:0xf41ed977b990df4a!3m1!1s2@1:CAIQACodChtycF9oOkd0UDNDM2lJUWNQcldLYzZheHFEcXc%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25aSmVtcHRiRU5yWW5SWGVuRmtiak55ZEhSeE5IYxAB!2m1!1s0x0:0x3179d1232ef972b1!3m1!1s2@1:CAIQACodChtycF9oOnZJemptbENrYnRXenFkbjNydHRxNHc%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2pObllsbHNSRXRIU1VaM1MwRnVNRnAwZVcxRVkwRRAB!2m1!1s0x0:0x27941a768d1a6e81!3m1!1s2@1:CAIQACodChtycF9oOjNnYllsREtHSUZ3S0FuMFp0eW1EY0E%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2tWV1RIaE9hVmxKU1RaM2NtRTJOVmswTm14NlMzYxAB!2m1!1s0x0:0x918f0f1bba8afba4!3m1!1s2@1:CAIQACodChtycF9oOkVWTHhOaVlJSTZ3cmE2NVk0Nmx6S3c%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2xoalNsUnVaa0ZzT1dabFgzSkNOMjFZYVRZMlJGRRAB!2m1!1s0x0:0x6c1da0d0e62c9fa7!3m1!1s2@1:CAIQACodChtycF9oOlhjSlRuZkFsOWZlX3JCN21YaTY2RFE%7C%7C?hl=en",
+      "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2pKeVVtRkxRWFZCUjFwTWJHNXRZbFZTZURoUlMyYxAB!2m1!1s0x0:0xf0374305e12e5a3!3m1!1s2@1:CAIQACodChtycF9oOjJyUmFLQXVBR1pMbG5tYlVSeDhRS2c%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2xGaVJXTnlTazVXZFhoSk9EaFhaSFZMZEZJMVFtYxAB!2m1!1s0x0:0x6dcb9e6f48b87d07!3m1!1s2@1:CAIQACodChtycF9oOlFiRWNySk5WdXhJODhXZHVLdFI1Qmc%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25wVlEweFpZbE5QYm1sa1dqZFdOMU5mWDNaVlRrRRAB!2m1!1s0x0:0xfa107851a42a9650!3m1!1s2@1:CAIQACodChtycF9oOnpVQ0xZYlNPbmlkWjdWN1NfX3ZVTkE%7C%7C?hl=en",
       "https://reviews.birdeye.com/americas-auto-auction-166658630045147?page=2#review-5",
@@ -368,6 +380,7 @@
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2xKaE9YVm9ZblptWVRWaVlWSmpiVUZCT0RCemJWRRAB!2m1!1s0x0:0xcd18b722b82b3068!3m1!1s2@1:CAIQACodChtycF9oOlJhOXVoYnZmYTViYVJjbUFBODBzbVE%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2xwMWFXcHVUMU5EWm01eU1qTldXRU4wUTFkQ1pGRRAB!2m1!1s0x0:0x1aa343ea3eb92075!3m1!1s2@1:CAIQACodChtycF9oOlp1aWpuT1NDZm5yMjNWWEN0Q1dCZFE%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2paV2RXOUVSVFJNTlRoQ00ybFdjSFpwYkRONlNGRRAB!2m1!1s0x0:0x876abfce109a1191!3m1!1s2@1:CAIQACodChtycF9oOjZWdW9ERTRMNThCM2lWcHZpbDN6SFE%7C%7C?hl=en",
+      "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2xWWVpGTkRkMFV5YVZocFdFVk9aMUkxVEhreU9XYxAB!2m1!1s0x0:0xf0374305e12e5a3!3m1!1s2@1:CAIQACodChtycF9oOlVYZFNDd0UyaVhpWEVOZ1I1THkyOWc%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT210SVRtaGthMGRNVDNoRk5uUlhTV1JUZFZNMFltYxAB!2m1!1s0x0:0x7b805719b6bed4fc!3m1!1s2@1:CAIQACodChtycF9oOmtITmhka0dMT3hFNnRXSWRTdVM0Ymc%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT204NVkzcE5Sbmh4UmpSMGFFZ3hTa3hGTUZoUFNIYxAB!2m1!1s0x0:0x6c1da0d0e62c9fa7!3m1!1s2@1:CAIQACodChtycF9oOm85Y3pNRnhxRjR0aEgxSkxFMFhPSHc%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2tsZmRqbE9SWFEzZGs1M1RESnVSMDlJVVc5Q2JHYxAB!2m1!1s0x0:0x6dcb9e6f48b87d07!3m1!1s2@1:CAIQACodChtycF9oOklfdjlORXQ3dk53TDJuR09IUW9CbGc%7C%7C?hl=en",
@@ -388,6 +401,7 @@
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2pCMU5rVnFhUzFpVERWc01VSlphVGxuWkRCaWEzYxAB!2m1!1s0x0:0x58f9104724a5a13!3m1!1s2@1:CAIQACodChtycF9oOjB1NkVqaS1iTDVsMUJZaTlnZDBia3c%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2xKWWNqWlJUVWRHVEhwU1gwTmxSR1J6TUVoS0xYYxAB!2m1!1s0x0:0xcd18b722b82b3068!3m1!1s2@1:CAIQACodChtycF9oOlJYcjZRTUdGTHpSX0NlRGRzMEhKLXc%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2s5QlluTkNZMlZuUzFCYVlVVnBjVFIwZEc5amFHYxAB!2m1!1s0x0:0xab9f158e8c0ad9a9!3m1!1s2@1:CAIQACodChtycF9oOk9BYnNCY2VnS1BaYUVpcTR0dG9jaGc%7C%7C?hl=en",
+      "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2kxSGNtRTNkbTFRU2pWTVlUbERVbTVWY1hsd2IxRRAB!2m1!1s0x0:0xf0374305e12e5a3!3m1!1s2@1:CAIQACodChtycF9oOi1HcmE3dm1QSjVMYTlDUm5VcXlwb1E%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT21sc2R5MHhlVlJxT1dremJsaEpMVTR3VHpnM1lWRRAB!2m1!1s0x0:0x8b542760f51c1f29!3m1!1s2@1:CAIQACodChtycF9oOmlsdy0xeVRqOWkzblhJLU4wTzg3YVE%7C%7C?hl=en",
       "https://www.bbb.org/us/il/centreville/profile/auto-auction/americas-auto-auction-0734-310446804/complaints#0734_310446804_23564283",
       "http://www.bbb.org/us/il/centreville/profile/auto-auction/americas-auto-auction-0734-310446804/complaints#0734_310446804_23564283",
@@ -418,6 +432,7 @@
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VOS210ZW13bWZIaFJBEAE!2m1!1s0x0:0x1ea058cf4a86d694!3m1!1s2@1:CIHM0ogKENKmtemwmfHhRA%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VKMlQ0S3JIOVlHV0NBEAE!2m1!1s0x0:0x9828e3302a57a8a8!3m1!1s2@1:CIHM0ogKEJ2T4KrH9YGWCA%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VOaUtpTTN5NjR2dW9nRRAB!2m1!1s0x0:0xb5b13ba60c8bebc1!3m1!1s2@1:CIHM0ogKENiKiM3y64vuogE%7C%7C?hl=en",
+      "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJcUE2WnZTdi1hUFFBEAE!2m1!1s0x0:0xf0374305e12e5a3!3m1!1s2@1:CIHM0ogKEIqA6ZvSv-aPQA%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VKLTMxUHlpekpLQ2F3EAE!2m1!1s0x0:0x9828e3302a57a8a8!3m1!1s2@1:CIHM0ogKEJ-31PyizJKCaw%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VNcVh6Ylg1eXZQcXVnRRAB!2m1!1s0x0:0xcd18b722b82b3068!3m1!1s2@1:CIHM0ogKEMqXzbX5yvPqugE%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VQRzc1dmpkeDZxS3pRRRAB!2m1!1s0x0:0x634ff05f63ddd05b!3m1!1s2@1:CIHM0ogKEPG75vjdx6qKzQE%7C%7C?hl=en",
@@ -443,6 +458,9 @@
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnTURJLWJmV3FRRRAB!2m1!1s0x0:0xfa107851a42a9650!3m1!1s2@1:CIHM0ogKEICAgMDI-bfWqQE%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnTURJMGNuVC13RRAB!2m1!1s0x0:0x48373f348838596a!3m1!1s2@1:CIHM0ogKEICAgMDI0cnT-wE%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnTUNJaWJxdlN3EAE!2m1!1s0x0:0x13acde468777d9db!3m1!1s2@1:CIHM0ogKEICAgMCIibqvSw%7C%7C?hl=en",
+      "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnTUNJNGNpUlJnEAE!2m1!1s0x0:0xf0374305e12e5a3!3m1!1s2@1:CIHM0ogKEICAgMCI4ciRRg%7C%7C?hl=en",
+      "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnTUNJNGJEZkJBEAE!2m1!1s0x0:0xf0374305e12e5a3!3m1!1s2@1:CIHM0ogKEICAgMCI4bDfBA%7C%7C?hl=en",
+      "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnTUNJb2ZfMU93EAE!2m1!1s0x0:0xf0374305e12e5a3!3m1!1s2@1:CIHM0ogKEICAgMCIof_1Ow%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnTUNJd1BmQVJREAE!2m1!1s0x0:0x634ff05f63ddd05b!3m1!1s2@1:CIHM0ogKEICAgMCIwPfARQ%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnTUR3c2R2dUN3EAE!2m1!1s0x0:0xa66e140b55d08b91!3m1!1s2@1:CIHM0ogKEICAgMDwsdvuCw%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnTUR3dE56eUVnEAE!2m1!1s0x0:0x876abfce109a1191!3m1!1s2@1:CIHM0ogKEICAgMDwtNzyEg%7C%7C?hl=en",
@@ -454,34 +472,14 @@
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnTURRZzViampnRRAB!2m1!1s0x0:0xa6f7be6ad3be64a3!3m1!1s2@1:CIHM0ogKEICAgMDQg5bjjgE%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnTURRMW92b1ZnEAE!2m1!1s0x0:0x58f9104724a5a13!3m1!1s2@1:CIHM0ogKEICAgMDQ1ovoVg%7C%7C?hl=en",
       "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnTUNROTYycFlnEAE!2m1!1s0x0:0xf56bc5e71d5f7c65!3m1!1s2@1:CIHM0ogKEICAgMCQ962pYg%7C%7C?hl=en",
-      "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnTUNROTlyQy1BRRAB!2m1!1s0x0:0xf56bc5e71d5f7c65!3m1!1s2@1:CIHM0ogKEICAgMCQ99rC-AE%7C%7C?hl=en",
-      "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnTUNROTh6V3hBRRAB!2m1!1s0x0:0xf56bc5e71d5f7c65!3m1!1s2@1:CIHM0ogKEICAgMCQ98zWxAE%7C%7C?hl=en",
-      "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnTUNRazlqRFJ3EAE!2m1!1s0x0:0xa6f7be6ad3be64a3!3m1!1s2@1:CIHM0ogKEICAgMCQk9jDRw%7C%7C?hl=en",
-      "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnTUNRbVpIMXVRRRAB!2m1!1s0x0:0x1aa343ea3eb92075!3m1!1s2@1:CIHM0ogKEICAgMCQmZH1uQE%7C%7C?hl=en",
-      "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnTUNRZ2MtVVVnEAE!2m1!1s0x0:0x9828e3302a57a8a8!3m1!1s2@1:CIHM0ogKEICAgMCQgc-UUg%7C%7C?hl=en",
-      "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnTUNRaHF5SlRBEAE!2m1!1s0x0:0x6c1da0d0e62c9fa7!3m1!1s2@1:CIHM0ogKEICAgMCQhqyJTA%7C%7C?hl=en",
-      "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnTURnZzhPbHB3RRAB!2m1!1s0x0:0xfa107851a42a9650!3m1!1s2@1:CIHM0ogKEICAgMDgg8OlpwE%7C%7C?hl=en",
-      "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnTURncGM2OURnEAE!2m1!1s0x0:0x69bb1d22d647b967!3m1!1s2@1:CIHM0ogKEICAgMDgpc69Dg%7C%7C?hl=en",
-      "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnTURnZzVyamVREAE!2m1!1s0x0:0xfa107851a42a9650!3m1!1s2@1:CIHM0ogKEICAgMDgg5rjeQ%7C%7C?hl=en",
-      "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnTURnZ196TWh3RRAB!2m1!1s0x0:0xfa107851a42a9650!3m1!1s2@1:CIHM0ogKEICAgMDgg_zMhwE%7C%7C?hl=en",
-      "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnTURna096dGtRRRAB!2m1!1s0x0:0xb1f5c3c66da56911!3m1!1s2@1:CIHM0ogKEICAgMDgkOztkQE%7C%7C?hl=en",
-      "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnTURndE1PVXl3RRAB!2m1!1s0x0:0x469321afdfbc97af!3m1!1s2@1:CIHM0ogKEICAgMDgtMOUywE%7C%7C?hl=en",
-      "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnTUNnOC1PMU5BEAE!2m1!1s0x0:0xcd18b722b82b3068!3m1!1s2@1:CIHM0ogKEICAgMCg8-O1NA%7C%7C?hl=en",
-      "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnTUNndE95V0pREAE!2m1!1s0x0:0x30cc1248b033d002!3m1!1s2@1:CIHM0ogKEICAgMCgtOyWJQ%7C%7C?hl=en",
-      "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnTURBOTVyY3ZRRRAB!2m1!1s0x0:0x30cc1248b033d002!3m1!1s2@1:CIHM0ogKEICAgMDA95rcvQE%7C%7C?hl=en",
-      "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnTURBOTZyT3R3RRAB!2m1!1s0x0:0x30cc1248b033d002!3m1!1s2@1:CIHM0ogKEICAgMDA96rOtwE%7C%7C?hl=en",
-      "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnTURBdklidDJnRRAB!2m1!1s0x0:0x876abfce109a1191!3m1!1s2@1:CIHM0ogKEICAgMDAvIbt2gE%7C%7C?hl=en",
-      "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnTUNBaDRyQ0dBEAE!2m1!1s0x0:0x78cd4f63c4fd9238!3m1!1s2@1:CIHM0ogKEICAgMCAh4rCGA%7C%7C?hl=en",
-      "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnTUNBemRxakNBEAE!2m1!1s0x0:0xab9f158e8c0ad9a9!3m1!1s2@1:CIHM0ogKEICAgMCAzdqjCA%7C%7C?hl=en",
-      "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnSURfbWRHdm5RRRAB!2m1!1s0x0:0xde6b19ecf7eda82!3m1!1s2@1:CIHM0ogKEICAgID_mdGvnQE%7C%7C?hl=en",
-      "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnSURfNFptRFJBEAE!2m1!1s0x0:0x78cd4f63c4fd9238!3m1!1s2@1:CIHM0ogKEICAgID_4ZmDRA%7C%7C?hl=en"
+      "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnTUNROTlyQy1BRRAB!2m1!1s0x0:0xf56bc5e71d5f7c65!3m1!1s2@1:CIHM0ogKEICAgMCQ99rC-AE%7C%7C?hl=en"
     ],
-    "generated_at_utc": "2026-08-20T21:35:26.119806+00:00",
+    "generated_at_utc": "2026-09-02T14:00:34.434814+00:00",
     "since_date": "2023-01-01",
-    "until_date": "2026-07-31",
+    "until_date": "2026-08-31",
     "collector_failures": [],
-    "existing_review_count": 93,
-    "new_reviews_added": 533,
+    "existing_review_count": 626,
+    "new_reviews_added": 42,
     "youtube_excluded": true,
     "usa_only": true,
     "english_only": true,
@@ -497,20 +495,20 @@
       "bbb.org"
     ],
     "geo_validation_counts": {
-      "birdeye_us_profile": 12,
-      "google_business_us_profile": 533
+      "google_business_us_profile": 29,
+      "birdeye_us_profile": 13
     },
     "geo_excluded_counts": {},
     "geo_excluded_examples": [],
     "active_collectors": [
+      "google_business",
       "trustpilot",
       "reddit_pullpush",
       "reddit_arctic_shift",
       "bbb_customer_reviews",
       "bbb_complaints",
       "smartcustomer",
-      "birdeye",
-      "google_business"
+      "birdeye"
     ],
     "google_business_profiles": [
       {
@@ -521,7 +519,7 @@
         "address": "889 Mitchell Rd, Thousand Oaks, CA 91320",
         "website": "https://www.americasaa.com/locations/thousand-oaks/?utm_source=google&utm_medium=organic&utm_campaign=gmb",
         "rating": 3.7,
-        "review_count": 62
+        "review_count": 64
       },
       {
         "feature_id": "0x864e83007896aa21:0x115c74ddcd117789",
@@ -551,7 +549,7 @@
         "address": "440 Joe Frank Harris Pkwy SE, Cartersville, GA 30120",
         "website": "https://www.americasaa.com/locations/atlanta/?utm_source=google&utm_medium=organic&utm_campaign=gmb",
         "rating": 4.3,
-        "review_count": 372
+        "review_count": 373
       },
       {
         "feature_id": "0x88f9cb84762e7fc1:0xa5a64f1dc5862f60",
@@ -591,7 +589,7 @@
         "address": "1046 A E Moore Dr, Moody, AL 35004",
         "website": "https://www.americasaa.com/locations/birmingham/?utm_source=google&utm_medium=organic&utm_campaign=gmb",
         "rating": 4.1,
-        "review_count": 292
+        "review_count": 293
       },
       {
         "feature_id": "0x89e3a246c116f10f:0x30cc1248b033d002",
@@ -612,6 +610,16 @@
         "website": "https://www.americasaa.com/locations/bowling-green/?utm_source=google&utm_medium=organic&utm_campaign=gmb",
         "rating": 4.2,
         "review_count": 72
+      },
+      {
+        "feature_id": "0x8640c7fd36587695:0xf0374305e12e5a3",
+        "cid": "1081836086584599971",
+        "place_id": "ChIJlXZYNv3HQIYRo-USXjB0Aw8",
+        "name": "America's Auto Auction Central Houston",
+        "address": "2000 Cavalcade St, Houston, TX 77009",
+        "website": "https://www.americasaa.com/locations/central-houston/?utm_source=google&utm_medium=organic&utm_campaign=gmb",
+        "rating": 3.9,
+        "review_count": 212
       },
       {
         "feature_id": "0x88fe5f1374fad661:0x27941a768d1a6e81",
@@ -641,7 +649,7 @@
         "address": "1000 Auction Ln, Jeffersonville, IN 47130",
         "website": "https://www.americasaa.com/locations/clark-county/?utm_source=google&utm_medium=organic&utm_campaign=gmb",
         "rating": 4.2,
-        "review_count": 374
+        "review_count": 375
       },
       {
         "feature_id": "0x883887196530f3fd:0xea66b05d00af738c",
@@ -651,14 +659,14 @@
         "address": "4700 Groveport Rd, Obetz, OH 43207",
         "website": "https://www.americasaa.com/locations/columbus-fair/?utm_source=google&utm_medium=organic&utm_campaign=gmb",
         "rating": 3.9,
-        "review_count": 348
+        "review_count": 349
       },
       {
         "feature_id": "0x86687b20644a0adf:0x53e4ffc641ff70bf",
         "cid": "6045237826813915327",
         "place_id": "ChIJ3wpKZCB7aIYRv3D_Qcb_5FM",
         "name": "America's Auto Auction Corpus Christi",
-        "address": "2149 I-69 Access Rd, Robstown, TX 78380",
+        "address": "2149 IH-69 Access Rd, Robstown, TX 78380",
         "website": "https://www.corpuschristiautoauction.com/",
         "rating": 3.9,
         "review_count": 18
@@ -681,7 +689,7 @@
         "address": "219 N Loop 12, Irving, TX 75061",
         "website": "https://www.americasaa.com/locations/dallas/?utm_source=google&utm_medium=organic&utm_campaign=gmb",
         "rating": 4.1,
-        "review_count": 367
+        "review_count": 366
       },
       {
         "feature_id": "0x86ddf929841856b3:0x9097e28fb0bf740c",
@@ -721,7 +729,7 @@
         "address": "410 Erie Ave, Morton, IL 61550",
         "website": "https://www.americasaa.com/locations/greater-peoria/?utm_source=google&utm_medium=organic&utm_campaign=gmb",
         "rating": 4.2,
-        "review_count": 111
+        "review_count": 112
       },
       {
         "feature_id": "0x885786b27a3cd417:0x634ff05f63ddd05b",
@@ -741,7 +749,7 @@
         "address": "1100 S York St, Mechanicsburg, PA 17055",
         "website": "https://www.americasaa.com/locations/harrisburg/?utm_source=google&utm_medium=organic&utm_campaign=gmb",
         "rating": 4.5,
-        "review_count": 260
+        "review_count": 261
       },
       {
         "feature_id": "0x8640eb35323259cf:0xd4b21820e6c03fb2",
@@ -751,7 +759,7 @@
         "address": "1826 Almeda Genoa Rd, Houston, TX 77047",
         "website": "https://www.americasaa.com/locations/houston/?utm_source=google&utm_medium=organic&utm_campaign=gmb",
         "rating": 4.2,
-        "review_count": 389
+        "review_count": 391
       },
       {
         "feature_id": "0x88e5bb5349b5999d:0x48373f348838596a",
@@ -761,7 +769,7 @@
         "address": "11982 New Kings Rd, Jacksonville, FL 32219",
         "website": "https://www.americasaa.com/locations/jacksonville/?utm_source=google&utm_medium=organic&utm_campaign=gmb",
         "rating": 4.3,
-        "review_count": 165
+        "review_count": 166
       },
       {
         "feature_id": "0x87c05e9518e057c3:0x3179d1232ef972b1",
@@ -771,7 +779,7 @@
         "address": "11101 N Congress Ave, Kansas City, MO 64153",
         "website": "https://www.americasaa.com/locations/kansas-city/?utm_source=google&utm_medium=organic&utm_campaign=gmb",
         "rating": 4.2,
-        "review_count": 339
+        "review_count": 341
       },
       {
         "feature_id": "0x89c623e9ce89efa3:0x9e7553f1ac692e23",
@@ -891,7 +899,7 @@
         "address": "1433 S 19th Ave, Phoenix, AZ 85009",
         "website": "https://www.americasaa.com/locations/phoenix/?utm_source=google&utm_medium=organic&utm_campaign=gmb",
         "rating": 4.1,
-        "review_count": null
+        "review_count": 248
       },
       {
         "feature_id": "0x8835b1729d4f0617:0x13acde468777d9db",
@@ -921,7 +929,7 @@
         "address": "13510 Toepperwein Rd, Live Oak, TX 78233",
         "website": "https://www.americasaa.com/locations/san-antonio/?utm_source=google&utm_medium=organic&utm_campaign=gmb",
         "rating": 4.3,
-        "review_count": 315
+        "review_count": 316
       },
       {
         "feature_id": "0x88fba051dbe89415:0x58f9104724a5a13",
@@ -941,7 +949,7 @@
         "address": "8000 US-80, Shreveport, LA 71119",
         "website": "https://www.americasaa.com/locations/shreveport/?utm_source=google&utm_medium=organic&utm_campaign=gmb",
         "rating": 4.5,
-        "review_count": 99
+        "review_count": 101
       },
       {
         "feature_id": "0x87d8addb58957f15:0xcd18b722b82b3068",
@@ -951,7 +959,7 @@
         "address": "721 S 45th St, East St Louis, IL 62207",
         "website": "https://www.americasaa.com/locations/st-louis/",
         "rating": 4.3,
-        "review_count": 511
+        "review_count": 513
       },
       {
         "feature_id": "0x883b89d28b46320d:0xa66e140b55d08b91",
@@ -1026,6 +1034,186 @@
     ]
   },
   "reviews": [
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Google)",
+      "source_url": "https://reviews.birdeye.com/americas-auto-auction-atlanta-175285312123278#review-1",
+      "author": "Raf",
+      "review_date": "2026-08-26",
+      "rating": null,
+      "sentiment": "negative",
+      "review_text": "RIDICULOUS FIRST AUCTION I’VE BEEN TO THAT’S CHARGING ALMOST 5 TO $700 A CAR. I BOUGHT FIVE CARS AND THEY’RE CHARGING ME THREE GRAND JUST IN BUY FEES. THIS IS ABSURD. I DEAL WITH A LOT OF OPTIONS AND NEVER HAVE I CAME ACROSS THIS. I WOULD LIKE TO SPEAK TO MANAGEMENT OR THE OWNER.",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Rude/Unhelpful Support",
+      "id": "rvw-000627"
+    },
+    {
+      "source_website": "google.com",
+      "source_label": "Google Business Profile (America's Auto Auction Shreveport)",
+      "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25WcVZsOUdhVjlPTkZGa2N6WjROMk5uWnpCMVNWRRAB!2m1!1s0x0:0xca16bdc1dbd9386f!3m1!1s2@1:CAIQACodChtycF9oOnVqVl9GaV9ONFFkczZ4N2NnZzB1SVE%7C%7C?hl=en",
+      "author": "Star Motors",
+      "review_date": "2026-08-25",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Extremely Disappointed We are a Car Dealership in Orlando FL (Star Motors Parts) and its been absolutely terrible experience with this auction house. It has been over two months since purchasing the vehicle, and they still have not resolved the lienholder issue on the title. I have yet to receive a clean title, despite waiting patiently and giving them more than enough time to get this handled. This is completely unacceptable. When you purchase a vehicle from an auction house, you expect the title and paperwork to be properly handled—not to spend months chasing them down trying to get an issue resolved that should have been taken care of before the vehicle was sold. Communication and resolution have been extremely disappointing. Two months is far too long to be dealing with a lienholder issue, and the lack of urgency has caused unnecessary frustration and wasted time. I would strongly recommend being extremely cautious when purchasing from this auction house. Make sure the title is completely clear and all lienholder issues are resolved before doing business with them.",
+      "geo_validation": "google_business_us_profile",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Case Resolution Quality",
+      "tier3": "Issue Not Resolved",
+      "id": "rvw-000628"
+    },
+    {
+      "source_website": "google.com",
+      "source_label": "Google Business Profile (America's Auto Auction Atlanta)",
+      "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2tweGIzbHVkekV4VVdOWlRXZDRPV2QyU2pSeFdYYxAB!2m1!1s0x0:0x6c1da0d0e62c9fa7!3m1!1s2@1:CAIQACodChtycF9oOkpxb3ludzExUWNZTWd4OWd2SjRxWXc%7C%7C?hl=en",
+      "author": "Raf",
+      "review_date": "2026-08-22",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "RIDICULOUS FIRST AUCTION I’VE BEEN TO THAT’S CHARGING ALMOST 5 TO $700 A CAR. I BOUGHT FIVE CARS AND THEY’RE CHARGING ME THREE GRAND JUST IN BUY FEES. THIS IS ABSURD. I DEAL WITH A LOT OF OPTIONS AND NEVER HAVE I CAME ACROSS THIS. I WOULD LIKE TO SPEAK TO MANAGEMENT OR THE OWNER.",
+      "geo_validation": "google_business_us_profile",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Rude/Unhelpful Support",
+      "id": "rvw-000629"
+    },
+    {
+      "source_website": "google.com",
+      "source_label": "Google Business Profile (America's Auto Auction Pensacola)",
+      "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT21KTWRGaDVSRWQwV2xONFJWSjBXRTVNTUU5RVpHYxAB!2m1!1s0x0:0xfb5905925251d4e3!3m1!1s2@1:CAIQACodChtycF9oOmJMdFh5REd0WlN4RVJ0WE5MME9EZGc%7C%7C?hl=en",
+      "author": "Avery Pike",
+      "review_date": "2026-08-18",
+      "rating": 5,
+      "sentiment": "positive",
+      "review_text": "Way better than Manheim, the staff are always helpful. Very solid car auction.",
+      "geo_validation": "google_business_us_profile",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Helpful Support Experience",
+      "id": "rvw-000630"
+    },
+    {
+      "source_website": "google.com",
+      "source_label": "Google Business Profile (America's Auto Auction Charleston)",
+      "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2tSamNqRnRZbkZMYTNabFNYWTNjRGRYT0VVMFowRRAB!2m1!1s0x0:0x27941a768d1a6e81!3m1!1s2@1:CAIQACodChtycF9oOkRjcjFtYnFLa3ZlSXY3cDdXOEU0Z0E%7C%7C?hl=en",
+      "author": "Cierra",
+      "review_date": "2026-08-17",
+      "rating": 2,
+      "sentiment": "negative",
+      "review_text": "Went to redeem my car and was charged $95 for full detail when there was indeed still trash in vehicle. Removed the steering wheel that came with car but left the cup holder coasters and ashes was still inside. Charged for service that was not given",
+      "geo_validation": "google_business_us_profile",
+      "tier1": "Membership / Licensing / Fees & Bidding Policies",
+      "tier2": "Bidding Process, Rules and Fees",
+      "tier3": "Fees",
+      "id": "rvw-000631"
+    },
+    {
+      "source_website": "google.com",
+      "source_label": "Google Business Profile (America's Auto Auction El Paso)",
+      "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT25aVVozcEphUzF5V1daak1FSXpWbFpEVDBaU1IyYxAB!2m1!1s0x0:0x9097e28fb0bf740c!3m1!1s2@1:CAIQACodChtycF9oOnZUZ3pJaS1yWWZjMEIzVlZDT0ZSR2c%7C%7C?hl=en",
+      "author": "SoulDagger (Lou)",
+      "review_date": "2026-08-11",
+      "rating": 5,
+      "sentiment": "positive",
+      "review_text": "Quick snd friendly customer service, despite the renovations going on.",
+      "geo_validation": "google_business_us_profile",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Helpful Support Experience",
+      "id": "rvw-000632"
+    },
+    {
+      "source_website": "google.com",
+      "source_label": "Google Business Profile (America's Auto Auction West Michigan)",
+      "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT21ORFgxcFBOVGhmVjJWQlgxcEtXa3BVZEhZeE4yYxAB!2m1!1s0x0:0xf41ed977b990df4a!3m1!1s2@1:CAIQACodChtycF9oOmNDX1pPNThfV2VBX1pKWkpUdHYxN2c%7C%7C?hl=en",
+      "author": "Erin Silvas",
+      "review_date": "2026-08-07",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "The drivers of the transport trucks drive with no remorse for other people on the road. This driver ran through a red light at a high rate of speed, in the city, and came inches from crashing into my husband, me, and our three young children. His reckless driving could have caused major devastation.",
+      "geo_validation": "google_business_us_profile",
+      "tier1": "Account / Access / Login",
+      "tier2": "Password Reset & Login Troubleshooting",
+      "tier3": "App Login Troubleshooting",
+      "id": "rvw-000633"
+    },
+    {
+      "source_website": "google.com",
+      "source_label": "Google Business Profile (America's Auto Auction West Michigan)",
+      "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2tkNmRqY3lWa0p1ZUhkd1kwaGxVVXBSVmtKQmQyYxAB!2m1!1s0x0:0xf41ed977b990df4a!3m1!1s2@1:CAIQACodChtycF9oOkd6djcyVkJueHdwY0hlUUpRVkJBd2c%7C%7C?hl=en",
+      "author": "Sophia Affriseo",
+      "review_date": "2026-08-05",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Absolutely terrible experience. My friend’s car was completely fine before it was repossessed and taken to this auction lot. We paid everything that was owed and went to pick it up, only to find the car in much worse condition than when it left. As soon as we started it, the entire car shook violently. They had made a separate key for it and still told us it was fine to drive home. Less than five minutes down the road, the car completely shut off and left us stranded. Since then, we’ve had to jump it over and over, and we’ve now spent almost four hours sitting in an abandoned parking lot trying to figure out what’s wrong while waiting for help. Whether this was due to poor handling, lack of inspection, or simply not caring about the condition of the vehicle before releasing it, this experience has been unacceptable. No one should pay to get their vehicle back only to have it become undrivable almost immediately. I would not recommend this place based on our experience.",
+      "geo_validation": "google_business_us_profile",
+      "tier1": "Lot Condition, Listing Status and related",
+      "tier2": "Third-Party Inspection Authorization & Scheduling",
+      "tier3": "Previewing/ Inspecting Vehicles",
+      "id": "rvw-000634"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Google)",
+      "source_url": "https://reviews.birdeye.com/americas-auto-auction-atlanta-175285312123278#review-3",
+      "author": "Mohammed Daoud",
+      "review_date": "2026-08-03",
+      "rating": null,
+      "sentiment": "positive",
+      "review_text": "Good auction family runs it well",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Membership / Licensing / Fees & Bidding Policies",
+      "tier2": "Bidding Process, Rules and Fees",
+      "tier3": "How to Bid (First Time)",
+      "id": "rvw-000635"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Google)",
+      "source_url": "https://reviews.birdeye.com/americas-auto-auction-atlanta-175285312123278#review-4",
+      "author": "Moe Daoud",
+      "review_date": "2026-08-03",
+      "rating": null,
+      "sentiment": "positive",
+      "review_text": "Good auction family runs it well",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Membership / Licensing / Fees & Bidding Policies",
+      "tier2": "Bidding Process, Rules and Fees",
+      "tier3": "How to Bid (First Time)",
+      "id": "rvw-000636"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Google)",
+      "source_url": "https://reviews.birdeye.com/americas-auto-auction-boston-175285312088477#review-2",
+      "author": "mario gracas",
+      "review_date": "2026-08-03",
+      "rating": null,
+      "sentiment": "negative",
+      "review_text": "Worst auction I have been too. Aside from their hours being wrong on the website, there's a bunch of reasons why I don't go there anymore.",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Membership / Licensing / Fees & Bidding Policies",
+      "tier2": "Bidding Process, Rules and Fees",
+      "tier3": "Fees",
+      "id": "rvw-000637"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Google)",
+      "source_url": "https://reviews.birdeye.com/americas-auto-auction-kansas-city-175285312126035#review-3",
+      "author": "ALRASHID",
+      "review_date": "2026-08-03",
+      "rating": null,
+      "sentiment": "positive",
+      "review_text": "Great auction with a good selection of vehicles. The staff is professional,especially the front desk staff. the process is straightforward, and everything is well organized. I’ve always had a positive experience here and would recommend it to anyone looking for quality vehicles.",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Helpful Support Experience",
+      "id": "rvw-000638"
+    },
     {
       "source_website": "google.com",
       "source_label": "Google Business Profile (America's Auto Auction Boston)",
@@ -1190,6 +1378,36 @@
       "tier2": "Communication Follow-up & Escalation",
       "tier3": "No Callback / Unresolved Case",
       "id": "rvw-000102"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Google)",
+      "source_url": "https://reviews.birdeye.com/americas-auto-auction-atlanta-175285312123278#review-5",
+      "author": "Libass Thiam",
+      "review_date": "2026-07-04",
+      "rating": null,
+      "sentiment": "negative",
+      "review_text": "I have been doing business over a decade without complaint until today after I bought my 5th car in a row with them on green light. It happened that after I requested for a Psi over the phone the same day I purchased the cars and even the week after which means last week I called several times to get my Psi results and could not get them to do it til a coworker who works with me check that we have that car in our inventory and pick it up drove 20 miles and the engine oil, coolant and all starts licking. My issues is I will n... read more",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Lot Condition, Listing Status and related",
+      "tier2": "Listing Status",
+      "tier3": "Selling/ Relisting vehicle or Parts purchase",
+      "id": "rvw-000639"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Google)",
+      "source_url": "https://reviews.birdeye.com/americas-auto-auction-boston-175285312088477#review-5",
+      "author": "Rj Jr",
+      "review_date": "2026-07-04",
+      "rating": null,
+      "sentiment": "positive",
+      "review_text": "Angelica is such a great help, she can get issues solved smoothly, the Auction is very well organized with a nice friendly environment.",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Membership / Licensing / Fees & Bidding Policies",
+      "tier2": "Bidding Process, Rules and Fees",
+      "tier3": "How to Bid (First Time)",
+      "id": "rvw-000640"
     },
     {
       "source_website": "birdeye.com",
@@ -1490,6 +1708,21 @@
       "tier2": "Bidding Process, Rules and Fees",
       "tier3": "How to Bid (First Time)",
       "id": "rvw-000119"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Google)",
+      "source_url": "https://reviews.birdeye.com/americas-auto-auction-greater-kalamazoo-175285312088026#review-3",
+      "author": "Peter Schultz",
+      "review_date": "2026-06-04",
+      "rating": null,
+      "sentiment": "negative",
+      "review_text": "Friendly people, but astronomical fees. Paid $15100 for a green light gold certified car and ended up with an $845 fee including a $75 online bid fee. Really? Adesa only charges $50 for this ridiculous money grab! But the base fee was over $700 for a car that should have had a $550 fee anywhere else. So buyers, be ready to add a few hundred to your fees when bidding here.",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Membership / Licensing / Fees & Bidding Policies",
+      "tier2": "Bidding Process, Rules and Fees",
+      "tier3": "Fees",
+      "id": "rvw-000641"
     },
     {
       "source_website": "google.com",
@@ -1820,6 +2053,21 @@
       "tier2": "Bidding Process, Rules and Fees",
       "tier3": "How to Bid (First Time)",
       "id": "rvw-000131"
+    },
+    {
+      "source_website": "google.com",
+      "source_label": "Google Business Profile (America's Auto Auction Central Houston)",
+      "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT21SdlZtdzFkMHBtTVMxb056QTRZbEJxZW5GRlNGRRAB!2m1!1s0x0:0xf0374305e12e5a3!3m1!1s2@1:CAIQACodChtycF9oOmRvVmw1d0pmMS1oNzA4YlBqenFFSFE%7C%7C?hl=en",
+      "author": "E Gushin",
+      "review_date": "2026-05-01",
+      "rating": 5,
+      "sentiment": "positive",
+      "review_text": "Friendly and helpful. Vehicle location well documented so easy to find the unit.",
+      "geo_validation": "google_business_us_profile",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Helpful Support Experience",
+      "id": "rvw-000642"
     },
     {
       "source_website": "birdeye.com",
@@ -2903,6 +3151,21 @@
     },
     {
       "source_website": "google.com",
+      "source_label": "Google Business Profile (America's Auto Auction Central Houston)",
+      "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT210ak1ITmFRMGRyWDFSa1ZIUmZjV0puVW1wcU9XYxAB!2m1!1s0x0:0xf0374305e12e5a3!3m1!1s2@1:CAIQACodChtycF9oOmtjMHNaQ0drX1RkVHRfcWJnUmpqOWc%7C%7C?hl=en",
+      "author": "Xagot",
+      "review_date": "2026-02-05",
+      "rating": 5,
+      "sentiment": "positive",
+      "review_text": "A busy wholesale auto auction where dealers and consignors can buy, sell and bid on cars, trucks and commercial vehicles through live and online bidding, with regular sale days and a large inventory. Some report organized auctions and helpful staff focused on dealer needs. However, public reviews are mixed — experiences vary, and a few buyers note issues with descriptions, communication and vehicle condition, so it can feel unpredictable and is best approached cautiously if you’re not a seasoned bidder.",
+      "geo_validation": "google_business_us_profile",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Helpful Support Experience",
+      "id": "rvw-000643"
+    },
+    {
+      "source_website": "google.com",
       "source_label": "Google Business Profile (America's Auto Auction Chicago)",
       "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2xCa1QxSjNUUzFDYVcxdWFrdG5iemN3TlVwbk9FRRAB!2m1!1s0x0:0xb1f5c3c66da56911!3m1!1s2@1:CAIQACodChtycF9oOlBkT1J3TS1CaW1uaktnbzcwNUpnOEE%7C%7C?hl=en",
       "author": "Majdi Abdel",
@@ -3005,6 +3268,21 @@
       "tier2": "Scheduled Pickup Status",
       "tier3": "Schedule/ Reschedule Pickup",
       "id": "rvw-000177"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Google)",
+      "source_url": "https://reviews.birdeye.com/americas-auto-auction-greater-kalamazoo-175285312088026#review-5",
+      "author": "BOBBY STONE v.c.",
+      "review_date": "2026-02-04",
+      "rating": null,
+      "sentiment": "positive",
+      "review_text": "Awesome Experience to meet these guys!! Great doing business with the staff!!",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Helpful Support Experience",
+      "id": "rvw-000644"
     },
     {
       "source_website": "birdeye.com",
@@ -3967,6 +4245,51 @@
       "id": "rvw-000216"
     },
     {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Google)",
+      "source_url": "https://reviews.birdeye.com/americas-auto-auction-166658630045147#review-1",
+      "author": "bassheadtahoe",
+      "review_date": "2025-11-06",
+      "rating": null,
+      "sentiment": "negative",
+      "review_text": "Its was either these people or the tow company that stole my multi thousand dollar audio system out of my car",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Vehicle Pickup, Delivery and Scheduling",
+      "tier2": "Tow and Storage Charges",
+      "tier3": "Tow and Storage Fees",
+      "id": "rvw-000645"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Google)",
+      "source_url": "https://reviews.birdeye.com/americas-auto-auction-166658630045147#review-2",
+      "author": "T Ashford",
+      "review_date": "2025-11-06",
+      "rating": null,
+      "sentiment": "positive",
+      "review_text": "I love the atmosphere, no hassle. Workers are friendly and very helpful. It's like one big family with the buyers and sellers. Hassle free and awesome selection of cars.",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Helpful Support Experience",
+      "id": "rvw-000646"
+    },
+    {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Google)",
+      "source_url": "https://reviews.birdeye.com/americas-auto-auction-st-louis-165330156623701#review-2",
+      "author": "Dmitry M.",
+      "review_date": "2025-11-06",
+      "rating": null,
+      "sentiment": "negative",
+      "review_text": "That's an A+ service for the car pickup. They printed gate pass, gave me a ride to the car, jumpstarted and moved the car that blocked mine",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Vehicle Pickup, Delivery and Scheduling",
+      "tier2": "Pickup Order Management",
+      "tier3": "Gate Pass Assistance",
+      "id": "rvw-000647"
+    },
+    {
       "source_website": "google.com",
       "source_label": "Google Business Profile (America's Auto Auction Houston)",
       "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2s1eVZYRm9NRkY2ZEVKb1pEZFJhbGRaY25SWkxXYxAB!2m1!1s0x0:0xd4b21820e6c03fb2!3m1!1s2@1:CAIQACodChtycF9oOk5yVXFoMFF6dEJoZDdRaldZcnRZLWc%7C%7C?hl=en",
@@ -4342,6 +4665,21 @@
       "id": "rvw-000231"
     },
     {
+      "source_website": "birdeye.com",
+      "source_label": "Birdeye (Google)",
+      "source_url": "https://reviews.birdeye.com/americas-auto-auction-166658630045147#review-5",
+      "author": "Demetrius Smith",
+      "review_date": "2025-10-07",
+      "rating": null,
+      "sentiment": "positive",
+      "review_text": "I am a dealer and have been doing business with this auction for over 25 years before it was changed from tri state and the way I was treated by Julie K was not professional and very wrong I bout a car and sold it and and proof of sale and dated titled when sold she did not want to see it and barred my business from making any purchases and made me pay for tickets tickets that was caused by the buyer who bought the car and told me I responsible for someone else actions and wouldn't let me talk maria or Larry's she instructed... read more",
+      "geo_validation": "birdeye_us_profile",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Helpful Support Experience",
+      "id": "rvw-000648"
+    },
+    {
       "source_website": "google.com",
       "source_label": "Google Business Profile (America's Auto Auction Pensacola)",
       "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2xOM1gxOXhabUZOWWtkRldUWjNabHBKZEdOcU0yYxAB!2m1!1s0x0:0xfb5905925251d4e3!3m1!1s2@1:CAIQACodChtycF9oOlN3X19xZmFNYkdFWTZ3ZlpJdGNqM2c%7C%7C?hl=en",
@@ -4520,6 +4858,21 @@
       "tier2": "Agent Professionalism & Responsiveness",
       "tier3": "Rude/Unhelpful Support",
       "id": "rvw-000238"
+    },
+    {
+      "source_website": "google.com",
+      "source_label": "Google Business Profile (America's Auto Auction Central Houston)",
+      "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2pKeVVtRkxRWFZCUjFwTWJHNXRZbFZTZURoUlMyYxAB!2m1!1s0x0:0xf0374305e12e5a3!3m1!1s2@1:CAIQACodChtycF9oOjJyUmFLQXVBR1pMbG5tYlVSeDhRS2c%7C%7C?hl=en",
+      "author": "Marti",
+      "review_date": "2025-09-23",
+      "rating": 4,
+      "sentiment": "positive",
+      "review_text": "Bought my car through Peak Auto Auctions an the process was simple. Registerin was easy, biddin went smooth an I end up with a fair price. Car arrived clean an in the condition they promised. I’d use this auction again when I’m lookin for another ride. Staff made me feel comfortable the whole time which mean a lot.",
+      "geo_validation": "google_business_us_profile",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Helpful Support Experience",
+      "id": "rvw-000649"
     },
     {
       "source_website": "google.com",
@@ -4823,6 +5176,21 @@
     },
     {
       "source_website": "google.com",
+      "source_label": "Google Business Profile (America's Auto Auction Central Houston)",
+      "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2xWWVpGTkRkMFV5YVZocFdFVk9aMUkxVEhreU9XYxAB!2m1!1s0x0:0xf0374305e12e5a3!3m1!1s2@1:CAIQACodChtycF9oOlVYZFNDd0UyaVhpWEVOZ1I1THkyOWc%7C%7C?hl=en",
+      "author": "Jeff Morgan",
+      "review_date": "2025-08-28",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Sham auction that charges you storage even on days when they are closed. Won't be back!",
+      "geo_validation": "google_business_us_profile",
+      "tier1": "Membership / Licensing / Fees & Bidding Policies",
+      "tier2": "Bidding Process, Rules and Fees",
+      "tier3": "Fees",
+      "id": "rvw-000650"
+    },
+    {
+      "source_website": "google.com",
       "source_label": "Google Business Profile (America's Auto Auction New Orleans)",
       "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT210SVRtaGthMGRNVDNoRk5uUlhTV1JUZFZNMFltYxAB!2m1!1s0x0:0x7b805719b6bed4fc!3m1!1s2@1:CAIQACodChtycF9oOmtITmhka0dMT3hFNnRXSWRTdVM0Ymc%7C%7C?hl=en",
       "author": "Lenae",
@@ -5120,6 +5488,21 @@
       "tier2": "Title Delivery & Status",
       "tier3": "Title Not Received",
       "id": "rvw-000275"
+    },
+    {
+      "source_website": "google.com",
+      "source_label": "Google Business Profile (America's Auto Auction Central Houston)",
+      "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2kxSGNtRTNkbTFRU2pWTVlUbERVbTVWY1hsd2IxRRAB!2m1!1s0x0:0xf0374305e12e5a3!3m1!1s2@1:CAIQACodChtycF9oOi1HcmE3dm1QSjVMYTlDUm5VcXlwb1E%7C%7C?hl=en",
+      "author": "ken",
+      "review_date": "2025-07-10",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Beware!!!!!!!! This auctions are fraudsters, Worst ever customer service. The so called office manager is unprofessional and has very bad attitude. Being a dealer for over a decade, dealt with hundreds of auctions and never experienced this low level of service. Bought a vehicle, sent a driver to pickup and they want $350 for storage. reached out to the OM and she verbally stated if we don't have $$ to pay we shouldn't be buying cars and they don't need our business. this is after spending over $7000 for a vehicle. This is just insane they have no consideration for dealers and with this experience. we wont be doing business with them ever. I hope owner train his employees on customer service as this unacceptable.",
+      "geo_validation": "google_business_us_profile",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Rude/Unhelpful Support",
+      "id": "rvw-000651"
     },
     {
       "source_website": "google.com",
@@ -5573,6 +5956,21 @@
     },
     {
       "source_website": "google.com",
+      "source_label": "Google Business Profile (America's Auto Auction Central Houston)",
+      "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJcUE2WnZTdi1hUFFBEAE!2m1!1s0x0:0xf0374305e12e5a3!3m1!1s2@1:CIHM0ogKEIqA6ZvSv-aPQA%7C%7C?hl=en",
+      "author": "Mustafa yousif",
+      "review_date": "2025-05-09",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "As wholesaler I thought I try this auction and resell them back with another auction, me as online buyer I have to sign for PSI even for red light I have to do frame and structure PSI, so its better for me to have a professional staff at them auction inspect each car I buy, so when I start resell the cars at another auction the cars not passing PSI at the other auction when I start checking the seller all from same seller from this auction, even I surprised one of them the frames completely damaged, after contact the auction why all cars for this specific seller got pass PSI and most of them not passing with another auction, they told sorry we know you have that approval but you have only 7 days to return the units and already pass the 7 days, so same like they make that deal for seller by passing PSI for all his cars and if the buyer recognizes that he have only 7 days, after 7 days I got ansower from them GM when I sent him vin numbers to do investigations he answered yes looking like we did mistake specifically we missed to do inspections but sorry already pass the 7 days we don't take responsibility for our mistakes, if we do that for you we have to do it for everyone, so the GM expecting have mistakes for everyone ?. For me I will choose auctions protecting buyers and not the one taking care seller by passing PSI for all or most his cars. The pictures attached for one of units bought f4om them and I signed for PSI, and I been informed from front disk pass PSI.",
+      "geo_validation": "google_business_us_profile",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Rude/Unhelpful Support",
+      "id": "rvw-000652"
+    },
+    {
+      "source_website": "google.com",
       "source_label": "Google Business Profile (America's Auto Auction Phoenix)",
       "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VKLTMxUHlpekpLQ2F3EAE!2m1!1s0x0:0x9828e3302a57a8a8!3m1!1s2@1:CIHM0ogKEJ-31PyizJKCaw%7C%7C?hl=en",
       "author": "A mountain Homes",
@@ -5948,6 +6346,51 @@
     },
     {
       "source_website": "google.com",
+      "source_label": "Google Business Profile (America's Auto Auction Central Houston)",
+      "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnTUNJNGNpUlJnEAE!2m1!1s0x0:0xf0374305e12e5a3!3m1!1s2@1:CIHM0ogKEICAgMCI4ciRRg%7C%7C?hl=en",
+      "author": "Ramiro Hernandez",
+      "review_date": "2025-04-02",
+      "rating": 5,
+      "sentiment": "positive",
+      "review_text": "The best auction in all houston . Front desk always friendly and helpful . You will have a great experience every time you step into this place . They make the process easier than any other auto auction in the city of Houston . Great job to the staff all around great service .",
+      "geo_validation": "google_business_us_profile",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Helpful Support Experience",
+      "id": "rvw-000653"
+    },
+    {
+      "source_website": "google.com",
+      "source_label": "Google Business Profile (America's Auto Auction Central Houston)",
+      "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnTUNJNGJEZkJBEAE!2m1!1s0x0:0xf0374305e12e5a3!3m1!1s2@1:CIHM0ogKEICAgMCI4bDfBA%7C%7C?hl=en",
+      "author": "Jose Ruiz",
+      "review_date": "2025-04-02",
+      "rating": 5,
+      "sentiment": "positive",
+      "review_text": "Great place, great customer service, and great people! Javier always takes care of me whenever I have a question! Definitely recommend for yall to check out!",
+      "geo_validation": "google_business_us_profile",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Helpful Support Experience",
+      "id": "rvw-000654"
+    },
+    {
+      "source_website": "google.com",
+      "source_label": "Google Business Profile (America's Auto Auction Central Houston)",
+      "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnTUNJb2ZfMU93EAE!2m1!1s0x0:0xf0374305e12e5a3!3m1!1s2@1:CIHM0ogKEICAgMCIof_1Ow%7C%7C?hl=en",
+      "author": "Arshad Inayat",
+      "review_date": "2025-04-02",
+      "rating": 5,
+      "sentiment": "positive",
+      "review_text": "Excellent staff helping and caring the dealers",
+      "geo_validation": "google_business_us_profile",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Helpful Support Experience",
+      "id": "rvw-000655"
+    },
+    {
+      "source_website": "google.com",
       "source_label": "Google Business Profile (America's Auto Auction Greenville)",
       "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnTUNJd1BmQVJREAE!2m1!1s0x0:0x634ff05f63ddd05b!3m1!1s2@1:CIHM0ogKEICAgMCIwPfARQ%7C%7C?hl=en",
       "author": "George Crank",
@@ -6293,6 +6736,21 @@
     },
     {
       "source_website": "google.com",
+      "source_label": "Google Business Profile (America's Auto Auction Central Houston)",
+      "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnTUNndTR6YzR3RRAB!2m1!1s0x0:0xf0374305e12e5a3!3m1!1s2@1:CIHM0ogKEICAgMCgu4zc4wE%7C%7C?hl=en",
+      "author": "Hawkins Farms",
+      "review_date": "2025-02-21",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "If you’re looking for a good experience, do not go to this auction .. I have been buying stuff from this company for 35 years. I purchased some stuff around a year ago and they put me on a if list… I was never contacted or notified or sent a bill three weeks ago by and someone calls and wants to put late fees on my bill.. And the employee had enough nerve to tell me it’s my job to call them and verify if My bid was accepted… I’m very busy I do not have time to do your job and mine. There should’ve been an email sent out with my purchases and I would’ve had a cashiers check or a company check in a timely manner.. For someone to call and tell me it’s my job to call them and see if my bid was accepted is not acceptable in my opinion. So I’ve took in my business elsewhere!!!",
+      "geo_validation": "google_business_us_profile",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Rude/Unhelpful Support",
+      "id": "rvw-000656"
+    },
+    {
+      "source_website": "google.com",
       "source_label": "Google Business Profile (America's Auto Auction St. Louis)",
       "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnTUNnOC1PMU5BEAE!2m1!1s0x0:0xcd18b722b82b3068!3m1!1s2@1:CIHM0ogKEICAgMCg8-O1NA%7C%7C?hl=en",
       "author": "GROW",
@@ -6353,6 +6811,21 @@
     },
     {
       "source_website": "google.com",
+      "source_label": "Google Business Profile (America's Auto Auction Central Houston)",
+      "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnTURBOS1TNDB3RRAB!2m1!1s0x0:0xf0374305e12e5a3!3m1!1s2@1:CIHM0ogKEICAgMDA9-S40wE%7C%7C?hl=en",
+      "author": "Martin Galindo",
+      "review_date": "2025-02-12",
+      "rating": 5,
+      "sentiment": "positive",
+      "review_text": "Great customer service! Jennifer and Maggie always take good care of you and Javier makes sure that everything is posted and calls you back real quick. Highly recommend.",
+      "geo_validation": "google_business_us_profile",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Helpful Support Experience",
+      "id": "rvw-000657"
+    },
+    {
+      "source_website": "google.com",
       "source_label": "Google Business Profile (America's Auto Auction Richmond)",
       "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnTURBdklidDJnRRAB!2m1!1s0x0:0x876abfce109a1191!3m1!1s2@1:CIHM0ogKEICAgMDAvIbt2gE%7C%7C?hl=en",
       "author": "David B",
@@ -6365,6 +6838,36 @@
       "tier2": "Delivery Coordination & Handoffs",
       "tier3": "Delivery Status and ETA",
       "id": "rvw-000356"
+    },
+    {
+      "source_website": "google.com",
+      "source_label": "Google Business Profile (America's Auto Auction Central Houston)",
+      "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnTURBa3UyNDRnRRAB!2m1!1s0x0:0xf0374305e12e5a3!3m1!1s2@1:CIHM0ogKEICAgMDAku244gE%7C%7C?hl=en",
+      "author": "Evelyn Arzu",
+      "review_date": "2025-02-07",
+      "rating": 5,
+      "sentiment": "positive",
+      "review_text": "I can't express enough gratitude for Alex and Renee who went above and beyond to help me retrieve my car from the auction after it was towed. From the moment I showed up, they provided not only much-needed assistance but also reassurance during a stressful situation. They were incredibly patient, professional, and knowledgeable about the process, helping me navigate the paperwork and ensuring everything went smoothly. Their positive attitude and willingness to help made a difficult experience much more manageable. I truly appreciate their kindness and support!",
+      "geo_validation": "google_business_us_profile",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Helpful Support Experience",
+      "id": "rvw-000658"
+    },
+    {
+      "source_website": "google.com",
+      "source_label": "Google Business Profile (America's Auto Auction Central Houston)",
+      "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnTUNBMzQ2UzZRRRAB!2m1!1s0x0:0xf0374305e12e5a3!3m1!1s2@1:CIHM0ogKEICAgMCA346S6QE%7C%7C?hl=en",
+      "author": "DERRICK GREENE; Dr.",
+      "review_date": "2025-02-05",
+      "rating": 5,
+      "sentiment": "positive",
+      "review_text": "This is an auction place, and hiring...",
+      "geo_validation": "google_business_us_profile",
+      "tier1": "Membership / Licensing / Fees & Bidding Policies",
+      "tier2": "Bidding Process, Rules and Fees",
+      "tier3": "How to Bid (First Time)",
+      "id": "rvw-000659"
     },
     {
       "source_website": "google.com",
@@ -6533,6 +7036,21 @@
     },
     {
       "source_website": "google.com",
+      "source_label": "Google Business Profile (America's Auto Auction Central Houston)",
+      "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnSUR2LXBLSkZ3EAE!2m1!1s0x0:0xf0374305e12e5a3!3m1!1s2@1:CIHM0ogKEICAgIDv-pKJFw%7C%7C?hl=en",
+      "author": "Ray Kelly",
+      "review_date": "2024-12-19",
+      "rating": 5,
+      "sentiment": "positive",
+      "review_text": "Sadly our truck was repossessed. It made it all the way to the auction at EBlock Houston before we were able to catch up on our payments. We were able to pick it up today. The staff were super friendly and understanding of our situation, especially Alex Poteet. He went above and beyond what was expected. Thank you Alex for your support and advice.",
+      "geo_validation": "google_business_us_profile",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Helpful Support Experience",
+      "id": "rvw-000660"
+    },
+    {
+      "source_website": "google.com",
       "source_label": "Google Business Profile (America's Auto Auction Pensacola)",
       "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnSUN2dmNIVE9REAE!2m1!1s0x0:0xfb5905925251d4e3!3m1!1s2@1:CIHM0ogKEICAgICvvcHTOQ%7C%7C?hl=en",
       "author": "Freddy Ordonez",
@@ -6680,6 +7198,21 @@
       "tier2": "Bidding Process, Rules and Fees",
       "tier3": "Fees",
       "id": "rvw-000377"
+    },
+    {
+      "source_website": "google.com",
+      "source_label": "Google Business Profile (America's Auto Auction Central Houston)",
+      "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnSURYbEk3RU9REAE!2m1!1s0x0:0xf0374305e12e5a3!3m1!1s2@1:CIHM0ogKEICAgIDXlI7EOQ%7C%7C?hl=en",
+      "author": "Traci Domino",
+      "review_date": "2024-10-24",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "I was going to go but all the bad reviews about bad customer service I will not be going one of my pet pees is respect and if they can't be nice why go",
+      "geo_validation": "google_business_us_profile",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Rude/Unhelpful Support",
+      "id": "rvw-000661"
     },
     {
       "source_website": "google.com",
@@ -6920,6 +7453,21 @@
       "tier2": "Bidding Process, Rules and Fees",
       "tier3": "Fees",
       "id": "rvw-000393"
+    },
+    {
+      "source_website": "google.com",
+      "source_label": "Google Business Profile (America's Auto Auction Central Houston)",
+      "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnSUNIeGRYNWhnRRAB!2m1!1s0x0:0xf0374305e12e5a3!3m1!1s2@1:CIHM0ogKEICAgICHxdX5hgE%7C%7C?hl=en",
+      "author": "Martin Villarreal",
+      "review_date": "2024-09-06",
+      "rating": 5,
+      "sentiment": "positive",
+      "review_text": "Have been going here to pick cars up for years , as i am a carhauler but recently i have been getting great customer service from a guy named alex , great help & very knowledgeable helped me find my car and also sorted out a lost key for me more people like him would be highly appreciated",
+      "geo_validation": "google_business_us_profile",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Case Resolution Quality",
+      "tier3": "Issue Resolved",
+      "id": "rvw-000662"
     },
     {
       "source_website": "google.com",
@@ -8348,6 +8896,21 @@
     },
     {
       "source_website": "google.com",
+      "source_label": "Google Business Profile (America's Auto Auction Central Houston)",
+      "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnSUMxX3JpdmhnRRAB!2m1!1s0x0:0xf0374305e12e5a3!3m1!1s2@1:CIHM0ogKEICAgIC1_rivhgE%7C%7C?hl=en",
+      "author": "Diesel master",
+      "review_date": "2023-12-30",
+      "rating": 5,
+      "sentiment": "positive",
+      "review_text": "New management making life real easy Will double my business there in 2024 Keep the good work up !",
+      "geo_validation": "google_business_us_profile",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Helpful Support Experience",
+      "id": "rvw-000663"
+    },
+    {
+      "source_website": "google.com",
       "source_label": "Google Business Profile (America's Auto Auction Chicago)",
       "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnSUMxeEszY1V3EAE!2m1!1s0x0:0xb1f5c3c66da56911!3m1!1s2@1:CIHM0ogKEICAgIC1xK3cUw%7C%7C?hl=en",
       "author": "Mostafa Shafiei",
@@ -8543,6 +9106,21 @@
     },
     {
       "source_website": "google.com",
+      "source_label": "Google Business Profile (America's Auto Auction Central Houston)",
+      "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnSUNsaGYtb0ZREAE!2m1!1s0x0:0xf0374305e12e5a3!3m1!1s2@1:CIHM0ogKEICAgIClhf-oFQ%7C%7C?hl=en",
+      "author": "jason jason",
+      "review_date": "2023-11-22",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "Stay clear from this auction. Where is the owner of this establishment your staff doesn't give 2 birds about us dealers. I put in a bid with a employee about a vehicle and my bid was useful. Vehicle sold thousands less than what i bid for. Where is customer service in here. How about you start by responding to each bad review properly and not just a basic message. Some of us actually may be right about why we are leaving a negative review. Take this seriously manny negative reviews won't help succeed your establishment.",
+      "geo_validation": "google_business_us_profile",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Communication Follow-up & Escalation",
+      "tier3": "No Callback / Unresolved Case",
+      "id": "rvw-000664"
+    },
+    {
+      "source_website": "google.com",
       "source_label": "Google Business Profile (America's Auto Auction Birmingham)",
       "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnSUNsMHVlQ093EAE!2m1!1s0x0:0x918f0f1bba8afba4!3m1!1s2@1:CIHM0ogKEICAgICl0ueCOw%7C%7C?hl=en",
       "author": "Britni Adderhold",
@@ -8633,6 +9211,21 @@
     },
     {
       "source_website": "google.com",
+      "source_label": "Google Business Profile (America's Auto Auction Central Houston)",
+      "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnSUNGMjRUZjdRRRAB!2m1!1s0x0:0xf0374305e12e5a3!3m1!1s2@1:CIHM0ogKEICAgICF24Tf7QE%7C%7C?hl=en",
+      "author": "Mariela Valor",
+      "review_date": "2023-11-02",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "They don't deserve a single star! They sell cars with hidden damage and do not advertise it so that the buyer is aware of the truth when purchasing. They do not recognize their mistakes and after you buy the vehicle with “unannounced” damages you cannot do anything. DO NOT BUY HERE.",
+      "geo_validation": "google_business_us_profile",
+      "tier1": "Lot Condition, Listing Status and related",
+      "tier2": "Lot Condition Reporting",
+      "tier3": "Lot Damage",
+      "id": "rvw-000665"
+    },
+    {
+      "source_website": "google.com",
       "source_label": "Google Business Profile (America's Auto Auction Albany)",
       "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnSUNGdmRhVEZnEAE!2m1!1s0x0:0xbecbdd5ed6e965ae!3m1!1s2@1:CIHM0ogKEICAgICFvdaTFg%7C%7C?hl=en",
       "author": "kevin pearson",
@@ -8690,6 +9283,21 @@
       "tier2": "Case Resolution Quality",
       "tier3": "Issue Resolved",
       "id": "rvw-000511"
+    },
+    {
+      "source_website": "google.com",
+      "source_label": "Google Business Profile (America's Auto Auction Central Houston)",
+      "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnSUQ1NHRxWml3RRAB!2m1!1s0x0:0xf0374305e12e5a3!3m1!1s2@1:CIHM0ogKEICAgID54tqZiwE%7C%7C?hl=en",
+      "author": "Mark Minor",
+      "review_date": "2023-10-21",
+      "rating": 2,
+      "sentiment": "negative",
+      "review_text": "the Employees that I have dealt with are always very pleasant, but never do they do as they say they will. This is not just a one time deal. Leslie the title clerk is the worst ever, she will tell you it is their fault about lost titles that they lost. tell you I am getting them and has not. I have been in the auto industry for 45 years and have extensive knowledge on title work, what i get is just flat out lies many times, but pleasant doing it. I have been told she was sending emails that never come. Other titles I have paid for NEVER come when she tells me she will send them NEVER COME. I have spoke with her MANY times on different matters, and NEVER does as she says will. This office needs a serious looking at, as this dept has no accountability at all.",
+      "geo_validation": "google_business_us_profile",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Rude/Unhelpful Support",
+      "id": "rvw-000666"
     },
     {
       "source_website": "google.com",
@@ -9953,6 +10561,21 @@
     },
     {
       "source_website": "google.com",
+      "source_label": "Google Business Profile (America's Auto Auction Central Houston)",
+      "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnSUNSeWNtYkpBEAE!2m1!1s0x0:0xf0374305e12e5a3!3m1!1s2@1:CIHM0ogKEICAgICRycmbJA%7C%7C?hl=en",
+      "author": "Charles Mason Carr (mighty/mason)",
+      "review_date": "2023-04-05",
+      "rating": 5,
+      "sentiment": "positive",
+      "review_text": "Courteous, Operations-Procedures are as much your responsibility to following Directions for making your visit sufficient to do Business.",
+      "geo_validation": "google_business_us_profile",
+      "tier1": "Customer Service & Communication",
+      "tier2": "Agent Professionalism & Responsiveness",
+      "tier3": "Helpful Support Experience",
+      "id": "rvw-000667"
+    },
+    {
+      "source_website": "google.com",
       "source_label": "Google Business Profile (America's Auto Auction Boston)",
       "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnSUNSdHJTdzNBRRAB!2m1!1s0x0:0x30cc1248b033d002!3m1!1s2@1:CIHM0ogKEICAgICRtrSw3AE%7C%7C?hl=en",
       "author": "Paul M",
@@ -10370,6 +10993,21 @@
       "tier2": "Agent Professionalism & Responsiveness",
       "tier3": "Helpful Support Experience",
       "id": "rvw-000623"
+    },
+    {
+      "source_website": "google.com",
+      "source_label": "Google Business Profile (America's Auto Auction Central Houston)",
+      "source_url": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnSURCeE43bFd3EAE!2m1!1s0x0:0xf0374305e12e5a3!3m1!1s2@1:CIHM0ogKEICAgIDBxN7lWw%7C%7C?hl=en",
+      "author": "Pamela Reigert",
+      "review_date": "2023-01-11",
+      "rating": 1,
+      "sentiment": "negative",
+      "review_text": "No consideration for the transporters at all. Transporters only have so many hours to drive in a day and if there sale is going they will make you wait till 2PM to release vehicles. The funny part is as you wait trucks just keep coming in with vehicles to be sold later so they darn sure don’t mind new inventory coming in. That’s because they have already made there money on the ones that have sold so its not important to them when they leave and the drivers time is not important to them either.",
+      "geo_validation": "google_business_us_profile",
+      "tier1": "Lot Condition, Listing Status and related",
+      "tier2": "Listing Status",
+      "tier3": "Selling/ Relisting vehicle or Parts purchase",
+      "id": "rvw-000668"
     },
     {
       "source_website": "google.com",
