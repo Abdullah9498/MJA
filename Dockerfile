@@ -8,9 +8,9 @@ RUN rm -f /etc/nginx/conf.d/default.conf
 # Copy custom nginx config
 COPY nginx.conf /etc/nginx/nginx.conf.template
 
-# Copy entrypoint
+# Copy entrypoint and fix line endings (Windows CRLF → LF)
 COPY docker-entrypoint.sh /docker-entrypoint.sh
-RUN chmod +x /docker-entrypoint.sh
+RUN sed -i 's/\r$//' /docker-entrypoint.sh && chmod +x /docker-entrypoint.sh
 
 # Copy app files
 COPY index.html /usr/share/nginx/html/index.html
@@ -24,15 +24,11 @@ COPY data/ /usr/share/nginx/html/data/
 RUN sed -i "s|<head>|<head>\n  <base href=\"${BASE_PATH}/\">|" /usr/share/nginx/html/index.html \
  && sed -i "s|<head>|<head>\n  <base href=\"${BASE_PATH}/\">|" /usr/share/nginx/html/404.html
 
-# Create temp dirs and set ownership for non-root
+# Ensure writable paths for nginx
 RUN mkdir -p /tmp/client_body /tmp/proxy /tmp/fastcgi /tmp/uwsgi /tmp/scgi \
- && chown -R nginx:nginx /tmp/client_body /tmp/proxy /tmp/fastcgi /tmp/uwsgi /tmp/scgi \
- && chown -R nginx:nginx /usr/share/nginx/html \
- && chown -R nginx:nginx /var/cache/nginx \
- && touch /tmp/nginx.pid && chown nginx:nginx /tmp/nginx.pid
+ && chmod -R 777 /run \
+ && chmod -R 777 /var/cache/nginx
 
 EXPOSE 8080
-
-USER nginx
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
